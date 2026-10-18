@@ -106,6 +106,82 @@ def modal_exportar_resguardo(nombre, grupo):
             st.session_state.mostrar_modal_resguardo = False
             st.rerun()
 
+# --- SIDEBAR: OPERACIÓN Y CONTROLES DE ADMINISTRADOR ---
+with st.sidebar:
+    st.header("⚙️ Gestión de registro")
+    
+    # 1. Operación general (Usuario / Docente)
+    st.subheader("1. Flujo de trabajo")
+    if st.button("✨ Reiniciar pantalla de registro", use_container_width=True, type="primary"):
+        st.session_state.valores_db = {eje: 0.0 for eje in EJE_NOMBRES}
+        st.session_state.historial_observaciones = []
+        for eje in EJE_NOMBRES:
+            st.session_state[f"temp_{eje}"] = 0.0
+        st.success("Pantalla de registro reiniciada. Listo para un nuevo expediente.")
+        st.rerun()
+
+    st.markdown("---")
+    
+    # 2. Herramientas de Administrador
+    st.header("🔒 Herramientas de Administrador")
+    
+    clave_admin = st.text_input(
+        "🔑 Clave de Administrador:",
+        type="password",
+        placeholder="Ingresa clave de acceso",
+        help="Requerida para importar expedientes externos o aplicar cierres de ciclo."
+    )
+    
+    es_admin = (clave_admin == "prisma2026")
+    
+    if es_admin:
+        st.success("Acceso concedido — Controles de Administrador habilitados")
+    else:
+        st.info("ℹ️ **Modo Usuario**: Las herramientas de importación y transición de ciclo ('Año nuevo, vida nueva') requieren clave de Administrador.")
+
+    st.markdown("---")
+    
+    # Cargar expediente
+    st.subheader("2. Cargar expediente (.json)")
+    archivo_cargado = st.file_uploader(
+        "Selecciona expediente JSON:",
+        type=["json"],
+        disabled=not es_admin,
+        help="🔒 Habilitado únicamente en Modo Administrador" if not es_admin else "Importa expedientes vectoriales históricos"
+    )
+    
+    btn_importar = st.button("📥 Importar expediente", disabled=(not es_admin or archivo_cargado is None), use_container_width=True)
+    if btn_importar and archivo_cargado is not None and es_admin:
+        try:
+            datos = json.load(archivo_cargado)
+            st.session_state.valores_db = datos.get("vector_actual_db", {eje: 0.0 for eje in EJE_NOMBRES})
+            st.session_state.historial_observaciones = datos.get("historial_observaciones", [])
+            for eje in EJE_NOMBRES:
+                st.session_state[f"temp_{eje}"] = float(st.session_state.valores_db[eje])
+            st.success("Expediente cargado correctamente.")
+            st.rerun()
+        except Exception as e:
+            st.error(f"Error al leer el archivo JSON: {e}")
+
+    st.markdown("---")
+    
+    # Transición "Año nuevo, vida nueva" (Tabula Rasa / Continuidad longitudinal)
+    st.subheader("3. Transición: 'Año nuevo, vida nueva'")
+    st.caption("Aplica 'Tabula Rasa': restablece el vector a 0.0 dB registrando el cierre de ciclo en el historial para iniciar el nuevo periodo, preservando la continuidad longitudinal en el expediente.")
+    btn_tabula = st.button("🔄 Ejecutar 'Año nuevo, vida nueva' 🔒" if not es_admin else "🔄 Ejecutar 'Año nuevo, vida nueva'", disabled=not es_admin, use_container_width=True)
+    if btn_tabula and es_admin:
+        st.session_state.historial_observaciones.append({
+            "tipo": "TABULA_RASA",
+            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "justificacion": "Cierre de ciclo escolar ('Año nuevo, vida nueva'). Vector restablecido a línea base (0.0 dB) preservando la trazabilidad longitudinal.",
+            "vector_snapshot": dict(st.session_state.valores_db)
+        })
+        st.session_state.valores_db = {eje: 0.0 for eje in EJE_NOMBRES}
+        for eje in EJE_NOMBRES:
+            st.session_state[f"temp_{eje}"] = 0.0
+        st.success("Transición registrada. Vector restablecido a 0.0 dB con trazabilidad longitudinal resguardada.")
+        st.rerun()
+
 col_izq, col_der = st.columns([0.42, 0.58])
 
 with col_izq:
@@ -136,7 +212,7 @@ with col_izq:
         else:
             with st.spinner("Procesando y acumulando vector en R⁸..."):
                 try:
-                    nom_eval = nombre_alumno.strip() if nombre_alumno.strip() else "Estudiante"
+                    nom_eval = nombre_alumno.strip()
                     user_prompt = f"Estudiante: {nom_eval}\nNota narrativa del docente: \"{nota_docente}\""
                     
                     response = requests.post(
@@ -195,8 +271,6 @@ with col_izq:
                     st.error("Tiempo de espera agotado (Timeout).")
                 except Exception as e:
                     st.error(f"Error de conexión con Ollama local: {e}")
-        else:
-            st.error("Por favor ingresa una nota de observación.")
 
     if st.session_state.historial_observaciones:
         st.markdown("---")
@@ -205,7 +279,13 @@ with col_izq:
         for idx, obs in enumerate(reversed(st.session_state.historial_observaciones), 1):
             num_obs = len(st.session_state.historial_observaciones) - idx + 1
             tipo_hito = obs.get("tipo", "IA")
-            etiqueta_tipo = "🤖 Inferencia IA" if tipo_hito == "IA" else "🎨 Calibración manual docente"
+            if tipo_hito == "IA":
+                etiqueta_tipo = "🤖 Inferencia IA"
+            elif tipo_hito == "MANUAL":
+                etiqueta_tipo = "🎨 Calibración manual docente"
+            else:
+                etiqueta_tipo = "🔄 Transición: Año nuevo, vida nueva"
+                
             ts = obs.get("timestamp", "")
             
             with st.expander(f"Hito #{num_obs} — {ts} [{etiqueta_tipo}]", expanded=(num_obs == len(st.session_state.historial_observaciones))):
@@ -223,13 +303,16 @@ with col_izq:
                             st.caption(f"• **{nombre_eje}:** `{fmt_db(delta)} dB` — {razon}")
                     if not hubo_cambios:
                         st.caption("ℹ️ *El motor no detectó evidencias suficientes para aplicar deltas en esta nota.*")
-                else:
+                elif tipo_hito == "MANUAL":
                     just_txt = obs.get("justificacion", "")
                     st.write(f"**Razonamiento pedagógico del docente:** *\"{just_txt}\"*")
                     deltas_manuales = obs.get("deltas", {})
                     for eje_nom, delta_val in deltas_manuales.items():
                         if abs(delta_val) > 0.01:
                             st.caption(f"• **{eje_nom}:** `{fmt_db(delta_val)} dB` (Ajuste manual directo)")
+                else:
+                    just_txt = obs.get("justificacion", "")
+                    st.write(f"**Registro de transición:** *\"{just_txt}\"*")
 
     st.markdown("---")
     st.subheader("2. Calibración manual docente (dB)")
@@ -330,7 +413,12 @@ with col_der:
                 color_line, color_fill = PALETA_COLORES[i % len(PALETA_COLORES)]
                 is_last = (i == num_hitos - 1)
                 tipo_hito = obs.get("tipo", "IA")
-                tag_tipo = "IA" if tipo_hito == "IA" else "Manual"
+                if tipo_hito == "IA":
+                    tag_tipo = "IA"
+                elif tipo_hito == "MANUAL":
+                    tag_tipo = "Manual"
+                else:
+                    tag_tipo = "Año Nuevo"
                 
                 fig.add_trace(go.Scatterpolar(
                     r=vals_cerrados,
@@ -444,80 +532,3 @@ with col_der:
 
 if st.session_state.mostrar_modal_resguardo:
     modal_exportar_resguardo(nombre_alumno, grupo_alumno)
-
-
-# --- SIDEBAR: GESTIÓN DE EXPEDIENTES Y REGISTRO ---
-with st.sidebar:
-    st.header("⚙️ Gestión de registro")
-    
-    # 1. Función operativa universal (Gratuita / Estándar)
-    st.subheader("1. Flujo de trabajo")
-    if st.button("✨ Iniciar registro de nuevo estudiante", use_container_width=True, type="primary"):
-        st.session_state.valores_db = {eje: 0.0 for eje in EJE_NOMBRES}
-        st.session_state.historial_observaciones = []
-        for eje in EJE_NOMBRES:
-            st.session_state[f"temp_{eje}"] = 0.0
-        st.success("Lienzo de trabajo reiniciado. Listo para un nuevo estudiante.")
-        st.rerun()
-
-    st.markdown("---")
-    
-    # 2. Funciones avanzadas Institucionales / Pro
-    st.header("🔒 Herramientas Pro / Institucionales")
-    
-    clave_licencia = st.text_input(
-        "🔑 Clave de Licencia Pro:",
-        type="password",
-        placeholder="Ingresa clave para desbloquear",
-        help="Requerida para importar expedientes históricos o ejecutar cambios de ciclo escolar."
-    )
-    
-    es_pro = (clave_licencia == "prisma2026")
-    
-    if es_pro:
-        st.success("✨ Licencia Pro Activa — Control total habilitado")
-    else:
-        st.info("ℹ️ **Modo Estándar**: Las herramientas de importación y cierre de ciclo están reservadas para la versión Institucional Aula Viva® / ASPIRE®.")
-
-    st.markdown("---")
-    
-    # Cargar expediente
-    st.subheader("2. Cargar expediente histórico (.json)")
-    archivo_cargado = st.file_uploader(
-        "Selecciona expediente JSON:",
-        type=["json"],
-        disabled=not es_pro,
-        help="🔒 Habilitado únicamente en versión Pro" if not es_pro else "Importa expedientes vectoriales de periodos anteriores"
-    )
-    
-    btn_importar = st.button("📥 Importar expediente", disabled=(not es_pro or archivo_cargado is None), use_container_width=True)
-    if btn_importar and archivo_cargado is not None and es_pro:
-        try:
-            datos = json.load(archivo_cargado)
-            st.session_state.valores_db = datos.get("vector_actual_db", {eje: 0.0 for eje in EJE_NOMBRES})
-            st.session_state.historial_observaciones = datos.get("historial_observaciones", [])
-            for eje in EJE_NOMBRES:
-                st.session_state[f"temp_{eje}"] = float(st.session_state.valores_db[eje])
-            st.success("Expediente cargado correctamente.")
-            st.rerun()
-        except Exception as e:
-            st.error(f"Error al leer el archivo JSON: {e}")
-
-    st.markdown("---")
-    
-    # Cambio de ciclo escolar
-    st.subheader("3. Cambio de ciclo escolar")
-    st.caption("Registra el cierre del ciclo académico en el historial y restablece la línea base a 0.0 dB para el nuevo año.")
-    btn_ciclo = st.button("🔄 Ejecutar cambio de ciclo escolar 🔒" if not es_pro else "🔄 Ejecutar cambio de ciclo escolar", disabled=not es_pro, use_container_width=True)
-    if btn_ciclo and es_pro:
-        st.session_state.historial_observaciones.append({
-            "tipo": "CAMBIO_CICLO",
-            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "justificacion": "Cierre de ciclo escolar. Vector reestablecido a línea base (0.0 dB) con trazabilidad longitudinal resguardada.",
-            "vector_snapshot": dict(st.session_state.valores_db)
-        })
-        st.session_state.valores_db = {eje: 0.0 for eje in EJE_NOMBRES}
-        for eje in EJE_NOMBRES:
-            st.session_state[f"temp_{eje}"] = 0.0
-        st.success("Cambio de ciclo registrado. Vector reestablecido a 0.0 dB.")
-        st.rerun()
