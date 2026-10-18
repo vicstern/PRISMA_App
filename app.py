@@ -405,9 +405,20 @@ with col_izq:
             st.error("⚠️ Por favor ingresa el razonamiento pedagógico para registrar el ajuste manual.")
 
 with col_der:
-    nombre_tit = nombre_alumno.strip() if nombre_alumno else ""
-    if nombre_tit:
-        st.subheader(f"3. Mapa Visual de Crecimiento de {nombre_tit} — Espacio vectorial ℝ⁸")
+    nombre_clean_tit = nombre_alumno.strip() if nombre_alumno else ""
+    grupo_clean_tit = grupo_alumno.strip() if grupo_alumno else ""
+    
+    if nombre_clean_tit and grupo_clean_tit:
+        identificador_estudiante = f"{nombre_clean_tit} ({grupo_clean_tit})"
+    elif nombre_clean_tit:
+        identificador_estudiante = nombre_clean_tit
+    elif grupo_clean_tit:
+        identificador_estudiante = f"Grupo {grupo_clean_tit}"
+    else:
+        identificador_estudiante = ""
+
+    if identificador_estudiante:
+        st.subheader(f"3. Mapa Visual de Crecimiento de {identificador_estudiante} — Espacio vectorial ℝ⁸")
     else:
         st.subheader("3. Espejo metacognitivo — Espacio vectorial ℝ⁸")
     
