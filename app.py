@@ -444,3 +444,121 @@ with col_der:
 
 if st.session_state.mostrar_modal_resguardo:
     modal_exportar_resguardo(nombre_alumno, grupo_alumno)
+
+# --- MÓDULO DE ADMINISTRACIÓN (SIDEBAR) ---
+with st.sidebar:
+    st.header("⚙️ Administración PRISMA")
+    
+    st.subheader("1. Cargar expediente (.json)")
+    archivo_cargado = st.file_uploader("Selecciona archivo de expediente:", type=["json"])
+    if archivo_cargado is not None:
+        if st.button("📥 Importar expediente", use_container_width=True):
+            try:
+                datos = json.load(archivo_cargado)
+                st.session_state.valores_db = datos.get("vector_actual_db", {eje: 0.0 for eje in EJE_NOMBRES})
+                st.session_state.historial_observaciones = datos.get("historial_observaciones", [])
+                for eje in EJE_NOMBRES:
+                    st.session_state[f"temp_{eje}"] = float(st.session_state.valores_db[eje])
+                st.success(f"Expediente cargado correctamente.")
+                st.rerun()
+            except Exception as e:
+                st.error(f"Error al leer el archivo JSON: {e}")
+                
+    st.markdown("---")
+    st.subheader("2. Transición interanual")
+    st.caption("Aplica 'Tabula Rasa': reinicia el vector a 0.0 dB registrando el cierre de ciclo en el historial.")
+    if st.button("🔄 Ejecutar Tabula Rasa", type="secondary", use_container_width=True):
+        st.session_state.historial_observaciones.append({
+            "tipo": "TABULA_RASA",
+            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "justificacion": "Cierre de ciclo / Transición interanual. Vector reiniciado a 0.0 dB.",
+            "vector_snapshot": dict(st.session_state.valores_db)
+        })
+        st.session_state.valores_db = {eje: 0.0 for eje in EJE_NOMBRES}
+        for eje in EJE_NOMBRES:
+            st.session_state[f"temp_{eje}"] = 0.0
+        st.success("Vector reiniciado a 0.0 dB (Línea base). Hito de transición registrado.")
+        st.rerun()
+
+    st.markdown("---")
+    st.subheader("3. Sesión")
+    if st.button("🗑️ Limpiar sesión activa", use_container_width=True):
+        st.session_state.valores_db = {eje: 0.0 for eje in EJE_NOMBRES}
+        st.session_state.historial_observaciones = []
+        for eje in EJE_NOMBRES:
+            st.session_state[f"temp_{eje}"] = 0.0
+        st.rerun()
+
+# --- SIDEBAR: ADMINISTRACIÓN & LICENCIA PRO ---
+with st.sidebar:
+    st.header("⚙️ Administración PRISMA")
+    
+    # Campo de activación por clave
+    clave_licencia = st.text_input(
+        "🔑 Licencia Pro / Institucional:",
+        type="password",
+        placeholder="Ingresa clave para desbloquear",
+        help="Ingresa tu clave de licencia para activar la importación y transición interanual."
+    )
+    
+    es_pro = (clave_licencia == "prisma2026")  # Clave de activación
+    
+    if es_pro:
+        st.success("✨ Licencia Pro Activa — Control total habilitado")
+    else:
+        st.info("🔒 **Modo Vista previa Pro**: Las funciones avanzadas de gestión de expedientes requieren una Licencia Institucional Aula Viva® / ASPIRE®.")
+
+    st.markdown("---")
+    
+    # 1. Cargar expediente
+    st.subheader("1. Cargar expediente (.json)")
+    archivo_cargado = st.file_uploader(
+        "Selecciona archivo de expediente:",
+        type=["json"],
+        disabled=not es_pro,
+        help="🔒 Habilitado únicamente en versión Pro" if not es_pro else "Importa expedientes vectoriales históricos"
+    )
+    
+    btn_importar = st.button("📥 Importar expediente", disabled=(not es_pro or archivo_cargado is None), use_container_width=True)
+    if btn_importar and archivo_cargado is not None and es_pro:
+        try:
+            datos = json.load(archivo_cargado)
+            st.session_state.valores_db = datos.get("vector_actual_db", {eje: 0.0 for eje in EJE_NOMBRES})
+            st.session_state.historial_observaciones = datos.get("historial_observaciones", [])
+            for eje in EJE_NOMBRES:
+                st.session_state[f"temp_{eje}"] = float(st.session_state.valores_db[eje])
+            st.success("Expediente cargado correctamente.")
+            st.rerun()
+        except Exception as e:
+            st.error(f"Error al leer el archivo JSON: {e}")
+
+    st.markdown("---")
+    
+    # 2. Transición interanual
+    st.subheader("2. Transición interanual")
+    st.caption("Aplica 'Tabula Rasa': reinicia el vector a 0.0 dB registrando el cierre de ciclo en el historial.")
+    btn_tabula = st.button("🔄 Ejecutar Tabula Rasa 🔒" if not es_pro else "🔄 Ejecutar Tabula Rasa", disabled=not es_pro, use_container_width=True)
+    if btn_tabula and es_pro:
+        st.session_state.historial_observaciones.append({
+            "tipo": "TABULA_RASA",
+            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "justificacion": "Cierre de ciclo / Transición interanual. Vector reiniciado a 0.0 dB.",
+            "vector_snapshot": dict(st.session_state.valores_db)
+        })
+        st.session_state.valores_db = {eje: 0.0 for eje in EJE_NOMBRES}
+        for eje in EJE_NOMBRES:
+            st.session_state[f"temp_{eje}"] = 0.0
+        st.success("Vector reiniciado a 0.0 dB (Línea base).")
+        st.rerun()
+
+    st.markdown("---")
+    
+    # 3. Sesión
+    st.subheader("3. Sesión")
+    btn_limpiar = st.button("🗑️ Limpiar sesión activa 🔒" if not es_pro else "🗑️ Limpiar sesión activa", disabled=not es_pro, use_container_width=True)
+    if btn_limpiar and es_pro:
+        st.session_state.valores_db = {eje: 0.0 for eje in EJE_NOMBRES}
+        st.session_state.historial_observaciones = []
+        for eje in EJE_NOMBRES:
+            st.session_state[f"temp_{eje}"] = 0.0
+        st.rerun()
