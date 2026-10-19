@@ -929,7 +929,7 @@ with col_der:
                     line=dict(color=color_line, width=3 if is_last else 1.8, dash="solid" if is_last else "dot"),
                     marker=dict(size=6, color=color_line),
                     name=f"Hito #{i+1} [{tag_tipo}]",
-                    hovertemplate="%{theta}<extra></extra>"
+                    hovertemplate="<b>%{r:+.1f} dB</b><extra></extra>"
                 ))
         else:
             vals = [valores_live[eje] for eje in EJE_NOMBRES]
@@ -941,7 +941,7 @@ with col_der:
                 line=dict(color="#6366F1", width=3),
                 marker=dict(size=7, color="#4F46E5"),
                 name="Estado actual",
-                hovertemplate="%{theta}<extra></extra>"
+                hovertemplate="<b>%{r:+.1f} dB</b><extra></extra>"
             ))
 
     elif modo_vis == "Comparativa personalizada":
@@ -969,7 +969,7 @@ with col_der:
                     line=dict(color=color_line, width=2.5),
                     marker=dict(size=6, color=color_line),
                     name=f"Hito #{i+1}",
-                    hovertemplate="%{theta}<extra></extra>"
+                    hovertemplate="<b>%{r:+.1f} dB</b><extra></extra>"
                 ))
         else:
             vals = [valores_live[eje] for eje in EJE_NOMBRES]
@@ -981,7 +981,7 @@ with col_der:
                 line=dict(color="#6366F1", width=3),
                 marker=dict(size=7, color="#4F46E5"),
                 name="Estado actual",
-                hovertemplate="%{theta}<extra></extra>"
+                hovertemplate="<b>%{r:+.1f} dB</b><extra></extra>"
             ))
 
     # --- PREVISUALIZACIÓN / VECTOR FANTASMA (IA) ---
@@ -1003,7 +1003,7 @@ with col_der:
             line=dict(color="#A855F7", width=2.5, dash="dot"),
             marker=dict(size=7, color="#A855F7"),
             name="Previsualización IA",
-            hovertemplate="%{theta}<extra></extra>"
+            hovertemplate="<b>%{r:+.1f} dB</b><extra></extra>"
         ))
 
     # --- PREVISUALIZACIÓN / VECTOR FANTASMA (MANUAL) ---
@@ -1019,7 +1019,7 @@ with col_der:
             line=dict(color="#9333EA", width=2.5, dash="dash"),
             marker=dict(size=7, color="#9333EA"),
             name="Previsualización manual",
-            hovertemplate="%{theta}<extra></extra>"
+            hovertemplate="<b>%{r:+.1f} dB</b><extra></extra>"
         ))
 
     # Construcción de ticks de 2 en 2 dB
