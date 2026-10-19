@@ -1,0 +1,142 @@
+{
+  "estudiante": "Marí Gómez",
+  "matricula": "",
+  "grupo": "4B",
+  "ultima_actualizacion": "2026-10-19 10:54:58",
+  "vector_actual_db": {
+    "Indagación e investigación": 1.0,
+    "Pensamiento crítico y analítico": 1.5,
+    "Razonamiento ético": 0.0,
+    "Agencia intercultural": 0.0,
+    "Liderazgo colaborativo": 3.9000000000000004,
+    "Saber hacer y ejecución técnica": 5.0,
+    "Resiliencia y autogestión": 0.0,
+    "Reflexión metacognitiva": 1.0
+  },
+  "historial_observaciones": [
+    {
+      "tipo": "IA",
+      "timestamp": "2026-10-19 10:53:00",
+      "nota": "Hoy María lideró la construcción del prototipo de filtro de agua. Resolvió un conflicto en su equipo escuchando a sus compañeras y ajustó los materiales tras un primer fallo en la prueba de filtración.\n\n",
+      "deltas": {
+        "Indagación e investigación": 0.5,
+        "Pensamiento crítico y analítico": 1.2,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 2.7,
+        "Saber hacer y ejecución técnica": 3.5,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 1.0
+      },
+      "resultado_ia": {
+        "estudiante": "Marí Gómez",
+        "evaluacion_ejes": {
+          "Indagacion_Investigacion": {
+            "delta_db": 0.5,
+            "razonamiento": "Identificación del problema inicial y ajuste de materiales tras fallo en prueba."
+          },
+          "Pensamiento_Critico_Analitico": {
+            "delta_db": 1.2,
+            "razonamiento": "Diagnóstico del fallo en la prueba de filtración y resolución técnica."
+          },
+          "Razonamiento_Etico": {
+            "delta_db": 0.0,
+            "razonamiento": "Conducta colaborativa sin conflictos éticos reportados."
+          },
+          "Agencia_Intercultural": {
+            "delta_db": 0.0,
+            "razonamiento": "Escucha activa y mediación de conflictos sin evidencia de exclusión."
+          },
+          "Liderazgo_Colaborativo": {
+            "delta_db": 2.7,
+            "razonamiento": "Liderazgo efectivo mediante escucha activa y resolución de conflictos en equipo."
+          },
+          "Saber_Hacer_Ejecucion_Tecnica": {
+            "delta_db": 3.5,
+            "razonamiento": "Construcción exitosa del prototipo y corrección de errores técnicos."
+          },
+          "Resiliencia_Autogestion": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin episodios de desregulación emocional reportados."
+          },
+          "Reflexion_Metacognitiva": {
+            "delta_db": 1.0,
+            "razonamiento": "Ajuste de materiales tras fallo indica autoevaluación del proceso."
+          }
+        }
+      },
+      "vector_snapshot": {
+        "Indagación e investigación": 0.5,
+        "Pensamiento crítico y analítico": 1.2,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 2.7,
+        "Saber hacer y ejecución técnica": 3.5,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 1.0
+      }
+    },
+    {
+      "tipo": "IA",
+      "timestamp": "2026-10-19 10:54:56",
+      "nota": "María notó que el flujo estaba muy lento, revisó la densidad de la arena y redujo la capa a la mitad. Cuando su equipo se distrajo con los teléfonos, los llamó para repartir las tareas de la presentación de mañana.",
+      "deltas": {
+        "Indagación e investigación": 0.5,
+        "Pensamiento crítico y analítico": 0.3,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 1.2,
+        "Saber hacer y ejecución técnica": 1.5,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 0.0
+      },
+      "resultado_ia": {
+        "estudiante": "Marí Gómez",
+        "evaluacion_ejes": {
+          "Indagacion_Investigacion": {
+            "delta_db": 0.5,
+            "razonamiento": "Observación proactiva del flujo y ajuste de parámetros (densidad de arena) demuestra indagación técnica."
+          },
+          "Pensamiento_Critico_Analitico": {
+            "delta_db": 0.3,
+            "razonamiento": "Reducción de capa basada en evidencia observada (flujo lento) indica análisis de causa-efecto."
+          },
+          "Razonamiento_Etico": {
+            "delta_db": 0.0,
+            "razonamiento": "Ninguna conducta disruptiva o falta ética detectada; la gestión del equipo es proactiva."
+          },
+          "Agencia_Intercultural": {
+            "delta_db": 0.0,
+            "razonamiento": "No hay evidencia de interacción intercultural o gestión de diversidad en la nota."
+          },
+          "Liderazgo_Colaborativo": {
+            "delta_db": 1.2,
+            "razonamiento": "Llamada al equipo para repartir tareas y mantener el flujo demuestra liderazgo colaborativo efectivo."
+          },
+          "Saber_Hacer_Ejecucion_Tecnica": {
+            "delta_db": 1.5,
+            "razonamiento": "Ajuste técnico de la capa de arena y monitoreo del flujo muestran competencia ejecutiva."
+          },
+          "Resiliencia_Autogestion": {
+            "delta_db": 0.0,
+            "razonamiento": "No hay episodios de frustración o desregulación emocional reportados."
+          },
+          "Reflexion_Metacognitiva": {
+            "delta_db": 0.0,
+            "razonamiento": "No hay evidencia de reflexión metacognitiva explícita en la nota."
+          }
+        }
+      },
+      "vector_snapshot": {
+        "Indagación e investigación": 1.0,
+        "Pensamiento crítico y analítico": 1.5,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 3.9000000000000004,
+        "Saber hacer y ejecución técnica": 5.0,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 1.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "estudiante": "María J",
+  "matricula": "",
+  "grupo": "2B",
+  "ultima_actualizacion": "2026-10-19 11:26:25",
+  "vector_actual_db": {
+    "Indagación e investigación": 1.0,
+    "Pensamiento crítico y analítico": 1.7,
+    "Razonamiento ético": 0.0,
+    "Agencia intercultural": 0.0,
+    "Liderazgo colaborativo": 2.4000000000000004,
+    "Saber hacer y ejecución técnica": 5.0,
+    "Resiliencia y autogestión": -0.19999999999999996,
+    "Reflexión metacognitiva": 0.5
+  },
+  "historial_observaciones": [
+    {
+      "tipo": "IA",
+      "timestamp": "2026-10-19 11:22:28",
+      "nota": "1. Hoy María lideró la construcción del prototipo de filtro de agua. Resolvió un conflicto en su equipo escuchando a sus compañeras y ajustó los materiales tras un primer fallo en la prueba de filtración.",
+      "deltas": {
+        "Indagación e investigación": 0.5,
+        "Pensamiento crítico y analítico": 1.2,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 2.7,
+        "Saber hacer y ejecución técnica": 3.5,
+        "Resiliencia y autogestión": 1.8,
+        "Reflexión metacognitiva": 0.5
+      },
+      "resultado_ia": {
+        "estudiante": "María J",
+        "evaluacion_ejes": {
+          "Indagacion_Investigacion": {
+            "delta_db": 0.5,
+            "razonamiento": "Identificación del problema inicial y ajuste de materiales tras fallo en prueba."
+          },
+          "Pensamiento_Critico_Analitico": {
+            "delta_db": 1.2,
+            "razonamiento": "Diagnóstico del fallo en filtración y resolución técnica del prototipo."
+          },
+          "Razonamiento_Etico": {
+            "delta_db": 0.0,
+            "razonamiento": "Conducta ética mantenida; liderazgo centrado en el equipo sin conflictos éticos."
+          },
+          "Agencia_Intercultural": {
+            "delta_db": 0.0,
+            "razonamiento": "No hay evidencia de interacción intercultural en la narrativa."
+          },
+          "Liderazgo_Colaborativo": {
+            "delta_db": 2.7,
+            "razonamiento": "Liderazgo efectivo mediante escucha activa y resolución de conflictos en equipo."
+          },
+          "Saber_Hacer_Ejecucion_Tecnica": {
+            "delta_db": 3.5,
+            "razonamiento": "Construcción exitosa del prototipo y corrección de errores técnicos."
+          },
+          "Resiliencia_Autogestion": {
+            "delta_db": 1.8,
+            "razonamiento": "Adaptación ante fallo inicial y reincorporación al proceso de trabajo."
+          },
+          "Reflexion_Metacognitiva": {
+            "delta_db": 0.5,
+            "razonamiento": "Ajuste de estrategia basado en resultados de prueba."
+          }
+        }
+      },
+      "vector_snapshot": {
+        "Indagación e investigación": 0.5,
+        "Pensamiento crítico y analítico": 1.2,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 2.7,
+        "Saber hacer y ejecución técnica": 3.5,
+        "Resiliencia y autogestión": 1.8,
+        "Reflexión metacognitiva": 0.5
+      }
+    },
+    {
+      "tipo": "IA",
+      "timestamp": "2026-10-19 11:23:29",
+      "nota": "2. María notó que el flujo estaba muy lento, revisó la densidad de la arena y redujo la capa a la mitad. Cuando su equipo se distrajo con los teléfonos, los llamó para repartir las tareas de la presentación de mañana.",
+      "deltas": {
+        "Indagación e investigación": 0.5,
+        "Pensamiento crítico y analítico": 0.5,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 1.2,
+        "Saber hacer y ejecución técnica": 1.5,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 0.0
+      },
+      "resultado_ia": {
+        "estudiante": "María J",
+        "evaluacion_ejes": {
+          "Indagacion_Investigacion": {
+            "delta_db": 0.5,
+            "razonamiento": "Ajuste de parámetros del flujo (densidad de arena) demuestra observación y adaptación al entorno experimental."
+          },
+          "Pensamiento_Critico_Analitico": {
+            "delta_db": 0.5,
+            "razonamiento": "Identificación del problema de flujo lento y corrección técnica basada en evidencia observada."
+          },
+          "Razonamiento_Etico": {
+            "delta_db": 0.0,
+            "razonamiento": "No hay evidencia de conflicto ético; la acción es de gestión de grupo y cumplimiento de objetivos."
+          },
+          "Agencia_Intercultural": {
+            "delta_db": 0.0,
+            "razonamiento": "No hay evidencia de interacción intercultural o gestión de diversidad cultural en el relato."
+          },
+          "Liderazgo_Colaborativo": {
+            "delta_db": 1.2,
+            "razonamiento": "Reconocimiento de la iniciativa para recuperar la atención del equipo y asignación de tareas de presentación."
+          },
+          "Saber_Hacer_Ejecucion_Tecnica": {
+            "delta_db": 1.5,
+            "razonamiento": "Modificación técnica de la capa de arena y control de densidad para optimizar el flujo."
+          },
+          "Resiliencia_Autogestion": {
+            "delta_db": 0.0,
+            "razonamiento": "No hay evidencia de episodios de frustración o desregulación emocional en el relato."
+          },
+          "Reflexion_Metacognitiva": {
+            "delta_db": 0.0,
+            "razonamiento": "No hay evidencia explícita de reflexión metacognitiva sobre el proceso de aprendizaje o ejecución."
+          }
+        }
+      },
+      "vector_snapshot": {
+        "Indagación e investigación": 1.0,
+        "Pensamiento crítico y analítico": 1.7,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 3.9000000000000004,
+        "Saber hacer y ejecución técnica": 5.0,
+        "Resiliencia y autogestión": 1.8,
+        "Reflexión metacognitiva": 0.5
+      }
+    },
+    {
+      "tipo": "IA",
+      "timestamp": "2026-10-19 11:25:01",
+      "nota": "3. Hoy en el descanso María tuvo un episodio severo de frustración porque sus compañeros la dejaron al final al armar la retreta de fútbol. Gritó, aventó su mochila y se negó a hablar con el equipo durante la primera mitad de la clase. Sin embargo, hacia el final del taller, regresó al laboratorio en silencio, tomó el multímetro y calibró correctamente los sensores de flujo del prototipo.",
+      "deltas": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 0.0,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": -1.5,
+        "Saber hacer y ejecución técnica": 0.0,
+        "Resiliencia y autogestión": -2.0,
+        "Reflexión metacognitiva": 0.0
+      },
+      "resultado_ia": {
+        "estudiante": "María J",
+        "evaluacion_ejes": {
+          "Indagacion_Investigacion": {
+            "delta_db": 0.0,
+            "razonamiento": "No hubo evidencia de actividad investigativa durante el episodio de frustración, pero la reincorporación posterior no fue evaluada en este eje."
+          },
+          "Pensamiento_Critico_Analitico": {
+            "delta_db": 0.0,
+            "razonamiento": "La calibración de sensores requiere pensamiento analítico, pero no se especifica si hubo análisis crítico durante el episodio de exclusión."
+          },
+          "Razonamiento_Etico": {
+            "delta_db": 0.0,
+            "razonamiento": "La rabieta y el aislamiento derivado de exclusión social NO son una falta ética. No se penaliza este eje."
+          },
+          "Agencia_Intercultural": {
+            "delta_db": 0.0,
+            "razonamiento": "No hubo evidencia de interacción intercultural durante el episodio de frustración."
+          },
+          "Liderazgo_Colaborativo": {
+            "delta_db": -1.5,
+            "razonamiento": "Se negó a hablar con el equipo durante la primera mitad de la clase, interrumpiendo activamente la dinámica de trabajo del equipo."
+          },
+          "Saber_Hacer_Ejecucion_Tecnica": {
+            "delta_db": 0.0,
+            "razonamiento": "La calibración correcta de sensores se realizó, pero no se especifica si hubo mejora técnica durante el episodio de frustración."
+          },
+          "Resiliencia_Autogestion": {
+            "delta_db": -2.0,
+            "razonamiento": "La frustración no regulada (gritos, aventar mochila) y el abandono temporal de tareas penalizan la resiliencia autogestionaria."
+          },
+          "Reflexion_Metacognitiva": {
+            "delta_db": 0.0,
+            "razonamiento": "No se especifica si hubo reflexión metacognitiva sobre el episodio de frustración."
+          }
+        }
+      },
+      "vector_snapshot": {
+        "Indagación e investigación": 1.0,
+        "Pensamiento crítico y analítico": 1.7,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 2.4000000000000004,
+        "Saber hacer y ejecución técnica": 5.0,
+        "Resiliencia y autogestión": -0.19999999999999996,
+        "Reflexión metacognitiva": 0.5
+      }
+    }
+  ]
+}

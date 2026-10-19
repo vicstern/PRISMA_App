@@ -1,0 +1,79 @@
+{
+  "estudiante": "",
+  "grupo": "",
+  "ultima_actualizacion": "2026-10-18 16:20:21",
+  "vector_actual_db": {
+    "Indagación e investigación": 0.5,
+    "Pensamiento crítico y analítico": 1.2,
+    "Razonamiento ético": 0.0,
+    "Agencia intercultural": 0.0,
+    "Liderazgo colaborativo": 2.7,
+    "Saber hacer y ejecución técnica": 3.5,
+    "Resiliencia y autogestión": 1.8,
+    "Reflexión metacognitiva": 0.5
+  },
+  "historial_observaciones": [
+    {
+      "tipo": "IA",
+      "timestamp": "2026-10-18 16:20:21",
+      "nota": "Hoy María lideró la construcción del prototipo de filtro de agua. Resolvió un conflicto en su equipo escuchando a sus compañeras y ajustó los materiales tras un primer fallo en la prueba de filtración.\n",
+      "deltas": {
+        "Indagación e investigación": 0.5,
+        "Pensamiento crítico y analítico": 1.2,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 2.7,
+        "Saber hacer y ejecución técnica": 3.5,
+        "Resiliencia y autogestión": 1.8,
+        "Reflexión metacognitiva": 0.5
+      },
+      "resultado_ia": {
+        "estudiante": "María",
+        "evaluacion_ejes": {
+          "Indagacion_Investigacion": {
+            "delta_db": 0.5,
+            "razonamiento": "Ajuste de materiales tras fallo inicial indica búsqueda activa de solución y verificación de hipótesis."
+          },
+          "Pensamiento_Critico_Analitico": {
+            "delta_db": 1.2,
+            "razonamiento": "Diagnóstico del fallo en la prueba de filtración y corrección técnica demuestra análisis de causa-efecto."
+          },
+          "Razonamiento_Etico": {
+            "delta_db": 0.0,
+            "razonamiento": "Conducta ética no afectada; liderazgo centrado en el equipo sin conflicto moral."
+          },
+          "Agencia_Intercultural": {
+            "delta_db": 0.0,
+            "razonamiento": "No hay evidencia de interacción intercultural en la narrativa."
+          },
+          "Liderazgo_Colaborativo": {
+            "delta_db": 2.7,
+            "razonamiento": "Escucha activa y resolución de conflictos demuestra gestión colaborativa efectiva."
+          },
+          "Saber_Hacer_Ejecucion_Tecnica": {
+            "delta_db": 3.5,
+            "razonamiento": "Liderazgo en construcción de prototipo y ajuste técnico tras fallo."
+          },
+          "Resiliencia_Autogestion": {
+            "delta_db": 1.8,
+            "razonamiento": "Reincorporación inmediata tras fallo y continuidad en la tarea."
+          },
+          "Reflexion_Metacognitiva": {
+            "delta_db": 0.5,
+            "razonamiento": "Ajuste de materiales implica reflexión sobre el proceso y autoevaluación implícita."
+          }
+        }
+      },
+      "vector_snapshot": {
+        "Indagación e investigación": 0.5,
+        "Pensamiento crítico y analítico": 1.2,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 2.7,
+        "Saber hacer y ejecución técnica": 3.5,
+        "Resiliencia y autogestión": 1.8,
+        "Reflexión metacognitiva": 0.5
+      }
+    }
+  ]
+}

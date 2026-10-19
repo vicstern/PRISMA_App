@@ -6,15 +6,45 @@ import os
 import re
 from datetime import datetime
 
+# --- CONFIGURACIÓN Y ESTILOS DE INTERFAZ ---
 st.set_page_config(
-    page_title="Aula Viva — Motor PRISMA R8",
+    page_title="Aula Viva — PRISMA",
     page_icon="🌌",
     layout="wide"
 )
 
-st.title("Aula Viva® — Sub-motor PRISMA (R⁸)")
-st.markdown("### **PRISMA**: **P**lataforma de **R**eflexión e **I**nterpretación para el **S**eguimiento **M**ultidimensional del **A**prendizaje")
-st.caption("Analítica cualitativa vectorizada | Aula Viva® (IMPI Exp. 3724582) | Ecosistema ASPIRE® (INDAUTOR Reg. 03-2024-080811234500-01)")
+# Estilos CSS inyectados para fijar el mapa en la columna derecha al hacer scroll
+st.markdown("""
+<style>
+    /* Habilita sticky real en la segunda columna de Streamlit */
+    [data-testid="stColumn"]:nth-of-type(2) {
+        position: -webkit-sticky !important;
+        position: sticky !important;
+        top: 2rem !important;
+        align-self: flex-start !important;
+        z-index: 99;
+    }
+    .sticky-radar-container {
+        position: -webkit-sticky !important;
+        position: sticky !important;
+        top: 2rem !important;
+    }
+    .stButton button {
+        border-radius: 8px;
+    }
+    .staging-card {
+        background-color: #F8FAFC;
+        border: 1.5px solid #6366F1;
+        border-radius: 10px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+st.title("Aula Viva® — PRISMA")
+st.markdown("### Plataforma de Reflexión e Interpretación para el Seguimiento Multidimensional del Aprendizaje")
+st.caption("Analítica cualitativa vectorizada en ℝ⁸ | Aula Viva® | Ecosistema ASPIRE®")
 
 DIR_EXPEDIENTES = os.path.expanduser("~/PRISMA_App/expedientes")
 os.makedirs(DIR_EXPEDIENTES, exist_ok=True)
@@ -54,11 +84,18 @@ def limpiar_cadena(texto):
     cadena = re.sub(r"[^\w\s-]", "", texto).strip()
     return re.sub(r"[-\s]+", "_", cadena)
 
+# --- INICIALIZACIÓN Y CONTROL DE ESTADO LIMPIO ---
 if "valores_db" not in st.session_state:
     st.session_state.valores_db = {eje: 0.0 for eje in EJE_NOMBRES}
 
 if "historial_observaciones" not in st.session_state:
     st.session_state.historial_observaciones = []
+
+if "analisis_pendiente" not in st.session_state:
+    st.session_state.analisis_pendiente = None
+
+if "estudiantes_db" not in st.session_state:
+    st.session_state.estudiantes_db = {}
 
 if "mostrar_modal_resguardo" not in st.session_state:
     st.session_state.mostrar_modal_resguardo = False
@@ -66,8 +103,25 @@ if "mostrar_modal_resguardo" not in st.session_state:
 if "mostrar_modal_confirmar_reiniciar" not in st.session_state:
     st.session_state.mostrar_modal_confirmar_reiniciar = False
 
+# Banderas de limpieza diferida de estado
+if st.session_state.get("flag_limpiar_nota", False):
+    st.session_state.input_nota = ""
+    st.session_state.flag_limpiar_nota = False
+
+if st.session_state.get("flag_limpiar_justificacion", False):
+    st.session_state.input_justificacion = ""
+    st.session_state.flag_limpiar_justificacion = False
+
+if st.session_state.get("flag_reset_calib", False):
+    for eje in EJE_NOMBRES:
+        st.session_state[f"slider_{eje}"] = 0.0
+        st.session_state[f"num_{eje}"] = 0.0
+    st.session_state.flag_reset_calib = False
+
 if "input_nombre" not in st.session_state:
     st.session_state.input_nombre = ""
+if "input_matricula" not in st.session_state:
+    st.session_state.input_matricula = ""
 if "input_grupo" not in st.session_state:
     st.session_state.input_grupo = ""
 if "input_nota" not in st.session_state:
@@ -75,36 +129,59 @@ if "input_nota" not in st.session_state:
 if "input_justificacion" not in st.session_state:
     st.session_state.input_justificacion = ""
 
-@st.dialog("💾 Resguardo de expediente vectorial")
-def modal_exportar_resguardo(nombre, grupo):
-    nombre_mostrar = nombre if nombre else "Estudiante"
-    st.write(f"Se ha acumulado un nuevo hito en el expediente de **{nombre_mostrar}**.")
-    st.write("¿Deseas descargar una copia de resguardo local (`.json`) en este momento?")
-    
+# Sincronizadores bidireccionales para calibración manual
+def sync_slider_a_num(eje_nombre):
+    st.session_state[f"num_{eje_nombre}"] = float(st.session_state[f"slider_{eje_nombre}"])
+
+def sync_num_a_slider(eje_nombre):
+    st.session_state[f"slider_{eje_nombre}"] = float(st.session_state[f"num_{eje_nombre}"])
+
+for eje in EJE_NOMBRES:
+    if f"slider_{eje}" not in st.session_state:
+        st.session_state[f"slider_{eje}"] = 0.0
+    if f"num_{eje}" not in st.session_state:
+        st.session_state[f"num_{eje}"] = 0.0
+
+# --- FUNCIONES DE PERSISTENCIA ---
+def guardar_expediente_disco(nombre, matricula, grupo):
     fecha_iso = datetime.now().strftime("%y%m%d")
+    hora_iso = datetime.now().strftime("%H%M%S")
     nom_clean = limpiar_cadena(nombre)
     grp_clean = limpiar_cadena(grupo)
-    filename_export = f"{fecha_iso}_{nom_clean}_{grp_clean}_PRISMA.json"
+    filename = f"{fecha_iso}_{hora_iso}_{nom_clean}_{grp_clean}_PRISMA.json"
+    filepath = os.path.join(DIR_EXPEDIENTES, filename)
     
-    expediente_data = {
+    exp_data = {
         "estudiante": nombre,
+        "matricula": matricula,
         "grupo": grupo,
-        "fecha_exportacion": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "ultima_actualizacion": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "vector_actual_db": st.session_state.valores_db,
         "historial_observaciones": st.session_state.historial_observaciones
     }
+    with open(filepath, "w", encoding="utf-8") as f:
+        json.dump(exp_data, f, indent=2, ensure_ascii=False)
+    return filename, exp_data
+
+# --- DIÁLOGOS DE CONTROL (MODALES) ---
+@st.dialog("💾 Resguardo de expediente vectorial")
+def modal_exportar_resguardo(nombre, matricula, grupo):
+    nombre_mostrar = nombre if nombre else "Estudiante"
+    st.write(f"Se ha consolidado un nuevo hito en el expediente de **{nombre_mostrar}**.")
+    st.write("¿Deseas descargar una copia de resguardo local (`.json`) con marca de tiempo?")
+    
+    filename_export, exp_data = guardar_expediente_disco(nombre, matricula, grupo)
     
     col_m1, col_m2 = st.columns([0.6, 0.4])
     with col_m1:
-        descargado = st.download_button(
+        if st.download_button(
             label="Sí, descargar (.json)",
-            data=json.dumps(expediente_data, indent=2, ensure_ascii=False),
+            data=json.dumps(exp_data, indent=2, ensure_ascii=False),
             file_name=filename_export,
             mime="application/json",
             type="primary",
             use_container_width=True
-        )
-        if descargado:
+        ):
             st.session_state.mostrar_modal_resguardo = False
             st.rerun()
             
@@ -115,27 +192,17 @@ def modal_exportar_resguardo(nombre, grupo):
 
 @st.dialog("⚠️ Confirmar reinicio de pantalla")
 def modal_confirmar_reiniciar():
-    st.write("Esta acción borrará el nombre, grupo, notas y el vector activo en pantalla.")
+    st.write("Esta acción limpiará los datos del estudiante, notas y el vector activo en pantalla.")
     st.write("¿Deseas descargar un resguardo en `.json` antes de limpiar?")
     
     nombre = st.session_state.input_nombre
+    matricula = st.session_state.input_matricula
     grupo = st.session_state.input_grupo
-    fecha_iso = datetime.now().strftime("%y%m%d")
-    nom_clean = limpiar_cadena(nombre)
-    grp_clean = limpiar_cadena(grupo)
-    filename_export = f"{fecha_iso}_{nom_clean}_{grp_clean}_PRISMA.json"
-    
-    expediente_data = {
-        "estudiante": nombre,
-        "grupo": grupo,
-        "fecha_exportacion": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "vector_actual_db": st.session_state.valores_db,
-        "historial_observaciones": st.session_state.historial_observaciones
-    }
+    filename_export, exp_data = guardar_expediente_disco(nombre, matricula, grupo)
 
     st.download_button(
         label="💾 Descargar resguardo (.json) y reiniciar",
-        data=json.dumps(expediente_data, indent=2, ensure_ascii=False),
+        data=json.dumps(exp_data, indent=2, ensure_ascii=False),
         file_name=filename_export,
         mime="application/json",
         type="primary",
@@ -148,10 +215,13 @@ def modal_confirmar_reiniciar():
         if st.button("🗑️ Reiniciar sin descargar", type="secondary", use_container_width=True):
             st.session_state.valores_db = {eje: 0.0 for eje in EJE_NOMBRES}
             st.session_state.historial_observaciones = []
+            st.session_state.analisis_pendiente = None
             st.session_state.input_nombre = ""
+            st.session_state.input_matricula = ""
             st.session_state.input_grupo = ""
-            st.session_state.input_nota = ""
-            st.session_state.input_justificacion = ""
+            st.session_state.flag_limpiar_nota = True
+            st.session_state.flag_limpiar_justificacion = True
+            st.session_state.flag_reset_calib = True
             st.session_state.mostrar_modal_confirmar_reiniciar = False
             st.rerun()
     with col_r2:
@@ -170,40 +240,51 @@ with st.sidebar:
 
     st.markdown("---")
     
-    st.header("🔒 Herramientas de Administrador")
+    st.header("🔒 Herramientas de administrador")
     
     clave_admin = st.text_input(
-        "🔑 Clave de Administrador:",
+        "🔑 Clave de administrador:",
         type="password",
         placeholder="Ingresa clave de acceso",
-        help="Requerida para importar expedientes externos o aplicar cierres de ciclo."
+        help="Habilita la carga de expedientes y la transición de ciclo escolar."
     )
     
-    es_admin = (clave_admin == "prisma2026")
+    es_admin = (clave_admin == "prisma2026" or clave_admin == "prisma26")
     
     if es_admin:
-        st.success("Acceso concedido — Controles de Administrador habilitados")
+        st.success("Acceso concedido — Modo Administrador")
+        if st.button("🔴 Salir del modo administrador", use_container_width=True):
+            clave_admin = ""
+            st.rerun()
     else:
-        st.info("ℹ️ **Modo Usuario**: Las herramientas de importación y transición de ciclo ('Año nuevo, vida nueva') requieren clave de Administrador.")
+        st.info("ℹ️ **Modo Usuario**: Funciones avanzadas reservadas para administración.")
 
     st.markdown("---")
     
-    st.subheader("2. Cargar expediente (.json)")
+    label_carga = "2. Cargar expediente (.json)" if es_admin else "2. Cargar expediente (.json) 🔒 Admin"
+    st.subheader(label_carga)
     archivo_cargado = st.file_uploader(
         "Selecciona expediente JSON:",
         type=["json"],
         disabled=not es_admin,
-        help="🔒 Habilitado únicamente en Modo Administrador" if not es_admin else "Importa expedientes vectoriales históricos"
+        help="Carga de expedientes históricos" if es_admin else "Función exclusiva para nivel Administrador"
     )
     
-    btn_importar = st.button("📥 Importar expediente", disabled=(not es_admin or archivo_cargado is None), use_container_width=True)
+    btn_importar = st.button("📥 Cargar expediente", disabled=(not es_admin or archivo_cargado is None), use_container_width=True)
     if btn_importar and archivo_cargado is not None and es_admin:
         try:
             datos = json.load(archivo_cargado)
             st.session_state.valores_db = datos.get("vector_actual_db", {eje: 0.0 for eje in EJE_NOMBRES})
             st.session_state.historial_observaciones = datos.get("historial_observaciones", [])
             st.session_state.input_nombre = datos.get("estudiante", "")
+            st.session_state.input_matricula = datos.get("matricula", "")
             st.session_state.input_grupo = datos.get("grupo", "")
+            
+            if datos.get("matricula"):
+                st.session_state.estudiantes_db[datos["matricula"]] = {
+                    "nombre": datos.get("estudiante", ""),
+                    "grupo": datos.get("grupo", "")
+                }
             st.success("Expediente cargado correctamente.")
             st.rerun()
         except Exception as e:
@@ -211,9 +292,10 @@ with st.sidebar:
 
     st.markdown("---")
     
-    st.subheader("3. Transición: 'Año nuevo, vida nueva'")
-    st.caption("Aplica 'Tabula Rasa': restablece el vector a 0.0 dB registrando el cierre de ciclo en el historial para iniciar el nuevo periodo, preservando la continuidad longitudinal en el expediente.")
-    btn_tabula = st.button("🔄 Ejecutar 'Año nuevo, vida nueva' 🔒" if not es_admin else "🔄 Ejecutar 'Año nuevo, vida nueva'", disabled=not es_admin, use_container_width=True)
+    label_tabula = "3. Transición: 'Año nuevo, vida nueva'" if es_admin else "3. Transición: 'Año nuevo, vida nueva' 🔒 Admin"
+    st.subheader(label_tabula)
+    st.caption("Aplica 'Tabula Rasa': restablece el vector a 0.0 dB registrando el cierre de ciclo en el historial, preservando la continuidad longitudinal.")
+    btn_tabula = st.button("🔄 Ejecutar 'Año nuevo, vida nueva'", disabled=not es_admin, use_container_width=True)
     if btn_tabula and es_admin:
         st.session_state.historial_observaciones.append({
             "tipo": "TABULA_RASA",
@@ -225,39 +307,55 @@ with st.sidebar:
         st.success("Transición registrada. Vector restablecido a 0.0 dB con trazabilidad longitudinal resguardada.")
         st.rerun()
 
-col_izq, col_der = st.columns([0.42, 0.58])
+# --- LAYOUT PRINCIPAL A DOS COLUMNAS ---
+col_izq, col_der = st.columns([0.45, 0.55])
 
 with col_izq:
     st.subheader("1. Ficha del estudiante y registro")
     
-    col_f1, col_f2 = st.columns([0.7, 0.3])
-    with col_f1:
-        nombre_alumno = st.text_input("Nombre del estudiante:", key="input_nombre", placeholder="Nombre_Apellido")
-    with col_f2:
-        grupo_alumno = st.text_input("Grupo / Sección:", key="input_grupo", placeholder="Grupo")
+    col_f1, col_f2, col_f3 = st.columns([0.35, 0.4, 0.25])
     
-    with st.form(key="form_observacion_prisma", clear_on_submit=False):
+    with col_f2:
+        mat_in = st.text_input("Matrícula ID:", key="input_matricula", placeholder="Ej: A012345")
+        if mat_in in st.session_state.estudiantes_db:
+            st.session_state.input_nombre = st.session_state.estudiantes_db[mat_in]["nombre"]
+            st.session_state.input_grupo = st.session_state.estudiantes_db[mat_in]["grupo"]
+
+    with col_f1:
+        nom_in = st.text_input("Nombre del estudiante:", key="input_nombre", placeholder="Nombre_Apellido")
+        if mat_in and nom_in:
+            st.session_state.estudiantes_db[mat_in] = {
+                "nombre": nom_in,
+                "grupo": st.session_state.input_grupo
+            }
+            
+    with col_f3:
+        grp_in = st.text_input("Grupo:", key="input_grupo", placeholder="Grupo")
+
+    st.markdown("---")
+    st.subheader("2. Registro de Nota Narrativa Docente")
+    
+    # Formulario habilitante para captura nativa de Cmd+Enter / Ctrl+Enter
+    with st.form(key="form_nota_docente", clear_on_submit=False):
         nota_docente = st.text_area(
             "Dictado / Nota narrativa del docente:",
             key="input_nota",
             height=130,
             placeholder="Ingresa la observación cualitativa. Presiona Cmd+Enter o Ctrl+Enter para procesar."
         )
-        
-        btn_analizar = st.form_submit_button("➕ Acumular observación (prisma-engine)", type="primary")
+        btn_analizar = st.form_submit_button("⚡ Ejecutar análisis de nota", type="primary", use_container_width=True)
 
     if btn_analizar:
-        if not nombre_alumno.strip():
+        if not nom_in.strip():
             st.error("⚠️ Por favor ingresa el nombre del estudiante antes de procesar.")
-        elif not grupo_alumno.strip():
-            st.error("⚠️ Por favor ingresa el grupo o sección del estudiante antes de procesar.")
+        elif not grp_in.strip():
+            st.error("⚠️ Por favor ingresa el grupo del estudiante antes de procesar.")
         elif not nota_docente.strip():
             st.error("⚠️ Por favor ingresa una nota de observación cualitativa.")
         else:
-            with st.spinner("Procesando y acumulando vector en R⁸..."):
+            with st.spinner("Procesando inferencia cualitativa en ℝ⁸ (PRISMA-Engine)..."):
                 try:
-                    nom_eval = nombre_alumno.strip()
-                    user_prompt = f"Estudiante: {nom_eval}\nNota narrativa del docente: \"{nota_docente}\""
+                    user_prompt = f"Estudiante: {nom_in.strip()}\nNota narrativa del docente: \"{nota_docente}\""
                     
                     response = requests.post(
                         "http://localhost:11434/api/generate",
@@ -278,43 +376,149 @@ with col_izq:
                         for clave_json, nombre_oficial in MAPEO_EJES.items():
                             if clave_json in eval_ejes:
                                 delta = float(eval_ejes[clave_json].get("delta_db", 0.0))
-                                st.session_state.valores_db[nombre_oficial] += delta
                                 deltas_aplicados[nombre_oficial] = delta
                         
-                        st.session_state.historial_observaciones.append({
-                            "tipo": "IA",
-                            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                        st.session_state.analisis_pendiente = {
                             "nota": nota_docente,
                             "deltas": deltas_aplicados,
-                            "resultado_ia": resultado,
-                            "vector_snapshot": dict(st.session_state.valores_db)
-                        })
-                        
-                        fecha_iso = datetime.now().strftime("%y%m%d")
-                        nom_clean = limpiar_cadena(nombre_alumno)
-                        grp_clean = limpiar_cadena(grupo_alumno)
-                        filename_auto = f"{fecha_iso}_{nom_clean}_{grp_clean}_PRISMA.json"
-                        filepath_auto = os.path.join(DIR_EXPEDIENTES, filename_auto)
-                        
-                        exp_auto = {
-                            "estudiante": nombre_alumno,
-                            "grupo": grupo_alumno,
-                            "ultima_actualizacion": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                            "vector_actual_db": st.session_state.valores_db,
-                            "historial_observaciones": st.session_state.historial_observaciones
+                            "resultado_ia": resultado
                         }
-                        with open(filepath_auto, "w", encoding="utf-8") as f:
-                            json.dump(exp_auto, f, indent=2, ensure_ascii=False)
-
-                        st.session_state.mostrar_modal_resguardo = True
                         st.rerun()
                     else:
-                        st.error(f"Error en Ollama (Código HTTP {response.status_code})")
-                except requests.exceptions.Timeout:
-                    st.error("Tiempo de espera agotado (Timeout).")
+                        st.error(f"Error en Ollama local (Código HTTP {response.status_code})")
                 except Exception as e:
                     st.error(f"Error de conexión con Ollama local: {e}")
 
+    # Exportación directa colocada estratégicamente debajo de Ejecutar análisis
+    if st.button("💾 Exportar Expediente (.json)", use_container_width=True):
+        if not nom_in.strip() or not grp_in.strip():
+            st.error("⚠️ Por favor ingresa el nombre y grupo del estudiante antes de exportar.")
+        else:
+            fname, edata = guardar_expediente_disco(
+                st.session_state.input_nombre,
+                st.session_state.input_matricula,
+                st.session_state.input_grupo
+            )
+            st.download_button(
+                label="Descargar archivo generado",
+                data=json.dumps(edata, indent=2, ensure_ascii=False),
+                file_name=fname,
+                mime="application/json",
+                use_container_width=True
+            )
+
+    # --- FLUJO DE 3 TIEMPOS: ÁREA DE PREVISUALIZACIÓN / STAGING ---
+    if st.session_state.analisis_pendiente:
+        st.markdown('<div class="staging-card">', unsafe_allow_html=True)
+        st.markdown("#### 🔍 Previsualización del análisis de la IA")
+        st.caption("Revisa el impacto sugerido en el mapa vectorial antes de consolidar el hito.")
+        
+        deltas_p = st.session_state.analisis_pendiente["deltas"]
+        resultado_p = st.session_state.analisis_pendiente["resultado_ia"].get("evaluacion_ejes", {})
+        
+        for clave_j, n_eje in MAPEO_EJES.items():
+            if n_eje in deltas_p and abs(deltas_p[n_eje]) > 0.01:
+                razon = resultado_p.get(clave_j, {}).get("razonamiento", "")
+                st.write(f"• **{n_eje}:** `{fmt_db(deltas_p[n_eje])} dB` — *{razon}*")
+                
+        st.markdown("---")
+        col_s1, col_s2, col_s3 = st.columns([0.35, 0.3, 0.35])
+        
+        with col_s1:
+            if st.button("✅ Aceptar y Registrar Hito", type="primary", use_container_width=True):
+                for eje, d_val in deltas_p.items():
+                    st.session_state.valores_db[eje] += d_val
+                
+                st.session_state.historial_observaciones.append({
+                    "tipo": "IA",
+                    "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                    "nota": st.session_state.analisis_pendiente["nota"],
+                    "deltas": deltas_p,
+                    "resultado_ia": st.session_state.analisis_pendiente["resultado_ia"],
+                    "vector_snapshot": dict(st.session_state.valores_db)
+                })
+                
+                st.session_state.analisis_pendiente = None
+                st.session_state.flag_limpiar_nota = True
+                
+                guardar_expediente_disco(nom_in, mat_in, grp_in)
+                st.session_state.mostrar_modal_resguardo = True
+                st.rerun()
+                
+        with col_s2:
+            if st.button("🎨 Ajustar Manualmente", use_container_width=True):
+                for eje, d_val in deltas_p.items():
+                    val_f = float(d_val)
+                    st.session_state[f"slider_{eje}"] = val_f
+                    st.session_state[f"num_{eje}"] = val_f
+                st.session_state.analisis_pendiente = None
+                st.rerun()
+                
+        with col_s3:
+            if st.button("❌ Rechazar análisis / modificar nota docente", use_container_width=True):
+                st.session_state.analisis_pendiente = None
+                st.rerun()
+                
+        st.markdown('</div>', unsafe_allow_html=True)
+
+    # --- META-ANÁLISIS DE TRAYECTORIA POR PRISMA ---
+    st.markdown("---")
+    st.subheader("3. Meta-Análisis de Trayectoria")
+    st.caption("Pide a PRISMA analizar la trayectoria multidimensional integral durante el periodo seleccionado para detectar patrones y sugerir ajustes en los ejes.")
+    
+    if st.button("🌌 Meta-Análisis PRISMA", use_container_width=True):
+        if not nom_in.strip() or not grp_in.strip():
+            st.error("⚠️ Por favor completa el Nombre y Grupo del estudiante antes de ejecutar el Meta-Análisis.")
+        elif len(st.session_state.historial_observaciones) < 2:
+            st.warning("⚠️ Se requieren al menos 2 hitos acumulados para realizar un Meta-Análisis de Trayectoria.")
+        else:
+            with st.spinner("Analizando trayectoria multidimensional integral en ℝ⁸ (PRISMA-Engine)..."):
+                try:
+                    summary_prompt = f"Evaluación holística de trayectoria en R8 para {nom_in}:\nVector Acumulado Actual: {json.dumps(st.session_state.valores_db)}\nTotal de hitos evaluados: {len(st.session_state.historial_observaciones)}"
+                    
+                    response_meta = requests.post(
+                        "http://localhost:11434/api/generate",
+                        json={
+                            "model": "prisma-engine",
+                            "prompt": f"MODO_META_ANALISIS: {summary_prompt}",
+                            "stream": False,
+                            "format": "json"
+                        },
+                        timeout=120
+                    )
+                    if response_meta.status_code == 200:
+                        meta_res = json.loads(response_meta.json()["response"])
+                        eval_meta = meta_res.get("evaluacion_ejes", {})
+                        
+                        st.info("🌌 **Diagnóstico Holístico Sugerido por PRISMA:**")
+                        overrides_sugeridos = {}
+                        for c_j, n_eje in MAPEO_EJES.items():
+                            if c_j in eval_meta:
+                                delta_m = float(eval_meta[c_j].get("delta_db", 0.0))
+                                if abs(delta_m) > 0.01:
+                                    overrides_sugeridos[n_eje] = delta_m
+                                    st.write(f"• **{n_eje}:** Ajuste holístico de `{fmt_db(delta_m)} dB` — {eval_meta[c_j].get('razonamiento', '')}")
+                        
+                        if st.button("Aceptar y registrar Meta-Análisis PRISMA como Hito"):
+                            for eje, d_m in overrides_sugeridos.items():
+                                st.session_state.valores_db[eje] += d_m
+                                
+                            st.session_state.historial_observaciones.append({
+                                "tipo": "META_ANALISIS",
+                                "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                                "justificacion": "Ajuste holístico de trayectoria por Meta-Análisis PRISMA.",
+                                "deltas": overrides_sugeridos,
+                                "resultado_ia": meta_res,
+                                "vector_snapshot": dict(st.session_state.valores_db)
+                            })
+                            guardar_expediente_disco(nom_in, mat_in, grp_in)
+                            st.rerun()
+                    else:
+                        st.error("No se pudo obtener el Meta-Análisis de Ollama.")
+                except Exception as e:
+                    st.error(f"Error de conexión: {e}")
+
+    # --- HISTORIAL DE HITOS ACUMULADOS ---
     if st.session_state.historial_observaciones:
         st.markdown("---")
         st.subheader(f"📋 Historial de hitos acumulados ({len(st.session_state.historial_observaciones)})")
@@ -322,19 +526,24 @@ with col_izq:
         for idx, obs in enumerate(reversed(st.session_state.historial_observaciones), 1):
             num_obs = len(st.session_state.historial_observaciones) - idx + 1
             tipo_hito = obs.get("tipo", "IA")
+            
             if tipo_hito == "IA":
                 etiqueta_tipo = "🌌 Inferencia PRISMA"
             elif tipo_hito == "MANUAL":
                 etiqueta_tipo = "🎨 Calibración manual docente"
+            elif tipo_hito == "META_ANALISIS":
+                etiqueta_tipo = "🌌 Meta-Análisis PRISMA"
             else:
                 etiqueta_tipo = "🔄 Transición: Año nuevo, vida nueva"
                 
             ts = obs.get("timestamp", "")
             
             with st.expander(f"Hito #{num_obs} — {ts} [{etiqueta_tipo}]", expanded=(num_obs == len(st.session_state.historial_observaciones))):
-                if tipo_hito == "IA":
-                    nota_txt = obs.get("nota", "")
-                    st.write(f"**Nota de campo:** *\"{nota_txt}\"*")
+                if tipo_hito in ["IA", "META_ANALISIS"]:
+                    if "nota" in obs:
+                        st.write(f"**Nota narrativa docente:** *\"{obs['nota']}\"*")
+                    
+                    st.markdown("**Desglose e Inferencia de PRISMA:**")
                     eval_ejes = obs.get("resultado_ia", {}).get("evaluacion_ejes", {})
                     hubo_cambios = False
                     for clave_json, datos in eval_ejes.items():
@@ -345,89 +554,119 @@ with col_izq:
                             razon = datos.get("razonamiento", "")
                             st.caption(f"• **{nombre_eje}:** `{fmt_db(delta)} dB` — {razon}")
                     if not hubo_cambios:
-                        st.caption("ℹ️ *El motor no detectó evidencias suficientes para aplicar deltas en esta nota.*")
+                        st.caption("ℹ️ *El motor no detectó evidencias para aplicar deltas en este hito.*")
+                        
                 elif tipo_hito == "MANUAL":
-                    just_txt = obs.get("justificacion", "")
-                    st.write(f"**Razonamiento pedagógico del docente:** *\"{just_txt}\"*")
+                    st.write(f"**Razonamiento pedagógico docente:** *\"{obs.get('justificacion', '')}\"*")
                     deltas_manuales = obs.get("deltas", {})
                     for eje_nom, delta_val in deltas_manuales.items():
                         if abs(delta_val) > 0.01:
-                            st.caption(f"• **{eje_nom}:** `{fmt_db(delta_val)} dB` (Ajuste manual directo)")
+                            st.caption(f"• **{eje_nom}:** `{fmt_db(delta_val)} dB` (Ajuste directo)")
                 else:
-                    just_txt = obs.get("justificacion", "")
-                    st.write(f"**Registro de transición:** *\"{just_txt}\"*")
+                    st.write(f"**Registro de transición:** *\"{obs.get('justificacion', '')}\"*")
 
+    # --- CALIBRACIÓN MANUAL DOCENTE HÍBRIDA ---
     st.markdown("---")
-    st.subheader("2. Calibración manual docente (dB)")
-    st.caption("Desplaza las barras para aplicar incrementos o decrementos puntuales (delta) sobre el vector acumulado.")
+    st.subheader("4. Calibración manual docente (dB)")
+    st.caption("Ajusta los valores ingresando directamente el número o desplazando la barra táctil.")
     
-    with st.form(key="form_calibracion_manual"):
-        deltas_sliders = {}
-        for eje in EJE_NOMBRES:
-            deltas_sliders[eje] = st.slider(
+    for eje in EJE_NOMBRES:
+        col_c1, col_c2 = st.columns([0.7, 0.3])
+        
+        with col_c1:
+            st.slider(
                 eje,
                 min_value=-6.0,
                 max_value=6.0,
-                value=0.0,
                 step=0.1,
-                help=f"Ajuste puntual para {eje} (Estado actual: {fmt_db(st.session_state.valores_db[eje])} dB)"
+                key=f"slider_{eje}",
+                on_change=sync_slider_a_num,
+                args=(eje,),
+                help=f"Estado actual: {fmt_db(st.session_state.valores_db[eje])} dB"
             )
-        
-        justificacion_docente = st.text_area(
-            "Razonamiento / Justificación pedagógica del ajuste (Obligatorio):",
-            key="input_justificacion",
-            height=80,
-            placeholder="Ejemplo: Se incrementa +1.5 dB en Razonamiento ético tras observar la mediación espontánea de la estudiante."
-        )
-        
-        btn_aplicar_ajustes = st.form_submit_button("🎨 Registrar calibración manual como hito", type="secondary")
+        with col_c2:
+            st.number_input(
+                f"Valor {eje}",
+                min_value=-6.0,
+                max_value=6.0,
+                step=0.1,
+                key=f"num_{eje}",
+                on_change=sync_num_a_slider,
+                args=(eje,),
+                label_visibility="collapsed"
+            )
+    
+    justificacion_docente = st.text_area(
+        "Razonamiento / Justificación pedagógica del ajuste (Obligatorio):",
+        key="input_justificacion",
+        height=80,
+        placeholder="Ejemplo: Incremento en Razonamiento ético tras observar la mediación espontánea del estudiante."
+    )
+    
+    btn_aplicar_ajustes = st.button("🎨 Registrar calibración manual como hito", type="secondary", use_container_width=True)
 
     if btn_aplicar_ajustes:
-        if justificacion_docente.strip():
-            hubo_ajuste = any(abs(v) > 0.001 for v in deltas_sliders.values())
+        if not nom_in.strip() or not grp_in.strip():
+            st.error("⚠️ Por favor completa el Nombre y Grupo del estudiante antes de registrar la calibración manual.")
+        elif justificacion_docente.strip():
+            deltas_confirmados = {eje: float(st.session_state[f"num_{eje}"]) for eje in EJE_NOMBRES}
+            hubo_ajuste = any(abs(v) > 0.001 for v in deltas_confirmados.values())
             if hubo_ajuste:
                 for eje in EJE_NOMBRES:
-                    st.session_state.valores_db[eje] += deltas_sliders[eje]
+                    st.session_state.valores_db[eje] += deltas_confirmados[eje]
                 
                 st.session_state.historial_observaciones.append({
                     "tipo": "MANUAL",
                     "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                     "justificacion": justificacion_docente,
-                    "deltas": deltas_sliders,
+                    "deltas": deltas_confirmados,
                     "vector_snapshot": dict(st.session_state.valores_db)
                 })
-                st.session_state.input_justificacion = ""
+                
+                # Activar banderas de reinicio seguro post-renderizado
+                st.session_state.flag_limpiar_justificacion = True
+                st.session_state.flag_reset_calib = True
+                
+                guardar_expediente_disco(nom_in, mat_in, grp_in)
                 st.session_state.mostrar_modal_resguardo = True
                 st.rerun()
             else:
-                st.error("⚠️ Mueve al menos un slider para registrar un ajuste manual.")
+                st.error("⚠️ Ajusta al menos un valor diferente de 0.0 dB para registrar.")
         else:
-            st.error("⚠️ Por favor ingresa el razonamiento pedagógico para registrar el ajuste manual.")
+            st.error("⚠️ Ingrese el razonamiento pedagógico para justificar el ajuste manual.")
 
+# --- COLUMNA DERECHA: ESPEJO METACOGNITIVO Y RADAR (STICKY CONTAINER) ---
 with col_der:
-    nombre_clean_tit = nombre_alumno.strip() if nombre_alumno else ""
-    grupo_clean_tit = grupo_alumno.strip() if grupo_alumno else ""
+    st.markdown('<div class="sticky-radar-container">', unsafe_allow_html=True)
     
-    if nombre_clean_tit and grupo_clean_tit:
-        identificador_estudiante = f"{nombre_clean_tit} ({grupo_clean_tit})"
-    elif nombre_clean_tit:
-        identificador_estudiante = nombre_clean_tit
-    elif grupo_clean_tit:
-        identificador_estudiante = f"Grupo {grupo_clean_tit}"
-    else:
-        identificador_estudiante = ""
-
-    if identificador_estudiante:
-        st.subheader(f"3. Mapa Visual de Crecimiento de {identificador_estudiante} — Espacio vectorial ℝ⁸")
-    else:
-        st.subheader("3. Espejo metacognitivo — Espacio vectorial ℝ⁸")
+    st.subheader("Espejo metacognitivo — Espacio vectorial ℝ⁸")
     
     modo_vis = st.radio(
         "Visualización:",
-        options=["Trayectoria completa (Todos los hitos)", "Comparativa personalizada", "Último estado vs base"],
+        options=["Trayectoria completa (todos los hitos)", "Comparativa personalizada"],
         horizontal=True
     )
     
+    label_historico = "Vista de trayectoria histórica" if es_admin else "Vista de trayectoria histórica 🔒 Admin"
+    ver_historico = st.checkbox(label_historico, disabled=not es_admin, value=False)
+    
+    nombre_tit = st.session_state.input_nombre.strip()
+    grupo_tit = st.session_state.input_grupo.strip()
+    
+    if nombre_tit and grupo_tit:
+        id_estudiante = f"{nombre_tit} ({grupo_tit})"
+    elif nombre_tit:
+        id_estudiante = nombre_tit
+    elif grupo_tit:
+        id_estudiante = f"Grupo {grupo_tit}"
+    else:
+        id_estudiante = ""
+        
+    if id_estudiante:
+        st.markdown(f"#### Mapa Visual de Crecimiento — {id_estudiante}")
+    else:
+        st.markdown("#### Mapa Visual de Crecimiento")
+
     valores_live = {eje: float(st.session_state.valores_db[eje]) for eje in EJE_NOMBRES}
     
     ejes_etiquetados = [
@@ -436,16 +675,32 @@ with col_der:
     ]
     ejes_cerrados = ejes_etiquetados + [ejes_etiquetados[0]]
     
-    todos_vectores = [list(valores_live.values())]
+    # Filtrado de hitos según vista histórica o ciclo escolar activo
+    hitos_activos = []
+    paso_tabula = False
     for obs in st.session_state.historial_observaciones:
+        if obs.get("tipo") == "TABULA_RASA":
+            paso_tabula = True
+            continue
+        if paso_tabula:
+            hitos_activos.append(obs)
+        else:
+            if not any(o.get("tipo") == "TABULA_RASA" for o in st.session_state.historial_observaciones):
+                hitos_activos.append(obs)
+
+    hitos_a_dibujar = st.session_state.historial_observaciones if (ver_historico and es_admin) else (hitos_activos if any(o.get("tipo") == "TABULA_RASA" for o in st.session_state.historial_observaciones) else st.session_state.historial_observaciones)
+
+    todos_vectores = [list(valores_live.values())]
+    for obs in hitos_a_dibujar:
         if "vector_snapshot" in obs:
             todos_vectores.append(list(obs["vector_snapshot"].values()))
-    
+            
     max_valor_global = max([val for vec in todos_vectores for val in vec] + [0.0])
     limite_radar = 12.0 if max_valor_global <= 12.0 else (18.0 if max_valor_global <= 18.0 else 24.0)
     
     fig = go.Figure()
 
+    # Línea base (0.0 dB)
     fig.add_trace(go.Scatterpolar(
         r=[0.0] * 9,
         theta=ejes_cerrados,
@@ -455,7 +710,7 @@ with col_der:
         hoverinfo="skip"
     ))
 
-    num_hitos = len(st.session_state.historial_observaciones)
+    num_hitos = len(hitos_a_dibujar)
     
     PALETA_COLORES = [
         ("rgba(236, 72, 153, 0.8)", "rgba(236, 72, 153, 0.1)"),
@@ -465,22 +720,18 @@ with col_der:
         ("rgba(99, 102, 241, 1.0)", "rgba(99, 102, 241, 0.35)")
     ]
 
-    if modo_vis == "Trayectoria completa (Todos los hitos)":
+    if modo_vis == "Trayectoria completa (todos los hitos)":
         if num_hitos > 0:
-            for i, obs in enumerate(st.session_state.historial_observaciones):
+            for i, obs in enumerate(hitos_a_dibujar):
                 v_snap = obs.get("vector_snapshot", valores_live)
                 vals = [v_snap[eje] for eje in EJE_NOMBRES]
                 vals_cerrados = vals + [vals[0]]
                 
                 color_line, color_fill = PALETA_COLORES[i % len(PALETA_COLORES)]
-                is_last = (i == num_hitos - 1)
+                is_last = (i == num_hitos - 1) and (st.session_state.analisis_pendiente is None)
                 tipo_hito = obs.get("tipo", "IA")
-                if tipo_hito == "IA":
-                    tag_tipo = "PRISMA"
-                elif tipo_hito == "MANUAL":
-                    tag_tipo = "Manual"
-                else:
-                    tag_tipo = "Año Nuevo"
+                
+                tag_tipo = "PRISMA" if tipo_hito == "IA" else ("Manual" if tipo_hito == "MANUAL" else "Año Nuevo")
                 
                 fig.add_trace(go.Scatterpolar(
                     r=vals_cerrados,
@@ -497,7 +748,7 @@ with col_der:
             fig.add_trace(go.Scatterpolar(
                 r=vals + [vals[0]],
                 theta=ejes_cerrados,
-                fill="toself",
+                fill="toself" if st.session_state.analisis_pendiente is None else "none",
                 fillcolor="rgba(99, 102, 241, 0.35)",
                 line=dict(color="#6366F1", width=3),
                 marker=dict(size=7, color="#4F46E5"),
@@ -507,16 +758,16 @@ with col_der:
 
     elif modo_vis == "Comparativa personalizada":
         if num_hitos > 0:
-            opciones_hitos = [f"Hito #{i+1} [{obs.get('tipo', 'IA')}] — {obs.get('timestamp', '')}" for i, obs in enumerate(st.session_state.historial_observaciones)]
+            opciones_hitos = [f"Hito #{i+1} [{obs.get('tipo', 'IA')}] — {obs.get('timestamp', '')}" for i, obs in enumerate(hitos_a_dibujar)]
             hitos_seleccionados = st.multiselect(
-                "Selecciona los hitos a superponer:",
+                "Superponer hitos para comparativa:",
                 options=opciones_hitos,
                 default=[opciones_hitos[-1]]
             )
             
             for idx_str in hitos_seleccionados:
                 i = int(idx_str.split("#")[1].split(" ")[0]) - 1
-                obs = st.session_state.historial_observaciones[i]
+                obs = hitos_a_dibujar[i]
                 v_snap = obs.get("vector_snapshot", valores_live)
                 vals = [v_snap[eje] for eje in EJE_NOMBRES]
                 color_line, color_fill = PALETA_COLORES[i % len(PALETA_COLORES)]
@@ -545,55 +796,71 @@ with col_der:
                 hovertemplate="%{theta}<extra></extra>"
             ))
 
-    else:
-        vals = [valores_live[eje] for eje in EJE_NOMBRES]
+    # VECTOR FANTASMA: Dibuja la Previsualización (sugerida) en la etapa de Staging
+    if st.session_state.analisis_pendiente:
+        deltas_p = st.session_state.analisis_pendiente.get("deltas", {})
+        vals_proyectados = [valores_live[eje] + deltas_p.get(eje, 0.0) for eje in EJE_NOMBRES]
+        vals_proyectados_cerrados = vals_proyectados + [vals_proyectados[0]]
+        
         fig.add_trace(go.Scatterpolar(
-            r=vals + [vals[0]],
+            r=vals_proyectados_cerrados,
             theta=ejes_cerrados,
             fill="toself",
-            fillcolor="rgba(99, 102, 241, 0.35)",
-            line=dict(color="#6366F1", width=3),
-            marker=dict(size=7, color="#4F46E5"),
-            name="Estado actual acumulado",
+            fillcolor="rgba(168, 85, 247, 0.15)",
+            line=dict(color="#A855F7", width=2.5, dash="dot"),
+            marker=dict(size=7, color="#A855F7"),
+            name="Previsualización (sugerida)",
             hovertemplate="%{theta}<extra></extra>"
         ))
 
     fig.update_layout(
+        uirevision=True,
         polar=dict(
             radialaxis=dict(
                 visible=True,
                 range=[-6, limite_radar],
-                tickvals=[-6, 0, 12, 18, 24],
+                tickvals=[-6, -4, -2, 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24],
                 ticktext=[
-                    "-6 dB (Mínimo)",
-                    "0.0 dB (Base)",
-                    "+12 dB (Inicial / Fundamental)",
-                    "+18 dB (Intermedio / Autónomo)",
-                    "+24 dB (Avanzado / Experto)"
+                    "-6 dB (Mín)", "", "", "0.0 dB (Base)", "", "", "", "", "",
+                    "+12 dB (Inicial)", "", "", "+18 dB (Intermedio)", "", "", "+24 dB (Experto)"
                 ],
                 angle=22.5,
-                gridcolor="#CBD5E1",
-                gridwidth=0.8,
-                tickfont=dict(size=9, color="#475569")
+                gridcolor="#E2E8F0",
+                gridwidth=0.6,
+                tickfont=dict(size=8, color="#475569")
             ),
             angularaxis=dict(
-                tickfont=dict(size=10.5, color="#1E293B"),
+                tickfont=dict(size=9, color="#1E293B"),
                 rotation=90,
                 direction="clockwise",
                 gridcolor="#E2E8F0"
             )
         ),
         showlegend=True,
-        legend=dict(orientation="h", yanchor="bottom", y=-0.18, xanchor="center", x=0.5),
-        height=720,
-        margin=dict(l=150, r=150, t=50, b=90)
+        legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=-0.22,
+            xanchor="center",
+            x=0.5,
+            font=dict(size=9.0)
+        ),
+        height=540,
+        margin=dict(l=40, r=40, t=75, b=80)
     )
 
-    st.plotly_chart(fig, use_container_width=True)
-    st.caption("ℹ️ *Las lecturas en decibeles (dB) indican el **Índice de crecimiento** acumulado en cada dimensión respecto a la Línea base (0.0 dB).*")
+    st.plotly_chart(fig, use_container_width=True, config={'scrollZoom': False, 'displayModeBar': True})
+    st.caption("ℹ️ *Las lecturas en decibeles (dB) indican el índice de crecimiento acumulado respecto a la línea base (0.0 dB).*")
+    
+    st.markdown('</div>', unsafe_allow_html=True)
 
+# --- DESPLIEGUE FINAL DE DIÁLOGOS ---
 if st.session_state.mostrar_modal_resguardo:
-    modal_exportar_resguardo(nombre_alumno, grupo_alumno)
+    modal_exportar_resguardo(
+        st.session_state.input_nombre,
+        st.session_state.input_matricula,
+        st.session_state.input_grupo
+    )
 
 if st.session_state.mostrar_modal_confirmar_reiniciar:
     modal_confirmar_reiniciar()

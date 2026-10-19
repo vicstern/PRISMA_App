@@ -1,0 +1,79 @@
+{
+  "estudiante": "Víctor",
+  "grupo": "Niño",
+  "ultima_actualizacion": "2026-10-18 19:12:50",
+  "vector_actual_db": {
+    "Indagación e investigación": -1.2,
+    "Pensamiento crítico y analítico": -0.8,
+    "Razonamiento ético": 0.0,
+    "Agencia intercultural": 0.0,
+    "Liderazgo colaborativo": 0.0,
+    "Saber hacer y ejecución técnica": -1.5,
+    "Resiliencia y autogestión": -2.0,
+    "Reflexión metacognitiva": -0.5
+  },
+  "historial_observaciones": [
+    {
+      "tipo": "IA",
+      "timestamp": "2026-10-18 19:12:50",
+      "nota": "Víctor no se ha esforzado lo suficiente en sus exámenes, y tiende a distraerse en clase.",
+      "deltas": {
+        "Indagación e investigación": -1.2,
+        "Pensamiento crítico y analítico": -0.8,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 0.0,
+        "Saber hacer y ejecución técnica": -1.5,
+        "Resiliencia y autogestión": -2.0,
+        "Reflexión metacognitiva": -0.5
+      },
+      "resultado_ia": {
+        "estudiante": "Víctor",
+        "evaluacion_ejes": {
+          "Indagacion_Investigacion": {
+            "delta_db": -1.2,
+            "razonamiento": "Falta de esfuerzo en exámenes indica descompensación en la búsqueda de información y validación de hipótesis."
+          },
+          "Pensamiento_Critico_Analitico": {
+            "delta_db": -0.8,
+            "razonamiento": "La distracción en clase impide la consolidación de datos y el procesamiento lógico de contenidos."
+          },
+          "Razonamiento_Etico": {
+            "delta_db": 0.0,
+            "razonamiento": "La falta de esfuerzo no se interpreta como negligencia intencional, sino como desregulación de la motivación."
+          },
+          "Agencia_Intercultural": {
+            "delta_db": 0.0,
+            "razonamiento": "No hay evidencia de conflicto intergrupal ni desajuste cultural en la conducta reportada."
+          },
+          "Liderazgo_Colaborativo": {
+            "delta_db": 0.0,
+            "razonamiento": "La conducta es individual y no interrumpe la dinámica de trabajo del equipo."
+          },
+          "Saber_Hacer_Ejecucion_Tecnica": {
+            "delta_db": -1.5,
+            "razonamiento": "La distracción afecta la ejecución técnica y la aplicación práctica de los conocimientos adquiridos."
+          },
+          "Resiliencia_Autogestion": {
+            "delta_db": -2.0,
+            "razonamiento": "La falta de esfuerzo sostenida y la distracción reflejan una baja capacidad de autogestión y recuperación ante desafíos."
+          },
+          "Reflexion_Metacognitiva": {
+            "delta_db": -0.5,
+            "razonamiento": "No se evidencia la reflexión sobre los propios procesos de aprendizaje ni la autorregulación de la atención."
+          }
+        }
+      },
+      "vector_snapshot": {
+        "Indagación e investigación": -1.2,
+        "Pensamiento crítico y analítico": -0.8,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 0.0,
+        "Saber hacer y ejecución técnica": -1.5,
+        "Resiliencia y autogestión": -2.0,
+        "Reflexión metacognitiva": -0.5
+      }
+    }
+  ]
+}
