@@ -1,5 +1,6 @@
 import streamlit as st
 import plotly.graph_objects as go
+import numpy as np
 import json
 import requests
 import os
@@ -34,6 +35,13 @@ st.markdown("""
     .staging-card {
         background-color: #F8FAFC;
         border: 1.5px solid #6366F1;
+        border-radius: 10px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    .manual-staging-card {
+        background-color: #FAF5FF;
+        border: 1.5px solid #A855F7;
         border-radius: 10px;
         padding: 1rem;
         margin-bottom: 1rem;
@@ -107,6 +115,12 @@ if "historial_observaciones" not in st.session_state:
 
 if "analisis_pendiente" not in st.session_state:
     st.session_state.analisis_pendiente = None
+
+if "previsualizacion_manual" not in st.session_state:
+    st.session_state.previsualizacion_manual = None
+
+if "procesando" not in st.session_state:
+    st.session_state.procesando = False
 
 if "estudiantes_db" not in st.session_state:
     st.session_state.estudiantes_db = {}
@@ -233,6 +247,8 @@ def modal_confirmar_reiniciar():
         st.session_state.valores_db = {eje: 0.0 for eje in EJE_NOMBRES}
         st.session_state.historial_observaciones = []
         st.session_state.analisis_pendiente = None
+        st.session_state.previsualizacion_manual = None
+        st.session_state.procesando = False
         st.session_state.input_nombre = ""
         st.session_state.input_matricula = ""
         st.session_state.input_grupo = ""
@@ -249,6 +265,8 @@ def modal_confirmar_reiniciar():
             st.session_state.valores_db = {eje: 0.0 for eje in EJE_NOMBRES}
             st.session_state.historial_observaciones = []
             st.session_state.analisis_pendiente = None
+            st.session_state.previsualizacion_manual = None
+            st.session_state.procesando = False
             st.session_state.input_nombre = ""
             st.session_state.input_matricula = ""
             st.session_state.input_grupo = ""
@@ -267,7 +285,7 @@ with st.sidebar:
     st.header("⚙️ Gestión de registro")
     
     st.subheader("1. Flujo de trabajo")
-    if st.button("✨ Reiniciar pantalla de registro", use_container_width=True, type="primary"):
+    if st.button("✨ Reiniciar pantalla de registro", use_container_width=True, type="primary", disabled=st.session_state.procesando):
         st.session_state.mostrar_modal_confirmar_reiniciar = True
         st.rerun()
 
@@ -280,6 +298,7 @@ with st.sidebar:
         type="password",
         key="input_clave_admin",
         placeholder="Ingresa clave de acceso",
+        disabled=st.session_state.procesando,
         help="Habilita la carga de expedientes y la transición de ciclo escolar."
     )
     
@@ -287,7 +306,7 @@ with st.sidebar:
     
     if es_admin:
         st.success("Acceso concedido — Modo Administrador")
-        if st.button("🔴 Salir del modo administrador", use_container_width=True):
+        if st.button("🔴 Salir del modo administrador", use_container_width=True, disabled=st.session_state.procesando):
             st.session_state.input_clave_admin = ""
             st.rerun()
     else:
@@ -300,11 +319,11 @@ with st.sidebar:
     archivo_cargado = st.file_uploader(
         "Selecciona expediente JSON:",
         type=["json"],
-        disabled=not es_admin,
+        disabled=(not es_admin or st.session_state.procesando),
         help="Carga de expedientes históricos" if es_admin else "Función exclusiva para nivel Administrador"
     )
     
-    btn_importar = st.button("📥 Cargar expediente", disabled=(not es_admin or archivo_cargado is None), use_container_width=True)
+    btn_importar = st.button("📥 Cargar expediente", disabled=(not es_admin or archivo_cargado is None or st.session_state.procesando), use_container_width=True)
     if btn_importar and archivo_cargado is not None and es_admin:
         try:
             datos = json.load(archivo_cargado)
@@ -333,11 +352,11 @@ with st.sidebar:
     ciclo_id_input = st.text_input(
         "Identificador del ciclo a cerrar:",
         value=f"{datetime.now().year}-1",
-        disabled=not es_admin,
+        disabled=(not es_admin or st.session_state.procesando),
         help="Ejemplos: 2026-1, 2026-2, 2025-2026"
     )
     
-    btn_tabula = st.button("🔄 Ejecutar 'Año nuevo, vida nueva'", disabled=not es_admin, use_container_width=True)
+    btn_tabula = st.button("🔄 Ejecutar 'Año nuevo, vida nueva'", disabled=(not es_admin or st.session_state.procesando), use_container_width=True)
     if btn_tabula and es_admin:
         nom_a = st.session_state.input_nombre
         mat_a = st.session_state.input_matricula
@@ -364,13 +383,13 @@ with col_izq:
     col_f1, col_f2, col_f3 = st.columns([0.35, 0.4, 0.25])
     
     with col_f2:
-        mat_in = st.text_input("Matrícula ID:", key="input_matricula", placeholder="Ej: A012345")
+        mat_in = st.text_input("Matrícula ID:", key="input_matricula", placeholder="Ej: A012345", disabled=st.session_state.procesando)
         if mat_in in st.session_state.estudiantes_db:
             st.session_state.input_nombre = st.session_state.estudiantes_db[mat_in]["nombre"]
             st.session_state.input_grupo = st.session_state.estudiantes_db[mat_in]["grupo"]
 
     with col_f1:
-        nom_in = st.text_input("Nombre del estudiante:", key="input_nombre", placeholder="Nombre_Apellido")
+        nom_in = st.text_input("Nombre del estudiante:", key="input_nombre", placeholder="Nombre_Apellido", disabled=st.session_state.procesando)
         if mat_in and nom_in:
             st.session_state.estudiantes_db[mat_in] = {
                 "nombre": nom_in,
@@ -378,7 +397,7 @@ with col_izq:
             }
             
     with col_f3:
-        grp_in = st.text_input("Grupo:", key="input_grupo", placeholder="Grupo")
+        grp_in = st.text_input("Grupo:", key="input_grupo", placeholder="Grupo", disabled=st.session_state.procesando)
 
     st.markdown("---")
     st.subheader("2. Registro de Nota Narrativa Docente")
@@ -388,11 +407,17 @@ with col_izq:
             "Dictado / Nota narrativa del docente:",
             key="input_nota",
             height=130,
+            disabled=st.session_state.procesando,
             placeholder="Ingresa la observación cualitativa (puedes incluir notas numeradas 1, 2, 3). Presiona Cmd+Enter o Ctrl+Enter para procesar."
         )
-        btn_analizar = st.form_submit_button("⚡ Ejecutar análisis de nota", type="primary", use_container_width=True)
+        btn_analizar = st.form_submit_button(
+            "⚡ Ejecutar análisis de nota" if not st.session_state.procesando else "⏳ Procesando inferencia...",
+            type="primary",
+            use_container_width=True,
+            disabled=st.session_state.procesando
+        )
 
-    if btn_analizar:
+    if btn_analizar and not st.session_state.procesando:
         if not nom_in.strip():
             st.error("⚠️ Por favor ingresa el nombre del estudiante antes de procesar.")
         elif not grp_in.strip():
@@ -401,53 +426,59 @@ with col_izq:
             st.error("⚠️ Por favor ingresa una nota de observación cualitativa.")
         else:
             sub_hitos = parsear_nota_multihito(nota_docente)
-            
-            with st.spinner(f"Procesando inferencia cualitativa en ℝ⁸ ({len(sub_hitos)} hito/s)..."):
-                try:
-                    resultados_multihito = []
-                    
-                    for idx_h, texto_h in enumerate(sub_hitos, 1):
-                        user_prompt = f"Estudiante: {nom_in.strip()}\nNota narrativa (Hito {idx_h}): \"{texto_h}\""
-                        
-                        response = requests.post(
-                            "http://localhost:11434/api/generate",
-                            json={
-                                "model": "prisma-engine",
-                                "prompt": user_prompt,
-                                "stream": False,
-                                "format": "json"
-                            },
-                            timeout=120
-                        )
-                        
-                        if response.status_code == 200:
-                            res_json = json.loads(response.json()["response"])
-                            eval_ejes = res_json.get("evaluacion_ejes", {})
-                            deltas_h = {}
-                            for c_j, n_eje in MAPEO_EJES.items():
-                                if c_j in eval_ejes:
-                                    deltas_h[n_eje] = float(eval_ejes[c_j].get("delta_db", 0.0))
-                            
-                            resultados_multihito.append({
-                                "sub_idx": idx_h,
-                                "nota": texto_h,
-                                "deltas": deltas_h,
-                                "resultado_ia": res_json
-                            })
-                        else:
-                            st.error(f"Error HTTP {response.status_code} al procesar hito {idx_h}")
-                            break
-                            
-                    if len(resultados_multihito) == len(sub_hitos):
-                        st.session_state.analisis_pendiente = {
-                            "modo": "MULTIHITO" if len(sub_hitos) > 1 else "SIMPLE",
-                            "hitos": resultados_multihito
-                        }
-                        st.rerun()
-                except Exception as e:
-                    st.error(f"Error de conexión con Ollama local: {e}")
+            st.session_state.procesando = True
+            st.rerun()
 
-    if st.button("💾 Exportar Expediente (.json)", use_container_width=True):
+    # Proceso activo de inferencia multi-hito
+    if st.session_state.procesando and st.session_state.input_nota.strip():
+        sub_hitos = parsear_nota_multihito(st.session_state.input_nota)
+        with st.spinner(f"Procesando inferencia cualitativa en ℝ⁸ con PRISMA-Engine ({len(sub_hitos)} hito/s)..."):
+            try:
+                resultados_multihito = []
+                for idx_h, texto_h in enumerate(sub_hitos, 1):
+                    user_prompt = f"Estudiante: {nom_in.strip()}\nNota narrativa (Hito {idx_h}): \"{texto_h}\""
+                    
+                    response = requests.post(
+                        "http://localhost:11434/api/generate",
+                        json={
+                            "model": "prisma-engine",
+                            "prompt": user_prompt,
+                            "stream": False,
+                            "format": "json"
+                        },
+                        timeout=120
+                    )
+                    
+                    if response.status_code == 200:
+                        res_json = json.loads(response.json()["response"])
+                        eval_ejes = res_json.get("evaluacion_ejes", {})
+                        deltas_h = {}
+                        for c_j, n_eje in MAPEO_EJES.items():
+                            if c_j in eval_ejes:
+                                deltas_h[n_eje] = float(eval_ejes[c_j].get("delta_db", 0.0))
+                        
+                        resultados_multihito.append({
+                            "sub_idx": idx_h,
+                            "nota": texto_h,
+                            "deltas": deltas_h,
+                            "resultado_ia": res_json
+                        })
+                    else:
+                        st.error(f"Error HTTP {response.status_code} al procesar hito {idx_h}")
+                        break
+                        
+                if len(resultados_multihito) == len(sub_hitos):
+                    st.session_state.analisis_pendiente = {
+                        "modo": "MULTIHITO" if len(sub_hitos) > 1 else "SIMPLE",
+                        "hitos": resultados_multihito
+                    }
+            except Exception as e:
+                st.error(f"Error de conexión con Ollama local: {e}")
+            finally:
+                st.session_state.procesando = False
+                st.rerun()
+
+    if st.button("💾 Exportar Expediente (.json)", use_container_width=True, disabled=st.session_state.procesando):
         if not nom_in.strip() or not grp_in.strip():
             st.error("⚠️ Por favor ingresa el nombre y grupo del estudiante antes de exportar.")
         else:
@@ -464,7 +495,7 @@ with col_izq:
                 use_container_width=True
             )
 
-    # --- STAGING / PREVISUALIZACIÓN ---
+    # --- STAGING / PREVISUALIZACIÓN DE IA ---
     if st.session_state.analisis_pendiente:
         st.markdown('<div class="staging-card">', unsafe_allow_html=True)
         st.markdown("#### 🔍 Previsualización del análisis de la IA")
@@ -490,7 +521,7 @@ with col_izq:
         col_s1, col_s2, col_s3 = st.columns([0.35, 0.3, 0.35])
         
         with col_s1:
-            if st.button("✅ Aceptar y Registrar Hito(s)", type="primary", use_container_width=True):
+            if st.button("✅ Aceptar y Registrar Hito(s)", type="primary", use_container_width=True, disabled=st.session_state.procesando):
                 for item in hitos_p:
                     for eje, d_val in item["deltas"].items():
                         st.session_state.valores_db[eje] += d_val
@@ -512,7 +543,7 @@ with col_izq:
                 st.rerun()
                 
         with col_s2:
-            if st.button("🎨 Ajustar Manualmente", use_container_width=True):
+            if st.button("🎨 Ajustar Manualmente", use_container_width=True, disabled=st.session_state.procesando):
                 for eje, d_val in deltas_acum_totales.items():
                     val_f = float(d_val)
                     st.session_state[f"slider_{eje}"] = val_f
@@ -521,7 +552,7 @@ with col_izq:
                 st.rerun()
                 
         with col_s3:
-            if st.button("❌ Rechazar análisis", use_container_width=True):
+            if st.button("❌ Rechazar análisis", use_container_width=True, disabled=st.session_state.procesando):
                 st.session_state.analisis_pendiente = None
                 st.rerun()
                 
@@ -532,7 +563,7 @@ with col_izq:
     st.subheader("3. Meta-Análisis de Trayectoria")
     st.caption("Evaluación holística multidimensional recomendada por PRISMA.")
     
-    if st.button("🌌 Meta-Análisis PRISMA", use_container_width=True):
+    if st.button("🌌 Meta-Análisis PRISMA", use_container_width=True, disabled=st.session_state.procesando):
         if not nom_in.strip() or not grp_in.strip():
             st.error("⚠️ Por favor completa el Nombre y Grupo del estudiante antes de ejecutar el Meta-Análisis.")
         elif len(st.session_state.historial_observaciones) < 2:
@@ -572,7 +603,7 @@ with col_izq:
                                     overrides_sugeridos[n_eje] = delta_m
                                     st.write(f"• **{n_eje}:** `{fmt_db(delta_m)} dB` — {razon_m if razon_m else 'Sin observaciones adicionales'}")
                         
-                        if st.button("Aceptar y registrar Meta-Análisis PRISMA como Hito"):
+                        if st.button("Aceptar y registrar Meta-Análisis PRISMA como Hito", disabled=st.session_state.procesando):
                             for eje, d_m in overrides_sugeridos.items():
                                 st.session_state.valores_db[eje] += d_m
                                 
@@ -640,10 +671,10 @@ with col_izq:
                 else:
                     st.write(f"**Registro de transición:** *\"{obs.get('justificacion', '')}\"*")
 
-    # --- CALIBRACIÓN MANUAL DOCENTE ---
+    # --- CALIBRACIÓN MANUAL DOCENTE (EN 2 TIEMPOS) ---
     st.markdown("---")
     st.subheader("4. Calibración manual docente (dB)")
-    st.caption("Ajusta los valores ingresando directamente el número o desplazando la barra táctil.")
+    st.caption("Ajusta los valores deseados y presiona 'Previsualizar calibración manual en el mapa' para proyectar la propuesta en el mapa vectorial antes de registrarla.")
     
     for eje in EJE_NOMBRES:
         col_c1, col_c2 = st.columns([0.7, 0.3])
@@ -657,6 +688,7 @@ with col_izq:
                 key=f"slider_{eje}",
                 on_change=sync_slider_a_num,
                 args=(eje,),
+                disabled=st.session_state.procesando,
                 help=f"Estado actual: {fmt_db(st.session_state.valores_db[eje])} dB"
             )
         with col_c2:
@@ -668,6 +700,7 @@ with col_izq:
                 key=f"num_{eje}",
                 on_change=sync_num_a_slider,
                 args=(eje,),
+                disabled=st.session_state.procesando,
                 label_visibility="collapsed"
             )
     
@@ -675,39 +708,75 @@ with col_izq:
         "Razonamiento / Justificación pedagógica del ajuste (Obligatorio):",
         key="input_justificacion",
         height=80,
+        disabled=st.session_state.procesando,
         placeholder="Ejemplo: Incremento en Razonamiento ético tras observar la mediación espontánea del estudiante."
     )
     
-    btn_aplicar_ajustes = st.button("🎨 Registrar calibración manual como hito", type="secondary", use_container_width=True)
+    # PASO 1: BOTÓN DE PREVISUALIZACIÓN MANUAL
+    btn_previsualizar_manual = st.button(
+        "👁️ Previsualizar calibración manual en el mapa",
+        type="secondary",
+        use_container_width=True,
+        disabled=st.session_state.procesando
+    )
 
-    if btn_aplicar_ajustes:
+    if btn_previsualizar_manual:
         if not nom_in.strip() or not grp_in.strip():
-            st.error("⚠️ Por favor completa el Nombre y Grupo del estudiante antes de registrar la calibración manual.")
+            st.error("⚠️ Por favor completa el Nombre y Grupo del estudiante antes de previsualizar.")
         elif justificacion_docente.strip():
-            deltas_confirmados = {eje: float(st.session_state[f"num_{eje}"]) for eje in EJE_NOMBRES}
-            hubo_ajuste = any(abs(v) > 0.001 for v in deltas_confirmados.values())
+            deltas_propuestos = {eje: float(st.session_state[f"num_{eje}"]) for eje in EJE_NOMBRES}
+            hubo_ajuste = any(abs(v) > 0.001 for v in deltas_propuestos.values())
             if hubo_ajuste:
+                st.session_state.previsualizacion_manual = deltas_propuestos
+                st.rerun()
+            else:
+                st.error("⚠️ Ajusta al menos un valor diferente de 0.0 dB para previsualizar.")
+        else:
+            st.error("⚠️ Ingresa el razonamiento pedagógico para justificar el ajuste manual.")
+
+    # PASO 2: CONFIRMACIÓN DE STAGING MANUAL
+    if st.session_state.previsualizacion_manual:
+        st.markdown('<div class="manual-staging-card">', unsafe_allow_html=True)
+        st.markdown("#### 🎨 Previsualización de Calibración Manual")
+        st.caption("Verifica la proyección punteada morada en el mapa visual a la derecha.")
+        
+        for eje, d_v in st.session_state.previsualizacion_manual.items():
+            if abs(d_v) > 0.001:
+                val_nuevo = st.session_state.valores_db[eje] + d_v
+                st.write(f"• **{eje}:** `{fmt_db(st.session_state.valores_db[eje])} dB` ➔ **`{fmt_db(val_nuevo)} dB`** (`{fmt_db(d_v)} dB`) ")
+                
+        st.write(f"**Justificación registrada:** *\"{st.session_state.input_justificacion}\"*")
+        
+        st.markdown("---")
+        col_m1, col_m2 = st.columns([0.6, 0.4])
+        
+        with col_m1:
+            if st.button("🎨 Confirmar y registrar calibración manual como hito", type="primary", use_container_width=True, disabled=st.session_state.procesando):
                 for eje in EJE_NOMBRES:
-                    st.session_state.valores_db[eje] += deltas_confirmados[eje]
+                    st.session_state.valores_db[eje] += st.session_state.previsualizacion_manual[eje]
                 
                 st.session_state.historial_observaciones.append({
                     "tipo": "MANUAL",
                     "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                    "justificacion": justificacion_docente,
-                    "deltas": deltas_confirmados,
+                    "justificacion": st.session_state.input_justificacion,
+                    "deltas": st.session_state.previsualizacion_manual,
                     "vector_snapshot": dict(st.session_state.valores_db)
                 })
                 
+                st.session_state.previsualizacion_manual = None
                 st.session_state.flag_limpiar_justificacion = True
                 st.session_state.flag_reset_calib = True
                 
                 guardar_expediente_disco(nom_in, mat_in, grp_in)
                 st.session_state.mostrar_modal_resguardo = True
                 st.rerun()
-            else:
-                st.error("⚠️ Ajusta al menos un valor diferente de 0.0 dB para registrar.")
-        else:
-            st.error("⚠️ Ingrese el razonamiento pedagógico para justificar el ajuste manual.")
+                
+        with col_m2:
+            if st.button("❌ Cancelar previsualización", use_container_width=True, disabled=st.session_state.procesando):
+                st.session_state.previsualizacion_manual = None
+                st.rerun()
+                
+        st.markdown('</div>', unsafe_allow_html=True)
 
 # --- COLUMNA DERECHA: ESPEJO METACOGNITIVO Y RADAR (STICKY CONTAINER) ---
 with col_der:
@@ -718,7 +787,8 @@ with col_der:
     modo_vis = st.radio(
         "Visualización:",
         options=["Trayectoria completa (todos los hitos)", "Comparativa personalizada"],
-        horizontal=True
+        horizontal=True,
+        disabled=st.session_state.procesando
     )
     
     tiene_ciclos_previos = any(obs.get("tipo") == "TABULA_RASA" for obs in st.session_state.historial_observaciones)
@@ -726,7 +796,7 @@ with col_der:
     
     ver_historico = st.checkbox(
         label_historico,
-        disabled=not (es_admin and tiene_ciclos_previos),
+        disabled=not (es_admin and tiene_ciclos_previos) or st.session_state.procesando,
         value=False,
         help="Habilitado para Administrador tras ejecutar 'Año nuevo, vida nueva'."
     )
@@ -750,11 +820,9 @@ with col_der:
 
     valores_live = {eje: float(st.session_state.valores_db[eje]) for eje in EJE_NOMBRES}
     
-    ejes_etiquetados = [
-        f"<b>{FORMATO_EJES_RADAR[eje]}</b><br><span style='color:#4F46E5;'>({fmt_db(valores_live[eje])} dB)</span>"
-        for eje in EJE_NOMBRES
-    ]
-    ejes_cerrados = ejes_etiquetados + [ejes_etiquetados[0]]
+    ejes_etiquetados = [FORMATO_EJES_RADAR[eje] for eje in EJE_NOMBRES]
+    angles_8 = list(range(0, 360, 45)) + [360]
+    angles_360 = np.linspace(0, 360, 361)
     
     # Filtrado de hitos según vista activa
     hitos_activos = []
@@ -774,29 +842,59 @@ with col_der:
             todos_vectores.append(list(obs["vector_snapshot"].values()))
             
     max_valor_global = max([val for vec in todos_vectores for val in vec] + [0.0])
+    
+    # Límite exterior dinámico del mapa (12.0, 18.0 o 24.0 dB)
     limite_radar = 12.0 if max_valor_global <= 12.0 else (18.0 if max_valor_global <= 18.0 else 24.0)
     
     fig = go.Figure()
 
-    # Anillo Base 0.0 dB (Negro Continuo Destacado)
-    fig.add_trace(go.Scatterpolar(
-        r=[0.0] * 9,
-        theta=ejes_cerrados,
-        mode="lines",
-        line=dict(color="#000000", width=2.2),
-        name="Línea base (0.0 dB)",
-        hoverinfo="skip"
-    ))
+    # --- FUNCIÓN AUXILIAR DE ÓRBITAS CIRCULARES CONTINUAS ---
+    def agregar_orbita_circular(fig_obj, r_val, nombre, color="#475569", width=1.5, dash="solid"):
+        fig_obj.add_trace(go.Scatterpolar(
+            r=[r_val] * 361,
+            theta=angles_360,
+            mode="lines",
+            line=dict(color=color, width=width, dash=dash),
+            name=nombre,
+            hoverinfo="skip"
+        ))
 
-    # Anillo +6.0 dB (Gris Oscuro / Pizarra)
-    fig.add_trace(go.Scatterpolar(
-        r=[6.0] * 9,
-        theta=ejes_cerrados,
-        mode="lines",
-        line=dict(color="#334155", width=1.5, dash="dashdot"),
-        name="+6.0 dB",
-        hoverinfo="skip"
-    ))
+    # --- DIBUJO DE ÓRBITAS CLAVE Y FRONTERAS PERIMETRALES EN GRIS PIZARRA SUAVE ---
+    
+    # 0.0 dB (Línea base) — Círculo continuo suave en gris pizarra oscuro
+    agregar_orbita_circular(fig, 0.0, "Línea base (0.0 dB)", color="#334155", width=1.8)
+
+    # +6.0 dB (Principiante) — Círculo continuo suave en gris pizarra
+    agregar_orbita_circular(fig, 6.0, "+6.0 dB (Principiante)", color="#475569", width=1.5)
+
+    # +12.0 dB (Intermedio / Marco exterior inicial)
+    # Es el perímetro sólido inicial; si se expande a +18 dB, se mantiene como hito interno.
+    is_perimeter_12 = (limite_radar == 12.0)
+    agregar_orbita_circular(
+        fig, 12.0, "+12.0 dB (Intermedio)",
+        color="#334155" if is_perimeter_12 else "#475569",
+        width=1.8 if is_perimeter_12 else 1.5,
+        dash="solid"
+    )
+
+    # +18.0 dB (Avanzado) — Se activa cuando el mapa se expande a 18 dB
+    if limite_radar >= 18.0:
+        is_perimeter_18 = (limite_radar == 18.0)
+        agregar_orbita_circular(
+            fig, 18.0, "+18.0 dB (Avanzado)",
+            color="#334155" if is_perimeter_18 else "#475569",
+            width=1.8 if is_perimeter_18 else 1.5,
+            dash="solid"
+        )
+
+    # +24.0 dB (Experto) — Se activa cuando el mapa se expande a 24 dB
+    if limite_radar >= 24.0:
+        agregar_orbita_circular(
+            fig, 24.0, "+24.0 dB (Experto)",
+            color="#334155",
+            width=1.8,
+            dash="solid"
+        )
 
     num_hitos = len(hitos_a_dibujar)
     
@@ -808,6 +906,8 @@ with col_der:
         ("rgba(99, 102, 241, 1.0)", "rgba(99, 102, 241, 0.35)")
     ]
 
+    sin_staging = (st.session_state.analisis_pendiente is None and st.session_state.previsualizacion_manual is None)
+
     if modo_vis == "Trayectoria completa (todos los hitos)":
         if num_hitos > 0:
             for i, obs in enumerate(hitos_a_dibujar):
@@ -816,14 +916,14 @@ with col_der:
                 vals_cerrados = vals + [vals[0]]
                 
                 color_line, color_fill = PALETA_COLORES[i % len(PALETA_COLORES)]
-                is_last = (i == num_hitos - 1) and (st.session_state.analisis_pendiente is None)
+                is_last = (i == num_hitos - 1) and sin_staging
                 tipo_hito = obs.get("tipo", "IA")
                 
                 tag_tipo = "PRISMA" if tipo_hito == "IA" else ("Manual" if tipo_hito == "MANUAL" else "Transición")
                 
                 fig.add_trace(go.Scatterpolar(
                     r=vals_cerrados,
-                    theta=ejes_cerrados,
+                    theta=angles_8,
                     fill="toself" if is_last else "none",
                     fillcolor=color_fill,
                     line=dict(color=color_line, width=3 if is_last else 1.8, dash="solid" if is_last else "dot"),
@@ -835,8 +935,8 @@ with col_der:
             vals = [valores_live[eje] for eje in EJE_NOMBRES]
             fig.add_trace(go.Scatterpolar(
                 r=vals + [vals[0]],
-                theta=ejes_cerrados,
-                fill="toself" if st.session_state.analisis_pendiente is None else "none",
+                theta=angles_8,
+                fill="toself" if sin_staging else "none",
                 fillcolor="rgba(99, 102, 241, 0.35)",
                 line=dict(color="#6366F1", width=3),
                 marker=dict(size=7, color="#4F46E5"),
@@ -850,7 +950,8 @@ with col_der:
             hitos_seleccionados = st.multiselect(
                 "Superponer hitos para comparativa:",
                 options=opciones_hitos,
-                default=[opciones_hitos[-1]]
+                default=[opciones_hitos[-1]],
+                disabled=st.session_state.procesando
             )
             
             for idx_str in hitos_seleccionados:
@@ -862,7 +963,7 @@ with col_der:
                 
                 fig.add_trace(go.Scatterpolar(
                     r=vals + [vals[0]],
-                    theta=ejes_cerrados,
+                    theta=angles_8,
                     fill="toself",
                     fillcolor=color_fill,
                     line=dict(color=color_line, width=2.5),
@@ -874,7 +975,7 @@ with col_der:
             vals = [valores_live[eje] for eje in EJE_NOMBRES]
             fig.add_trace(go.Scatterpolar(
                 r=vals + [vals[0]],
-                theta=ejes_cerrados,
+                theta=angles_8,
                 fill="toself",
                 fillcolor="rgba(99, 102, 241, 0.35)",
                 line=dict(color="#6366F1", width=3),
@@ -883,7 +984,7 @@ with col_der:
                 hovertemplate="%{theta}<extra></extra>"
             ))
 
-    # PREVISUALIZACIÓN / VECTOR FANTASMA
+    # --- PREVISUALIZACIÓN / VECTOR FANTASMA (IA) ---
     if st.session_state.analisis_pendiente:
         hitos_p = st.session_state.analisis_pendiente.get("hitos", [])
         deltas_p_tot = {eje: 0.0 for eje in EJE_NOMBRES}
@@ -896,32 +997,66 @@ with col_der:
         
         fig.add_trace(go.Scatterpolar(
             r=vals_proyectados_cerrados,
-            theta=ejes_cerrados,
+            theta=angles_8,
             fill="toself",
             fillcolor="rgba(168, 85, 247, 0.15)",
             line=dict(color="#A855F7", width=2.5, dash="dot"),
             marker=dict(size=7, color="#A855F7"),
-            name="Previsualización (sugerida)",
+            name="Previsualización IA",
             hovertemplate="%{theta}<extra></extra>"
         ))
+
+    # --- PREVISUALIZACIÓN / VECTOR FANTASMA (MANUAL) ---
+    if st.session_state.previsualizacion_manual:
+        vals_manuales = [valores_live[eje] + st.session_state.previsualizacion_manual.get(eje, 0.0) for eje in EJE_NOMBRES]
+        vals_manuales_cerrados = vals_manuales + [vals_manuales[0]]
+        
+        fig.add_trace(go.Scatterpolar(
+            r=vals_manuales_cerrados,
+            theta=angles_8,
+            fill="toself",
+            fillcolor="rgba(168, 85, 247, 0.18)",
+            line=dict(color="#9333EA", width=2.5, dash="dash"),
+            marker=dict(size=7, color="#9333EA"),
+            name="Previsualización manual",
+            hovertemplate="%{theta}<extra></extra>"
+        ))
+
+    # Construcción de ticks de 2 en 2 dB
+    tick_vals_2db = list(range(-6, int(limite_radar) + 1, 2))
+    tick_texts_2db = []
+    for tv in tick_vals_2db:
+        if tv == 0:
+            tick_texts_2db.append("0.0 dB (Línea base)")
+        elif tv == 6:
+            tick_texts_2db.append("+6.0 dB (Principiante)")
+        elif tv == 12:
+            tick_texts_2db.append("+12.0 dB (Intermedio)")
+        elif tv == 18:
+            tick_texts_2db.append("+18.0 dB (Avanzado)")
+        elif tv == 24:
+            tick_texts_2db.append("+24.0 dB (Experto)")
+        else:
+            tick_texts_2db.append("")
 
     fig.update_layout(
         uirevision=True,
         polar=dict(
+            gridshape="circular",
             radialaxis=dict(
                 visible=True,
                 range=[-6, limite_radar],
-                tickvals=[-6, -4, -2, 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24],
-                ticktext=[
-                    "-6 dB", "", "", "0.0 dB", "", "", "+6 dB", "", "",
-                    "+12 dB", "", "", "+18 dB", "", "", "+24 dB"
-                ],
+                tickvals=tick_vals_2db,
+                ticktext=tick_texts_2db,
                 angle=22.5,
-                gridcolor="#E2E8F0",
-                gridwidth=0.6,
-                tickfont=dict(size=8, color="#475569")
+                gridcolor="#CBD5E1",
+                gridwidth=0.8,
+                tickfont=dict(size=8, color="#334155")
             ),
             angularaxis=dict(
+                tickmode="array",
+                tickvals=list(range(0, 360, 45)),
+                ticktext=ejes_etiquetados,
                 tickfont=dict(size=9, color="#1E293B"),
                 rotation=90,
                 direction="clockwise",
@@ -941,12 +1076,13 @@ with col_der:
         margin=dict(l=40, r=40, t=75, b=80)
     )
 
-    # Configuración limpia de barra de herramientas: conserva Pantalla Completa y Descargar PNG
+    # Configuración limpia de barra de herramientas: sin logo de Plotly, conserva Pantalla Completa y Descargar PNG
     st.plotly_chart(
         fig,
         use_container_width=True,
         config={
             'displayModeBar': True,
+            'displaylogo': False,
             'modeBarButtonsToRemove': [
                 'zoom2d', 'pan2d', 'select2d', 'lasso2d', 
                 'zoomIn2d', 'zoomOut2d', 'autoScale2d', 'resetScale2d'
