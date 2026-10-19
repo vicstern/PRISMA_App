@@ -8,26 +8,25 @@ from datetime import datetime
 
 # --- CONFIGURACIÓN Y ESTILOS DE INTERFAZ ---
 st.set_page_config(
-    page_title="Aula Viva — PRISMA",
+    page_title="Aula Viva® con IA — PRISMA",
     page_icon="🌌",
     layout="wide"
 )
 
-# Estilos CSS inyectados para fijar el mapa en la columna derecha al hacer scroll
+# Estilos CSS inyectados para fijar el mapa en la columna derecha y limitar su altura
 st.markdown("""
 <style>
-    /* Habilita sticky real en la segunda columna de Streamlit */
     [data-testid="stColumn"]:nth-of-type(2) {
         position: -webkit-sticky !important;
         position: sticky !important;
-        top: 2rem !important;
+        top: 1rem !important;
         align-self: flex-start !important;
         z-index: 99;
     }
     .sticky-radar-container {
-        position: -webkit-sticky !important;
-        position: sticky !important;
-        top: 2rem !important;
+        max-height: calc(100vh - 2rem) !important;
+        overflow-y: auto !important;
+        padding-right: 0.5rem;
     }
     .stButton button {
         border-radius: 8px;
@@ -42,9 +41,9 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.title("Aula Viva® — PRISMA")
+st.title("Aula Viva® con IA — PRISMA")
 st.markdown("### Plataforma de Reflexión e Interpretación para el Seguimiento Multidimensional del Aprendizaje")
-st.caption("Analítica cualitativa vectorizada en ℝ⁸ | Aula Viva® | Ecosistema ASPIRE®")
+st.caption("Analítica cualitativa vectorizada en ℝ⁸ | Aula Viva® con IA | Ecosistema ASPIRE®")
 
 DIR_EXPEDIENTES = os.path.expanduser("~/PRISMA_App/expedientes")
 os.makedirs(DIR_EXPEDIENTES, exist_ok=True)
@@ -84,6 +83,21 @@ def limpiar_cadena(texto):
     cadena = re.sub(r"[^\w\s-]", "", texto).strip()
     return re.sub(r"[-\s]+", "_", cadena)
 
+def parsear_nota_multihito(texto):
+    patron = r'(?:^|\n)\s*(\d+[\.\)\-]\s*)'
+    partes = re.split(patron, texto.strip())
+    
+    if len(partes) > 2:
+        hitos = []
+        for i in range(1, len(partes), 2):
+            prefix = partes[i]
+            contenido = partes[i+1].strip() if (i+1) < len(partes) else ""
+            if contenido:
+                hitos.append(f"{prefix}{contenido}")
+        if hitos:
+            return hitos
+    return [texto.strip()]
+
 # --- INICIALIZACIÓN Y CONTROL DE ESTADO LIMPIO ---
 if "valores_db" not in st.session_state:
     st.session_state.valores_db = {eje: 0.0 for eje in EJE_NOMBRES}
@@ -102,6 +116,9 @@ if "mostrar_modal_resguardo" not in st.session_state:
 
 if "mostrar_modal_confirmar_reiniciar" not in st.session_state:
     st.session_state.mostrar_modal_confirmar_reiniciar = False
+
+if "input_clave_admin" not in st.session_state:
+    st.session_state.input_clave_admin = ""
 
 # Banderas de limpieza diferida de estado
 if st.session_state.get("flag_limpiar_nota", False):
@@ -143,21 +160,26 @@ for eje in EJE_NOMBRES:
         st.session_state[f"num_{eje}"] = 0.0
 
 # --- FUNCIONES DE PERSISTENCIA ---
-def guardar_expediente_disco(nombre, matricula, grupo):
+def guardar_expediente_disco(nombre, matricula, grupo, ciclo_id="2026", es_cierre=False):
     fecha_iso = datetime.now().strftime("%y%m%d")
     hora_iso = datetime.now().strftime("%H%M%S")
     nom_clean = limpiar_cadena(nombre)
     grp_clean = limpiar_cadena(grupo)
-    filename = f"{fecha_iso}_{hora_iso}_{nom_clean}_{grp_clean}_PRISMA.json"
+    ciclo_clean = limpiar_cadena(ciclo_id)
+    
+    sufijo = f"CIERRE_{ciclo_clean}.json" if es_cierre else "PRISMA.json"
+    filename = f"{fecha_iso}_{hora_iso}_{nom_clean}_{grp_clean}_{sufijo}"
     filepath = os.path.join(DIR_EXPEDIENTES, filename)
     
     exp_data = {
+        "tipo_archivo": "CIERRE_CICLO" if es_cierre else "EXPEDIENTE_ACTIVO",
+        "ciclo_escolar": ciclo_id,
         "estudiante": nombre,
         "matricula": matricula,
         "grupo": grupo,
         "ultima_actualizacion": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "vector_actual_db": st.session_state.valores_db,
-        "historial_observaciones": st.session_state.historial_observaciones
+        "vector_actual_db": dict(st.session_state.valores_db),
+        "historial_observaciones": list(st.session_state.historial_observaciones)
     }
     with open(filepath, "w", encoding="utf-8") as f:
         json.dump(exp_data, f, indent=2, ensure_ascii=False)
@@ -167,7 +189,7 @@ def guardar_expediente_disco(nombre, matricula, grupo):
 @st.dialog("💾 Resguardo de expediente vectorial")
 def modal_exportar_resguardo(nombre, matricula, grupo):
     nombre_mostrar = nombre if nombre else "Estudiante"
-    st.write(f"Se ha consolidado un nuevo hito en el expediente de **{nombre_mostrar}**.")
+    st.write(f"Se ha consolidado el hito en el expediente de **{nombre_mostrar}**.")
     st.write("¿Deseas descargar una copia de resguardo local (`.json`) con marca de tiempo?")
     
     filename_export, exp_data = guardar_expediente_disco(nombre, matricula, grupo)
@@ -200,14 +222,25 @@ def modal_confirmar_reiniciar():
     grupo = st.session_state.input_grupo
     filename_export, exp_data = guardar_expediente_disco(nombre, matricula, grupo)
 
-    st.download_button(
+    if st.download_button(
         label="💾 Descargar resguardo (.json) y reiniciar",
         data=json.dumps(exp_data, indent=2, ensure_ascii=False),
         file_name=filename_export,
         mime="application/json",
         type="primary",
         use_container_width=True
-    )
+    ):
+        st.session_state.valores_db = {eje: 0.0 for eje in EJE_NOMBRES}
+        st.session_state.historial_observaciones = []
+        st.session_state.analisis_pendiente = None
+        st.session_state.input_nombre = ""
+        st.session_state.input_matricula = ""
+        st.session_state.input_grupo = ""
+        st.session_state.flag_limpiar_nota = True
+        st.session_state.flag_limpiar_justificacion = True
+        st.session_state.flag_reset_calib = True
+        st.session_state.mostrar_modal_confirmar_reiniciar = False
+        st.rerun()
     
     st.markdown("---")
     col_r1, col_r2 = st.columns([0.5, 0.5])
@@ -242,22 +275,23 @@ with st.sidebar:
     
     st.header("🔒 Herramientas de administrador")
     
-    clave_admin = st.text_input(
+    clave_admin_input = st.text_input(
         "🔑 Clave de administrador:",
         type="password",
+        key="input_clave_admin",
         placeholder="Ingresa clave de acceso",
         help="Habilita la carga de expedientes y la transición de ciclo escolar."
     )
     
-    es_admin = (clave_admin == "prisma2026" or clave_admin == "prisma26")
+    es_admin = (st.session_state.input_clave_admin in ["prisma2026", "prisma26"])
     
     if es_admin:
         st.success("Acceso concedido — Modo Administrador")
         if st.button("🔴 Salir del modo administrador", use_container_width=True):
-            clave_admin = ""
+            st.session_state.input_clave_admin = ""
             st.rerun()
     else:
-        st.info("ℹ️ **Modo Usuario**: Funciones avanzadas reservadas para administración.")
+        st.info("Funciones avanzadas reservadas para Admin")
 
     st.markdown("---")
     
@@ -294,20 +328,34 @@ with st.sidebar:
     
     label_tabula = "3. Transición: 'Año nuevo, vida nueva'" if es_admin else "3. Transición: 'Año nuevo, vida nueva' 🔒 Admin"
     st.subheader(label_tabula)
-    st.caption("Aplica 'Tabula Rasa': restablece el vector a 0.0 dB registrando el cierre de ciclo en el historial, preservando la continuidad longitudinal.")
+    st.caption("Aplica 'Tabula Rasa': congela el ciclo actual en un JSON de cierre y restablece el vector a 0.0 dB registrando la transición.")
+    
+    ciclo_id_input = st.text_input(
+        "Identificador del ciclo a cerrar:",
+        value=f"{datetime.now().year}-1",
+        disabled=not es_admin,
+        help="Ejemplos: 2026-1, 2026-2, 2025-2026"
+    )
+    
     btn_tabula = st.button("🔄 Ejecutar 'Año nuevo, vida nueva'", disabled=not es_admin, use_container_width=True)
     if btn_tabula and es_admin:
+        nom_a = st.session_state.input_nombre
+        mat_a = st.session_state.input_matricula
+        grp_a = st.session_state.input_grupo
+        
+        fn_cierre, _ = guardar_expediente_disco(nom_a, mat_a, grp_a, ciclo_id=ciclo_id_input, es_cierre=True)
+        
         st.session_state.historial_observaciones.append({
             "tipo": "TABULA_RASA",
             "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "justificacion": "Cierre de ciclo escolar ('Año nuevo, vida nueva'). Vector restablecido a línea base (0.0 dB) preservando la trazabilidad longitudinal.",
+            "justificacion": f"Cierre de ciclo escolar '{ciclo_id_input}' ('Año nuevo, vida nueva'). Resguardado en {fn_cierre}. Vector restablecido a 0.0 dB.",
             "vector_snapshot": dict(st.session_state.valores_db)
         })
         st.session_state.valores_db = {eje: 0.0 for eje in EJE_NOMBRES}
-        st.success("Transición registrada. Vector restablecido a 0.0 dB con trazabilidad longitudinal resguardada.")
+        st.success(f"Transición registrada y ciclo congelado en `{fn_cierre}`. Vector restablecido a 0.0 dB.")
         st.rerun()
 
-# --- LAYOUT PRINCIPAL A DOS COLUMNAS ---
+# --- LAYOUT PRINCIPAL ---
 col_izq, col_der = st.columns([0.45, 0.55])
 
 with col_izq:
@@ -335,13 +383,12 @@ with col_izq:
     st.markdown("---")
     st.subheader("2. Registro de Nota Narrativa Docente")
     
-    # Formulario habilitante para captura nativa de Cmd+Enter / Ctrl+Enter
     with st.form(key="form_nota_docente", clear_on_submit=False):
         nota_docente = st.text_area(
             "Dictado / Nota narrativa del docente:",
             key="input_nota",
             height=130,
-            placeholder="Ingresa la observación cualitativa. Presiona Cmd+Enter o Ctrl+Enter para procesar."
+            placeholder="Ingresa la observación cualitativa (puedes incluir notas numeradas 1, 2, 3). Presiona Cmd+Enter o Ctrl+Enter para procesar."
         )
         btn_analizar = st.form_submit_button("⚡ Ejecutar análisis de nota", type="primary", use_container_width=True)
 
@@ -353,43 +400,53 @@ with col_izq:
         elif not nota_docente.strip():
             st.error("⚠️ Por favor ingresa una nota de observación cualitativa.")
         else:
-            with st.spinner("Procesando inferencia cualitativa en ℝ⁸ (PRISMA-Engine)..."):
+            sub_hitos = parsear_nota_multihito(nota_docente)
+            
+            with st.spinner(f"Procesando inferencia cualitativa en ℝ⁸ ({len(sub_hitos)} hito/s)..."):
                 try:
-                    user_prompt = f"Estudiante: {nom_in.strip()}\nNota narrativa del docente: \"{nota_docente}\""
+                    resultados_multihito = []
                     
-                    response = requests.post(
-                        "http://localhost:11434/api/generate",
-                        json={
-                            "model": "prisma-engine",
-                            "prompt": user_prompt,
-                            "stream": False,
-                            "format": "json"
-                        },
-                        timeout=120
-                    )
-                    
-                    if response.status_code == 200:
-                        resultado = json.loads(response.json()["response"])
-                        eval_ejes = resultado.get("evaluacion_ejes", {})
-                        deltas_aplicados = {}
+                    for idx_h, texto_h in enumerate(sub_hitos, 1):
+                        user_prompt = f"Estudiante: {nom_in.strip()}\nNota narrativa (Hito {idx_h}): \"{texto_h}\""
                         
-                        for clave_json, nombre_oficial in MAPEO_EJES.items():
-                            if clave_json in eval_ejes:
-                                delta = float(eval_ejes[clave_json].get("delta_db", 0.0))
-                                deltas_aplicados[nombre_oficial] = delta
+                        response = requests.post(
+                            "http://localhost:11434/api/generate",
+                            json={
+                                "model": "prisma-engine",
+                                "prompt": user_prompt,
+                                "stream": False,
+                                "format": "json"
+                            },
+                            timeout=120
+                        )
                         
+                        if response.status_code == 200:
+                            res_json = json.loads(response.json()["response"])
+                            eval_ejes = res_json.get("evaluacion_ejes", {})
+                            deltas_h = {}
+                            for c_j, n_eje in MAPEO_EJES.items():
+                                if c_j in eval_ejes:
+                                    deltas_h[n_eje] = float(eval_ejes[c_j].get("delta_db", 0.0))
+                            
+                            resultados_multihito.append({
+                                "sub_idx": idx_h,
+                                "nota": texto_h,
+                                "deltas": deltas_h,
+                                "resultado_ia": res_json
+                            })
+                        else:
+                            st.error(f"Error HTTP {response.status_code} al procesar hito {idx_h}")
+                            break
+                            
+                    if len(resultados_multihito) == len(sub_hitos):
                         st.session_state.analisis_pendiente = {
-                            "nota": nota_docente,
-                            "deltas": deltas_aplicados,
-                            "resultado_ia": resultado
+                            "modo": "MULTIHITO" if len(sub_hitos) > 1 else "SIMPLE",
+                            "hitos": resultados_multihito
                         }
                         st.rerun()
-                    else:
-                        st.error(f"Error en Ollama local (Código HTTP {response.status_code})")
                 except Exception as e:
                     st.error(f"Error de conexión con Ollama local: {e}")
 
-    # Exportación directa colocada estratégicamente debajo de Ejecutar análisis
     if st.button("💾 Exportar Expediente (.json)", use_container_width=True):
         if not nom_in.strip() or not grp_in.strip():
             st.error("⚠️ Por favor ingresa el nombre y grupo del estudiante antes de exportar.")
@@ -407,36 +464,45 @@ with col_izq:
                 use_container_width=True
             )
 
-    # --- FLUJO DE 3 TIEMPOS: ÁREA DE PREVISUALIZACIÓN / STAGING ---
+    # --- STAGING / PREVISUALIZACIÓN ---
     if st.session_state.analisis_pendiente:
         st.markdown('<div class="staging-card">', unsafe_allow_html=True)
         st.markdown("#### 🔍 Previsualización del análisis de la IA")
-        st.caption("Revisa el impacto sugerido en el mapa vectorial antes de consolidar el hito.")
         
-        deltas_p = st.session_state.analisis_pendiente["deltas"]
-        resultado_p = st.session_state.analisis_pendiente["resultado_ia"].get("evaluacion_ejes", {})
+        hitos_p = st.session_state.analisis_pendiente["hitos"]
+        st.caption(f"Se detectaron **{len(hitos_p)} hito/s cualitativo/s** en la nota docente.")
         
-        for clave_j, n_eje in MAPEO_EJES.items():
-            if n_eje in deltas_p and abs(deltas_p[n_eje]) > 0.01:
-                razon = resultado_p.get(clave_j, {}).get("razonamiento", "")
-                st.write(f"• **{n_eje}:** `{fmt_db(deltas_p[n_eje])} dB` — *{razon}*")
-                
+        deltas_acum_totales = {eje: 0.0 for eje in EJE_NOMBRES}
+        
+        for item in hitos_p:
+            if len(hitos_p) > 1:
+                st.markdown(f"**• Hito {item['sub_idx']}:** *\"{item['nota']}\"*")
+            
+            res_ejes = item["resultado_ia"].get("evaluacion_ejes", {})
+            for c_j, n_eje in MAPEO_EJES.items():
+                d_val = item["deltas"].get(n_eje, 0.0)
+                deltas_acum_totales[n_eje] += d_val
+                if abs(d_val) > 0.01:
+                    razon = res_ejes.get(c_j, {}).get("razonamiento", "")
+                    st.write(f"  └ **{n_eje}:** `{fmt_db(d_val)} dB` — *{razon}*")
+                    
         st.markdown("---")
         col_s1, col_s2, col_s3 = st.columns([0.35, 0.3, 0.35])
         
         with col_s1:
-            if st.button("✅ Aceptar y Registrar Hito", type="primary", use_container_width=True):
-                for eje, d_val in deltas_p.items():
-                    st.session_state.valores_db[eje] += d_val
-                
-                st.session_state.historial_observaciones.append({
-                    "tipo": "IA",
-                    "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                    "nota": st.session_state.analisis_pendiente["nota"],
-                    "deltas": deltas_p,
-                    "resultado_ia": st.session_state.analisis_pendiente["resultado_ia"],
-                    "vector_snapshot": dict(st.session_state.valores_db)
-                })
+            if st.button("✅ Aceptar y Registrar Hito(s)", type="primary", use_container_width=True):
+                for item in hitos_p:
+                    for eje, d_val in item["deltas"].items():
+                        st.session_state.valores_db[eje] += d_val
+                    
+                    st.session_state.historial_observaciones.append({
+                        "tipo": "IA",
+                        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                        "nota": item["nota"],
+                        "deltas": item["deltas"],
+                        "resultado_ia": item["resultado_ia"],
+                        "vector_snapshot": dict(st.session_state.valores_db)
+                    })
                 
                 st.session_state.analisis_pendiente = None
                 st.session_state.flag_limpiar_nota = True
@@ -447,7 +513,7 @@ with col_izq:
                 
         with col_s2:
             if st.button("🎨 Ajustar Manualmente", use_container_width=True):
-                for eje, d_val in deltas_p.items():
+                for eje, d_val in deltas_acum_totales.items():
                     val_f = float(d_val)
                     st.session_state[f"slider_{eje}"] = val_f
                     st.session_state[f"num_{eje}"] = val_f
@@ -455,16 +521,16 @@ with col_izq:
                 st.rerun()
                 
         with col_s3:
-            if st.button("❌ Rechazar análisis / modificar nota docente", use_container_width=True):
+            if st.button("❌ Rechazar análisis", use_container_width=True):
                 st.session_state.analisis_pendiente = None
                 st.rerun()
                 
         st.markdown('</div>', unsafe_allow_html=True)
 
-    # --- META-ANÁLISIS DE TRAYECTORIA POR PRISMA ---
+    # --- META-ANÁLISIS DE TRAYECTORIA (DOCENTE/USUARIO) ---
     st.markdown("---")
     st.subheader("3. Meta-Análisis de Trayectoria")
-    st.caption("Pide a PRISMA analizar la trayectoria multidimensional integral durante el periodo seleccionado para detectar patrones y sugerir ajustes en los ejes.")
+    st.caption("Evaluación holística multidimensional recomendada por PRISMA.")
     
     if st.button("🌌 Meta-Análisis PRISMA", use_container_width=True):
         if not nom_in.strip() or not grp_in.strip():
@@ -488,16 +554,23 @@ with col_izq:
                     )
                     if response_meta.status_code == 200:
                         meta_res = json.loads(response_meta.json()["response"])
-                        eval_meta = meta_res.get("evaluacion_ejes", {})
+                        eval_meta = meta_res.get("evaluacion_ejes", meta_res)
                         
                         st.info("🌌 **Diagnóstico Holístico Sugerido por PRISMA:**")
+                        
+                        diag_gen = meta_res.get("diagnostico_general", meta_res.get("resumen", ""))
+                        if diag_gen:
+                            st.write(f"*{diag_gen}*")
+                            
                         overrides_sugeridos = {}
-                        for c_j, n_eje in MAPEO_EJES.items():
-                            if c_j in eval_meta:
-                                delta_m = float(eval_meta[c_j].get("delta_db", 0.0))
-                                if abs(delta_m) > 0.01:
+                        if isinstance(eval_meta, dict):
+                            for c_j, n_eje in MAPEO_EJES.items():
+                                if c_j in eval_meta:
+                                    item_m = eval_meta[c_j]
+                                    delta_m = float(item_m.get("delta_db", 0.0)) if isinstance(item_m, dict) else 0.0
+                                    razon_m = item_m.get("razonamiento", "") if isinstance(item_m, dict) else str(item_m)
                                     overrides_sugeridos[n_eje] = delta_m
-                                    st.write(f"• **{n_eje}:** Ajuste holístico de `{fmt_db(delta_m)} dB` — {eval_meta[c_j].get('razonamiento', '')}")
+                                    st.write(f"• **{n_eje}:** `{fmt_db(delta_m)} dB` — {razon_m if razon_m else 'Sin observaciones adicionales'}")
                         
                         if st.button("Aceptar y registrar Meta-Análisis PRISMA como Hito"):
                             for eje, d_m in overrides_sugeridos.items():
@@ -514,7 +587,7 @@ with col_izq:
                             guardar_expediente_disco(nom_in, mat_in, grp_in)
                             st.rerun()
                     else:
-                        st.error("No se pudo obtener el Meta-Análisis de Ollama.")
+                        st.error("No se pudo obtener la respuesta del Meta-Análisis.")
                 except Exception as e:
                     st.error(f"Error de conexión: {e}")
 
@@ -546,13 +619,15 @@ with col_izq:
                     st.markdown("**Desglose e Inferencia de PRISMA:**")
                     eval_ejes = obs.get("resultado_ia", {}).get("evaluacion_ejes", {})
                     hubo_cambios = False
-                    for clave_json, datos in eval_ejes.items():
-                        delta = datos.get("delta_db", 0.0)
-                        if abs(delta) > 0.01:
-                            hubo_cambios = True
-                            nombre_eje = MAPEO_EJES.get(clave_json, clave_json)
-                            razon = datos.get("razonamiento", "")
-                            st.caption(f"• **{nombre_eje}:** `{fmt_db(delta)} dB` — {razon}")
+                    if isinstance(eval_ejes, dict):
+                        for clave_json, datos in eval_ejes.items():
+                            if isinstance(datos, dict):
+                                delta = datos.get("delta_db", 0.0)
+                                if abs(delta) > 0.01:
+                                    hubo_cambios = True
+                                    nombre_eje = MAPEO_EJES.get(clave_json, clave_json)
+                                    razon = datos.get("razonamiento", "")
+                                    st.caption(f"• **{nombre_eje}:** `{fmt_db(delta)} dB` — {razon}")
                     if not hubo_cambios:
                         st.caption("ℹ️ *El motor no detectó evidencias para aplicar deltas en este hito.*")
                         
@@ -565,7 +640,7 @@ with col_izq:
                 else:
                     st.write(f"**Registro de transición:** *\"{obs.get('justificacion', '')}\"*")
 
-    # --- CALIBRACIÓN MANUAL DOCENTE HÍBRIDA ---
+    # --- CALIBRACIÓN MANUAL DOCENTE ---
     st.markdown("---")
     st.subheader("4. Calibración manual docente (dB)")
     st.caption("Ajusta los valores ingresando directamente el número o desplazando la barra táctil.")
@@ -623,7 +698,6 @@ with col_izq:
                     "vector_snapshot": dict(st.session_state.valores_db)
                 })
                 
-                # Activar banderas de reinicio seguro post-renderizado
                 st.session_state.flag_limpiar_justificacion = True
                 st.session_state.flag_reset_calib = True
                 
@@ -647,8 +721,15 @@ with col_der:
         horizontal=True
     )
     
+    tiene_ciclos_previos = any(obs.get("tipo") == "TABULA_RASA" for obs in st.session_state.historial_observaciones)
     label_historico = "Vista de trayectoria histórica" if es_admin else "Vista de trayectoria histórica 🔒 Admin"
-    ver_historico = st.checkbox(label_historico, disabled=not es_admin, value=False)
+    
+    ver_historico = st.checkbox(
+        label_historico,
+        disabled=not (es_admin and tiene_ciclos_previos),
+        value=False,
+        help="Habilitado para Administrador tras ejecutar 'Año nuevo, vida nueva'."
+    )
     
     nombre_tit = st.session_state.input_nombre.strip()
     grupo_tit = st.session_state.input_grupo.strip()
@@ -675,20 +756,17 @@ with col_der:
     ]
     ejes_cerrados = ejes_etiquetados + [ejes_etiquetados[0]]
     
-    # Filtrado de hitos según vista histórica o ciclo escolar activo
+    # Filtrado de hitos según vista activa
     hitos_activos = []
     paso_tabula = False
     for obs in st.session_state.historial_observaciones:
         if obs.get("tipo") == "TABULA_RASA":
             paso_tabula = True
             continue
-        if paso_tabula:
+        if paso_tabula or not tiene_ciclos_previos:
             hitos_activos.append(obs)
-        else:
-            if not any(o.get("tipo") == "TABULA_RASA" for o in st.session_state.historial_observaciones):
-                hitos_activos.append(obs)
 
-    hitos_a_dibujar = st.session_state.historial_observaciones if (ver_historico and es_admin) else (hitos_activos if any(o.get("tipo") == "TABULA_RASA" for o in st.session_state.historial_observaciones) else st.session_state.historial_observaciones)
+    hitos_a_dibujar = st.session_state.historial_observaciones if (ver_historico and es_admin) else hitos_activos
 
     todos_vectores = [list(valores_live.values())]
     for obs in hitos_a_dibujar:
@@ -700,13 +778,23 @@ with col_der:
     
     fig = go.Figure()
 
-    # Línea base (0.0 dB)
+    # Anillo Base 0.0 dB (Negro Continuo Destacado)
     fig.add_trace(go.Scatterpolar(
         r=[0.0] * 9,
         theta=ejes_cerrados,
         mode="lines",
-        line=dict(color="#94A3B8", width=1.5, dash="dash"),
+        line=dict(color="#000000", width=2.2),
         name="Línea base (0.0 dB)",
+        hoverinfo="skip"
+    ))
+
+    # Anillo +6.0 dB (Gris Oscuro / Pizarra)
+    fig.add_trace(go.Scatterpolar(
+        r=[6.0] * 9,
+        theta=ejes_cerrados,
+        mode="lines",
+        line=dict(color="#334155", width=1.5, dash="dashdot"),
+        name="+6.0 dB",
         hoverinfo="skip"
     ))
 
@@ -731,7 +819,7 @@ with col_der:
                 is_last = (i == num_hitos - 1) and (st.session_state.analisis_pendiente is None)
                 tipo_hito = obs.get("tipo", "IA")
                 
-                tag_tipo = "PRISMA" if tipo_hito == "IA" else ("Manual" if tipo_hito == "MANUAL" else "Año Nuevo")
+                tag_tipo = "PRISMA" if tipo_hito == "IA" else ("Manual" if tipo_hito == "MANUAL" else "Transición")
                 
                 fig.add_trace(go.Scatterpolar(
                     r=vals_cerrados,
@@ -783,7 +871,6 @@ with col_der:
                     hovertemplate="%{theta}<extra></extra>"
                 ))
         else:
-            st.info("Ingresa observaciones para habilitar la comparativa por hitos.")
             vals = [valores_live[eje] for eje in EJE_NOMBRES]
             fig.add_trace(go.Scatterpolar(
                 r=vals + [vals[0]],
@@ -796,10 +883,15 @@ with col_der:
                 hovertemplate="%{theta}<extra></extra>"
             ))
 
-    # VECTOR FANTASMA: Dibuja la Previsualización (sugerida) en la etapa de Staging
+    # PREVISUALIZACIÓN / VECTOR FANTASMA
     if st.session_state.analisis_pendiente:
-        deltas_p = st.session_state.analisis_pendiente.get("deltas", {})
-        vals_proyectados = [valores_live[eje] + deltas_p.get(eje, 0.0) for eje in EJE_NOMBRES]
+        hitos_p = st.session_state.analisis_pendiente.get("hitos", [])
+        deltas_p_tot = {eje: 0.0 for eje in EJE_NOMBRES}
+        for item in hitos_p:
+            for eje, d_v in item.get("deltas", {}).items():
+                deltas_p_tot[eje] += d_v
+                
+        vals_proyectados = [valores_live[eje] + deltas_p_tot.get(eje, 0.0) for eje in EJE_NOMBRES]
         vals_proyectados_cerrados = vals_proyectados + [vals_proyectados[0]]
         
         fig.add_trace(go.Scatterpolar(
@@ -821,8 +913,8 @@ with col_der:
                 range=[-6, limite_radar],
                 tickvals=[-6, -4, -2, 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24],
                 ticktext=[
-                    "-6 dB (Mín)", "", "", "0.0 dB (Base)", "", "", "", "", "",
-                    "+12 dB (Inicial)", "", "", "+18 dB (Intermedio)", "", "", "+24 dB (Experto)"
+                    "-6 dB", "", "", "0.0 dB", "", "", "+6 dB", "", "",
+                    "+12 dB", "", "", "+18 dB", "", "", "+24 dB"
                 ],
                 angle=22.5,
                 gridcolor="#E2E8F0",
@@ -840,21 +932,32 @@ with col_der:
         legend=dict(
             orientation="h",
             yanchor="bottom",
-            y=-0.22,
+            y=-0.25,
             xanchor="center",
             x=0.5,
             font=dict(size=9.0)
         ),
-        height=540,
+        height=510,
         margin=dict(l=40, r=40, t=75, b=80)
     )
 
-    st.plotly_chart(fig, use_container_width=True, config={'scrollZoom': False, 'displayModeBar': True})
-    st.caption("ℹ️ *Las lecturas en decibeles (dB) indican el índice de crecimiento acumulado respecto a la línea base (0.0 dB).*")
-    
+    # Configuración limpia de barra de herramientas: conserva Pantalla Completa y Descargar PNG
+    st.plotly_chart(
+        fig,
+        use_container_width=True,
+        config={
+            'displayModeBar': True,
+            'modeBarButtonsToRemove': [
+                'zoom2d', 'pan2d', 'select2d', 'lasso2d', 
+                'zoomIn2d', 'zoomOut2d', 'autoScale2d', 'resetScale2d'
+            ],
+            'scrollZoom': False
+        }
+    )
+
     st.markdown('</div>', unsafe_allow_html=True)
 
-# --- DESPLIEGUE FINAL DE DIÁLOGOS ---
+# --- DESPLIEGUE DE DIÁLOGOS ---
 if st.session_state.mostrar_modal_resguardo:
     modal_exportar_resguardo(
         st.session_state.input_nombre,
