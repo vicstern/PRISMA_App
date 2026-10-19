@@ -181,8 +181,11 @@ def guardar_expediente_disco(nombre, matricula, grupo, ciclo_id="2026", es_cierr
     grp_clean = limpiar_cadena(grupo)
     ciclo_clean = limpiar_cadena(ciclo_id)
     
-    sufijo = f"CIERRE_{ciclo_clean}.json" if es_cierre else "PRISMA.json"
-    filename = f"{fecha_iso}_{hora_iso}_{nom_clean}_{grp_clean}_{sufijo}"
+    n_h = len(st.session_state.historial_observaciones)
+    hito_str = f"_Hito{n_h:02d}" if n_h > 0 else ""
+    
+    sufijo = f"CIERRE_{ciclo_clean}.json" if es_cierre else f"{hito_str}_PRISMA.json"
+    filename = f"{fecha_iso}_{hora_iso}_{nom_clean}_{grp_clean}{sufijo}"
     filepath = os.path.join(DIR_EXPEDIENTES, filename)
     
     exp_data = {
@@ -1094,7 +1097,7 @@ with col_der:
     st.markdown('</div>', unsafe_allow_html=True)
 
 # --- DESPLIEGUE DE DIÁLOGOS ---
-if st.session_state.mostrar_modal_resguardo:
+if st.session_state.mostrar_modal_resguardo and not st.session_state.analisis_pendiente and not st.session_state.previsualizacion_manual:
     modal_exportar_resguardo(
         st.session_state.input_nombre,
         st.session_state.input_matricula,
