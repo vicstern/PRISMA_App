@@ -456,6 +456,15 @@ with col_izq:
 
     st.markdown("---")
     st.subheader("2. Registro de Nota Narrativa Docente")
+    st.markdown("##### Nota de Estado de Educabilidad")
+    tipo_reg = st.radio("Registro de educabilidad:", ["Sin registro", "Con registro"], horizontal=True, key="input_educabilidad_modo")
+    
+    if tipo_reg == "Con registro":
+        col_e1, col_e2 = st.columns(2)
+        with col_e1:
+            st.selectbox("Sueño / Descanso:", ["> 7 horas (Óptimo)", "5 - 6 horas (Atención / Fatiga)", "< 5 horas (Vulnerabilidad Severa)"], key="input_descanso")
+        with col_e2:
+            st.selectbox("Alimentación / Nutrición:", ["Completa / Adecuada", "Insuficiente / Parcial", "Sin Alimento / Ayuno"], key="input_alimentacion")
     
     with st.form(key="form_nota_docente", clear_on_submit=False):
         nota_docente = st.text_area(
@@ -491,21 +500,27 @@ with col_izq:
             try:
                 resultados_multihito = []
                 for idx_h, texto_h in enumerate(sub_hitos, 1):
-                    user_prompt = f"Estudiante: {nom_in.strip()}\nNota narrativa (Hito {idx_h}): \"{texto_h}\""
+                    prefix_edu = ""
+                    if st.session_state.get("input_educabilidad_modo") == "Con registro":
+                        sueno_val = st.session_state.get("input_descanso", "N/A")
+                        nutri_val = st.session_state.get("input_alimentacion", "N/A")
+                        prefix_edu = f"Datos de educabilidad: Sueño: {sueno_val}, Soporte Nutricional: {nutri_val}.\n"
+
+                    user_prompt = f"Estudiante: {nom_in}\n{prefix_edu}Nota narrativa: \"{texto_h}\""
+                    
+                    payload = {
+                        "model": st.session_state.get("modelo_activo", "prisma-engine"),
+                        "system": PROMPT_PRISMA_SYSTEM,
+                        "prompt": user_prompt,
+                        "format": "json",
+                        "stream": False
+                    }
                     
                     response = requests.post(
                         "http://localhost:11434/api/generate",
-                        json={
-                            "model": "prisma-engine",
-                            "system": PROMPT_PRISMA_SYSTEM,
-            "prompt": user_prompt,
-            "format": "json",
-                            "stream": False,
-                            "format": "json"
-                        },
+                        json=payload,
                         timeout=120
                     )
-                    
                     if response.status_code == 200:
                         res_json = json.loads(response.json()["response"])
                         eval_ejes = res_json.get("evaluacion_ejes", {})
