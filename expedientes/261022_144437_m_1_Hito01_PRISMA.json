@@ -1,0 +1,86 @@
+{
+  "tipo_archivo": "EXPEDIENTE_ACTIVO",
+  "ciclo_escolar": "2026",
+  "estudiante": "m",
+  "matricula": "",
+  "grupo": "1",
+  "ultima_actualizacion": "2026-10-22 14:44:37",
+  "vector_actual_db": {
+    "Indagación e investigación": 0.0,
+    "Pensamiento crítico y analítico": 1.2,
+    "Razonamiento ético": 0.0,
+    "Agencia intercultural": 0.0,
+    "Liderazgo colaborativo": 2.7,
+    "Saber hacer y ejecución técnica": 3.5,
+    "Resiliencia y autogestión": 0.0,
+    "Reflexión metacognitiva": 0.0
+  },
+  "historial_observaciones": [
+    {
+      "tipo": "IA",
+      "timestamp": "2026-10-22 14:44:37",
+      "nota": "Hoy María lideró la construcción del prototipo de filtro de agua. Resolvió un conflicto en su equipo\nescuchando a sus compañeras y ajustó los materiales tras un primer fallo en la prueba de filtración",
+      "deltas": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 1.2,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 2.7,
+        "Saber hacer y ejecución técnica": 3.5,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 0.0
+      },
+      "resultado_ia": {
+        "estudiante": "María",
+        "estado_educabilidad": {
+          "semaforo": "VERDE",
+          "advertencia_pedagogica": "María muestra un buen estado biológico y socioemocional, lo que permite una buena receptividad y participación en la clase. Se recomienda seguir fomentando su liderazgo y resiliencia."
+        },
+        "evaluacion_ejes": {
+          "Indagacion_Investigacion": {
+            "delta_db": 0.0,
+            "razonamiento": "No se mencionaron aspectos específicos de indagación o investigación en el hito."
+          },
+          "Pensamiento_Critico_Analitico": {
+            "delta_db": 1.2,
+            "razonamiento": "María resolvió un conflicto en su equipo y ajustó los materiales tras un fallo, demostrando capacidad analítica."
+          },
+          "Razonamiento_Etico": {
+            "delta_db": 0.0,
+            "razonamiento": "El liderazgo y la resolución del conflicto se realizaron de manera constructiva, sin indicaciones de conducta éticamente problemática."
+          },
+          "Agencia_Intercultural": {
+            "delta_db": 0.0,
+            "razonamiento": "No se mencionaron aspectos específicos de agencia intercultural en el hito."
+          },
+          "Liderazgo_Colaborativo": {
+            "delta_db": 2.7,
+            "razonamiento": "María lideró la construcción del prototipo y resolvió un conflicto en su equipo, demostrando liderazgo colaborativo."
+          },
+          "Saber_Hacer_Ejecucion_Tecnica": {
+            "delta_db": 3.5,
+            "razonamiento": "María ajustó los materiales tras un fallo en la prueba de filtración, mostrando habilidades técnicas."
+          },
+          "Resiliencia_Autogestion": {
+            "delta_db": 0.0,
+            "razonamiento": "María mostró adaptabilidad y resiliencia al resolver el conflicto y ajustar los materiales."
+          },
+          "Reflexion_Metacognitiva": {
+            "delta_db": 0.0,
+            "razonamiento": "No se mencionaron aspectos específicos de reflexión metacognitiva en el hito."
+          }
+        }
+      },
+      "vector_snapshot": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 1.2,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 2.7,
+        "Saber hacer y ejecución técnica": 3.5,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 0.0
+      }
+    }
+  ]
+}

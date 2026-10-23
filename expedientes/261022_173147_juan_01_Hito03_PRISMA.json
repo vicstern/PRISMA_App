@@ -1,0 +1,218 @@
+{
+  "tipo_archivo": "EXPEDIENTE_ACTIVO",
+  "ciclo_escolar": "2026",
+  "estudiante": "juan",
+  "matricula": "",
+  "grupo": "01",
+  "ultima_actualizacion": "2026-10-22 17:31:47",
+  "vector_actual_db": {
+    "Indagación e investigación": 0.0,
+    "Pensamiento crítico y analítico": 1.2,
+    "Razonamiento ético": 0.0,
+    "Agencia intercultural": 0.0,
+    "Liderazgo colaborativo": 1.7000000000000002,
+    "Saber hacer y ejecución técnica": 6.5,
+    "Resiliencia y autogestión": 1.0,
+    "Reflexión metacognitiva": 0.0
+  },
+  "historial_observaciones": [
+    {
+      "tipo": "IA",
+      "timestamp": "2026-10-22 17:31:47",
+      "nota": "1. Hoy María lideró la construcción del prototipo de filtro de agua. Resolvió un conflicto en su equipo escuchando a sus compañeras y ajustó los materiales tras un primer fallo en la prueba de filtración.",
+      "deltas": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 0.0,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 1.2,
+        "Saber hacer y ejecución técnica": 2.7,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 0.0
+      },
+      "resultado_ia": {
+        "estudiante": "Juan",
+        "estado_educabilidad": {
+          "semaforo": "VERDE",
+          "advertencia_pedagogica": "El estudiante muestra un buen estado biológico y sociofísico, lo que permite una buena receptividad y participación en la clase. Se recomienda seguir fomentando su participación y liderazgo en el equipo."
+        },
+        "evaluacion_ejes": {
+          "Indagacion_Investigacion": {
+            "delta_db": 0.0,
+            "razonamiento": "No se mencionan acciones específicas relacionadas con la indagación e investigación."
+          },
+          "Pensamiento_Critico_Analitico": {
+            "delta_db": 0.0,
+            "razonamiento": "No se mencionan acciones específicas relacionadas con el pensamiento crítico analítico."
+          },
+          "Razonamiento_Etico": {
+            "delta_db": 0.0,
+            "razonamiento": "El estudiante no mostró conductas éticas notables en este hito."
+          },
+          "Agencia_Intercultural": {
+            "delta_db": 0.0,
+            "razonamiento": "No se mencionan acciones específicas relacionadas con la agencia intercultural."
+          },
+          "Liderazgo_Colaborativo": {
+            "delta_db": 1.2,
+            "razonamiento": "El estudiante lideró la construcción del prototipo y resolvió un conflicto en su equipo, demostrando habilidades de liderazgo colaborativo."
+          },
+          "Saber_Hacer_Ejecucion_Tecnica": {
+            "delta_db": 2.7,
+            "razonamiento": "El estudiante ajustó los materiales tras un primer fallo en la prueba de filtración, mostrando habilidades técnicas y ejecución."
+          },
+          "Resiliencia_Autogestion": {
+            "delta_db": 0.0,
+            "razonamiento": "No se mencionan episodios de frustración no regulada o reincorporación."
+          },
+          "Reflexion_Metacognitiva": {
+            "delta_db": 0.0,
+            "razonamiento": "No se mencionan acciones específicas relacionadas con la reflexión metacognitiva."
+          }
+        }
+      },
+      "vector_snapshot": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 0.0,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 1.2,
+        "Saber hacer y ejecución técnica": 2.7,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 0.0
+      }
+    },
+    {
+      "tipo": "IA",
+      "timestamp": "2026-10-22 17:31:47",
+      "nota": "2. María notó que el flujo estaba muy lento, revisó la densidad de la arena y redujo la capa a la mitad. Cuando su equipo se distrajo con los teléfonos, los llamó para repartir las tareas de la presentación de mañana.",
+      "deltas": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 1.2,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 1.5,
+        "Saber hacer y ejecución técnica": 1.8,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 0.0
+      },
+      "resultado_ia": {
+        "estudiante": "Juan",
+        "estado_educabilidad": {
+          "semaforo": "VERDE",
+          "advertencia_pedagogica": "El estudiante muestra un buen estado biológico y cognitivo, sin signos de tensión o vulnerabilidad. Se recomienda seguir fomentando su participación activa y el trabajo en equipo."
+        },
+        "evaluacion_ejes": {
+          "Indagacion_Investigacion": {
+            "delta_db": 0.0,
+            "razonamiento": "No se mencionan acciones de indagación o investigación específicas del estudiante."
+          },
+          "Pensamiento_Critico_Analitico": {
+            "delta_db": 1.2,
+            "razonamiento": "Juan identificó el problema del flujo lento y tomó la iniciativa de reducir la densidad de la arena, mostrando un pensamiento crítico y analítico."
+          },
+          "Razonamiento_Etico": {
+            "delta_db": 0.0,
+            "razonamiento": "No se mencionan acciones éticas específicas del estudiante."
+          },
+          "Agencia_Intercultural": {
+            "delta_db": 0.0,
+            "razonamiento": "No se mencionan acciones relacionadas con la agencia intercultural."
+          },
+          "Liderazgo_Colaborativo": {
+            "delta_db": 1.5,
+            "razonamiento": "Juan llamó a su equipo para repartir las tareas de la presentación, demostrando liderazgo colaborativo y responsabilidad en el trabajo en equipo."
+          },
+          "Saber_Hacer_Ejecucion_Tecnica": {
+            "delta_db": 1.8,
+            "razonamiento": "Juan participó activamente en la solución del problema y en la organización del trabajo del equipo, mostrando habilidades técnicas."
+          },
+          "Resiliencia_Autogestion": {
+            "delta_db": 0.0,
+            "razonamiento": "No se mencionan episodios de frustración o desafío que requieran reconocimiento de resiliencia."
+          },
+          "Reflexion_Metacognitiva": {
+            "delta_db": 0.0,
+            "razonamiento": "No se mencionan acciones de reflexión metacognitiva del estudiante."
+          }
+        }
+      },
+      "vector_snapshot": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 1.2,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 2.7,
+        "Saber hacer y ejecución técnica": 4.5,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 0.0
+      }
+    },
+    {
+      "tipo": "IA",
+      "timestamp": "2026-10-22 17:31:47",
+      "nota": "3. Hoy en el descanso María tuvo un episodio severo de frustración porque sus compañeros la dejaron al final al armar la retreta de fútbol. Gritó, aventó su mochila y se negó a hablar con el equipo durante la primera mitad de la clase. Sin embargo, hacia el final del taller, regresó al laboratorio en silencio, tomó el multímetro y calibró correctamente los sensores de flujo del prototipo.",
+      "deltas": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 0.0,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": -1.0,
+        "Saber hacer y ejecución técnica": 2.0,
+        "Resiliencia y autogestión": 1.0,
+        "Reflexión metacognitiva": 0.0
+      },
+      "resultado_ia": {
+        "estudiante": "Juan",
+        "estado_educabilidad": {
+          "semaforo": "AMARILLO",
+          "advertencia_pedagogica": "Juan mostró signos de tensión moderada debido a un episodio severo de frustración. Se recomienda un seguimiento cercano y apoyo emocional para ayudarlo a regular sus emociones y reanudar su participación en la clase."
+        },
+        "evaluacion_ejes": {
+          "Indagacion_Investigacion": {
+            "delta_db": 0.0,
+            "razonamiento": "No se mencionaron evidencias relevantes para este eje."
+          },
+          "Pensamiento_Critico_Analitico": {
+            "delta_db": 0.0,
+            "razonamiento": "No se mencionaron evidencias relevantes para este eje."
+          },
+          "Razonamiento_Etico": {
+            "delta_db": 0.0,
+            "razonamiento": "El episodio de frustración no es una falta ética y no se penaliza este eje."
+          },
+          "Agencia_Intercultural": {
+            "delta_db": 0.0,
+            "razonamiento": "No se mencionaron evidencias relevantes para este eje."
+          },
+          "Liderazgo_Colaborativo": {
+            "delta_db": -1.0,
+            "razonamiento": "El episodio de frustración interrumpió la dinámica de trabajo del equipo, penalizando ligeramente este eje."
+          },
+          "Saber_Hacer_Ejecucion_Tecnica": {
+            "delta_db": 2.0,
+            "razonamiento": "Juan regresó al laboratorio y calibró correctamente los sensores, mostrando habilidades técnicas."
+          },
+          "Resiliencia_Autogestion": {
+            "delta_db": 1.0,
+            "razonamiento": "Juan regresó al laboratorio en silencio y continuó con su trabajo, mostrando resiliencia."
+          },
+          "Reflexion_Metacognitiva": {
+            "delta_db": 0.0,
+            "razonamiento": "No se mencionaron evidencias relevantes para este eje."
+          }
+        }
+      },
+      "vector_snapshot": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 1.2,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 1.7000000000000002,
+        "Saber hacer y ejecución técnica": 6.5,
+        "Resiliencia y autogestión": 1.0,
+        "Reflexión metacognitiva": 0.0
+      }
+    }
+  ]
+}
