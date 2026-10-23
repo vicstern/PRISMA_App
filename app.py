@@ -578,6 +578,18 @@ with col_izq:
         deltas_acum_totales = {eje: 0.0 for eje in EJE_NOMBRES}
         
         for item in hitos_p:
+            res_ia = item.get("resultado_ia", {})
+            est_educ = res_ia.get("estado_educabilidad", {})
+            semaforo = str(est_educ.get("semaforo", "VERDE")).upper()
+            adv_pedag = est_educ.get("advertencia_pedagogica", "")
+
+            if "ROJO" in semaforo:
+                st.error(f"🔴 **Semáforo ROJO — Alerta de Educabilidad:** {adv_pedag}")
+            elif "AMARILLO" in semaforo:
+                st.warning(f"🟡 **Semáforo AMARILLO — Atención Pedagógica:** {adv_pedag}")
+            else:
+                st.success(f"🟢 **Semáforo VERDE — Condición Óptima:** {adv_pedag or 'Sin restricciones sociofisiológicas activas.'}")
+
             if len(hitos_p) > 1:
                 st.markdown(f"**• Hito {item['sub_idx']}:** *\"{item['nota']}\"*")
             
