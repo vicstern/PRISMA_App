@@ -466,6 +466,22 @@ with col_izq:
         with col_e2:
             st.selectbox("Alimentación / Nutrición:", ["Completa / Adecuada", "Insuficiente / Parcial", "Sin Alimento / Ayuno"], key="input_alimentacion")
     
+    st.markdown("---")
+    st.subheader("2. Registro de Nota Narrativa Docente")
+    st.markdown("##### Nota de Estado de Educabilidad")
+
+    st.markdown("---")
+    st.number_input(
+        "Calificación escalar (opcional: 0.0 - 10.0 o 0 - 100)",
+        min_value=0.0,
+        max_value=100.0,
+        value=0.0,
+        step=0.1,
+        key="input_nota_escalar",
+        disabled=st.session_state.procesando,
+        help="Ingresa la nota tradicional de la actividad. Si es <= 10.0 se tratará en base 10; si es > 10.0 en base 100."
+    )
+    
     with st.form(key="form_nota_docente", clear_on_submit=False):
         nota_docente = st.text_area(
             "Dictado / Nota narrativa del docente:",
