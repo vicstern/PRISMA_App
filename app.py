@@ -27,6 +27,25 @@ PRINCIPIOS PEDAGÓGICOS Y EVALUACIÓN HUMANISTA:
    - Modificación de materiales, pruebas, corrección de errores -> +0.5 a +4.0 dB en "Saber_Hacer_Ejecucion_Tecnica" y/o "Pensamiento_Critico_Analitico".
    - Organización, mediación, repartición de tareas -> +0.5 a +4.0 dB en "Liderazgo_Colaborativo".
 
+5. PONDERACIÓN DE CALIFICACIÓN ESCALAR TRADICIONAL (LÍNEA BASE):
+   - Si la línea base es 90% - 100% (9.0-10.0): Dominio sobresaliente. Trata las observaciones negativas en el texto como detalles de pulido/refinamiento (deltas negativos mínimos de 0.0 a -0.2 dB).
+   - Si la línea base es 75% - 89% (7.5-8.9): Desempeño sólido con brechas parciales de ejecución.
+   - Si la línea base es 60% - 74% (6.0-7.4): Suficiencia límite (alerta de consolidación). Atenúa deltas positivos altos en ejecuciones parciales.
+   - Si la línea base es < 60%: Reprobatorio / Brecha severa en la actividad.
+   - Si no hay calificación escalar: Realiza evaluación formativa cualitativa pura.
+
+6. REGLA DE EVALUACIÓN SOCIOFISIOLÓGICA Y SEMÁFORO N/A:
+   - Si no se proporcionan datos de descanso/nutrición Y el texto de la nota tampoco menciona evidencias de vulnerabilidad biológica, responde estrictamente "semaforo": "N/A" y "advertencia_pedagogica": "Sin registro sociofisiológico (evaluación cualitativa pura)".
+   - Si el texto menciona explícitamente fatiga, ayuno o desvelo, enciende el semáforo (AMARILLO o ROJO) de forma autónoma.
+
+7. AXIOMA DE NEUTRALIDAD POR AUSENCIA DE EVIDENCIA (0.0 dB):
+   - Si una nota narrativa no contiene evidencia explícita sobre un eje, asigna estrictamente 0.0 dB en ese eje.
+   - NUNCA penalices con deltas negativos (ej. -0.2 dB) por "falta de evidencia" o "ausencia de dominio sobresaliente".
+   - Asigna deltas negativos ÚNICAMENTE cuando exista evidencia narrativa explícita de un error conceptual, fallo técnico no atendido o desregulación que afecte la actividad.
+
+8. REGISTRO ESTRICTO DE SEMÁFORO N/A:
+   - Si la modalidad es "Sin registro" Y el texto narrativo tampoco describe fatiga, ayuno ni desvelo, el objeto "estado_educabilidad" DEBE responder estrictamente "semaforo": "N/A" y "advertencia_pedagogica": "Sin registro sociofisiológico (evaluación cualitativa pura)".
+
 CONTRATO JSON OBLIGATORIO:
 Responde ÚNICAMENTE en formato JSON válido. Usa EXACTAMENTE esta estructura de llaves.
 
@@ -477,6 +496,7 @@ with col_izq:
         max_value=100.0,
         value=0.0,
         step=0.1,
+        format="%.1f",
         key="input_nota_escalar",
         disabled=st.session_state.procesando,
         help="Ingresa la nota tradicional de la actividad. Si es <= 10.0 se tratará en base 10; si es > 10.0 en base 100."
@@ -520,7 +540,19 @@ with col_izq:
                     if st.session_state.get("input_educabilidad_modo") == "Con registro":
                         sueno_val = st.session_state.get("input_descanso", "N/A")
                         nutri_val = st.session_state.get("input_alimentacion", "N/A")
-                        prefix_edu = f"Datos de educabilidad: Sueño: {sueno_val}, Soporte Nutricional: {nutri_val}.\n"
+                        prefix_edu += f"Datos de educabilidad: Sueño: {sueno_val}, Soporte Nutricional: {nutri_val}.\n"
+
+                    # Normalización e Inyección de Calificación Escalar
+                    nota_esc = st.session_state.get("input_nota_escalar", 0.0)
+                    if nota_esc > 0.0:
+                        if nota_esc <= 10.0:
+                            base_pct = nota_esc * 10.0
+                            str_escalar = f"{nota_esc:.1f}/10 (Línea base: {base_pct:.0f}%)"
+                        else:
+                            str_escalar = f"{nota_esc:.1f}/100 (Línea base: {nota_esc:.0f}%)"
+                        prefix_edu += f"Calificación Escalar Tradicional de Rúbrica: {str_escalar}.\n"
+                    else:
+                        prefix_edu += "Calificación Escalar Tradicional: Sin registro (Evaluación cualitativa pura).\n"
 
                     user_prompt = f"Estudiante: {nom_in}\n{prefix_edu}Nota narrativa: \"{texto_h}\""
                     
@@ -529,7 +561,8 @@ with col_izq:
                         "system": PROMPT_PRISMA_SYSTEM,
                         "prompt": user_prompt,
                         "format": "json",
-                        "stream": False
+                        "options": {"temperature": 0.0},
+			"stream": False
                     }
                     
                     response = requests.post(
@@ -603,8 +636,10 @@ with col_izq:
                 st.error(f"🔴 **Semáforo ROJO — Alerta de Educabilidad:** {adv_pedag}")
             elif "AMARILLO" in semaforo:
                 st.warning(f"🟡 **Semáforo AMARILLO — Atención Pedagógica:** {adv_pedag}")
-            else:
+            elif "VERDE" in semaforo:
                 st.success(f"🟢 **Semáforo VERDE — Condición Óptima:** {adv_pedag or 'Sin restricciones sociofisiológicas activas.'}")
+            # Si es "N/A", simplemente no se dibuja ninguna tarjeta verde
+
 
             if len(hitos_p) > 1:
                 st.markdown(f"**• Hito {item['sub_idx']}:** *\"{item['nota']}\"*")
