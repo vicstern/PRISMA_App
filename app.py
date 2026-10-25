@@ -189,7 +189,7 @@ from datetime import datetime
 
 # --- CONFIGURACIÓN Y ESTILOS DE INTERFAZ ---
 st.set_page_config(
-    page_title="Aula Viva® con IA — PRISMA",
+    page_title="Aula Viva® con IA — PRISMA™",
     page_icon="🌌",
     layout="wide"
 )
@@ -229,7 +229,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.title("Aula Viva® con IA — PRISMA")
+st.title("Aula Viva® con IA — PRISMA™")
 st.markdown("### Plataforma de Reflexión e Interpretación para el Seguimiento Multidimensional del Aprendizaje")
 st.caption("Analítica cualitativa vectorizada en ℝ⁸ | Aula Viva® con IA | Ecosistema ASPIRE®")
 
@@ -805,9 +805,9 @@ with col_izq:
     # --- META-ANÁLISIS DE TRAYECTORIA (DOCENTE/USUARIO) ---
     st.markdown("---")
     st.subheader("3. Meta-Análisis de Trayectoria")
-    st.caption("Evaluación holística multidimensional recomendada por PRISMA.")
+    st.caption("Evaluación holística multidimensional recomendada por PRISMA™.")
     
-    if st.button("🌌 Meta-Análisis PRISMA", use_container_width=True, disabled=st.session_state.procesando):
+    if st.button("🌌 Meta-Análisis PRISMA™", use_container_width=True, disabled=st.session_state.procesando):
         if not nom_in.strip() or not grp_in.strip():
             st.error("⚠️ Por favor completa el Nombre y Grupo del estudiante antes de ejecutar el Meta-Análisis.")
         elif len(st.session_state.historial_observaciones) < 2:
@@ -831,7 +831,7 @@ with col_izq:
                         meta_res = json.loads(response_meta.json()["response"])
                         eval_meta = meta_res.get("evaluacion_ejes", meta_res)
                         
-                        st.info("🌌 **Diagnóstico Holístico Sugerido por PRISMA:**")
+                        st.info("🌌 **Diagnóstico Holístico Sugerido por PRISMA™:**")
                         
                         diag_gen = meta_res.get("diagnostico_general", meta_res.get("resumen", ""))
                         if diag_gen:
@@ -847,14 +847,14 @@ with col_izq:
                                     overrides_sugeridos[n_eje] = delta_m
                                     st.write(f"• **{n_eje}:** `{fmt_db(delta_m)} dB` — {razon_m if razon_m else 'Sin observaciones adicionales'}")
                         
-                        if st.button("Aceptar y registrar Meta-Análisis PRISMA como Hito", disabled=st.session_state.procesando):
+                        if st.button("Aceptar y registrar Meta-Análisis PRISMA™ como Hito", disabled=st.session_state.procesando):
                             for eje, d_m in overrides_sugeridos.items():
                                 st.session_state.valores_db[eje] += d_m
                                 
                             st.session_state.historial_observaciones.append({
                                 "tipo": "META_ANALISIS",
                                 "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                                "justificacion": "Ajuste holístico de trayectoria por Meta-Análisis PRISMA.",
+                                "justificacion": "Ajuste holístico de trayectoria por Meta-Análisis PRISMA™.",
                                 "deltas": overrides_sugeridos,
                                 "resultado_ia": meta_res,
                                 "vector_snapshot": dict(st.session_state.valores_db)
@@ -876,11 +876,11 @@ with col_izq:
             tipo_hito = obs.get("tipo", "IA")
             
             if tipo_hito == "IA":
-                etiqueta_tipo = "🌌 Inferencia PRISMA"
+                etiqueta_tipo = "🌌 Inferencia PRISMA™"
             elif tipo_hito == "MANUAL":
                 etiqueta_tipo = "🎨 Calibración manual docente"
             elif tipo_hito == "META_ANALISIS":
-                etiqueta_tipo = "🌌 Meta-Análisis PRISMA"
+                etiqueta_tipo = "🌌 Meta-Análisis PRISMA™"
             else:
                 etiqueta_tipo = "🔄 Transición: Año nuevo, vida nueva"
                 
@@ -891,7 +891,7 @@ with col_izq:
                     if "nota" in obs:
                         st.write(f"**Nota narrativa docente:** *\"{obs['nota']}\"*")
                     
-                    st.markdown("**Desglose e Inferencia de PRISMA:**")
+                    st.markdown("**Desglose e Inferencia de PRISMA™:**")
                     eval_ejes = obs.get("resultado_ia", {}).get("evaluacion_ejes", {})
                     hubo_cambios = False
                     if isinstance(eval_ejes, dict):
@@ -1169,7 +1169,7 @@ with col_der:
                 is_last = (i == num_hitos - 1) and sin_staging
                 tipo_hito = obs.get("tipo", "IA")
                 
-                tag_tipo = "PRISMA" if tipo_hito == "IA" else ("Manual" if tipo_hito == "MANUAL" else "Transición")
+                tag_tipo = "PRISMA™" if tipo_hito == "IA" else ("Manual" if tipo_hito == "MANUAL" else "Transición")
                 
                 fig.add_trace(go.Scatterpolar(
                     r=vals_cerrados,
