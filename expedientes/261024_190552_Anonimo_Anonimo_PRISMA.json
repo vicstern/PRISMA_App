@@ -1,0 +1,19 @@
+{
+  "tipo_archivo": "EXPEDIENTE_ACTIVO",
+  "ciclo_escolar": "2026",
+  "estudiante": "",
+  "matricula": "",
+  "grupo": "",
+  "ultima_actualizacion": "2026-10-24 19:05:52",
+  "vector_actual_db": {
+    "Indagación e investigación": 0.0,
+    "Pensamiento crítico y analítico": 0.0,
+    "Razonamiento ético": 0.0,
+    "Agencia intercultural": 0.0,
+    "Liderazgo colaborativo": 0.0,
+    "Saber hacer y ejecución técnica": 0.0,
+    "Resiliencia y autogestión": 0.0,
+    "Reflexión metacognitiva": 0.0
+  },
+  "historial_observaciones": []
+}

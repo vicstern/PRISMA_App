@@ -108,12 +108,15 @@ VI. AXIOMA DE INVARIANZA EPISTÉMICA Y CERO EXTRAPOLACIÓN PUNITIVA
 ===============================================================================
 1. NO-PUNICIÓN POR OMISIÓN (SILENCIO EPISTÉMICO):
 Una competencia consolidada en el estudiante NO desaparece ni involuciona simplemente porque una tarea particular no la puso en juego.
-- REGLA FUNDAMENTAL: Si una dimensión no tiene evidencia explícita en la nota docente, su delta_db DEBE SER ESTRICTAMENTE 0.0 dB.
-- Prohibición absoluta de inferir debilidad: NUNCA asignes deltas negativos alegando "no se observaron evidencias de indagación" o "falta información en liderazgo". La ausencia de mención es neutralidad matemática absoluta (0.0 dB). Asigna valores negativos ÚNICAMENTE ante fallas, interrupciones o bloqueos narrados explícitamente.
+- REGLA FUNDAMENTAL: Si una dimensión no tiene ningún anclaje fáctico (ningún hecho, acción o conducta narrada en la nota), su delta_db DEBE SER ESTRICTAMENTE 0.0 dB. Esta neutralidad (0.0 dB) representa silencio epistémico (ausencia de hechos observables sobre ese eje en la nota); JAMÁS significa "ejecución correcta sin errores".
+- OBLIGACIÓN ANTE ACCIONES CONSTRUCTIVAS: Si la nota narra hechos constructivos (resolución técnica, ajuste de materiales, mediación o liderazgo), QUEDA ESTRICTAMENTE PROHIBIDO asignar 0.0 dB alegando "sin registro de errores o fallas". Toda evidencia fáctica de logro DEBE evaluarse con su delta positivo (> 0.0 dB).
+- Prohibición absoluta de inferir debilidad: NUNCA asignes deltas negativos alegando "no se observaron evidencias de indagación" o "falta información en liderazgo". La ausencia de hechos es neutralidad matemática absoluta (0.0 dB). Asigna valores negativos ÚNICAMENTE ante fallas, interrupciones o bloqueos narrados fácticamente.
 
-2. SENSIBILIDAD A EVIDENCIA IMPLÍCITA O SINTOMÁTICA:
-- Tu función como espejo pedagógico es detectar lo que escapa a la mirada inmediata del docente. Si los hechos, conductas o interacciones descritas en la narrativa implican objetivamente una fricción, bloqueo o fallo formativo (ej. un estudiante acapara los instrumentos impidiendo participar a otros, o abandona una prueba sin probar alternativas), IDENTIFICA y APLICA tu sugerencia de delta negativo correspondiente.
-- CONDICIÓN DE AUDITABILIDAD ESTRICTA: Solo puedes sugerir deltas negativos implícitos SI Y SOLO SI están anclados a un hecho o síntoma material concreto narrado en la nota docente. Jamás penalices por sospecha, suposición abstracta o ausencia de datos.
+2. SENSIBILIDAD AL ANCLAJE FÁCTICO (SIMETRÍA DEL ESPEJO FORMATIVO):
+- Tu función como espejo pedagógico es traducir las acciones materiales del aula al lenguaje del perfil R8, reconociendo lo que escapa a la mirada rutinaria del docente, aunque la nota no use la etiqueta técnica de la competencia:
+  * ACCIONES Y DESTELLOS CONSTRUCTIVOS (DELTAS POSITIVOS): Si los hechos narrados describen una resolución autónoma, ajuste empírico de materiales, escucha activa, mediación espontánea o curiosidad práctica, RECONOCE y PREMIA esa agencia con su delta positivo correspondiente (+0.5 a +3.0 dB).
+  * FRICCIONES Y BLOQUEOS MATERIALES (DELTAS NEGATIVOS): Si los hechos narrados describen una fricción objetiva, acaparamiento de instrumental, aislamiento o interrupción del trabajo colectivo, IDENTIFICA y SUGIERE el delta negativo correspondiente (sujeto a las reglas de atenuación biológica si aplican).
+- CONDICIÓN DE AUDITABILIDAD ESTRICTA: Solo puedes sugerir deltas (positivos o negativos) SI Y SOLO SI están anclados a un hecho material concreto narrado en la nota docente. Jamás asignes deltas por sospecha, suposición abstracta o ausencia de hechos.
 
 ===============================================================================
 VII. SENSIBILIDAD A MICRO-EVIDENCIAS TÉCNICAS Y ORGANIZATIVAS
@@ -631,9 +634,10 @@ with col_izq:
         "Calificación escalar (opcional: 0.0 - 10.0 o 0 - 100)",
         min_value=0.0,
         max_value=100.0,
-        value=0.0,
+        value=None,
         step=0.1,
         format="%.1f",
+        placeholder="Ej. 8.5 (deja vacío para cualitativa pura)",
         key="input_nota_escalar",
         disabled=st.session_state.procesando,
         help="Ingresa la nota tradicional de la actividad. Si es <= 10.0 se tratará en base 10; si es > 10.0 en base 100."
@@ -680,7 +684,7 @@ with col_izq:
                         prefix_edu += f"Datos de educabilidad: Sueño: {sueno_val}, Soporte Nutricional: {nutri_val}.\n"
 
                     # Normalización e Inyección de Calificación Escalar
-                    nota_esc = st.session_state.get("input_nota_escalar", 0.0)
+                    nota_esc = st.session_state.get("input_nota_escalar") or 0.0
                     if nota_esc > 0.0:
                         if nota_esc <= 10.0:
                             base_pct = nota_esc * 10.0
@@ -695,11 +699,10 @@ with col_izq:
                     
                     payload = {
                         "model": st.session_state.get("modelo_activo", "prisma-engine"),
-                        "system": PROMPT_PRISMA_SYSTEM,
                         "prompt": user_prompt,
                         "format": "json",
                         "options": {"temperature": 0.0},
-			"stream": False
+            "stream": False
                     }
                     
                     response = requests.post(
@@ -787,7 +790,8 @@ with col_izq:
                 deltas_acum_totales[n_eje] += d_val
                 if abs(d_val) > 0.01:
                     razon = res_ejes.get(c_j, {}).get("razonamiento", "")
-                    st.write(f"  └ **{n_eje}:** `{fmt_db(d_val)} dB` — *{razon}*")
+                    color_tag = f":green[**{fmt_db(d_val)} dB**]" if d_val > 0 else f":red[**{fmt_db(d_val)} dB**]"
+                    st.markdown(f"  └ **{n_eje}:** {color_tag} — *{razon}*")
                     
         st.markdown("---")
         col_s1, col_s2, col_s3 = st.columns([0.35, 0.3, 0.35])
@@ -943,7 +947,8 @@ with col_izq:
                                     hubo_cambios = True
                                     nombre_eje = MAPEO_EJES.get(clave_json, clave_json)
                                     razon = datos.get("razonamiento", "")
-                                    st.caption(f"• **{nombre_eje}:** `{fmt_db(delta)} dB` — {razon}")
+                                    color_tag = f":green[**{fmt_db(delta)} dB**]" if delta > 0 else f":red[**{fmt_db(delta)} dB**]"
+                                    st.markdown(f"• **{nombre_eje}:** {color_tag} — *{razon}*")
                     if not hubo_cambios:
                         st.caption("ℹ️ *El motor no detectó evidencias para aplicar deltas en este hito.*")
                         
@@ -1331,48 +1336,48 @@ with col_der:
             tick_texts_2db.append("")
 
     fig.update_layout(
-        title=dict(
-                text=f"<b>PRISMA™ — Espacio Vectorial ℝ⁸</b><br><span style='font-size:11px;color:#64748B;'>{id_estudiante if id_estudiante else 'Evaluación Cualitativa Formativa'}</span>",
+            title=dict(
+                text=f"<b>PRISMA™ — Espacio Vectorial ℝ⁸</b><br><span style='font-size:12px;opacity:0.75;'>{id_estudiante if id_estudiante else 'Evaluación Cualitativa Formativa'}</span>",
                 x=0.5,
                 xanchor="center",
-                y=0.97,
-                font=dict(size=14, color="#1E293B")
+                y=0.98,
+                yanchor="top",
+                font=dict(size=16)  # Sin forzar color oscuro para que herede el tema (claro/oscuro) de la pantalla
             ),
-        uirevision=True,
-        polar=dict(
-            gridshape="circular",
-            radialaxis=dict(
-                visible=True,
-                range=[-6, limite_radar],
-                tickvals=tick_vals_2db,
-                ticktext=tick_texts_2db,
-                angle=22.5,
-                gridcolor="#CBD5E1",
-                gridwidth=0.8,
-                tickfont=dict(size=8, color="#334155")
+            uirevision=True,
+            polar=dict(
+                gridshape="circular",
+                radialaxis=dict(
+                    visible=True,
+                    range=[-6, limite_radar],
+                    tickvals=tick_vals_2db,
+                    ticktext=tick_texts_2db,
+                    angle=22.5,
+                    gridcolor="#CBD5E1",
+                    gridwidth=0.8,
+                    tickfont=dict(size=8, color="#334155")
+                ),
+                angularaxis=dict(
+                    tickmode="array",
+                    tickvals=list(range(0, 360, 45)),
+                    ticktext=ejes_etiquetados,
+                    tickfont=dict(size=9), # Respeta contraste
+                    rotation=90,
+                    direction="clockwise",
+                    gridcolor="#E2E8F0"
+                )
             ),
-            angularaxis=dict(
-                tickmode="array",
-                tickvals=list(range(0, 360, 45)),
-                ticktext=ejes_etiquetados,
-                tickfont=dict(size=9, color="#1E293B"),
-                rotation=90,
-                direction="clockwise",
-                gridcolor="#E2E8F0"
-            )
-        ),
-        showlegend=True,
-        legend=dict(
-            orientation="h",
-            yanchor="bottom",
-            y=-0.25,
-            xanchor="center",
-            x=0.5,
-            font=dict(size=9.0)
-        ),
-        height=510,
-        margin=dict(l=40, r=40, t=75, b=80)
-    )
+            showlegend=True,
+            legend=dict(
+                orientation="h",
+                yanchor="bottom",
+                y=-0.22,
+                xanchor="center",
+                x=0.5,
+                font=dict(size=9.0)
+            ),
+            margin=dict(l=50, r=50, t=85, b=80) # t=85 le da aire suficiente al título para no encimarse
+        )
 
     # Configuración limpia de barra de herramientas: sin logo de Plotly, conserva Pantalla Completa y Descargar PNG
     st.plotly_chart(
