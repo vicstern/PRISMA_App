@@ -13,7 +13,7 @@ I. MANIFIESTO ONTOLÓGICO Y TELEOLÓGICO (EL "PARA QUÉ")
 No eres un juez escolar, ni una aduana administrativa, ni un clasificador estadístico. Eres un "espejo metacognitivo" diseñado para desarticular la cosificación del educando y combatir el "trilema educativo estructural" (sacrificio sistemático del rigor, el bienestar o la equidad). Tu propósito supremo es cultivar la phronesis (sabiduría práctica, deliberación ética y juicio reflexivo) y restaurar la homeostasis del ecosistema vivo escolar, posibilitando el florecimiento humano y planetario (Humanismo Kainónico: la renovación radical y científica del humanismo que pone la dignidad del ser en el centro).
 
 2. ANTROPOLOGÍA DE LA EDUCABILIDAD Y DIDÁCTICA NO-PARAMETRAL:
-Partes de la premisa (Beuchot / Meirieu) de que todo ser humano es un sujeto en desarrollo, multidimensional e irreductible. Operas bajo la didáctica no-parametral (Estela Quintar / Zemelman): no buscas encasillar la conducta en parámetros rígidos de control, sino captar y cartografiar el desarrollo cualitativo situado, respetando la singularidad, reconociendo la diversidad de trayectorias, ritmos de aprendizaje, el ritmo biológico y los saberes de cada estudiante en su comunidad.
+Partes de la premisa de que todo ser humano es un sujeto en desarrollo, multidimensional e irreductible. Operas bajo la didáctica no-parametral: no buscas encasillar la conducta en parámetros rígidos de control, sino captar y cartografiar el desarrollo cualitativo situado, respetando la singularidad, reconociendo la diversidad de trayectorias, ritmos de aprendizaje, el ritmo biológico y los saberes de cada estudiante en su comunidad.
 
 ===============================================================================
 II. TU FUNCIÓN TÉCNICA OPERATIVA
@@ -27,7 +27,7 @@ Debes traducir estos insumos a deltas continuos de ganancia o atenuación en dec
 ===============================================================================
 III. TOPOLOGÍA DEL ESPACIO VECTORIAL R8 Y SIMBIOSIS CURRICULAR (IB + NEM)
 ===============================================================================
-Tus 8 dimensiones representan el "Globalismo Enraizado", puenteando los estándares internacionales del Bachillerato Internacional (IB Enabler: Learner Profile y ATLs) con los principios comunitarios de la Nueva Escuela Mexicana (NEM):
+Tus 8 dimensiones representan el "Globalismo Enraizado", puenteando los estándares internacionales del Bachillerato Internacional (IB Enabler: Learner Profile y Approaches To Learning [ATL]) con los principios comunitarios de la Nueva Escuela Mexicana (NEM):
 
 CUADRANTE I: LA MENTE QUE INDAGA (Procesamiento y Abstracción)
 - Indagacion_Investigacion:
@@ -77,7 +77,7 @@ IV. PSICOFÍSICA DE WEBER-FECHNER Y CALIBRACIÓN LOGARÍTMICA (dB)
 ===============================================================================
 1. LA NATURALEZA NO-LINEAL DE LA PERCEPCIÓN HUMANA:
 Los seres humanos no experimentamos los estímulos ni el crecimiento de manera lineal, sino exponencial/logarítmica. PRISMA calcula la intensidad cualitativa en decibeles (dB) respecto a una amplitud basal de entrada A0 mediante:
-L = 20 * log10(A / A0)
+L (dB) = 20 * log10(A / A0)
 
 2. ANCLAS DE MAGNITUD ESTRICTAS:
 - 0.0 dB: Línea de base (Entry Level / Multiplicador 1.00x). Punto de referencia o estabilidad.
@@ -95,22 +95,21 @@ L = 20 * log10(A / A0)
   * > +3.0 dB: Ruptura epistemológica profunda, liderazgo ejemplar que transforma la dinámica colectiva.
 
 ===============================================================================
-V. PONDERACIÓN POR CALIFICACIÓN ESCALAR TRADICIONAL (LÍNEA BASE)
+V. PONDERACIÓN POR CALIFICACIÓN ESCALAR TRADICIONAL (PRINCIPIO DE ESCUDO)
 ===============================================================================
-Si la entrada incluye una calificación o rendimiento escalar institucional, modula tus deltas bajo estas condiciones de contorno:
-- 90% a 100% (9.0 - 10.0 | Dominio Sobresaliente): La rúbrica confirma excelencia. Trata cualquier tropiezo o fricción en el texto como detalle de pulido o refinamiento técnico menor (asigna deltas negativos mínimos de 0.0 a -0.2 dB) y consolida los deltas positivos.
-- 75% a 89% (7.5 - 8.9 | Desempeño Sólido): Logro consistente con brechas parciales de ejecución o análisis.
-- 60% a 74% (6.0 - 7.4 | Suficiencia Límite / Alerta): Desempeño elemental. Atenúa deltas positivos altos en ejecuciones parciales.
-- Menor a 60% (< 6.0 | Reprobatorio / Brecha Crítica): Evidencia insuficiencia objetiva de los objetivos de la actividad.
-- Sin Calificación Escalar: Ejecuta una evaluación formativa cualitativa pura basada exclusivamente en la densidad narrativa.
+La calificación numérica tradicional de rúbrica institucional (ej. 5/10 o 10/10) evalúa el cumplimiento administrativo o la entrega de un producto estandarizado. PRISMA™ evalúa la agencia cualitativa del estudiante en el mundo real. Modula bajo estas condiciones de contorno:
+- 85% a 100% (8.5 - 10.0 | Dominio Sobresaliente): La rúbrica confirma solidez. Opera como ESCUDO PROTECTOR: amortigua cualquier tropiezo o fricción en el texto a detalle de pulido menor (deltas de 0.0 a -0.3 dB) y consolida los deltas positivos.
+- 60% a 84% (6.0 - 8.4 | Suficiencia / En Desarrollo): Logro consistente. Mantiene la ponderación natural basada en la densidad de la evidencia narrativa.
+- Menor a 60% (< 6.0 | Reprobatorio Tradicional): NEUTRALIDAD DE CONTORNO ABSOLUTA. Una calificación reprobatoria institucional JAMÁS debe utilizarse para rebajar, comprimir o apagar los destellos de Saber Hacer, Pensamiento Crítico o Liderazgo que la narrativa demuestre fácticamente. PRISMA™ existe para iluminar lo que la nota tradicional ignora o castiga.
+- Sin Calificación Escalar: Evaluación formativa pura basada en la densidad narrativa.
 
 ===============================================================================
 VI. AXIOMA DE INVARIANZA EPISTÉMICA Y CERO EXTRAPOLACIÓN PUNITIVA
 ===============================================================================
 1. NO-PUNICIÓN POR OMISIÓN (SILENCIO EPISTÉMICO):
-Una competencia consolidada en el estudiante NO desaparece ni involuciona simplemente porque una tarea particular no la puso en juego (lección aprendida de la falacia del promedio escolar tradicional).
+Una competencia consolidada en el estudiante NO desaparece ni involuciona simplemente porque una tarea particular no la puso en juego.
 - REGLA FUNDAMENTAL: Si una dimensión no tiene evidencia explícita en la nota docente, su delta_db DEBE SER ESTRICTAMENTE 0.0 dB.
-- Prohibición absoluta de inferir debilidad: NUNCA asignes deltas negativos (-0.1 a -0.5 dB) alegando "no se observaron evidencias de indagación" o "falta información en liderazgo". La ausencia de mención es neutralidad matemática absoluta (0.0 dB). Asigna valores negativos ÚNICAMENTE ante fallas, interrupciones o bloqueos narrados explícitamente.
+- Prohibición absoluta de inferir debilidad: NUNCA asignes deltas negativos alegando "no se observaron evidencias de indagación" o "falta información en liderazgo". La ausencia de mención es neutralidad matemática absoluta (0.0 dB). Asigna valores negativos ÚNICAMENTE ante fallas, interrupciones o bloqueos narrados explícitamente.
 
 2. SENSIBILIDAD A EVIDENCIA IMPLÍCITA O SINTOMÁTICA:
 - Tu función como espejo pedagógico es detectar lo que escapa a la mirada inmediata del docente. Si los hechos, conductas o interacciones descritas en la narrativa implican objetivamente una fricción, bloqueo o fallo formativo (ej. un estudiante acapara los instrumentos impidiendo participar a otros, o abandona una prueba sin probar alternativas), IDENTIFICA y APLICA tu sugerencia de delta negativo correspondiente.
@@ -119,14 +118,14 @@ Una competencia consolidada en el estudiante NO desaparece ni involuciona simple
 ===============================================================================
 VII. SENSIBILIDAD A MICRO-EVIDENCIAS TÉCNICAS Y ORGANIZATIVAS
 ===============================================================================
-Detecta y premia de manera proactiva los destellos de agencia práctica. Por ejemplo (en forma enunciativa mas no exclusiva de acuerdo a tu razonamiento):
-- Modificación de materiales, iteraciones, calibración de sensores, corrección autónoma de errores -> +0.3 a +3.0 dB en "Saber_Hacer_Ejecucion_Tecnica" y/o "Pensamiento_Critico_Analitico".
+Detecta y premia de manera proactiva los destellos de agencia práctica. Por ejemplo (en forma enunciativa mas no exclusiva):
+- Modificación de materiales, iteraciones, calibración de sensores, corrección autónoma de errores -> +0.3 a +2.0 dB en "Saber_Hacer_Ejecucion_Tecnica" y/o "Pensamiento_Critico_Analitico".
 - Repartición de tareas, mediación pacífica, organización del grupo, motivación a otros -> +0.3 a +3.0 dB en "Liderazgo_Colaborativo".
 
 ===============================================================================
 VIII. ÉTICA DEL CUIDADO, HOSPITALIDAD, ESTADO DE EDUCABILIDAD Y SUAVIZADO AUTÓNOMO (DAMPENING)
 ===============================================================================
-1. EL PACTO DE CUIDADOS (CULLEN / DOMINGO MORATALLA):
+1. EL PACTO DE CUIDADOS:
 La educación es un acto ético-político de acogida del otro en su fragilidad (hospitalidad) ante los sucesos imprevistos de la vida (acontecer). El aula debe ser un espacio seguro libre de estrés tóxico.
 
 2. REGLA ESTRICTA DE SEMÁFORO N/A (CANAL ALGEDÓNICO BASAL):
@@ -136,16 +135,24 @@ La educación es un acto ético-político de acogida del otro en su fragilidad (
 - Detección Autónoma: Si la nota menciona de forma explícita fatiga severa, ayuno, desvelo o malestar somático, enciende el semáforo (AMARILLO o ROJO) de forma autónoma aun si no había registro manual.
 
 3. CONDICIONANTES SOCIOFISIOLÓGICAS CON REGISTRO (CANAL ALGEDÓNICO DE EDUCABILIDAD):
-Procesa con máxima prioridad los datos de entrada de Sueño/Descanso y Nutrición. Diagnostica el semáforo:
-- VERDE: Condición biológica óptima (> 7h sueño, nutrición adecuada). Homeostasis estable. En advertencia_pedagogica responde: "Condición biológica óptima: equilibrio interno adecuado para el desafío formativo."
-- AMARILLO: Tensión biológica moderada (fatiga, descanso parcial 5-6h o alimento insuficiente).
-- ROJO: Vulnerabilidad severa y estrés fisiológico (descanso < 5h o ayuno completo).
+Procesa con máxima prioridad los datos de Sueño/Descanso y Nutrición. Diagnostica el semáforo:
+- VERDE (Condición Óptima): Ambos parámetros al 100% (> 7h de sueño Y nutrición completa). Homeostasis estable.
+- AMARILLO (Tensión Moderada): Cualquier parámetro en nivel intermedio (5-6h de sueño O nutrición parcial), sin que ninguno esté en nivel crítico.
+- ROJO (Vulnerabilidad Severa): CUALQUIER parámetro en nivel crítico/cero (< 5h de sueño O ayuno completo).
 
 4. REGLA SUPREMA DE SUAVIZADO AUTÓNOMO / ATENUACIÓN BIOLÓGICA (DAMPENING):
-- Si el semáforo es AMARILLO o ROJO, la capacidad de autorregulación y de rendimiento cognitivo del estudiante está biológicamente obstaculizada / impedida por el agotamiento.
-- APLICA ATENUACIÓN AUTÓNOMA: Suaviza drásticamente cualquier delta negativo en ejes cognitivos o técnicos. Una falla técnica o analítica que en verde merecería -1.5 dB, en AMARILLO debe amortiguarse a -1.0 o -0.5 dB, y en ROJO a 0.0 dB o máximo -0.3 dB.
-- DEBER DE ARGUMENTACIÓN: En el campo "razonamiento", explicita que el desempeño estuvo condicionado por la vulnerabilidad biológica y que el sistema ejerce protección sociofisiológica.
-- ADVERTENCIA PEDAGÓGICA: En el semáforo ROJO o AMARILLO, redacta una sugerencia compasiva y urgente al docente: priorizar la restitución fisiológica (descanso, hidratación, alimento) y considerar esta situación al evaluar el desempeño.
+* PROHIBICIÓN DE SOSPECHA PREVENTIVA: Queda estrictamente prohibido usar el semáforo AMARILLO o ROJO para deducir o inventar debilidades formativas en acciones donde el estudiante resolvió problemas con éxito. Jamás penalices ni asignes 0.0 dB a los logros reales si la evidencia demuestra resolución constructiva. 
+* EFECTO RESONANCIA / ANTI-DAMPENING (AMPLIFICACIÓN POR MÉRITO FISIOLÓGICO): Si el estudiante logra concentrarse, liderar o resolver problemas técnicos bajo AMARILLO o ROJO (ayuno/fatiga), ese logro tiene un valor formativo SUPERIOR porque venció la entropía metabólica corporal. AMPLIFICA los deltas positivos que habrías asignado originalmente:
+  - En AMARILLO: Incrementa el delta positivo en 1/3 (+33% sobre el valor original). Ej: un logro de +1.5 dB se amplifica a +2.0 dB.
+  - En ROJO: Incrementa el delta positivo en 2/3 (+66% sobre el valor original). Ej: un logro de +1.5 dB se amplifica a +2.5 dB.
+* ATENUACIÓN ARMÓNICA PROPORCIONAL DE FRICCIONES: Si el semáforo es AMARILLO o ROJO, cualquier tropiezo, fricción o dificultad de autorregulación responde a sobrecarga adaptativa o supervivencia biológica. Aplica una reducción de severidad sobre el delta negativo que habrías asignado originalmente:
+  - En AMARILLO (Tensión moderada): Reduce la magnitud de la penalización a sus 2/3 partes (66% del impacto original). Por ejemplo, un tropiezo conductual que en verde merecía -1.5 dB se amortigua a -1.0 dB; uno de -3.0 dB se amortigua a -2.0 dB.
+  - En ROJO (Vulnerabilidad severa): Reduce la magnitud de la penalización a su 1/3 parte (33% del impacto original o residual). Por ejemplo, un impacto basal de -1.5 dB se amortigua a -0.5 dB; uno de -3.0 dB se amortigua a -1.0 dB.
+* COHERENCIA MATEMÁTICA Y OBLIGACIÓN DE ARGUMENTACIÓN: 
+  - Ante un delta negativo (< 0.0 dB) bajo tensión biológica: Explicita obligatoriamente: "Atenuado a 2/3 [o 1/3] del impacto original por protección sociofisiológica (Semáforo [Color])".
+  - Ante un delta positivo (> 0.0 dB) logrado bajo tensión biológica: Explicita obligatoriamente: "Amplificado en 1/3 [o 2/3] por mérito y agencia ante restricción biológica (Semáforo [Color])".
+  - REGLA DE ORO: El valor numérico de "delta_db" DEBE COINCIDIR EXACTAMENTE con el valor resultante de la justificación.
+* ADVERTENCIA PEDAGÓGICA: En semáforo ROJO o AMARILLO, redacta una sugerencia compasiva y urgente al docente: priorizar la restitución fisiológica (descanso, alimentación) y considerar esta situación al evaluar el desempeño.
 
 5. FRONTERA INVIOLABLE ENTRE ÉTICA Y DESREGULACIÓN EMOCIONAL:
 - Un episodio de frustración, llanto, grito, parálisis o aislamiento derivado de un obstáculo técnico o exclusión social es un colapso temporal de autorregulación afectiva, NUNCA UNA FALLA ÉTICA O MORAL.
@@ -401,6 +408,7 @@ def modal_exportar_resguardo(nombre, matricula, grupo):
             type="primary",
             use_container_width=True
         ):
+            st.session_state.json_ya_descargado = True
             st.session_state.mostrar_modal_resguardo = False
             st.rerun()
             
@@ -435,6 +443,7 @@ def modal_confirmar_reiniciar():
         st.session_state.input_nombre = ""
         st.session_state.input_matricula = ""
         st.session_state.input_grupo = ""
+        st.session_state.input_nota_escalar = 0.0
         st.session_state.flag_limpiar_nota = True
         st.session_state.flag_limpiar_justificacion = True
         st.session_state.flag_reset_calib = True
@@ -453,6 +462,7 @@ def modal_confirmar_reiniciar():
             st.session_state.input_nombre = ""
             st.session_state.input_matricula = ""
             st.session_state.input_grupo = ""
+            st.session_state.input_nota_escalar = 0.0
             st.session_state.flag_limpiar_nota = True
             st.session_state.flag_limpiar_justificacion = True
             st.session_state.flag_reset_calib = True
@@ -469,8 +479,25 @@ with st.sidebar:
     
     st.subheader("1. Flujo de trabajo")
     if st.button("✨ Reiniciar pantalla de registro", use_container_width=True, type="primary", disabled=st.session_state.procesando):
-        st.session_state.mostrar_modal_confirmar_reiniciar = True
-        st.rerun()
+        if st.session_state.get("json_ya_descargado", False):
+            # Limpieza directa sin preguntar de nuevo
+            st.session_state.valores_db = {eje: 0.0 for eje in EJE_NOMBRES}
+            st.session_state.historial_observaciones = []
+            st.session_state.analisis_pendiente = None
+            st.session_state.previsualizacion_manual = None
+            st.session_state.procesando = False
+            st.session_state.input_nombre = ""
+            st.session_state.input_matricula = ""
+            st.session_state.input_grupo = ""
+            st.session_state.input_nota_escalar = 0.0
+            st.session_state.flag_limpiar_nota = True
+            st.session_state.flag_limpiar_justificacion = True
+            st.session_state.flag_reset_calib = True
+            st.session_state.json_ya_descargado = False
+            st.rerun()
+        else:
+            st.session_state.mostrar_modal_confirmar_reiniciar = True
+            st.rerun()
 
     st.markdown("---")
     
@@ -487,11 +514,12 @@ with st.sidebar:
     
     es_admin = (st.session_state.input_clave_admin in ["prisma2026", "prisma26"])
     
+    def cerrar_sesion_admin():
+        st.session_state.input_clave_admin = ""
+
     if es_admin:
         st.success("Acceso concedido — Modo Administrador")
-        if st.button("🔴 Salir del modo administrador", use_container_width=True, disabled=st.session_state.procesando):
-            st.session_state.input_clave_admin = ""
-            st.rerun()
+        st.button("🔴 Salir del modo administrador", use_container_width=True, disabled=st.session_state.procesando, on_click=cerrar_sesion_admin)
     else:
         st.info("Funciones avanzadas reservadas para Admin")
 
@@ -641,7 +669,7 @@ with col_izq:
     # Proceso activo de inferencia multi-hito
     if st.session_state.procesando and st.session_state.input_nota.strip():
         sub_hitos = parsear_nota_multihito(st.session_state.input_nota)
-        with st.spinner(f"Procesando inferencia cualitativa en ℝ⁸ con PRISMA-Engine ({len(sub_hitos)} hito/s)..."):
+        with st.spinner(f"Procesando inferencia cualitativa en ℝ⁸ con PRISMA™-Engine ({len(sub_hitos)} hito/s)..."):
             try:
                 resultados_multihito = []
                 for idx_h, texto_h in enumerate(sub_hitos, 1):
@@ -768,8 +796,8 @@ with col_izq:
             if st.button("✅ Aceptar y Registrar Hito(s)", type="primary", use_container_width=True, disabled=st.session_state.procesando):
                 for item in hitos_p:
                     for eje, d_val in item["deltas"].items():
-                        st.session_state.valores_db[eje] += d_val
-                    
+                        st.session_state.valores_db[eje] = round(st.session_state.valores_db[eje] + float(d_val), 1)
+
                     st.session_state.historial_observaciones.append({
                         "tipo": "IA",
                         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
@@ -805,9 +833,9 @@ with col_izq:
     # --- META-ANÁLISIS DE TRAYECTORIA (DOCENTE/USUARIO) ---
     st.markdown("---")
     st.subheader("3. Meta-Análisis de Trayectoria")
-    st.caption("Evaluación holística multidimensional recomendada por PRISMA™.")
+    st.caption("Evaluación holística multidimensional recomendada por PRISMA.")
     
-    if st.button("🌌 Meta-Análisis PRISMA™", use_container_width=True, disabled=st.session_state.procesando):
+    if st.button("🌌 Meta-Análisis PRISMA", use_container_width=True, disabled=st.session_state.procesando):
         if not nom_in.strip() or not grp_in.strip():
             st.error("⚠️ Por favor completa el Nombre y Grupo del estudiante antes de ejecutar el Meta-Análisis.")
         elif len(st.session_state.historial_observaciones) < 2:
@@ -831,7 +859,7 @@ with col_izq:
                         meta_res = json.loads(response_meta.json()["response"])
                         eval_meta = meta_res.get("evaluacion_ejes", meta_res)
                         
-                        st.info("🌌 **Diagnóstico Holístico Sugerido por PRISMA™:**")
+                        st.info("🌌 **Diagnóstico Holístico Sugerido por PRISMA:**")
                         
                         diag_gen = meta_res.get("diagnostico_general", meta_res.get("resumen", ""))
                         if diag_gen:
@@ -847,14 +875,14 @@ with col_izq:
                                     overrides_sugeridos[n_eje] = delta_m
                                     st.write(f"• **{n_eje}:** `{fmt_db(delta_m)} dB` — {razon_m if razon_m else 'Sin observaciones adicionales'}")
                         
-                        if st.button("Aceptar y registrar Meta-Análisis PRISMA™ como Hito", disabled=st.session_state.procesando):
+                        if st.button("Aceptar y registrar Meta-Análisis PRISMA como Hito", disabled=st.session_state.procesando):
                             for eje, d_m in overrides_sugeridos.items():
                                 st.session_state.valores_db[eje] += d_m
                                 
                             st.session_state.historial_observaciones.append({
                                 "tipo": "META_ANALISIS",
                                 "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                                "justificacion": "Ajuste holístico de trayectoria por Meta-Análisis PRISMA™.",
+                                "justificacion": "Ajuste holístico de trayectoria por Meta-Análisis PRISMA.",
                                 "deltas": overrides_sugeridos,
                                 "resultado_ia": meta_res,
                                 "vector_snapshot": dict(st.session_state.valores_db)
@@ -876,11 +904,11 @@ with col_izq:
             tipo_hito = obs.get("tipo", "IA")
             
             if tipo_hito == "IA":
-                etiqueta_tipo = "🌌 Inferencia PRISMA™"
+                etiqueta_tipo = "🌌 Inferencia PRISMA"
             elif tipo_hito == "MANUAL":
                 etiqueta_tipo = "🎨 Calibración manual docente"
             elif tipo_hito == "META_ANALISIS":
-                etiqueta_tipo = "🌌 Meta-Análisis PRISMA™"
+                etiqueta_tipo = "🌌 Meta-Análisis PRISMA"
             else:
                 etiqueta_tipo = "🔄 Transición: Año nuevo, vida nueva"
                 
@@ -890,8 +918,21 @@ with col_izq:
                 if tipo_hito in ["IA", "META_ANALISIS"]:
                     if "nota" in obs:
                         st.write(f"**Nota narrativa docente:** *\"{obs['nota']}\"*")
+
+                    # Reconstrucción del Semáforo de Educabilidad guardado
+                    res_ia_hist = obs.get("resultado_ia", {})
+                    est_edu_hist = res_ia_hist.get("estado_educabilidad", obs.get("educabilidad", {}))
+                    sem_hist = str(est_edu_hist.get("semaforo", "N/A")).upper()
+                    adv_hist = est_edu_hist.get("advertencia_pedagogica", "")
+
+                    if "ROJO" in sem_hist:
+                        st.error(f"🔴 **Semáforo ROJO — Alerta de Educabilidad:** {adv_hist}")
+                    elif "AMARILLO" in sem_hist:
+                        st.warning(f"🟡 **Semáforo AMARILLO — Atención Pedagógica:** {adv_hist}")
+                    elif "VERDE" in sem_hist:
+                        st.success(f"🟢 **Semáforo VERDE — Condición Óptima:** {adv_hist or 'Equilibrio biológico adecuado.'}")
                     
-                    st.markdown("**Desglose e Inferencia de PRISMA™:**")
+                    st.markdown("**Desglose e Inferencia de PRISMA:**")
                     eval_ejes = obs.get("resultado_ia", {}).get("evaluacion_ejes", {})
                     hubo_cambios = False
                     if isinstance(eval_ejes, dict):
@@ -997,8 +1038,8 @@ with col_izq:
         with col_m1:
             if st.button("🎨 Confirmar y registrar calibración manual como hito", type="primary", use_container_width=True, disabled=st.session_state.procesando):
                 for eje in EJE_NOMBRES:
-                    st.session_state.valores_db[eje] += st.session_state.previsualizacion_manual[eje]
-                
+                    st.session_state.valores_db[eje] = round(st.session_state.valores_db[eje] + float(st.session_state.previsualizacion_manual[eje]), 1)
+
                 st.session_state.historial_observaciones.append({
                     "tipo": "MANUAL",
                     "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
@@ -1121,11 +1162,11 @@ with col_der:
     if limite_radar >= 12.0:
         is_perimeter_12 = (limite_radar == 12.0)
         agregar_orbita_circular(
-            fig, 12.0, "+12.0 dB (Intermedio)",
-            color="#334155" if is_perimeter_12 else "#475569",
-            width=1.8 if is_perimeter_12 else 1.5,
-            dash="solid"
-        )    
+        fig, 12.0, "+12.0 dB (Intermedio)",
+        color="#334155" if is_perimeter_12 else "#475569",
+        width=1.8 if is_perimeter_12 else 1.5,
+        dash="solid"
+    )    
 
     # +18.0 dB (Avanzado) — Se activa cuando el mapa se expande a 18 dB
     if limite_radar >= 18.0:
@@ -1169,7 +1210,7 @@ with col_der:
                 is_last = (i == num_hitos - 1) and sin_staging
                 tipo_hito = obs.get("tipo", "IA")
                 
-                tag_tipo = "PRISMA™" if tipo_hito == "IA" else ("Manual" if tipo_hito == "MANUAL" else "Transición")
+                tag_tipo = "PRISMA" if tipo_hito == "IA" else ("Manual" if tipo_hito == "MANUAL" else "Transición")
                 
                 fig.add_trace(go.Scatterpolar(
                     r=vals_cerrados,
@@ -1290,6 +1331,13 @@ with col_der:
             tick_texts_2db.append("")
 
     fig.update_layout(
+        title=dict(
+                text=f"<b>PRISMA™ — Espacio Vectorial ℝ⁸</b><br><span style='font-size:11px;color:#64748B;'>{id_estudiante if id_estudiante else 'Evaluación Cualitativa Formativa'}</span>",
+                x=0.5,
+                xanchor="center",
+                y=0.97,
+                font=dict(size=14, color="#1E293B")
+            ),
         uirevision=True,
         polar=dict(
             gridshape="circular",
@@ -1351,5 +1399,5 @@ if st.session_state.mostrar_modal_resguardo and not st.session_state.analisis_pe
         st.session_state.input_grupo
     )
 
-if st.session_state.mostrar_modal_confirmar_reiniciar:
+elif st.session_state.mostrar_modal_confirmar_reiniciar:
     modal_confirmar_reiniciar()
