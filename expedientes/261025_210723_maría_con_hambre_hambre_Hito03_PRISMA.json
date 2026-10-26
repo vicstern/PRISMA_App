@@ -1,0 +1,218 @@
+{
+  "tipo_archivo": "EXPEDIENTE_ACTIVO",
+  "ciclo_escolar": "2026",
+  "estudiante": "maría con hambre",
+  "matricula": "",
+  "grupo": "hambre",
+  "ultima_actualizacion": "2026-10-25 21:07:23",
+  "vector_actual_db": {
+    "Indagación e investigación": 0.0,
+    "Pensamiento crítico y analítico": 0.0,
+    "Razonamiento ético": 0.0,
+    "Agencia intercultural": 0.0,
+    "Liderazgo colaborativo": 2.5,
+    "Saber hacer y ejecución técnica": 4.5,
+    "Resiliencia y autogestión": 2.0,
+    "Reflexión metacognitiva": 0.0
+  },
+  "historial_observaciones": [
+    {
+      "tipo": "IA",
+      "timestamp": "2026-10-25 21:05:19",
+      "nota": "1. Hoy María lideró la construcción del prototipo de filtro de agua. Resolvió un conflicto en su equipo escuchando a sus compañeras y ajustó los materiales tras un primer fallo en la prueba de filtración.",
+      "deltas": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 0.0,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 2.5,
+        "Saber hacer y ejecución técnica": 2.5,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 0.0
+      },
+      "resultado_ia": {
+        "estudiante": "María",
+        "estado_educabilidad": {
+          "semaforo": "ROJO",
+          "advertencia_pedagogica": "Vulnerabilidad severa por ayuno completo (Soporte Nutricional: 0%). Priorizar la restitución fisiológica (alimentación) antes de exigir rendimientos académicos. El desempeño técnico se otorga bajo supervivencia metabólica."
+        },
+        "evaluacion_ejes": {
+          "Indagacion_Investigacion": {
+            "delta_db": 0.0,
+            "razonamiento": "No hay registro explícito de indagación en la nota. La acción se centra en la ejecución técnica y resolución de conflicto."
+          },
+          "Pensamiento_Critico_Analitico": {
+            "delta_db": 0.0,
+            "razonamiento": "No hay registro explícito de análisis crítico en la nota. La acción se centra en la ejecución técnica y resolución de conflicto."
+          },
+          "Razonamiento_Etico": {
+            "delta_db": 0.0,
+            "razonamiento": "No hay registro explícito de razonamiento ético en la nota. La acción se centra en la ejecución técnica y resolución de conflicto."
+          },
+          "Agencia_Intercultural": {
+            "delta_db": 0.0,
+            "razonamiento": "No hay registro explícito de agencia intercultural en la nota. La acción se centra en la ejecución técnica y resolución de conflicto."
+          },
+          "Liderazgo_Colaborativo": {
+            "delta_db": 2.5,
+            "razonamiento": "Amplificado en 2/3 por mérito y agencia ante restricción biológica (Semáforo ROJO). María resolvió un conflicto en su equipo escuchando a sus compañeras y ajustó los materiales tras un primer fallo en la prueba de filtración, demostrando liderazgo bajo vulnerabilidad metabólica."
+          },
+          "Saber_Hacer_Ejecucion_Tecnica": {
+            "delta_db": 2.5,
+            "razonamiento": "Amplificado en 2/3 por mérito y agencia ante restricción biológica (Semáforo ROJO). María lideró la construcción del prototipo de filtro de agua y resolvió un fallo en la prueba de filtración, ejecutando la tarea técnica bajo ayuno completo."
+          },
+          "Resiliencia_Autogestion": {
+            "delta_db": 0.0,
+            "razonamiento": "No hay registro explícito de resiliencia en la nota. La acción se centra en la ejecución técnica y resolución de conflicto."
+          },
+          "Reflexion_Metacognitiva": {
+            "delta_db": 0.0,
+            "razonamiento": "No hay registro explícito de reflexión metacognitiva en la nota. La acción se centra en la ejecución técnica y resolución de conflicto."
+          }
+        }
+      },
+      "vector_snapshot": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 0.0,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 2.5,
+        "Saber hacer y ejecución técnica": 2.5,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 0.0
+      }
+    },
+    {
+      "tipo": "IA",
+      "timestamp": "2026-10-25 21:05:19",
+      "nota": "2. María notó que el flujo estaba muy lento, revisó la densidad de la arena y redujo la capa a la mitad. Cuando su equipo se distrajo con los teléfonos, los llamó para repartir las tareas de la presentación de mañana.",
+      "deltas": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 0.0,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 0.0,
+        "Saber hacer y ejecución técnica": 0.0,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 0.0
+      },
+      "resultado_ia": {
+        "estudiante": "María",
+        "estado_educabilidad": {
+          "semaforo": "AMARILLO",
+          "advertencia_pedagogica": "Estudiante bajo estrés nutricional (ayuno) pero con homeostasis de sueño estable. Priorizar la restitución fisiológica (alimentación) antes de exigir rendimientos máximos. Reconocer su esfuerzo como supervivencia adaptativa."
+        },
+        "evaluacion_ejes": {
+          "Indagacion_Investigacion": {
+            "delta_db": 0.0,
+            "razonamiento": "Evidencia de observación técnica (flujo lento, densidad de arena) sin registro de error o éxito explícito en la nota."
+          },
+          "Pensamiento_Critico_Analitico": {
+            "delta_db": 0.0,
+            "razonamiento": "Evidencia de análisis técnico (reducción de capa a la mitad) sin registro de éxito explícito en la nota."
+          },
+          "Razonamiento_Etico": {
+            "delta_db": 0.0,
+            "razonamiento": "Evidencia de acción ética (llamada al equipo para repartir tareas) sin registro de conflicto o éxito explícito en la nota."
+          },
+          "Agencia_Intercultural": {
+            "delta_db": 0.0,
+            "razonamiento": "Evidencia de gestión de grupo (repartir tareas) sin registro de éxito explícito en la nota."
+          },
+          "Liderazgo_Colaborativo": {
+            "delta_db": 0.0,
+            "razonamiento": "Evidencia de liderazgo (llamada al equipo) sin registro de éxito explícito en la nota."
+          },
+          "Saber_Hacer_Ejecucion_Tecnica": {
+            "delta_db": 0.0,
+            "razonamiento": "Evidencia de ejecución técnica (revisión de densidad, reducción de capa) sin registro de éxito explícito en la nota."
+          },
+          "Resiliencia_Autogestion": {
+            "delta_db": 0.0,
+            "razonamiento": "Evidencia de gestión de grupo bajo estrés nutricional sin registro de éxito explícito en la nota."
+          },
+          "Reflexion_Metacognitiva": {
+            "delta_db": 0.0,
+            "razonamiento": "Evidencia de reflexión técnica (notar flujo lento, revisar densidad) sin registro de éxito explícito en la nota."
+          }
+        }
+      },
+      "vector_snapshot": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 0.0,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 2.5,
+        "Saber hacer y ejecución técnica": 2.5,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 0.0
+      }
+    },
+    {
+      "tipo": "IA",
+      "timestamp": "2026-10-25 21:05:19",
+      "nota": "3. Hoy en el descanso María tuvo un episodio severo de frustración porque sus compañeros la dejaron al final al armar los equipos de fútbol. Gritó, aventó su mochila y se negó a hablar con el equipo durante la clase. Hacia el final del taller, regresó al laboratorio en silencio, tomó el multímetro y calibró correctamente los sensores de flujo del prototipo.\n\n\nAl final del día, María se disculpó con sus compañeras y conmigo, por su propia iniciativa.",
+      "deltas": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 0.0,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 0.0,
+        "Saber hacer y ejecución técnica": 2.0,
+        "Resiliencia y autogestión": 2.0,
+        "Reflexión metacognitiva": 0.0
+      },
+      "resultado_ia": {
+        "estudiante": "María",
+        "estado_educabilidad": {
+          "semaforo": "AMARILLO",
+          "advertencia_pedagogica": "Estudiante bajo estrés metabólico (ayuno) y frustración social. Priorizar la restitución fisiológica (alimentación) y el acompañamiento emocional antes de exigir rendimientos técnicos. Reconocer su capacidad de recuperación como activo formativo."
+        },
+        "evaluacion_ejes": {
+          "Indagacion_Investigacion": {
+            "delta_db": 0.0,
+            "razonamiento": "No hay evidencia de actividad investigativa registrada en la nota. La acción se centró en la recuperación y la ejecución técnica."
+          },
+          "Pensamiento_Critico_Analitico": {
+            "delta_db": 0.0,
+            "razonamiento": "No hay evidencia de análisis crítico registrado en la nota. La acción se centró en la recuperación y la ejecución técnica."
+          },
+          "Razonamiento_Etico": {
+            "delta_db": 0.0,
+            "razonamiento": "El episodio de frustración y el llanto son un colapso temporal de autorregulación afectiva, no una falla ética. La disculpa posterior demuestra restitución ética, pero no hay acción ética proactiva registrada."
+          },
+          "Agencia_Intercultural": {
+            "delta_db": 0.0,
+            "razonamiento": "No hay evidencia de agencia intercultural registrada en la nota. La acción se centró en la recuperación y la ejecución técnica."
+          },
+          "Liderazgo_Colaborativo": {
+            "delta_db": 0.0,
+            "razonamiento": "La exclusión social inicial fue un obstáculo externo, no una falla de liderazgo. La disculpa fue una acción de restitución, pero no hubo liderazgo colaborativo activo durante la sesión."
+          },
+          "Saber_Hacer_Ejecucion_Tecnica": {
+            "delta_db": 2.0,
+            "razonamiento": "Calibración correcta de sensores bajo estrés metabólico (ayuno) y frustración previa. Logro técnico amplificado en 1/3 por mérito y agencia ante restricción biológica (Semáforo AMARILLO)."
+          },
+          "Resiliencia_Autogestion": {
+            "delta_db": 2.0,
+            "razonamiento": "Recuperación de la frustración y el aislamiento para volver a la tarea. Reconocimiento de reincorporación como victoria formativa. Amplificado en 1/3 por mérito y agencia ante restricción biológica (Semáforo AMARILLO)."
+          },
+          "Reflexion_Metacognitiva": {
+            "delta_db": 0.0,
+            "razonamiento": "No hay evidencia de reflexión metacognitiva registrada en la nota. La acción se centró en la recuperación y la ejecución técnica."
+          }
+        }
+      },
+      "vector_snapshot": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 0.0,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 2.5,
+        "Saber hacer y ejecución técnica": 4.5,
+        "Resiliencia y autogestión": 2.0,
+        "Reflexión metacognitiva": 0.0
+      }
+    }
+  ]
+}
