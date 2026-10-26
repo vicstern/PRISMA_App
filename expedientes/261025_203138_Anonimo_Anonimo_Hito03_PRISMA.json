@@ -1,0 +1,218 @@
+{
+  "tipo_archivo": "EXPEDIENTE_ACTIVO",
+  "ciclo_escolar": "2026",
+  "estudiante": "",
+  "matricula": "",
+  "grupo": "",
+  "ultima_actualizacion": "2026-10-25 20:31:38",
+  "vector_actual_db": {
+    "Indagación e investigación": 0.0,
+    "Pensamiento crítico y analítico": 0.0,
+    "Razonamiento ético": 0.0,
+    "Agencia intercultural": 0.0,
+    "Liderazgo colaborativo": -1.5,
+    "Saber hacer y ejecución técnica": 0.0,
+    "Resiliencia y autogestión": 0.0,
+    "Reflexión metacognitiva": 0.0
+  },
+  "historial_observaciones": [
+    {
+      "tipo": "IA",
+      "timestamp": "2026-10-25 20:31:15",
+      "nota": "1. Hoy María lideró la construcción del prototipo de filtro de agua. Resolvió un conflicto en su equipo escuchando a sus compañeras y ajustó los materiales tras un primer fallo en la prueba de filtración.",
+      "deltas": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 0.0,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 0.0,
+        "Saber hacer y ejecución técnica": 0.0,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 0.0
+      },
+      "resultado_ia": {
+        "estudiante": "María",
+        "estado_educabilidad": {
+          "semaforo": "VERDE",
+          "advertencia_pedagogica": "Homeostasis estable con recursos óptimos. Ambiente seguro para la toma de decisiones y la gestión de conflictos."
+        },
+        "evaluacion_ejes": {
+          "Indagacion_Investigacion": {
+            "delta_db": 0.0,
+            "razonamiento": "Evidencia de resolución de fallo técnico y ajuste de materiales tras prueba inicial."
+          },
+          "Pensamiento_Critico_Analitico": {
+            "delta_db": 0.0,
+            "razonamiento": "Diagnóstico del fallo en la prueba y corrección de parámetros del prototipo."
+          },
+          "Razonamiento_Etico": {
+            "delta_db": 0.0,
+            "razonamiento": "Escucha activa y resolución de conflicto en equipo sin evidencia de agresión o exclusión."
+          },
+          "Agencia_Intercultural": {
+            "delta_db": 0.0,
+            "razonamiento": "Escucha a sus compañeras y gestión del consenso en el equipo."
+          },
+          "Liderazgo_Colaborativo": {
+            "delta_db": 0.0,
+            "razonamiento": "Lideró la construcción del prototipo y gestionó el conflicto del equipo."
+          },
+          "Saber_Hacer_Ejecucion_Tecnica": {
+            "delta_db": 0.0,
+            "razonamiento": "Construcción exitosa del prototipo de filtro de agua tras fallo inicial."
+          },
+          "Resiliencia_Autogestion": {
+            "delta_db": 0.0,
+            "razonamiento": "Recuperación tras fallo técnico y retorno a la tarea sin colapso emocional."
+          },
+          "Reflexion_Metacognitiva": {
+            "delta_db": 0.0,
+            "razonamiento": "Evaluación del proceso y ajuste de materiales tras prueba de filtración."
+          }
+        }
+      },
+      "vector_snapshot": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 0.0,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 0.0,
+        "Saber hacer y ejecución técnica": 0.0,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 0.0
+      }
+    },
+    {
+      "tipo": "IA",
+      "timestamp": "2026-10-25 20:31:15",
+      "nota": "2. María notó que el flujo estaba muy lento, revisó la densidad de la arena y redujo la capa a la mitad. Cuando su equipo se distrajo con los teléfonos, los llamó para repartir las tareas de la presentación de mañana.",
+      "deltas": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 0.0,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 0.0,
+        "Saber hacer y ejecución técnica": 0.0,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 0.0
+      },
+      "resultado_ia": {
+        "estudiante": "María",
+        "estado_educabilidad": {
+          "semaforo": "VERDE",
+          "advertencia_pedagogica": "Homeostasis estable. No se detectan vulnerabilidades biológicas ni emocionales. Ambiente óptimo para el aprendizaje."
+        },
+        "evaluacion_ejes": {
+          "Indagacion_Investigacion": {
+            "delta_db": 0.0,
+            "razonamiento": "Evidencia de observación técnica (flujo lento, densidad de arena) y acción correctiva (reducción de capa)."
+          },
+          "Pensamiento_Critico_Analitico": {
+            "delta_db": 0.0,
+            "razonamiento": "Identificación de variables críticas (flujo, densidad) y toma de decisiones basada en datos."
+          },
+          "Razonamiento_Etico": {
+            "delta_db": 0.0,
+            "razonamiento": "Priorización del bienestar del equipo sobre la distracción personal (llamada de atención)."
+          },
+          "Agencia_Intercultural": {
+            "delta_db": 0.0,
+            "razonamiento": "Gestión de la dinámica grupal y reorientación de la atención hacia el objetivo común."
+          },
+          "Liderazgo_Colaborativo": {
+            "delta_db": 0.0,
+            "razonamiento": "Acción proactiva para recuperar la concentración del equipo y organizar la presentación."
+          },
+          "Saber_Hacer_Ejecucion_Tecnica": {
+            "delta_db": 0.0,
+            "razonamiento": "Ajuste técnico inmediato (reducción de capa) para solucionar el problema de flujo."
+          },
+          "Resiliencia_Autogestion": {
+            "delta_db": 0.0,
+            "razonamiento": "Capacidad de autorregulación ante la distracción del equipo y recuperación de la tarea."
+          },
+          "Reflexion_Metacognitiva": {
+            "delta_db": 0.0,
+            "razonamiento": "Autoevaluación de la situación técnica y decisión de intervención."
+          }
+        }
+      },
+      "vector_snapshot": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 0.0,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 0.0,
+        "Saber hacer y ejecución técnica": 0.0,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 0.0
+      }
+    },
+    {
+      "tipo": "IA",
+      "timestamp": "2026-10-25 20:31:15",
+      "nota": "3. Hoy en el descanso María tuvo un episodio severo de frustración porque sus compañeros la dejaron al final al armar los equipos de fútbol. Gritó, aventó su mochila y se negó a hablar con el equipo durante la clase. Hacia el final del taller, regresó al laboratorio en silencio, tomó el multímetro y calibró correctamente los sensores de flujo del prototipo.\n\n\nAl final del día, María se disculpó con sus compañeras y conmigo, por su propia iniciativa.",
+      "deltas": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 0.0,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": -1.5,
+        "Saber hacer y ejecución técnica": 0.0,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 0.0
+      },
+      "resultado_ia": {
+        "estudiante": "María",
+        "estado_educabilidad": {
+          "semaforo": "VERDE",
+          "advertencia_pedagogica": "Condiciones biofisiológicas óptimas (sueño > 7h, nutrición completa). El episodio de frustración se clasifica como colapso temporal de autorregulación afectiva, no falla ética. Priorizar el acompañamiento humanista y validar la recuperación activa."
+        },
+        "evaluacion_ejes": {
+          "Indagacion_Investigacion": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro de actividad investigativa específica en la nota narrativa."
+          },
+          "Pensamiento_Critico_Analitico": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro de actividad analítica específica en la nota narrativa."
+          },
+          "Razonamiento_Etico": {
+            "delta_db": 0.0,
+            "razonamiento": "La frustración y el aislamiento inicial son colapsos afectivos, no fallas éticas. La disculpa posterior demuestra agencia ética."
+          },
+          "Agencia_Intercultural": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro de interacción intercultural específica en la nota narrativa."
+          },
+          "Liderazgo_Colaborativo": {
+            "delta_db": -1.5,
+            "razonamiento": "La negativa a hablar y el aislamiento inicial constituyen una fricción en la colaboración. Sin embargo, bajo el contexto de colapso afectivo (no penalizado por frustración), se aplica atenuación armónica. Se penaliza moderadamente por la dificultad de autorregulación inicial."
+          },
+          "Saber_Hacer_Ejecucion_Tecnica": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro explícito de ejecución técnica en la nota narrativa, aunque se menciona la calibración."
+          },
+          "Resiliencia_Autogestion": {
+            "delta_db": 0.0,
+            "razonamiento": "La recuperación activa (regreso al laboratorio, toma de herramienta, calibración) y la disculpa por iniciativa propia son recompensas formativas. Se reconoce la capacidad de recuperarse como la victoria formativa más alta."
+          },
+          "Reflexion_Metacognitiva": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro explícito de reflexión metacognitiva en la nota narrativa."
+          }
+        }
+      },
+      "vector_snapshot": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 0.0,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": -1.5,
+        "Saber hacer y ejecución técnica": 0.0,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 0.0
+      }
+    }
+  ]
+}

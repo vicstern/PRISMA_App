@@ -1,0 +1,218 @@
+{
+  "tipo_archivo": "EXPEDIENTE_ACTIVO",
+  "ciclo_escolar": "2026",
+  "estudiante": "maría hambrienta",
+  "matricula": "",
+  "grupo": "ayuno",
+  "ultima_actualizacion": "2026-10-25 20:35:26",
+  "vector_actual_db": {
+    "Indagación e investigación": 0.0,
+    "Pensamiento crítico y analítico": 0.0,
+    "Razonamiento ético": 0.0,
+    "Agencia intercultural": 0.0,
+    "Liderazgo colaborativo": 0.0,
+    "Saber hacer y ejecución técnica": 5.0,
+    "Resiliencia y autogestión": 3.0,
+    "Reflexión metacognitiva": 0.0
+  },
+  "historial_observaciones": [
+    {
+      "tipo": "IA",
+      "timestamp": "2026-10-25 20:35:24",
+      "nota": "1. Hoy María lideró la construcción del prototipo de filtro de agua. Resolvió un conflicto en su equipo escuchando a sus compañeras y ajustó los materiales tras un primer fallo en la prueba de filtración.",
+      "deltas": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 0.0,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 0.0,
+        "Saber hacer y ejecución técnica": 2.5,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 0.0
+      },
+      "resultado_ia": {
+        "estudiante": "María",
+        "estado_educabilidad": {
+          "semaforo": "ROJO",
+          "advertencia_pedagogica": "Estudiante bajo ayuno completo (Soporte Nutricional: Sin Alimento). Priorizar la restitución fisiológica antes de exigir mayor rendimiento. Reconocer el esfuerzo como supervivencia biológica."
+        },
+        "evaluacion_ejes": {
+          "Indagacion_Investigacion": {
+            "delta_db": 0.0,
+            "razonamiento": "No hay registro explícito de indagación en la nota narrativa. Se asume neutralidad por ausencia de evidencia."
+          },
+          "Pensamiento_Critico_Analitico": {
+            "delta_db": 0.0,
+            "razonamiento": "No hay registro explícito de análisis crítico en la nota narrativa. Se asume neutralidad por ausencia de evidencia."
+          },
+          "Razonamiento_Etico": {
+            "delta_db": 0.0,
+            "razonamiento": "No hay registro explícito de razonamiento ético en la nota narrativa. Se asume neutralidad por ausencia de evidencia."
+          },
+          "Agencia_Intercultural": {
+            "delta_db": 0.0,
+            "razonamiento": "No hay registro explícito de agencia intercultural en la nota narrativa. Se asume neutralidad por ausencia de evidencia."
+          },
+          "Liderazgo_Colaborativo": {
+            "delta_db": 0.0,
+            "razonamiento": "No hay registro explícito de liderazgo colaborativo en la nota narrativa. Se asume neutralidad por ausencia de evidencia."
+          },
+          "Saber_Hacer_Ejecucion_Tecnica": {
+            "delta_db": 2.5,
+            "razonamiento": "Logro de construcción de prototipo y resolución de fallo bajo ayuno completo (Semáforo ROJO). Amplificado en 2/3 (+66%) por mérito y agencia ante restricción biológica. Delta original estimado +1.5 dB amplificado a +2.5 dB."
+          },
+          "Resiliencia_Autogestion": {
+            "delta_db": 0.0,
+            "razonamiento": "No hay registro explícito de resiliencia autogestion en la nota narrativa. Se asume neutralidad por ausencia de evidencia."
+          },
+          "Reflexion_Metacognitiva": {
+            "delta_db": 0.0,
+            "razonamiento": "No hay registro explícito de reflexión metacognitiva en la nota narrativa. Se asume neutralidad por ausencia de evidencia."
+          }
+        }
+      },
+      "vector_snapshot": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 0.0,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 0.0,
+        "Saber hacer y ejecución técnica": 2.5,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 0.0
+      }
+    },
+    {
+      "tipo": "IA",
+      "timestamp": "2026-10-25 20:35:24",
+      "nota": "2. María notó que el flujo estaba muy lento, revisó la densidad de la arena y redujo la capa a la mitad. Cuando su equipo se distrajo con los teléfonos, los llamó para repartir las tareas de la presentación de mañana.",
+      "deltas": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 0.0,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 0.0,
+        "Saber hacer y ejecución técnica": 0.0,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 0.0
+      },
+      "resultado_ia": {
+        "estudiante": "María",
+        "estado_educabilidad": {
+          "semaforo": "ROJO",
+          "advertencia_pedagogica": "Estudiante bajo ayuno completo (Semáforo ROJO). Priorizar la restitución fisiológica (hidratación y alimentación) antes de exigir rendimientos académicos. Considerar esta vulnerabilidad metabólica en la evaluación."
+        },
+        "evaluacion_ejes": {
+          "Indagacion_Investigacion": {
+            "delta_db": 0.0,
+            "razonamiento": "Evidencia neutral: No hay registro explícito de análisis de datos o formulación de hipótesis en la nota."
+          },
+          "Pensamiento_Critico_Analitico": {
+            "delta_db": 0.0,
+            "razonamiento": "Evidencia neutral: La observación de la densidad de la arena es un dato, pero no se documenta un análisis crítico profundo."
+          },
+          "Razonamiento_Etico": {
+            "delta_db": 0.0,
+            "razonamiento": "Evidencia neutral: No hay registro explícito de reflexión ética o toma de decisiones morales en la nota."
+          },
+          "Agencia_Intercultural": {
+            "delta_db": 0.0,
+            "razonamiento": "Evidencia neutral: No hay registro explícito de interacción intercultural o gestión de diversidad en la nota."
+          },
+          "Liderazgo_Colaborativo": {
+            "delta_db": 0.0,
+            "razonamiento": "Evidencia neutral: No hay registro explícito de liderazgo colaborativo en la nota."
+          },
+          "Saber_Hacer_Ejecucion_Tecnica": {
+            "delta_db": 0.0,
+            "razonamiento": "Evidencia neutral: No hay registro explícito de ejecución técnica en la nota."
+          },
+          "Resiliencia_Autogestion": {
+            "delta_db": 0.0,
+            "razonamiento": "Evidencia neutral: No hay registro explícito de resiliencia en la nota."
+          },
+          "Reflexion_Metacognitiva": {
+            "delta_db": 0.0,
+            "razonamiento": "Evidencia neutral: No hay registro explícito de reflexión metacognitiva en la nota."
+          }
+        }
+      },
+      "vector_snapshot": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 0.0,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 0.0,
+        "Saber hacer y ejecución técnica": 2.5,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 0.0
+      }
+    },
+    {
+      "tipo": "IA",
+      "timestamp": "2026-10-25 20:35:24",
+      "nota": "3. Hoy en el descanso María tuvo un episodio severo de frustración porque sus compañeros la dejaron al final al armar los equipos de fútbol. Gritó, aventó su mochila y se negó a hablar con el equipo durante la clase. Hacia el final del taller, regresó al laboratorio en silencio, tomó el multímetro y calibró correctamente los sensores de flujo del prototipo.\n\n\nAl final del día, María se disculpó con sus compañeras y conmigo, por su propia iniciativa.",
+      "deltas": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 0.0,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 0.0,
+        "Saber hacer y ejecución técnica": 2.5,
+        "Resiliencia y autogestión": 3.0,
+        "Reflexión metacognitiva": 0.0
+      },
+      "resultado_ia": {
+        "estudiante": "María",
+        "estado_educabilidad": {
+          "semaforo": "ROJO",
+          "advertencia_pedagogica": "Estudiante bajo ayuno completo (nutrición 0%) y con historial de fatiga. Priorizar restitución fisiológica urgente antes de exigir rendimientos académicos. El episodio de frustración es colapso afectivo, no falla ética."
+        },
+        "evaluacion_ejes": {
+          "Indagacion_Investigacion": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro de actividad investigativa específica en la nota narrativa."
+          },
+          "Pensamiento_Critico_Analitico": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro de actividad analítica específica en la nota narrativa."
+          },
+          "Razonamiento_Etico": {
+            "delta_db": 0.0,
+            "razonamiento": "El episodio de frustración y grito es colapso afectivo, no falla ética. La disculpa posterior demuestra restitución ética."
+          },
+          "Agencia_Intercultural": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro de interacción intercultural específica en la nota narrativa."
+          },
+          "Liderazgo_Colaborativo": {
+            "delta_db": 0.0,
+            "razonamiento": "La exclusión social inicial fue provocada por el estudiante, no por sabotaje activo del equipo."
+          },
+          "Saber_Hacer_Ejecucion_Tecnica": {
+            "delta_db": 2.5,
+            "razonamiento": "Calibración correcta de sensores bajo ayuno completo y frustración previa. Logro técnico amplificado en 2/3 por mérito ante restricción biológica (Semáforo ROJO)."
+          },
+          "Resiliencia_Autogestion": {
+            "delta_db": 3.0,
+            "razonamiento": "Recuperación tras colapso afectivo: regreso al laboratorio, toma de herramienta y disculpa por iniciativa propia. Recompensa generosa por capacidad de recuperación ante vulnerabilidad biológica."
+          },
+          "Reflexion_Metacognitiva": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro de reflexión metacognitiva explícita en la nota narrativa."
+          }
+        }
+      },
+      "vector_snapshot": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 0.0,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 0.0,
+        "Saber hacer y ejecución técnica": 5.0,
+        "Resiliencia y autogestión": 3.0,
+        "Reflexión metacognitiva": 0.0
+      }
+    }
+  ]
+}

@@ -144,7 +144,8 @@ Procesa con máxima prioridad los datos de Sueño/Descanso y Nutrición. Diagnos
 - ROJO (Vulnerabilidad Severa): CUALQUIER parámetro en nivel crítico/cero (< 5h de sueño O ayuno completo).
 
 4. REGLA SUPREMA DE SUAVIZADO AUTÓNOMO / ATENUACIÓN BIOLÓGICA (DAMPENING):
-* PROHIBICIÓN DE SOSPECHA PREVENTIVA: Queda estrictamente prohibido usar el semáforo AMARILLO o ROJO para deducir o inventar debilidades formativas en acciones donde el estudiante resolvió problemas con éxito. Jamás penalices ni asignes 0.0 dB a los logros reales si la evidencia demuestra resolución constructiva. 
+* PROHIBICIÓN DE SOSPECHA PREVENTIVA: Queda estrictamente prohibido usar el semáforo AMARILLO o ROJO para deducir o inventar debilidades formativas en acciones donde el estudiante resolvió problemas con éxito. Jamás penalices ni asignes 0.0 dB a los logros reales si la evidencia demuestra resolución constructiva.
+* CONDICIÓN BASAL EN SEMÁFORO VERDE (TRANSFERENCIA ÍNTEGRA): Si el semáforo es VERDE, los logros y resoluciones técnicas o de liderazgo observados en la nota reciben sus deltas pedagógicos completos y reales (+1.0 a +3.0 dB). Queda prohibido anular a 0.0 dB los logros bajo homeostasis; el suavizado (dampening) o amplificación solo aplican en AMARILLO o ROJO. 
 * EFECTO RESONANCIA / ANTI-DAMPENING (AMPLIFICACIÓN POR MÉRITO FISIOLÓGICO): Si el estudiante logra concentrarse, liderar o resolver problemas técnicos bajo AMARILLO o ROJO (ayuno/fatiga), ese logro tiene un valor formativo SUPERIOR porque venció la entropía metabólica corporal. AMPLIFICA los deltas positivos que habrías asignado originalmente:
   - En AMARILLO: Incrementa el delta positivo en 1/3 (+33% sobre el valor original). Ej: un logro de +1.5 dB se amplifica a +2.0 dB.
   - En ROJO: Incrementa el delta positivo en 2/3 (+66% sobre el valor original). Ej: un logro de +1.5 dB se amplifica a +2.5 dB.
@@ -690,10 +691,12 @@ with col_izq:
                             base_pct = nota_esc * 10.0
                             str_escalar = f"{nota_esc:.1f}/10 (Línea base: {base_pct:.0f}%)"
                         else:
-                            str_escalar = f"{nota_esc:.1f}/100 (Línea base: {nota_esc:.0f}%)"
+                            str_escalar = f"{nota_esc:.0f}/100 (Línea base: {nota_esc:.0f}%)"
                         prefix_edu += f"Calificación Escalar Tradicional de Rúbrica: {str_escalar}.\n"
                     else:
-                        prefix_edu += "Calificación Escalar Tradicional: Sin registro (Evaluación cualitativa pura).\n"
+                        prefix_edu += "Calificación Escalar Tradicional: No registrada.\n"
+
+                    user_prompt = f"Estudiante: {nom_in}\n{prefix_edu}Nota narrativa: \"{texto_h}\""             
 
                     user_prompt = f"Estudiante: {nom_in}\n{prefix_edu}Nota narrativa: \"{texto_h}\""
                     
@@ -702,7 +705,7 @@ with col_izq:
                         "prompt": user_prompt,
                         "format": "json",
                         "options": {"temperature": 0.0},
-            "stream": False
+			"stream": False
                     }
                     
                     response = requests.post(

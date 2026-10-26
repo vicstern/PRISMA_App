@@ -1,0 +1,218 @@
+{
+  "tipo_archivo": "EXPEDIENTE_ACTIVO",
+  "ciclo_escolar": "2026",
+  "estudiante": "María tranqui",
+  "matricula": "",
+  "grupo": "Todo cool",
+  "ultima_actualizacion": "2026-10-25 20:09:32",
+  "vector_actual_db": {
+    "Indagación e investigación": 0.0,
+    "Pensamiento crítico y analítico": 0.0,
+    "Razonamiento ético": 0.0,
+    "Agencia intercultural": 0.0,
+    "Liderazgo colaborativo": 0.0,
+    "Saber hacer y ejecución técnica": 0.0,
+    "Resiliencia y autogestión": 0.0,
+    "Reflexión metacognitiva": 0.0
+  },
+  "historial_observaciones": [
+    {
+      "tipo": "IA",
+      "timestamp": "2026-10-25 20:09:32",
+      "nota": "1. Hoy María lideró la construcción del prototipo de filtro de agua. Resolvió un conflicto en su equipo escuchando a sus compañeras y ajustó los materiales tras un primer fallo en la prueba de filtración.",
+      "deltas": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 0.0,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 0.0,
+        "Saber hacer y ejecución técnica": 0.0,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 0.0
+      },
+      "resultado_ia": {
+        "estudiante": "María tranqui",
+        "estado_educabilidad": {
+          "semaforo": "VERDE",
+          "advertencia_pedagogica": "Homeostasis estable. Condiciones óptimas de sueño y nutrición favorecen la autorregulación y la toma de decisiones estratégicas."
+        },
+        "evaluacion_ejes": {
+          "Indagacion_Investigacion": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro de datos cuantitativos o cualitativos sobre la indagación específica en la actividad."
+          },
+          "Pensamiento_Critico_Analitico": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro de datos cuantitativos o cualitativos sobre el análisis crítico en la actividad."
+          },
+          "Razonamiento_Etico": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro de datos cuantitativos o cualitativos sobre el razonamiento ético en la actividad."
+          },
+          "Agencia_Intercultural": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro de datos cuantitativos o cualitativos sobre la agencia intercultural en la actividad."
+          },
+          "Liderazgo_Colaborativo": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro de datos cuantitativos o cualitativos sobre el liderazgo colaborativo en la actividad."
+          },
+          "Saber_Hacer_Ejecucion_Tecnica": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro de datos cuantitativos o cualitativos sobre la ejecución técnica en la actividad."
+          },
+          "Resiliencia_Autogestion": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro de datos cuantitativos o cualitativos sobre la resiliencia autogestionaria en la actividad."
+          },
+          "Reflexion_Metacognitiva": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro de datos cuantitativos o cualitativos sobre la reflexión metacognitiva en la actividad."
+          }
+        }
+      },
+      "vector_snapshot": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 0.0,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 0.0,
+        "Saber hacer y ejecución técnica": 0.0,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 0.0
+      }
+    },
+    {
+      "tipo": "IA",
+      "timestamp": "2026-10-25 20:09:32",
+      "nota": "2. María notó que el flujo estaba muy lento, revisó la densidad de la arena y redujo la capa a la mitad. Cuando su equipo se distrajo con los teléfonos, los llamó para repartir las tareas de la presentación de mañana.",
+      "deltas": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 0.0,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 0.0,
+        "Saber hacer y ejecución técnica": 0.0,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 0.0
+      },
+      "resultado_ia": {
+        "estudiante": "María tranqui",
+        "estado_educabilidad": {
+          "semaforo": "VERDE",
+          "advertencia_pedagogica": "Homeostasis estable. Condiciones óptimas de sueño y nutrición. Priorizar el acompañamiento en la gestión del estrés tóxico del aula."
+        },
+        "evaluacion_ejes": {
+          "Indagacion_Investigacion": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro sociofisiológico (evaluación cualitativa pura)."
+          },
+          "Pensamiento_Critico_Analitico": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro sociofisiológico (evaluación cualitativa pura)."
+          },
+          "Razonamiento_Etico": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro sociofisiológico (evaluación cualitativa pura)."
+          },
+          "Agencia_Intercultural": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro sociofisiológico (evaluación cualitativa pura)."
+          },
+          "Liderazgo_Colaborativo": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro sociofisiológico (evaluación cualitativa pura)."
+          },
+          "Saber_Hacer_Ejecucion_Tecnica": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro sociofisiológico (evaluación cualitativa pura)."
+          },
+          "Resiliencia_Autogestion": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro sociofisiológico (evaluación cualitativa pura)."
+          },
+          "Reflexion_Metacognitiva": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro sociofisiológico (evaluación cualitativa pura)."
+          }
+        }
+      },
+      "vector_snapshot": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 0.0,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 0.0,
+        "Saber hacer y ejecución técnica": 0.0,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 0.0
+      }
+    },
+    {
+      "tipo": "IA",
+      "timestamp": "2026-10-25 20:09:32",
+      "nota": "3. Hoy en el descanso María tuvo un episodio severo de frustración porque sus compañeros la dejaron al final al armar los equipos de fútbol. Gritó, aventó su mochila y se negó a hablar con el equipo durante la clase. Hacia el final del taller, regresó al laboratorio en silencio, tomó el multímetro y calibró correctamente los sensores de flujo del prototipo.\n\n\nAl final del día, María se disculpó con sus compañeras y conmigo, por su propia iniciativa.",
+      "deltas": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 0.0,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 0.0,
+        "Saber hacer y ejecución técnica": 0.0,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 0.0
+      },
+      "resultado_ia": {
+        "estudiante": "María tranqui",
+        "estado_educabilidad": {
+          "semaforo": "VERDE",
+          "advertencia_pedagogica": "Condiciones óptimas de sueño y nutrición establecen homeostasis. El episodio de frustración es un colapso temporal de autorregulación afectiva, no una falla ética. Priorizar el acompañamiento humanista y validar la recuperación activa."
+        },
+        "evaluacion_ejes": {
+          "Indagacion_Investigacion": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro sociofisiológico. Evaluación cualitativa basada en la narrativa."
+          },
+          "Pensamiento_Critico_Analitico": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro sociofisiológico. Evaluación cualitativa basada en la narrativa."
+          },
+          "Razonamiento_Etico": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro sociofisiológico. Evaluación cualitativa basada en la narrativa."
+          },
+          "Agencia_Intercultural": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro sociofisiológico. Evaluación cualitativa basada en la narrativa."
+          },
+          "Liderazgo_Colaborativo": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro sociofisiológico. Evaluación cualitativa basada en la narrativa."
+          },
+          "Saber_Hacer_Ejecucion_Tecnica": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro sociofisiológico. Evaluación cualitativa basada en la narrativa."
+          },
+          "Resiliencia_Autogestion": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro sociofisiológico. Evaluación cualitativa basada en la narrativa."
+          },
+          "Reflexion_Metacognitiva": {
+            "delta_db": 0.0,
+            "razonamiento": "Sin registro sociofisiológico. Evaluación cualitativa basada en la narrativa."
+          }
+        }
+      },
+      "vector_snapshot": {
+        "Indagación e investigación": 0.0,
+        "Pensamiento crítico y analítico": 0.0,
+        "Razonamiento ético": 0.0,
+        "Agencia intercultural": 0.0,
+        "Liderazgo colaborativo": 0.0,
+        "Saber hacer y ejecución técnica": 0.0,
+        "Resiliencia y autogestión": 0.0,
+        "Reflexión metacognitiva": 0.0
+      }
+    }
+  ]
+}
