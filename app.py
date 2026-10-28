@@ -425,24 +425,28 @@ def guardar_expediente_disco(nombre, matricula, grupo, nivel="", materia="", cic
 # --- DIÁLOGOS DE CONTROL (MODALES) ---
 @st.dialog("💾 Resguardo de expediente vectorial")
 def modal_exportar_resguardo(nombre, matricula, grupo, nivel, materia):
+    # Bandera apagada de inmediato: no volverá a salir como fantasma al reiniciar
+    st.session_state.mostrar_modal_resguardo = False
+    
     nombre_mostrar = nombre if nombre else "Estudiante"
     st.write(f"Se ha consolidado el hito en el expediente de **{nombre_mostrar}**.")
-    st.write("¿Deseas descargar una copia de resguardo local (`.json`) con marca de tiempo?")
+    st.caption("El expediente ya está resguardado en disco (`expedientes/`). Puedes descargar una copia extra si lo deseas:")
     
     filename_export, exp_data = guardar_expediente_disco(nombre, matricula, grupo, nivel, materia)
     
-    col_m1, col_m2 = st.columns([0.6, 0.4])
+    col_m1, col_m2 = st.columns([0.55, 0.45])
     with col_m1:
-        if st.download_button(
-            label="Sí, descargar (.json)",
+        st.download_button(
+            label="💾 Descargar copia (.json)",
             data=json.dumps(exp_data, indent=2, ensure_ascii=False),
             file_name=filename_export,
             mime="application/json",
             type="primary",
             use_container_width=True
-        ):
-            st.session_state.json_ya_descargado = True
-            st.session_state.mostrar_modal_resguardo = False
+        )
+        
+    with col_m2:
+        if st.button("Continuar ➔", use_container_width=True):
             st.rerun()
             
     with col_m2:
@@ -516,25 +520,23 @@ with st.sidebar:
     
     st.subheader("1. Flujo de trabajo")
     if st.button("✨ Reiniciar pantalla de registro", use_container_width=True, type="primary", disabled=st.session_state.procesando):
-        if st.session_state.get("json_ya_descargado", False):
-            st.session_state.valores_db = {eje: 0.0 for eje in EJE_NOMBRES}
-            st.session_state.historial_observaciones = []
-            st.session_state.analisis_pendiente = None
-            st.session_state.previsualizacion_manual = None
-            st.session_state.procesando = False
-            st.session_state.input_nombre = ""
-            st.session_state.input_matricula = ""
-            st.session_state.input_grupo = ""
-            st.session_state.input_nivel = NIVELES_EDUCATIVOS[0]
-            st.session_state.input_materia = ""
-            st.session_state.flag_limpiar_nota = True
-            st.session_state.flag_limpiar_justificacion = True
-            st.session_state.flag_reset_calib = True
-            st.session_state.json_ya_descargado = False
-            st.rerun()
-        else:
-            st.session_state.mostrar_modal_confirmar_reiniciar = True
-            st.rerun()
+        st.session_state.valores_db = {eje: 0.0 for eje in EJE_NOMBRES}
+        st.session_state.historial_observaciones = []
+        st.session_state.analisis_pendiente = None
+        st.session_state.previsualizacion_manual = None
+        st.session_state.procesando = False
+        st.session_state.input_nombre = ""
+        st.session_state.input_matricula = ""
+        st.session_state.input_grupo = ""
+        st.session_state.input_nivel = NIVELES_EDUCATIVOS[0]
+        st.session_state.input_materia = ""
+        st.session_state.flag_limpiar_nota = True
+        st.session_state.flag_limpiar_justificacion = True
+        st.session_state.flag_reset_calib = True
+        # --- APAGAR MODALES FANTASMA ---
+        st.session_state.mostrar_modal_resguardo = False
+        st.session_state.mostrar_modal_confirmar_reiniciar = False
+        st.rerun()
 
     st.markdown("---")
     
@@ -929,7 +931,7 @@ with col_izq:
                 st.session_state.flag_limpiar_nota = True
                 
                 guardar_expediente_disco(nom_in, mat_in, grp_in, nivel_in, materia_in)
-                st.session_state.mostrar_modal_resguardo = True
+                st.session_state.mostrar_modal_resguardo = True  # <--- Este es el culpable
                 st.rerun()
                 
         with col_s2:
@@ -1194,7 +1196,8 @@ with col_der:
         "Visualización:",
         options=["Trayectoria completa (todos los hitos)", "Comparativa personalizada"],
         horizontal=True,
-        disabled=st.session_state.procesando
+        disabled=st.session_state.procesando,
+        label_visibility="collapsed"
     )
     
     tiene_ciclos_previos = any(obs.get("tipo") == "TABULA_RASA" for obs in st.session_state.historial_observaciones)
@@ -1486,7 +1489,7 @@ with col_der:
             x=0.5,
             font=dict(size=10.0)
         ),
-        height=620,  # Aumentamos la altura de 510 a 620 para que llene la columna y equilibre los 8 sliders
+        height=540,  # Aumentamos la altura de 510 a 620 para que llene la columna y equilibre los 8 sliders
         margin=dict(l=55, r=55, t=65, b=65)  # t=65 le da el espacio perfecto a la camarita para no cortarse        
     )
 
@@ -1508,7 +1511,7 @@ with col_der:
     st.markdown('</div>', unsafe_allow_html=True)
 
 # --- DESPLIEGUE DE DIÁLOGOS ---
-if st.session_state.mostrar_modal_resguardo and not st.session_state.analisis_pendiente and not st.session_state.previsualizacion_manual:
+if st.session_state.mostrar_modal_resguardo and st.session_state.input_nombre.strip() and not st.session_state.analisis_pendiente and not st.session_state.previsualizacion_manual:
     modal_exportar_resguardo(
         st.session_state.input_nombre,
         st.session_state.input_matricula,
@@ -1516,6 +1519,5 @@ if st.session_state.mostrar_modal_resguardo and not st.session_state.analisis_pe
         st.session_state.input_nivel,
         st.session_state.input_materia
     )
-
 elif st.session_state.mostrar_modal_confirmar_reiniciar:
     modal_confirmar_reiniciar()
