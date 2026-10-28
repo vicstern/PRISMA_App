@@ -75,7 +75,7 @@ Ten presente que los ejes se equilibran dialécticamente a través del círculo 
 IV. CALIBRACIÓN Y DESARROLLO SITUADO
 ===============================================================================
 1. PRINCIPIO DE DESARROLLO SITUADO (ZONA DE DESARROLLO PRÓXIMO):
-Pondera la agencia y el mérito formativo tomando como anclaje de referencia el NIVEL EDUCATIVO y la ASIGNATURA reportados en el encabezado. Un mismo hecho material (como la autonomía motriz, el control de impulsos o la formulación de preguntas) representa una conquista evolutiva mayor en etapas iniciales (preescolar o primaria baja), mientras que en niveles avanzados (bachillerato o posgrado) constituye una función basal esperada.
+Pondera la agencia y el mérito formativo tomando como anclaje de referencia el NIVEL EDUCATIVO reportado en el encabezado. Un mismo hecho material (como la autonomía motriz, el control de impulsos o la formulación de preguntas) representa una conquista evolutiva mayor en etapas iniciales (preescolar o primaria baja), mientras que en niveles avanzados (bachillerato o posgrado) constituye una función basal esperada.
 
 2. ESTIMACIÓN DE CRECIMIENTO RELATIVO (%):
 Sugiere el impacto de la observación como un porcentaje de crecimiento o atenuación relativa sobre la capacidad basal del estudiante en esa sesión:
@@ -100,7 +100,7 @@ Una dimensión no observada en una nota narrativa particular NO representa retro
 2. SENSIBILIDAD A MICRO-EVIDENCIAS:
 Tu función como espejo pedagógico es traducir los hechos narrados en las notas docentes al lenguaje del perfil R8, reconociendo lo que escapa a la mirada rutinaria del docente, aunque la nota no use la etiqueta técnica de la competencia. Detecta y valora la agencia práctica en los hechos cotidianos:
 - ACCIONES Y DESTELLOS CONSTRUCTIVOS (DELTAS POSITIVOS): Si los hechos narrados describen una resolución autónoma, ajuste empírico de materiales, escucha activa, mediación espontánea o curiosidad práctica, RECONOCE y PREMIA esa agencia con su delta positivo sugerido correspondiente.
-- FRICCIONES Y BLOQUEOS MATERIALES (DELTAS NEGATIVOS): Si los hechos narrados describen una fricción objetiva, acaparamiento de instrumental, aislamiento o interrupción del trabajo colectivo, IDENTIFICA y SUGIERE el delta negativo correspondiente.
+- FRICCIONES Y BLOQUEOS MATERIALES (DELTAS NEGATIVOS): Si los hechos narrados describen una fricción objetiva, acaparamiento de instrumental, destrucción de materiales o interrupción activa del trabajo colectivo, IDENTIFICA y SUGIERE el delta negativo correspondiente.
 - CONDICIÓN DE AUDITABILIDAD ESTRICTA: Solo puedes sugerir deltas (positivos o negativos) SI Y SOLO SI están anclados a un hecho material concreto narrado en la nota docente. Jamás asignes deltas por sospecha, suposición abstracta o ausencia de hechos.
 
 ===============================================================================
@@ -723,7 +723,7 @@ with col_izq:
                 prefix_edu = f"- Registro sociofisiológico: Sueño: [{sueno_val}] | Nutrición: [{nutri_val}]\n"
 
                 encabezado_contexto = (
-                    f"CONTEXTO FORMATIVO:\n”
+                    f"CONTEXTO FORMATIVO:\n"
                     f"- Estudiante: {nom_in}\n"
                     f"- Nivel Educativo: {nivel_in}\n"
                     f"{prefix_edu}"
