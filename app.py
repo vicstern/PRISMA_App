@@ -116,10 +116,11 @@ Evalúa las condiciones reportadas en el encabezado bajo la regla estricta:
 2. ADVERTENCIA PEDAGÓGICA Y ACOMPAÑAMIENTO:
 En semáforo AMARILLO o ROJO, emite una orientación pedagógica breve y compasiva para la persona docente: priorizar el cuidado somático y considerar el desgaste biológico al valorar el proceso formativo.
 
-3. FRONTERA INVIOLABLE ENTRE AFECTO Y ÉTICA:
-- Un episodio de frustración, llanto, grito, parálisis o aislamiento derivado de un obstáculo técnico o exclusión social es un colapso temporal de autorregulación afectiva, NUNCA UNA FALLA ÉTICA O MORAL.
-Jamás penalices "Razonamiento_Etico" ni "Agencia_Intercultural" por episodios de frustración emocional. Solo puedes penalizar "Liderazgo_Colaborativo" (-1% a -20%) si hubo sabotaje activo del trabajo del equipo. Jamás penalices "Resiliencia_Autogestion" por un colapso emocional si el estudiante se recupera o si existe semáforo AMARILLO o ROJO (la privación biológica es atenuante, nunca agravante).
-- RECONOCIMIENTO DE LA RECUPERACIÓN (RESILIENCIA Y SABER HACER): Si tras el colapso o la frustración el estudiante regresa al trabajo y/o repara el vínculo disculpándose espontáneamente, RECONOCE este mérito con incrementos (+10% a +30%) en "Resiliencia_Autogestion" y/o "Saber_Hacer_Ejecucion_Tecnica". Si esto ocurre bajo semáforo AMARILLO o ROJO, el mérito por sobreesfuerzo somático es mayor: el incremento en Resiliencia debe ser firme (+20% a +35%), reconociendo la capacidad de autorregularse pese al desgaste biológico.
+3. REGLAS POSITIVAS DE EVALUACIÓN AFECTIVA, TÉCNICA Y ÉTICA:
+- DISCULPA Y REPARACIÓN = MÉRITO ÉTICO Y METACOGNITIVO: Si el estudiante se disculpa o repara el vínculo por propia iniciativa, ASIGNA OBLIGATORIAMENTE un incremento positivo (+15% a +25%) en "Razonamiento_Etico" y (+10% a +20%) en "Reflexion_Metacognitiva". El semáforo (AMARILLO o ROJO) protege al estudiante, JAMÁS anula el mérito de una acción ética constructiva.
+- PRAXIS MATERIAL = SABER HACER OBLIGATORIO: Toda evidencia fáctica de uso de instrumental, ajuste material, calibración, manufactura o depuración práctica DEBE evaluarse obligatoriamente con incremento positivo (+10% a +25%) en "Saber_Hacer_Ejecucion_Tecnica". Queda estrictamente prohibido declarar silencio epistémico (0%) cuando existen hechos observables de ejecución técnica.
+- AISLAMIENTO AFECTIVO NO ES SABOTAJE: Quedarse en silencio, llorar o negarse a hablar tras una frustración es retracción emocional, NO sabotaje. En "Liderazgo_Colaborativo" asigna 0% (silencio). Solo asigna valores negativos (-10% a -20%) si destruye físicamente material o agrede activamente a sus compañeros.
+- RECUPERACIÓN BAJO DESGASTE BIOLÓGICO: Superar un colapso y volver a la tarea o pedir disculpas exige una fuerza volitiva superior. En "Resiliencia_Autogestion”, bajo semáforo AMARILLO o ROJO, asigna siempre un incremento destacado (+25% a +35%), reconociendo la superación del desgaste somático. Bajo semáforo VERDE, asigna siempre un incremento moderado (+10% a +20%).
 
 ===============================================================================
 VII. CONTRATO JSON EXCLUSIVO DE SALIDA
@@ -722,11 +723,9 @@ with col_izq:
                 prefix_edu = f"- Registro sociofisiológico: Sueño: [{sueno_val}] | Nutrición: [{nutri_val}]\n"
 
                 encabezado_contexto = (
-                    f"CONTEXTO DEL ESTUDIANTE:\n"
+                    f"CONTEXTO FORMATIVO:\n”
                     f"- Estudiante: {nom_in}\n"
                     f"- Nivel Educativo: {nivel_in}\n"
-                    f"- Asignatura / Espacio: {materia_in if materia_in else 'General'}\n"
-                    f"- Grupo: {grp_in if grp_in else 'N/A'}\n"
                     f"{prefix_edu}"
                 )
 
@@ -868,7 +867,7 @@ with col_izq:
 
     # --- STAGING / PREVISUALIZACIÓN DE IA ---
     if st.session_state.get("debug_raw_ollama"):
-        with st.expander("🔬 Respuesta cruda de Ollama (Debug)", expanded=True):
+        with st.expander("🔬 Respuesta cruda de Ollama (Debug)", expanded=False):
             st.code(st.session_state["debug_raw_ollama"], language="json")
 
     if st.session_state.analisis_pendiente:
