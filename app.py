@@ -1,33 +1,32 @@
-PROMPT_PRISMA_SYSTEM = """Eres PRISMA-ENGINE (Plataforma de Reflexión e Interpretación para el Seguimiento Multidimensional del Aprendizaje), el sub-motor de analítica cualitativa e intero-propriocepción pedagógica del Ecosistema AULA VIVA® / ASPIRE® (IMPI Exp. 3724582 | INDAUTOR Reg. 03-2026-040710022300-01 | SSRN DOI: 10.2139/ssrn.7310080).
+PROMPT_PRISMA_SYSTEM = """Eres PRISMA™-ENGINE (Plataforma de Reflexión e Interpretación para el Seguimiento Multidimensional del Aprendizaje), el sub-motor de analítica cualitativa e intero-propriocepción pedagógica del Ecosistema AULA VIVA® con IA / ASPIRE® (AI-Syntehsized Portal for Integrated Readiness and Excellence) (IMPI Exp. 3724582 | INDAUTOR Reg. 03-2026-040710022300-01 | SSRN DOI: 10.2139/ssrn.7310080).
 
 ===============================================================================
 0. PRINCIPIO SUPREMO DE SOBERANÍA DOCENTE
 ===============================================================================
-PRISMA SUGIERE, LA PERSONA DOCENTE DECIDE. SIEMPRE.
-No eres una autoridad sancionadora ni un árbitro infalible. Eres un instrumento de asistencia pedagógica no intrusiva y un espejo reflexivo. Tu análisis ofrece hipótesis de crecimiento y alertas tempranas para enriquecer el juicio docente, pero la soberanía formativa, la deliberación ética final y las decisiones sobre el estudiante pertenecen inalienablemente a la persona educadora.
+PRISMA™ SUGIERE, LA PERSONA DOCENTE DECIDE. SIEMPRE.
+Eres un instrumento de asistencia pedagógica no intrusiva y un espejo reflexivo. Tu análisis ofrece hipótesis de crecimiento para enriquecer el juicio docente, pero la soberanía formativa, la deliberación ética final y las decisiones sobre el estudiante pertenecen inalienablemente a la persona educadora.
 
 ===============================================================================
-I. MANIFIESTO ONTOLÓGICO Y TELEOLÓGICO (EL "PARA QUÉ")
+I. MANIFIESTO ONTOLÓGICO Y TELEOLÓGICO
 ===============================================================================
 1. EL ESPEJO METACOGNITIVO Y LA PHRONESIS:
-No eres un juez escolar, ni una aduana administrativa, ni un clasificador estadístico. Eres un "espejo metacognitivo" diseñado para desarticular la cosificación del educando y combatir el "trilema educativo estructural" (sacrificio sistemático del rigor, el bienestar o la equidad). Tu propósito supremo es cultivar la phronesis (sabiduría práctica, deliberación ética y juicio reflexivo) y restaurar la homeostasis del ecosistema vivo escolar, posibilitando el florecimiento humano y planetario (Humanismo Kainónico: la renovación radical y científica del humanismo que pone la dignidad del ser en el centro).
+Eres un "espejo metacognitivo" diseñado para potenciar el aprendizaje real al facilitar una comprensión y visualización profundas del crecimiento integral del estudiante durante su proceso educativo. Así, ayudas a cultivar la phronesis (sabiduría práctica, deliberación ética y juicio reflexivo) y restaurar la homeostasis del ecosistema escolar vivo, lo que posibilita el florecimiento humano y planetario (Humanismo Kainónico: la renovación radical y científica del humanismo que pone la dignidad del ser en el centro).
 
 2. ANTROPOLOGÍA DE LA EDUCABILIDAD Y DIDÁCTICA NO-PARAMETRAL:
-Partes de la premisa de que todo ser humano es un sujeto en desarrollo, multidimensional e irreductible. Operas bajo la didáctica no-parametral: no buscas encasillar la conducta en parámetros rígidos de control, sino captar y cartografiar el desarrollo cualitativo situado, respetando la singularidad, reconociendo la diversidad de trayectorias, ritmos de aprendizaje, el ritmo biológico y los saberes de cada estudiante en su comunidad.
+Partes de la premisa de que todo ser humano es un sujeto en desarrollo, multidimensional e irreductible. Operas bajo la didáctica no-parametral: no buscas encasillar la conducta en parámetros rígidos de control, sino captar y cartografiar el desarrollo cualitativo situado, respetando la singularidad, reconociendo la diversidad de trayectorias, ritmos de aprendizaje, el ritmo sociofisiológico y biológico, y los saberes de cada estudiante en su comunidad.
 
 ===============================================================================
 II. TU FUNCIÓN TÉCNICA OPERATIVA
 ===============================================================================
-Actuar como un TRANSDUCTOR CUALITATIVO-VECTORIAL. Recibes:
-1. Una observación narrativa del docente sobre un estudiante.
-2. Los datos sociofisiológicos del Estado de Educabilidad (descanso y nutrición).
-3. La ponderación de rúbrica / calificación tradicional (si está disponible).
-Debes traducir estos insumos a deltas continuos de ganancia o atenuación en decibeles (delta_db) en un espacio vectorial de 8 dimensiones (R8), acompañados de su justificación pedagógica, y emitir un diagnóstico de educabilidad estructurado exclusivamente en formato JSON.
+Actuar como un TRANSDUCTOR CUALITATIVO-VECTORIAL. 
+1. Recibes observaciones narrativas del docente sobre una persona estudiante.
+2. Debes realizar un ANÁLISIS SINTÉTICO CUALITATIVO de estos insumos, extraer su intencionalidad formativa desde la filosofía humanista, y sugerir hipótesis de crecimiento integral del estudiante, proyectadas a través de deltas continuos de ganancia o atenuación en un espacio vectorial de 8 dimensiones (R8), acompañados de su justificación pedagógica.
+3. Debes emitir tus sugerencias formativas y acompañamiento docente estructurados exclusivamente en formato JSON.
 
 ===============================================================================
 III. TOPOLOGÍA DEL ESPACIO VECTORIAL R8 Y SIMBIOSIS CURRICULAR (IB + NEM)
 ===============================================================================
-Tus 8 dimensiones representan el "Globalismo Enraizado", puenteando los estándares internacionales del Bachillerato Internacional (IB Enabler: Learner Profile y Approaches To Learning [ATL]) con los principios comunitarios de la Nueva Escuela Mexicana (NEM):
+Tus 8 dimensiones representan el "Globalismo Enraizado", puenteando estándares educativos internacionales (Bachillerato Internacional: IB Learner Profile, Approaches To Learning (ATL), & Career-related program dimensions), con los principios comunitarios de la Nueva Escuela Mexicana (NEM):
 
 CUADRANTE I: LA MENTE QUE INDAGA (Procesamiento y Abstracción)
 - Indagacion_Investigacion:
@@ -73,118 +72,75 @@ CUADRANTE IV: HOMEOSTASIS Y AUTOPOIESIS (Regulación Interna y Existencial)
 Ten presente que los ejes se equilibran dialécticamente a través del círculo (ej. Pensamiento Crítico a 180° de Saber Hacer técnico: abstracción teórica vs. praxis manual; Indagación vs. Liderazgo: interiorización investigativa vs. dinamismo colectivo). Reconoce y valora el equilibrio armónico del perfil.
 
 ===============================================================================
-IV. PSICOFÍSICA DE WEBER-FECHNER Y CALIBRACIÓN LOGARÍTMICA (dB)
+IV. CALIBRACIÓN Y DESARROLLO SITUADO
 ===============================================================================
-1. LA NATURALEZA NO-LINEAL DE LA PERCEPCIÓN HUMANA:
-Los seres humanos no experimentamos los estímulos ni el crecimiento de manera lineal, sino exponencial/logarítmica. PRISMA calcula la intensidad cualitativa en decibeles (dB) respecto a una amplitud basal de entrada A0 mediante:
-L (dB) = 20 * log10(A / A0)
+1. PRINCIPIO DE DESARROLLO SITUADO (ZONA DE DESARROLLO PRÓXIMO):
+Pondera la agencia y el mérito formativo tomando como anclaje de referencia el NIVEL EDUCATIVO y la ASIGNATURA reportados en el encabezado. Un mismo hecho material (como la autonomía motriz, el control de impulsos o la formulación de preguntas) representa una conquista evolutiva mayor en etapas iniciales (preescolar o primaria baja), mientras que en niveles avanzados (bachillerato o posgrado) constituye una función basal esperada.
 
-2. ANCLAS DE MAGNITUD ESTRICTAS:
-- 0.0 dB: Línea de base (Entry Level / Multiplicador 1.00x). Punto de referencia o estabilidad.
-- +6.0 dB (Nivel Principiante consolidado): DUPLICACIÓN EXACTA (2.00x) de la capacidad, potencia o frecuencia de dominio demostrada.
-- -6.0 dB: REDUCCIÓN A LA MITAD EXACTA (0.50x) de la capacidad. Umbral basal de atenuación.
-- +12.0 dB: CUADRUPLICACIÓN (4.00x) de la capacidad demostrada (Nivel Intermedio consolidado); +18.0 dB (8.00x) y +24.0 dB (16.00x): Niveles Avanzado y Experto (despliegue progresivo).
-
-3. REGLA DE GRANULARIDAD Y DENSIDAD DE EVIDENCIA:
-- Asigna incrementos continuos con resolución fina de 0.1 dB (ej. +0.4, +1.1, +2.3, -0.6, -1.2 dB).
-- UN INCREMENTO SUPERIOR A +2.0 dB EXIGE UNA TRANSFORMACIÓN CUALITATIVA ESTRUCTURAL. Jamás asignes saltos de +3.0 o +4.0 dB por acciones rutinarias o cumplimientos literales.
-- Desglose de magnitudes positivas:
-  * +0.1 a +0.8 dB: Destello, micro-evidencia incipiente, intento constructivo, ajuste menor.
-  * +0.9 a +1.8 dB: Aplicación autónoma, resolución efectiva de un obstáculo, intervención activa.
-  * +1.9 a +3.0 dB: Salto cualitativo evidente, mediación exitosa de crisis, maestría técnica notable.
-  * > +3.0 dB: Ruptura epistemológica profunda, liderazgo ejemplar que transforma la dinámica colectiva.
+2. ESTIMACIÓN DE CRECIMIENTO RELATIVO (%):
+Sugiere el impacto de la observación como un porcentaje de crecimiento o atenuación relativa sobre la capacidad basal del estudiante en esa sesión:
+- Asigna cambios/deltas continuos con resolución fina de 1%. No te limites a múltiplos de 5% o 10%.
+- 0%: Silencio epistémico / Línea base. La nota docente no aporta información (ni explícita ni implícita/inferida en tu razonamiento) con respecto a impactos de cambio sobre este eje.
+- Valores positivos:
+- +1% a +19%: Destello, micro-evidencia incipiente, avance o resolución técnica cotidiana.
+- +20% a +39%: Intervención sólida, salto cualitativo evidente, autonomía o liderazgo destacados.
+- +40% a +60%: Conquista estructural profunda, gran salto en la capacidad demostrada o resolución de crisis mayor.
+- Valores negativos (-1% a -40%): Fricción objetiva, bloqueo o conflicto conductual material narrado explícitamente en la nota docente o inferido en tu razonamiento con enfoque humanista, derivado directa y estrictamente de tu análisis de los hechos narrados en la nota docente.
+- UN DELTA SUPERIOR A 50% EXIGE UNA TRANSFORMACIÓN CUALITATIVA ESTRUCTURAL. No asignes ligeramente saltos de 50% o más.
 
 ===============================================================================
-V. PONDERACIÓN POR CALIFICACIÓN ESCALAR TRADICIONAL (PRINCIPIO DE ESCUDO)
+V. AXIOMA DE INVARIANZA EPISTÉMICA Y MICRO-EVIDENCIAS
 ===============================================================================
-La calificación numérica tradicional de rúbrica institucional (ej. 5/10 o 10/10) evalúa el cumplimiento administrativo o la entrega de un producto estandarizado. PRISMA™ evalúa la agencia cualitativa del estudiante en el mundo real. Modula bajo estas condiciones de contorno:
-- 85% a 100% (8.5 - 10.0 | Dominio Sobresaliente): La rúbrica confirma solidez. Opera como ESCUDO PROTECTOR: amortigua cualquier tropiezo o fricción en el texto a detalle de pulido menor (deltas de 0.0 a -0.3 dB) y consolida los deltas positivos.
-- 60% a 84% (6.0 - 8.4 | Suficiencia / En Desarrollo): Logro consistente. Mantiene la ponderación natural basada en la densidad de la evidencia narrativa.
-- Menor a 60% (< 6.0 | Reprobatorio Tradicional): NEUTRALIDAD DE CONTORNO ABSOLUTA. Una calificación reprobatoria institucional JAMÁS debe utilizarse para rebajar, comprimir o apagar los destellos de Saber Hacer, Pensamiento Crítico o Liderazgo que la narrativa demuestre fácticamente. PRISMA™ existe para iluminar lo que la nota tradicional ignora o castiga.
-- Sin Calificación Escalar: Evaluación formativa pura basada en la densidad narrativa.
+1. SILENCIO EPISTÉMICO (NO-PUNICIÓN POR OMISIÓN):
+Una dimensión no observada en una nota narrativa particular NO representa retroceso ni debilidad.
+- Si una dimensión carece de hechos materiales observables en la narrativa docente, su porcentaje DEBE SER ESTRICTAMENTE 0%.
+- Queda estrictamente prohibido asignar valores negativos alegando "falta evidencia" o "falta de observación". Solo se sugieren valores negativos ante bloqueos, interrupciones, fricciones o retrocesos explícitos.
+- Toda evidencia constructiva narrada (ajuste de piezas, mediación, curiosidad) debe ser reconocida con su respectivo porcentaje positivo (> 0%).
 
-===============================================================================
-VI. AXIOMA DE INVARIANZA EPISTÉMICA Y CERO EXTRAPOLACIÓN PUNITIVA
-===============================================================================
-1. NO-PUNICIÓN POR OMISIÓN (SILENCIO EPISTÉMICO):
-Una competencia consolidada en el estudiante NO desaparece ni involuciona simplemente porque una tarea particular no la puso en juego.
-- REGLA FUNDAMENTAL: Si una dimensión no tiene ningún anclaje fáctico (ningún hecho, acción o conducta narrada en la nota), su delta_db DEBE SER ESTRICTAMENTE 0.0 dB. Esta neutralidad (0.0 dB) representa silencio epistémico (ausencia de hechos observables sobre ese eje en la nota); JAMÁS significa "ejecución correcta sin errores".
-- OBLIGACIÓN ANTE ACCIONES CONSTRUCTIVAS: Si la nota narra hechos constructivos (resolución técnica, ajuste de materiales, mediación o liderazgo), QUEDA ESTRICTAMENTE PROHIBIDO asignar 0.0 dB alegando "sin registro de errores o fallas". Toda evidencia fáctica de logro DEBE evaluarse con su delta positivo (> 0.0 dB).
-- Prohibición absoluta de inferir debilidad: NUNCA asignes deltas negativos alegando "no se observaron evidencias de indagación" o "falta información en liderazgo". La ausencia de hechos es neutralidad matemática absoluta (0.0 dB). Asigna valores negativos ÚNICAMENTE ante fallas, interrupciones o bloqueos narrados fácticamente.
-
-2. SENSIBILIDAD AL ANCLAJE FÁCTICO (SIMETRÍA DEL ESPEJO FORMATIVO):
-- Tu función como espejo pedagógico es traducir las acciones materiales del aula al lenguaje del perfil R8, reconociendo lo que escapa a la mirada rutinaria del docente, aunque la nota no use la etiqueta técnica de la competencia:
-  * ACCIONES Y DESTELLOS CONSTRUCTIVOS (DELTAS POSITIVOS): Si los hechos narrados describen una resolución autónoma, ajuste empírico de materiales, escucha activa, mediación espontánea o curiosidad práctica, RECONOCE y PREMIA esa agencia con su delta positivo correspondiente (+0.5 a +3.0 dB).
-  * FRICCIONES Y BLOQUEOS MATERIALES (DELTAS NEGATIVOS): Si los hechos narrados describen una fricción objetiva, acaparamiento de instrumental, aislamiento o interrupción del trabajo colectivo, IDENTIFICA y SUGIERE el delta negativo correspondiente (sujeto a las reglas de atenuación biológica si aplican).
+2. SENSIBILIDAD A MICRO-EVIDENCIAS:
+Tu función como espejo pedagógico es traducir los hechos narrados en las notas docentes al lenguaje del perfil R8, reconociendo lo que escapa a la mirada rutinaria del docente, aunque la nota no use la etiqueta técnica de la competencia. Detecta y valora la agencia práctica en los hechos cotidianos:
+- ACCIONES Y DESTELLOS CONSTRUCTIVOS (DELTAS POSITIVOS): Si los hechos narrados describen una resolución autónoma, ajuste empírico de materiales, escucha activa, mediación espontánea o curiosidad práctica, RECONOCE y PREMIA esa agencia con su delta positivo sugerido correspondiente.
+- FRICCIONES Y BLOQUEOS MATERIALES (DELTAS NEGATIVOS): Si los hechos narrados describen una fricción objetiva, acaparamiento de instrumental, aislamiento o interrupción del trabajo colectivo, IDENTIFICA y SUGIERE el delta negativo correspondiente.
 - CONDICIÓN DE AUDITABILIDAD ESTRICTA: Solo puedes sugerir deltas (positivos o negativos) SI Y SOLO SI están anclados a un hecho material concreto narrado en la nota docente. Jamás asignes deltas por sospecha, suposición abstracta o ausencia de hechos.
 
 ===============================================================================
-VII. SENSIBILIDAD A MICRO-EVIDENCIAS TÉCNICAS Y ORGANIZATIVAS
+VI. ÉTICA DEL CUIDADO, HOSPITALIDAD Y ESTADO DE EDUCABILIDAD
 ===============================================================================
-Detecta y premia de manera proactiva los destellos de agencia práctica. Por ejemplo (en forma enunciativa mas no exclusiva):
-- Modificación de materiales, iteraciones, calibración de sensores, corrección autónoma de errores -> +0.3 a +2.0 dB en "Saber_Hacer_Ejecucion_Tecnica" y/o "Pensamiento_Critico_Analitico".
-- Repartición de tareas, mediación pacífica, organización del grupo, motivación a otros -> +0.3 a +3.0 dB en "Liderazgo_Colaborativo".
+1. DIAGNÓSTICO Y "SEMÁFORO" DEL ESTADO SOCIO-FISIOLÓGICO Y BIO-EMOCIONAL:
+Evalúa las condiciones reportadas en el encabezado bajo la regla estricta:
+- Si Sueño y Nutrición marcan "Sin registro", o si indican condiciones óptimas (> 7 horas / Completa): EL SEMÁFORO DEBE SER ESTRICTAMENTE "VERDE".
+- SEMÁFORO AMARILLO: ÚNICAMENTE si el encabezado indica sueño parcial (5-7 horas), alimentación parcial (insuficiente), O si el texto de la nota describe textualmente hambre, ayuno involuntario o noches sin dormir.
+- SEMÁFORO ROJO: ÚNICAMENTE si el encabezado indica privación crítica (< 5 horas) o ayuno severo.
+- PROHIBICIÓN TAXATIVA DE DIAGNÓSTICO PSICOMÉTRICO: Queda estrictamente prohibido diagnosticar "estrés tóxico", "fatiga" o "vulnerabilidad fisiológica" basándote en que el estudiante se enoje, llore, grite, aviente objetos o se aísle. Las emociones y fricciones sociales son eventos afectivo-vinculares, NO patologías biológicas. Sin reporte explícito de falta de alimento o sueño, el semáforo es VERDE.
 
-===============================================================================
-VIII. ÉTICA DEL CUIDADO, HOSPITALIDAD, ESTADO DE EDUCABILIDAD Y SUAVIZADO AUTÓNOMO (DAMPENING)
-===============================================================================
-1. EL PACTO DE CUIDADOS:
-La educación es un acto ético-político de acogida del otro en su fragilidad (hospitalidad) ante los sucesos imprevistos de la vida (acontecer). El aula debe ser un espacio seguro libre de estrés tóxico.
+2. ADVERTENCIA PEDAGÓGICA Y ACOMPAÑAMIENTO:
+En semáforo AMARILLO o ROJO, emite una orientación pedagógica breve y compasiva para la persona docente: priorizar el cuidado somático y considerar el desgaste biológico al valorar el proceso formativo.
 
-2. REGLA ESTRICTA DE SEMÁFORO N/A (CANAL ALGEDÓNICO BASAL):
-- Si la modalidad de captura es "Sin registro" Y el texto de la nota no reporta vulnerabilidad física, responde estrictamente:
-  "semaforo": "N/A",
-  "advertencia_pedagogica": "Sin registro sociofisiológico (evaluación cualitativa pura)."
-- Detección Autónoma: Si la nota menciona de forma explícita fatiga severa, ayuno, desvelo o malestar somático, enciende el semáforo (AMARILLO o ROJO) de forma autónoma aun si no había registro manual.
-
-3. CONDICIONANTES SOCIOFISIOLÓGICAS CON REGISTRO (CANAL ALGEDÓNICO DE EDUCABILIDAD):
-Procesa con máxima prioridad los datos de Sueño/Descanso y Nutrición. Diagnostica el semáforo:
-- VERDE (Condición Óptima): Ambos parámetros al 100% (> 7h de sueño Y nutrición completa). Homeostasis estable.
-- AMARILLO (Tensión Moderada): Cualquier parámetro en nivel intermedio (5-6h de sueño O nutrición parcial), sin que ninguno esté en nivel crítico.
-- ROJO (Vulnerabilidad Severa): CUALQUIER parámetro en nivel crítico/cero (< 5h de sueño O ayuno completo).
-
-4. REGLA SUPREMA DE SUAVIZADO AUTÓNOMO / ATENUACIÓN BIOLÓGICA (DAMPENING):
-* PROHIBICIÓN DE SOSPECHA PREVENTIVA: Queda estrictamente prohibido usar el semáforo AMARILLO o ROJO para deducir o inventar debilidades formativas en acciones donde el estudiante resolvió problemas con éxito. Jamás penalices ni asignes 0.0 dB a los logros reales si la evidencia demuestra resolución constructiva.
-* CONDICIÓN BASAL EN SEMÁFORO VERDE (TRANSFERENCIA ÍNTEGRA): Si el semáforo es VERDE, los logros y resoluciones técnicas o de liderazgo observados en la nota reciben sus deltas pedagógicos completos y reales (+1.0 a +3.0 dB). Queda prohibido anular a 0.0 dB los logros bajo homeostasis; el suavizado (dampening) o amplificación solo aplican en AMARILLO o ROJO. 
-* EFECTO RESONANCIA / ANTI-DAMPENING (AMPLIFICACIÓN POR MÉRITO FISIOLÓGICO): Si el estudiante logra concentrarse, liderar o resolver problemas técnicos bajo AMARILLO o ROJO (ayuno/fatiga), ese logro tiene un valor formativo SUPERIOR porque venció la entropía metabólica corporal. AMPLIFICA los deltas positivos que habrías asignado originalmente:
-  - En AMARILLO: Incrementa el delta positivo en 1/3 (+33% sobre el valor original). Ej: un logro de +1.5 dB se amplifica a +2.0 dB.
-  - En ROJO: Incrementa el delta positivo en 2/3 (+66% sobre el valor original). Ej: un logro de +1.5 dB se amplifica a +2.5 dB.
-* ATENUACIÓN ARMÓNICA PROPORCIONAL DE FRICCIONES: Si el semáforo es AMARILLO o ROJO, cualquier tropiezo, fricción o dificultad de autorregulación responde a sobrecarga adaptativa o supervivencia biológica. Aplica una reducción de severidad sobre el delta negativo que habrías asignado originalmente:
-  - En AMARILLO (Tensión moderada): Reduce la magnitud de la penalización a sus 2/3 partes (66% del impacto original). Por ejemplo, un tropiezo conductual que en verde merecía -1.5 dB se amortigua a -1.0 dB; uno de -3.0 dB se amortigua a -2.0 dB.
-  - En ROJO (Vulnerabilidad severa): Reduce la magnitud de la penalización a su 1/3 parte (33% del impacto original o residual). Por ejemplo, un impacto basal de -1.5 dB se amortigua a -0.5 dB; uno de -3.0 dB se amortigua a -1.0 dB.
-* COHERENCIA MATEMÁTICA Y OBLIGACIÓN DE ARGUMENTACIÓN: 
-  - Ante un delta negativo (< 0.0 dB) bajo tensión biológica: Explicita obligatoriamente: "Atenuado a 2/3 [o 1/3] del impacto original por protección sociofisiológica (Semáforo [Color])".
-  - Ante un delta positivo (> 0.0 dB) logrado bajo tensión biológica: Explicita obligatoriamente: "Amplificado en 1/3 [o 2/3] por mérito y agencia ante restricción biológica (Semáforo [Color])".
-  - REGLA DE ORO: El valor numérico de "delta_db" DEBE COINCIDIR EXACTAMENTE con el valor resultante de la justificación.
-* ADVERTENCIA PEDAGÓGICA: En semáforo ROJO o AMARILLO, redacta una sugerencia compasiva y urgente al docente: priorizar la restitución fisiológica (descanso, alimentación) y considerar esta situación al evaluar el desempeño.
-
-5. FRONTERA INVIOLABLE ENTRE ÉTICA Y DESREGULACIÓN EMOCIONAL:
+3. FRONTERA INVIOLABLE ENTRE AFECTO Y ÉTICA:
 - Un episodio de frustración, llanto, grito, parálisis o aislamiento derivado de un obstáculo técnico o exclusión social es un colapso temporal de autorregulación afectiva, NUNCA UNA FALLA ÉTICA O MORAL.
-- PROHIBICIÓN ESTRICTA: Jamás penalices "Razonamiento_Etico" ni "Agencia_Intercultural" por episodios de frustración emocional.
-- Si no hay atenuación biológica, penaliza moderadamente "Resiliencia_Autogestion" (-0.5 a -2.0 dB) por la dificultad para regularse, o "Liderazgo_Colaborativo" (-0.5 a -2.0 dB) únicamente si hubo sabotaje activo del trabajo del equipo.
-- RECONOCIMIENTO DE REINCORPORACIÓN: Si el estudiante, tras un momento de colapso o frustración, regresa a la tarea, toma una herramienta o vuelve al equipo, recompensa este esfuerzo con deltas positivos generosos (+1.0 a +3.0 dB) en "Resiliencia_Autogestion" y "Saber_Hacer_Ejecucion_Tecnica". La capacidad de recuperarse es la victoria formativa más alta.
+- Jamás penalices "Razonamiento_Etico" ni "Agencia_Intercultural" por episodios de frustración emocional. Puedes penalizar moderadamente "Resiliencia_Autogestion" (-1% a -20%) por la dificultad para regularse, o "Liderazgo_Colaborativo" (-1% a -20%) únicamente si hubo sabotaje activo del trabajo del equipo.
+- RECONOCIMIENTO DE LA RECUPERACIÓN (RESILIENCIA Y SABER HACER): Si tras el colapso o la frustración el estudiante regresa al trabajo y/o repara el vínculo disculpándose espontáneamente, RECONOCE este mérito con incrementos (+10% a +30%) en "Resiliencia_Autogestion" y "Saber_Hacer_Ejecucion_Tecnica". La autorregulación y la reconciliación son victorias de resiliencia, no meros trámites éticos.
 
 ===============================================================================
-IX. CONTRATO JSON OBLIGATORIO Y EXCLUSIVO
+VII. CONTRATO JSON EXCLUSIVO DE SALIDA
 ===============================================================================
-Tu respuesta debe ser EXCLUSIVAMENTE un bloque JSON válido, sin preámbulos, sin bloques de pensamiento markdown externos, sin texto conversacional. Utiliza con exactitud milimétrica las siguientes claves:
+Tu respuesta debe ser EXCLUSIVAMENTE un bloque JSON válido, sin texto conversacional ni preámbulos. Emite el razonamiento cualitativo y el crecimiento relativo en la clave "crecimiento_pct" EXCLUSIVAMENTE como un número entero, sin comillas y sin escribir el símbolo "%":
 
-ESTRUCTURA JSON EXCLUSIVA DE SALIDA:
 {
   "estudiante": "Nombre del estudiante",
   "estado_educabilidad": {
-    "semaforo": "VERDE",
-    "advertencia_pedagogica": "Descripción breve del estado bio-emocional y guía de acompañamiento docente humanista."
+    "semaforo": "VERDE | AMARILLO | ROJO",
+    "advertencia_pedagogica": "Orientación pedagógica breve y humanista para el acompañamiento docente si hay semáforo amarillo/rojo, o 'Condición sociofisiológica basal estable' si es verde."
   },
   "evaluacion_ejes": {
-    "Indagacion_Investigacion": {"delta_db": 0.0, "razonamiento": "Justificación concisa enraizada en evidencia o neutralidad."},
-    "Pensamiento_Critico_Analitico": {"delta_db": 0.0, "razonamiento": "Justificación concisa enraizada en evidencia o neutralidad."},
-    "Razonamiento_Etico": {"delta_db": 0.0, "razonamiento": "Justificación concisa enraizada en evidencia o neutralidad."},
-    "Agencia_Intercultural": {"delta_db": 0.0, "razonamiento": "Justificación concisa enraizada en evidencia o neutralidad."},
-    "Liderazgo_Colaborativo": {"delta_db": 0.0, "razonamiento": "Justificación concisa enraizada en evidencia o neutralidad."},
-    "Saber_Hacer_Ejecucion_Tecnica": {"delta_db": 0.0, "razonamiento": "Justificación concisa enraizada en evidencia o neutralidad."},
-    "Resiliencia_Autogestion": {"delta_db": 0.0, "razonamiento": "Justificación concisa enraizada en evidencia o neutralidad."},
-    "Reflexion_Metacognitiva": {"delta_db": 0.0, "razonamiento": "Justificación concisa enraizada en evidencia o neutralidad."}
+    "Indagacion_Investigacion": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "crecimiento_pct": 0},
+    "Pensamiento_Critico_Analitico": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "crecimiento_pct": 0},
+    "Razonamiento_Etico": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "crecimiento_pct": 0},
+    "Agencia_Intercultural": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "crecimiento_pct": 0},
+    "Liderazgo_Colaborativo": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "crecimiento_pct": 0},
+    "Saber_Hacer_Ejecucion_Tecnica": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "crecimiento_pct": 0},
+    "Resiliencia_Autogestion": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "crecimiento_pct": 0},
+    "Reflexion_Metacognitiva": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "crecimiento_pct": 0}
   }
 }
 """
@@ -196,6 +152,7 @@ import json
 import requests
 import os
 import re
+import streamlit.components.v1 as components
 from datetime import datetime
 
 # --- CONFIGURACIÓN Y ESTILOS DE INTERFAZ ---
@@ -205,13 +162,41 @@ st.set_page_config(
     layout="wide"
 )
 
+# Escudo protector contra recarga accidental o cierre de pestaña si hay datos activos
+if len(st.session_state.get("historial_observaciones", [])) > 0:
+    components.html(
+        """
+        <script>
+        const mainWindow = window.parent.document.defaultView;
+        if (!mainWindow._prismaGuardAttached) {
+            mainWindow.addEventListener('beforeunload', function (e) {
+                e.preventDefault();
+                e.returnValue = '';
+            });
+            mainWindow._prismaGuardAttached = true;
+        }
+        </script>
+        """,
+        height=0,
+        width=0
+    )
+
 # Estilos CSS inyectados para fijar el mapa en la columna derecha y limitar su altura
 st.markdown("""
 <style>
+    /* 1. Elimina el hueco blanco gigante superior de Streamlit */
+    .block-container {
+        padding-top: 3.5rem !important;
+        padding-bottom: 1rem !important;
+    }
+    h1 {
+        margin-top: 0rem !important;
+        padding-top: 0rem !important;
+    }
     [data-testid="stColumn"]:nth-of-type(2) {
         position: -webkit-sticky !important;
         position: sticky !important;
-        top: 1rem !important;
+        top: 4rem !important;
         align-self: flex-start !important;
         z-index: 99;
     }
@@ -240,9 +225,10 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.title("Aula Viva® con IA — PRISMA™")
-st.markdown("### Plataforma de Reflexión e Interpretación para el Seguimiento Multidimensional del Aprendizaje")
-st.caption("Analítica cualitativa vectorizada en ℝ⁸ | Aula Viva® con IA | Ecosistema ASPIRE®")
+st.title("Aula Viva® con IA")
+st.markdown("### Analítica cualitativa vectorizada en ℝ⁸ | Ecosistema ASPIRE® — PRISMA™")
+st.caption("Plataforma de Reflexión e Interpretación para el Seguimiento Multidimensional del Aprendizaje")
+st.caption("“Shining full-spectrum white light through learners, and projecting its spectral dispersion to illuminate the profound complexity of their growth journey”. | SSRN DOI: 10.2139/ssrn.7310080")
 
 DIR_EXPEDIENTES = os.path.expanduser("~/PRISMA_App/expedientes")
 os.makedirs(DIR_EXPEDIENTES, exist_ok=True)
@@ -271,6 +257,17 @@ FORMATO_EJES_RADAR = {
 
 EJE_NOMBRES = list(MAPEO_EJES.values())
 
+NIVELES_EDUCATIVOS = [
+    "-- Selecciona el nivel educativo --",
+    "Educación Inicial / Preescolar (Maternal / Kínder)",
+    "Educación Primaria",
+    "Educación Secundaria",
+    "Educación Media Superior (Bachillerato / Prepa)",
+    "Educación Superior (Licenciatura / Ingeniería)",
+    "Posgrado (Especialidad / Maestría / Doctorado)",
+    "Formación Continua / No Formal"
+]
+
 def fmt_db(val):
     if abs(val) < 0.01:
         return "0.0"
@@ -282,20 +279,43 @@ def limpiar_cadena(texto):
     cadena = re.sub(r"[^\w\s-]", "", texto).strip()
     return re.sub(r"[-\s]+", "_", cadena)
 
-def parsear_nota_multihito(texto):
-    patron = r'(?:^|\n)\s*(\d+[\.\)\-]\s*)'
-    partes = re.split(patron, texto.strip())
-    
-    if len(partes) > 2:
-        hitos = []
-        for i in range(1, len(partes), 2):
-            prefix = partes[i]
-            contenido = partes[i+1].strip() if (i+1) < len(partes) else ""
-            if contenido:
-                hitos.append(f"{prefix}{contenido}")
-        if hitos:
-            return hitos
-    return [texto.strip()]
+def calcular_delta_db(crecimiento_pct, semaforo="VERDE"):
+    """Transductor psicofísico (Weber-Fechner) con compasión sociofisiológica."""
+    try:
+        if isinstance(crecimiento_pct, str):
+            crecimiento_pct = crecimiento_pct.replace("%", "").replace("+", "").strip()
+        g = float(crecimiento_pct) / 100.0
+    except (ValueError, TypeError):
+        return 0.0
+
+    if abs(g) < 0.001:
+        return 0.0
+
+    sem = str(semaforo).upper()
+    if "AMARILLO" in sem:
+        g = g * 1.10 if g > 0 else g * (2.0 / 3.0)
+    elif "ROJO" in sem:
+        g = g * 1.20 if g > 0 else g * (1.0 / 3.0)
+
+    ratio = max(1.0 + g, 0.01)
+    delta_db = 20.0 * np.log10(ratio)
+    return round(float(delta_db), 1)
+
+def obtener_tag_sociofisiologico(d_val, semaforo):
+    sem = str(semaforo).upper()
+    if abs(d_val) <= 0.01 or "VERDE" in sem or "N/A" in sem:
+        return ""
+    if d_val < 0:
+        if "AMARILLO" in sem:
+            return " 🛡️ *[Atenuado a 2/3 del impacto original por protección sociofisiológica (semáforo AMARILLO)]*"
+        elif "ROJO" in sem:
+            return " 🛡️ *[Atenuado a 1/3 del impacto original por protección sociofisiológica (semáforo ROJO)]*"
+    elif d_val > 0:
+        if "AMARILLO" in sem:
+            return " ⚡ *[Amplificado +10% del impacto original por resiliencia sociofisiológica (semáforo AMARILLO)]*"
+        elif "ROJO" in sem:
+            return " ⚡ *[Amplificado +20% del impacto original por resiliencia sociofisiológica (semáforo ROJO)]*"
+    return ""
 
 # --- INICIALIZACIÓN Y CONTROL DE ESTADO LIMPIO ---
 if "valores_db" not in st.session_state:
@@ -325,6 +345,9 @@ if "mostrar_modal_confirmar_reiniciar" not in st.session_state:
 if "input_clave_admin" not in st.session_state:
     st.session_state.input_clave_admin = ""
 
+if "json_ya_descargado" not in st.session_state:
+    st.session_state.json_ya_descargado = False
+
 # Banderas de limpieza diferida de estado
 if st.session_state.get("flag_limpiar_nota", False):
     st.session_state.input_nota = ""
@@ -342,6 +365,10 @@ if st.session_state.get("flag_reset_calib", False):
 
 if "input_nombre" not in st.session_state:
     st.session_state.input_nombre = ""
+if "input_nivel" not in st.session_state:
+    st.session_state.input_nivel = NIVELES_EDUCATIVOS[0]
+if "input_materia" not in st.session_state:
+    st.session_state.input_materia = ""
 if "input_matricula" not in st.session_state:
     st.session_state.input_matricula = ""
 if "input_grupo" not in st.session_state:
@@ -365,7 +392,7 @@ for eje in EJE_NOMBRES:
         st.session_state[f"num_{eje}"] = 0.0
 
 # --- FUNCIONES DE PERSISTENCIA ---
-def guardar_expediente_disco(nombre, matricula, grupo, ciclo_id="2026", es_cierre=False):
+def guardar_expediente_disco(nombre, matricula, grupo, nivel="", materia="", ciclo_id="2026", es_cierre=False):
     fecha_iso = datetime.now().strftime("%y%m%d")
     hora_iso = datetime.now().strftime("%H%M%S")
     nom_clean = limpiar_cadena(nombre)
@@ -385,6 +412,8 @@ def guardar_expediente_disco(nombre, matricula, grupo, ciclo_id="2026", es_cierr
         "estudiante": nombre,
         "matricula": matricula,
         "grupo": grupo,
+        "nivel_educativo": nivel,
+        "materia": materia,
         "ultima_actualizacion": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "vector_actual_db": dict(st.session_state.valores_db),
         "historial_observaciones": list(st.session_state.historial_observaciones)
@@ -395,12 +424,12 @@ def guardar_expediente_disco(nombre, matricula, grupo, ciclo_id="2026", es_cierr
 
 # --- DIÁLOGOS DE CONTROL (MODALES) ---
 @st.dialog("💾 Resguardo de expediente vectorial")
-def modal_exportar_resguardo(nombre, matricula, grupo):
+def modal_exportar_resguardo(nombre, matricula, grupo, nivel, materia):
     nombre_mostrar = nombre if nombre else "Estudiante"
     st.write(f"Se ha consolidado el hito en el expediente de **{nombre_mostrar}**.")
     st.write("¿Deseas descargar una copia de resguardo local (`.json`) con marca de tiempo?")
     
-    filename_export, exp_data = guardar_expediente_disco(nombre, matricula, grupo)
+    filename_export, exp_data = guardar_expediente_disco(nombre, matricula, grupo, nivel, materia)
     
     col_m1, col_m2 = st.columns([0.6, 0.4])
     with col_m1:
@@ -429,7 +458,9 @@ def modal_confirmar_reiniciar():
     nombre = st.session_state.input_nombre
     matricula = st.session_state.input_matricula
     grupo = st.session_state.input_grupo
-    filename_export, exp_data = guardar_expediente_disco(nombre, matricula, grupo)
+    nivel = st.session_state.input_nivel
+    materia = st.session_state.input_materia
+    filename_export, exp_data = guardar_expediente_disco(nombre, matricula, grupo, nivel, materia)
 
     if st.download_button(
         label="💾 Descargar resguardo (.json) y reiniciar",
@@ -451,6 +482,7 @@ def modal_confirmar_reiniciar():
         st.session_state.flag_limpiar_nota = True
         st.session_state.flag_limpiar_justificacion = True
         st.session_state.flag_reset_calib = True
+        st.session_state.json_ya_descargado = False
         st.session_state.mostrar_modal_confirmar_reiniciar = False
         st.rerun()
     
@@ -466,7 +498,8 @@ def modal_confirmar_reiniciar():
             st.session_state.input_nombre = ""
             st.session_state.input_matricula = ""
             st.session_state.input_grupo = ""
-            st.session_state.input_nota_escalar = 0.0
+            st.session_state.input_nivel = NIVELES_EDUCATIVOS[0]
+            st.session_state.input_materia = ""
             st.session_state.flag_limpiar_nota = True
             st.session_state.flag_limpiar_justificacion = True
             st.session_state.flag_reset_calib = True
@@ -477,14 +510,13 @@ def modal_confirmar_reiniciar():
             st.session_state.mostrar_modal_confirmar_reiniciar = False
             st.rerun()
 
-# --- SIDEBAR: OPERACIÓN Y CONTROLES DE ADMINISTRADOR ---
+# --- SIDEBAR: OPERACIÓN Y CONTROLES ---
 with st.sidebar:
     st.header("⚙️ Gestión de registro")
     
     st.subheader("1. Flujo de trabajo")
     if st.button("✨ Reiniciar pantalla de registro", use_container_width=True, type="primary", disabled=st.session_state.procesando):
         if st.session_state.get("json_ya_descargado", False):
-            # Limpieza directa sin preguntar de nuevo
             st.session_state.valores_db = {eje: 0.0 for eje in EJE_NOMBRES}
             st.session_state.historial_observaciones = []
             st.session_state.analisis_pendiente = None
@@ -493,7 +525,8 @@ with st.sidebar:
             st.session_state.input_nombre = ""
             st.session_state.input_matricula = ""
             st.session_state.input_grupo = ""
-            st.session_state.input_nota_escalar = 0.0
+            st.session_state.input_nivel = NIVELES_EDUCATIVOS[0]
+            st.session_state.input_materia = ""
             st.session_state.flag_limpiar_nota = True
             st.session_state.flag_limpiar_justificacion = True
             st.session_state.flag_reset_calib = True
@@ -505,6 +538,42 @@ with st.sidebar:
 
     st.markdown("---")
     
+    st.subheader("2. Cargar expediente (.json)")
+    archivo_cargado = st.file_uploader(
+        "Selecciona expediente JSON:",
+        type=["json"],
+        disabled=st.session_state.procesando,
+        help="Carga de expedientes históricos"
+    )
+    
+    btn_importar = st.button("📥 Cargar expediente", disabled=(archivo_cargado is None or st.session_state.procesando), use_container_width=True)
+    if btn_importar and archivo_cargado is not None:
+        try:
+            datos = json.load(archivo_cargado)
+            st.session_state.valores_db = datos.get("vector_actual_db", {eje: 0.0 for eje in EJE_NOMBRES})
+            st.session_state.historial_observaciones = datos.get("historial_observaciones", [])
+            st.session_state.input_nombre = datos.get("estudiante", "")
+            st.session_state.input_matricula = datos.get("matricula", "")
+            st.session_state.input_grupo = datos.get("grupo", "")
+            
+            nivel_cargado = datos.get("nivel_educativo", NIVELES_EDUCATIVOS[0])
+            st.session_state.input_nivel = nivel_cargado if nivel_cargado in NIVELES_EDUCATIVOS else NIVELES_EDUCATIVOS[0]
+            st.session_state.input_materia = datos.get("materia", "")
+            
+            if datos.get("matricula"):
+                st.session_state.estudiantes_db[datos["matricula"]] = {
+                    "nombre": datos.get("estudiante", ""),
+                    "grupo": datos.get("grupo", ""),
+                    "nivel": st.session_state.input_nivel,
+                    "materia": st.session_state.input_materia
+                }
+            st.success("Expediente cargado correctamente.")
+            st.rerun()
+        except Exception as e:
+            st.error(f"Error al leer el archivo JSON: {e}")
+
+    st.markdown("---")
+    
     st.header("🔒 Herramientas de administrador")
     
     clave_admin_input = st.text_input(
@@ -513,7 +582,7 @@ with st.sidebar:
         key="input_clave_admin",
         placeholder="Ingresa clave de acceso",
         disabled=st.session_state.procesando,
-        help="Habilita la carga de expedientes y la transición de ciclo escolar."
+        help="Habilita la transición de ciclo escolar."
     )
     
     es_admin = (st.session_state.input_clave_admin in ["prisma2026", "prisma26"])
@@ -529,40 +598,9 @@ with st.sidebar:
 
     st.markdown("---")
     
-    label_carga = "2. Cargar expediente (.json)" if es_admin else "2. Cargar expediente (.json) 🔒 Admin"
-    st.subheader(label_carga)
-    archivo_cargado = st.file_uploader(
-        "Selecciona expediente JSON:",
-        type=["json"],
-        disabled=(not es_admin or st.session_state.procesando),
-        help="Carga de expedientes históricos" if es_admin else "Función exclusiva para nivel Administrador"
-    )
-    
-    btn_importar = st.button("📥 Cargar expediente", disabled=(not es_admin or archivo_cargado is None or st.session_state.procesando), use_container_width=True)
-    if btn_importar and archivo_cargado is not None and es_admin:
-        try:
-            datos = json.load(archivo_cargado)
-            st.session_state.valores_db = datos.get("vector_actual_db", {eje: 0.0 for eje in EJE_NOMBRES})
-            st.session_state.historial_observaciones = datos.get("historial_observaciones", [])
-            st.session_state.input_nombre = datos.get("estudiante", "")
-            st.session_state.input_matricula = datos.get("matricula", "")
-            st.session_state.input_grupo = datos.get("grupo", "")
-            
-            if datos.get("matricula"):
-                st.session_state.estudiantes_db[datos["matricula"]] = {
-                    "nombre": datos.get("estudiante", ""),
-                    "grupo": datos.get("grupo", "")
-                }
-            st.success("Expediente cargado correctamente.")
-            st.rerun()
-        except Exception as e:
-            st.error(f"Error al leer el archivo JSON: {e}")
-
-    st.markdown("---")
-    
-    label_tabula = "3. Transición: 'Año nuevo, vida nueva'" if es_admin else "3. Transición: 'Año nuevo, vida nueva' 🔒 Admin"
+    label_tabula = "1. Guardar expediente de cierre de ciclo" if es_admin else "1. Guardar expediente de cierre de ciclo 🔒 Admin"
     st.subheader(label_tabula)
-    st.caption("Aplica 'Tabula Rasa': congela el ciclo actual en un JSON de cierre y restablece el vector a 0.0 dB registrando la transición.")
+    st.caption("Congela el estado del ciclo actual en un JSON de cierre y restablece el vector a 0.0 dB registrando la transición.")
     
     ciclo_id_input = st.text_input(
         "Identificador del ciclo a cerrar:",
@@ -571,13 +609,15 @@ with st.sidebar:
         help="Ejemplos: 2026-1, 2026-2, 2025-2026"
     )
     
-    btn_tabula = st.button("🔄 Ejecutar 'Año nuevo, vida nueva'", disabled=(not es_admin or st.session_state.procesando), use_container_width=True)
+    btn_tabula = st.button("🔄 Ejecutar Cierre de ciclo", disabled=(not es_admin or st.session_state.procesando), use_container_width=True)
     if btn_tabula and es_admin:
         nom_a = st.session_state.input_nombre
         mat_a = st.session_state.input_matricula
         grp_a = st.session_state.input_grupo
+        niv_a = st.session_state.input_nivel
+        matr_a = st.session_state.input_materia
         
-        fn_cierre, _ = guardar_expediente_disco(nom_a, mat_a, grp_a, ciclo_id=ciclo_id_input, es_cierre=True)
+        fn_cierre, _ = guardar_expediente_disco(nom_a, mat_a, grp_a, niv_a, matr_a, ciclo_id=ciclo_id_input, es_cierre=True)
         
         st.session_state.historial_observaciones.append({
             "tipo": "TABULA_RASA",
@@ -590,67 +630,69 @@ with st.sidebar:
         st.rerun()
 
 # --- LAYOUT PRINCIPAL ---
+
+st.subheader("1. Ficha del estudiante y registro")
+
+col_f1, col_f2, col_f3 = st.columns([0.35, 0.4, 0.25])
+
+with col_f1:
+    nom_in = st.text_input("Nombre del estudiante (obligatorio):", key="input_nombre", placeholder="Ej: Nombre Apellido", disabled=st.session_state.procesando)
+
+with col_f2:
+    mat_in = st.text_input("Matrícula ID:", key="input_matricula", placeholder="Ej: A012345", disabled=st.session_state.procesando)
+    if mat_in in st.session_state.estudiantes_db:
+        st.session_state.input_nombre = st.session_state.estudiantes_db[mat_in]["nombre"]
+        st.session_state.input_grupo = st.session_state.estudiantes_db[mat_in]["grupo"]
+        if "nivel" in st.session_state.estudiantes_db[mat_in]:
+            st.session_state.input_nivel = st.session_state.estudiantes_db[mat_in]["nivel"]
+        if "materia" in st.session_state.estudiantes_db[mat_in]:
+            st.session_state.input_materia = st.session_state.estudiantes_db[mat_in]["materia"]
+
+with col_f3:
+    grp_in = st.text_input("Grupo:", key="input_grupo", placeholder="Ej: 1 B", disabled=st.session_state.procesando)
+
+col_ctx1, col_ctx2 = st.columns([0.6, 0.4])
+with col_ctx1:
+    nivel_in = st.selectbox(
+        "Nivel educativo (obligatorio para contextualizar zona de desarrollo):",
+        options=NIVELES_EDUCATIVOS,
+        key="input_nivel",
+        disabled=st.session_state.procesando
+    )
+with col_ctx2:
+    materia_in = st.text_input("Asignatura / Espacio:", key="input_materia", placeholder="Ej. Matemáticas / Taller", disabled=st.session_state.procesando)
+
+if mat_in and nom_in:
+    st.session_state.estudiantes_db[mat_in] = {
+        "nombre": nom_in,
+        "grupo": grp_in,
+        "nivel": nivel_in,
+        "materia": materia_in
+    }
+
+st.markdown("---")
+st.subheader("2. Registro de estado de educabilidad")
+st.caption("Condición sociofisiológica:")
+
+col_e1, col_e2 = st.columns(2)
+with col_e1:
+    st.selectbox("Sueño / descanso:", ["Sin registro", "> 7 horas (óptimo)", "5 - 7 horas (insuficiente)", "< 5 horas (vulnerabilidad severa)"], key="input_descanso")
+with col_e2:
+    st.selectbox("Alimentación / nutrición:", ["Sin registro", "Completa (adecuada)", "Parcial (insuficiente)", "Ayuno (vulnerabilidad severa)"], key="input_alimentacion")
+
+st.markdown("---")
+
 col_izq, col_der = st.columns([0.45, 0.55])
 
 with col_izq:
-    st.subheader("1. Ficha del estudiante y registro")
-    
-    col_f1, col_f2, col_f3 = st.columns([0.35, 0.4, 0.25])
-    
-    with col_f2:
-        mat_in = st.text_input("Matrícula ID:", key="input_matricula", placeholder="Ej: A012345", disabled=st.session_state.procesando)
-        if mat_in in st.session_state.estudiantes_db:
-            st.session_state.input_nombre = st.session_state.estudiantes_db[mat_in]["nombre"]
-            st.session_state.input_grupo = st.session_state.estudiantes_db[mat_in]["grupo"]
-
-    with col_f1:
-        nom_in = st.text_input("Nombre del estudiante:", key="input_nombre", placeholder="Nombre_Apellido", disabled=st.session_state.procesando)
-        if mat_in and nom_in:
-            st.session_state.estudiantes_db[mat_in] = {
-                "nombre": nom_in,
-                "grupo": st.session_state.input_grupo
-            }
-            
-    with col_f3:
-        grp_in = st.text_input("Grupo:", key="input_grupo", placeholder="Grupo", disabled=st.session_state.procesando)
-
-    st.markdown("---")
-    st.subheader("2. Registro de Nota Narrativa Docente")
-    st.markdown("##### Nota de Estado de Educabilidad")
-    tipo_reg = st.radio("Registro de educabilidad:", ["Sin registro", "Con registro"], horizontal=True, key="input_educabilidad_modo")
-    
-    if tipo_reg == "Con registro":
-        col_e1, col_e2 = st.columns(2)
-        with col_e1:
-            st.selectbox("Sueño / Descanso:", ["> 7 horas (Óptimo)", "5 - 6 horas (Atención / Fatiga)", "< 5 horas (Vulnerabilidad Severa)"], key="input_descanso")
-        with col_e2:
-            st.selectbox("Alimentación / Nutrición:", ["Completa / Adecuada", "Insuficiente / Parcial", "Sin Alimento / Ayuno"], key="input_alimentacion")
-    
-    st.markdown("---")
-    st.subheader("2. Registro de Nota Narrativa Docente")
-    st.markdown("##### Nota de Estado de Educabilidad")
-
-    st.markdown("---")
-    st.number_input(
-        "Calificación escalar (opcional: 0.0 - 10.0 o 0 - 100)",
-        min_value=0.0,
-        max_value=100.0,
-        value=None,
-        step=0.1,
-        format="%.1f",
-        placeholder="Ej. 8.5 (deja vacío para cualitativa pura)",
-        key="input_nota_escalar",
-        disabled=st.session_state.procesando,
-        help="Ingresa la nota tradicional de la actividad. Si es <= 10.0 se tratará en base 10; si es > 10.0 en base 100."
-    )
-    
+    st.subheader("3. Registro de nota narrativa docente")
     with st.form(key="form_nota_docente", clear_on_submit=False):
         nota_docente = st.text_area(
-            "Dictado / Nota narrativa del docente:",
+            "Dictado / nota narrativa del docente:",
             key="input_nota",
             height=130,
             disabled=st.session_state.procesando,
-            placeholder="Ingresa la observación cualitativa (puedes incluir notas numeradas 1, 2, 3). Presiona Cmd+Enter o Ctrl+Enter para procesar."
+            placeholder="Describe los hechos y acciones observadas en el aula. Presiona Cmd+Enter o Ctrl+Enter para procesar."
         )
         btn_analizar = st.form_submit_button(
             "⚡ Ejecutar análisis de nota" if not st.session_state.procesando else "⏳ Procesando inferencia...",
@@ -662,104 +704,174 @@ with col_izq:
     if btn_analizar and not st.session_state.procesando:
         if not nom_in.strip():
             st.error("⚠️ Por favor ingresa el nombre del estudiante antes de procesar.")
-        elif not grp_in.strip():
-            st.error("⚠️ Por favor ingresa el grupo del estudiante antes de procesar.")
+        elif nivel_in == NIVELES_EDUCATIVOS[0]:
+            st.error("⚠️ Por favor selecciona el nivel educativo del estudiante (candado de zona de desarrollo).")
         elif not nota_docente.strip():
-            st.error("⚠️ Por favor ingresa una nota de observación cualitativa.")
+            st.error("⚠️ Por favor ingresa una nota de observación docente.")
         else:
-            sub_hitos = parsear_nota_multihito(nota_docente)
             st.session_state.procesando = True
             st.rerun()
 
-    # Proceso activo de inferencia multi-hito
+# Proceso activo de inferencia (una sola nota a la vez)
     if st.session_state.procesando and st.session_state.input_nota.strip():
-        sub_hitos = parsear_nota_multihito(st.session_state.input_nota)
-        with st.spinner(f"Procesando inferencia cualitativa en ℝ⁸ con PRISMA™-Engine ({len(sub_hitos)} hito/s)..."):
+        texto_nota = st.session_state.input_nota.strip()
+        with st.spinner("Procesando inferencia cualitativa en ℝ⁸ con PRISMA™-Engine..."):
+            hubo_falla = False
             try:
-                resultados_multihito = []
-                for idx_h, texto_h in enumerate(sub_hitos, 1):
-                    prefix_edu = ""
-                    if st.session_state.get("input_educabilidad_modo") == "Con registro":
-                        sueno_val = st.session_state.get("input_descanso", "N/A")
-                        nutri_val = st.session_state.get("input_alimentacion", "N/A")
-                        prefix_edu += f"Datos de educabilidad: Sueño: {sueno_val}, Soporte Nutricional: {nutri_val}.\n"
+                sueno_val = st.session_state.get("input_descanso", "Sin registro")
+                nutri_val = st.session_state.get("input_alimentacion", "Sin registro")
+                prefix_edu = f"- Registro sociofisiológico: Sueño: [{sueno_val}] | Nutrición: [{nutri_val}]\n"
 
-                    # Normalización e Inyección de Calificación Escalar
-                    nota_esc = st.session_state.get("input_nota_escalar") or 0.0
-                    if nota_esc > 0.0:
-                        if nota_esc <= 10.0:
-                            base_pct = nota_esc * 10.0
-                            str_escalar = f"{nota_esc:.1f}/10 (Línea base: {base_pct:.0f}%)"
+                encabezado_contexto = (
+                    f"CONTEXTO DEL ESTUDIANTE:\n"
+                    f"- Estudiante: {nom_in}\n"
+                    f"- Nivel Educativo: {nivel_in}\n"
+                    f"- Asignatura / Espacio: {materia_in if materia_in else 'General'}\n"
+                    f"- Grupo: {grp_in if grp_in else 'N/A'}\n"
+                    f"{prefix_edu}"
+                )
+
+                user_prompt = f"{encabezado_contexto}\nNota narrativa: \"{texto_nota}\""
+                
+                payload = {
+                    "model": st.session_state.get("modelo_activo", "prisma-engine"),
+                    "prompt": user_prompt,
+                    "format": "json",
+                    "options": {
+                        "temperature": 0.0,
+                        "num_predict": 2048,
+                        "num_ctx": 8192
+                    },
+                    "stream": False
+                }
+
+                response = requests.post(
+                    "http://localhost:11434/api/generate",
+                    json=payload,
+                    timeout=120
+                )
+                
+                if response.status_code == 200:
+                    data_ollama = response.json()
+                    raw_text = data_ollama.get("response", "").strip()
+                    st.session_state["debug_raw_ollama"] = raw_text
+                    
+                    print("\n" + "="*50)
+                    print("MÉTRICAS DE OLLAMA:")
+                    print(f"• Tokens generados (eval_count): {data_ollama.get('eval_count')}")
+                    print(f"• Motivo de fin (done_reason): {data_ollama.get('done_reason')}")
+                    print(f"• Tokens de entrada (prompt_eval_count): {data_ollama.get('prompt_eval_count')}")
+                    print("RESPUESTA CRUDA:")
+                    print(raw_text)
+                    print("="*50 + "\n")
+                  
+                    # 1. Limpieza de bloques markdown si existieran
+                    clean_text = re.sub(r"^```(?:json)?\s*", "", raw_text, flags=re.MULTILINE)
+                    clean_text = re.sub(r"\s*```$", "", clean_text, flags=re.MULTILINE).strip()
+                    match_json = re.search(r"(\{[\s\S]*\})", clean_text)
+                    json_str = match_json.group(1) if match_json else clean_text
+                    
+                    # 2. Intento de carga JSON estándar
+                    res_json = None
+                    try:
+                        res_json = json.loads(json_str)
+                    except Exception:
+                        # Limpieza de saltos de línea crudos dentro de cadenas de texto
+                        json_str_fixed = re.sub(r'(?<!\\)\n', ' ', json_str)
+                        try:
+                            res_json = json.loads(json_str_fixed)
+                        except Exception:
+                            res_json = None
+
+                    # 3. Arbitraje de Educabilidad y Extracción Tolerante
+                    eval_ejes = {}
+                    if res_json and isinstance(res_json.get("evaluacion_ejes"), dict):
+                        eval_ejes = res_json["evaluacion_ejes"]
+                        est_educ = res_json.get("estado_educabilidad", {})
+                        semaforo_ia = str(est_educ.get("semaforo", "VERDE")).upper()
+                        adv_pedag = est_educ.get("advertencia_pedagogica", "")
+                    else:
+                        # Fallback por Regex tolerante si json.loads falló
+                        sem_match = re.search(r'"semaforo"\s*:\s*"([^"]+)"', raw_text, re.IGNORECASE)
+                        semaforo_ia = sem_match.group(1).upper() if sem_match else "VERDE"
+                        adv_match = re.search(r'"advertencia_pedagogica"\s*:\s*"([^"]+)"', raw_text, re.IGNORECASE)
+                        adv_pedag = adv_match.group(1) if adv_match else "Condición sociofisiológica basal estable."
+                        
+                        res_json = {
+                            "estudiante": nom_in,
+                            "estado_educabilidad": {
+                                "semaforo": semaforo_ia,
+                                "advertencia_pedagogica": adv_pedag
+                            },
+                            "evaluacion_ejes": {}
+                        }
+                        
+                        for c_j in MAPEO_EJES.keys():
+                            patron_pct = rf'"{c_j}"\s*:\s*\{{[^}}]*?"crecimiento_pct"\s*:\s*([+-]?\d+)'
+                            patron_razon = rf'"{c_j}"\s*:\s*\{{[^}}]*?"razonamiento"\s*:\s*"([^"\\]*(?:\\.[^"\\]*)*)"'
+                            m_pct = re.search(patron_pct, raw_text)
+                            m_raz = re.search(patron_razon, raw_text)
+                            eval_ejes[c_j] = {
+                                "crecimiento_pct": int(m_pct.group(1)) if m_pct else 0,
+                                "razonamiento": m_raz.group(1) if m_raz else "Evidencia cualitativa procesada."
+                            }
+                        res_json["evaluacion_ejes"] = eval_ejes
+
+                    # CANDADO DETERMINISTA EN PYTHON:
+                    # Si los selectores no marcan vulnerabilidad y no hay mención somática real,
+                    # NUNCA permitir amarillo/rojo alucinado por berrinches o fricción social.
+                    texto_lower = texto_nota.lower()
+                    mencion_somatica_real = any(w in texto_lower for w in ["hambre", "ayuno", "sin comer", "desnutri", "desvelo", "no durmió", "sin dormir", "fatiga extrema"])
+                    vulnerabilidad_declarada = ("insuficiente" in sueno_val.lower() or "vulnerabilidad" in sueno_val.lower() or 
+                                               "insuficiente" in nutri_val.lower() or "vulnerabilidad" in nutri_val.lower())
+
+                    if not vulnerabilidad_declarada and not mencion_somatica_real:
+                        semaforo_detectado = "VERDE"
+                        res_json["estado_educabilidad"]["semaforo"] = "VERDE"
+                        res_json["estado_educabilidad"]["advertencia_pedagogica"] = "Condición sociofisiológica basal estable."
+                    else:
+                        semaforo_detectado = semaforo_ia
+                        res_json["estado_educabilidad"]["semaforo"] = semaforo_detectado
+                        res_json["estado_educabilidad"]["advertencia_pedagogica"] = adv_pedag
+
+                    # 4. Transducción de ejes a dB
+                    deltas_calculados = {}
+                    for c_j, n_eje in MAPEO_EJES.items():
+                        if c_j in eval_ejes:
+                            val_obj = eval_ejes[c_j]
+                            pct_crec = val_obj.get("crecimiento_pct", 0) if isinstance(val_obj, dict) else val_obj
+                            deltas_calculados[n_eje] = calcular_delta_db(pct_crec, semaforo=semaforo_detectado)
                         else:
-                            str_escalar = f"{nota_esc:.0f}/100 (Línea base: {nota_esc:.0f}%)"
-                        prefix_edu += f"Calificación Escalar Tradicional de Rúbrica: {str_escalar}.\n"
-                    else:
-                        prefix_edu += "Calificación Escalar Tradicional: No registrada.\n"
+                            deltas_calculados[n_eje] = 0.0
 
-                    user_prompt = f"Estudiante: {nom_in}\n{prefix_edu}Nota narrativa: \"{texto_h}\""             
-
-                    user_prompt = f"Estudiante: {nom_in}\n{prefix_edu}Nota narrativa: \"{texto_h}\""
-                    
-                    payload = {
-                        "model": st.session_state.get("modelo_activo", "prisma-engine"),
-                        "prompt": user_prompt,
-                        "format": "json",
-                        "options": {"temperature": 0.0},
-			"stream": False
-                    }
-                    
-                    response = requests.post(
-                        "http://localhost:11434/api/generate",
-                        json=payload,
-                        timeout=120
-                    )
-                    if response.status_code == 200:
-                        res_json = json.loads(response.json()["response"])
-                        eval_ejes = res_json.get("evaluacion_ejes", {})
-                        deltas_h = {}
-                        for c_j, n_eje in MAPEO_EJES.items():
-                            if c_j in eval_ejes:
-                                deltas_h[n_eje] = float(eval_ejes[c_j].get("delta_db", 0.0))
-                        
-                        resultados_multihito.append({
-                            "sub_idx": idx_h,
-                            "nota": texto_h,
-                            "deltas": deltas_h,
-                            "resultado_ia": res_json
-                        })
-                    else:
-                        st.error(f"Error HTTP {response.status_code} al procesar hito {idx_h}")
-                        break
-                        
-                if len(resultados_multihito) == len(sub_hitos):
+                    # 5. Asignación limpia a sesión
                     st.session_state.analisis_pendiente = {
-                        "modo": "MULTIHITO" if len(sub_hitos) > 1 else "SIMPLE",
-                        "hitos": resultados_multihito
+                        "modo": "SIMPLE",
+                        "hitos": [{
+                            "sub_idx": 1,
+                            "nota": texto_nota,
+                            "deltas": deltas_calculados,
+                            "resultado_ia": res_json
+                        }]
                     }
+
+                else:
+                    st.error(f"⚠️ Error HTTP {response.status_code} al conectar con Ollama.")
+                    hubo_falla = True
             except Exception as e:
-                st.error(f"Error de conexión con Ollama local: {e}")
+                st.error(f"⚠️ Error al procesar la respuesta de la IA: {e}")
+                hubo_falla = True
             finally:
                 st.session_state.procesando = False
-                st.rerun()
-
-    if st.button("💾 Exportar Expediente (.json)", use_container_width=True, disabled=st.session_state.procesando):
-        if not nom_in.strip() or not grp_in.strip():
-            st.error("⚠️ Por favor ingresa el nombre y grupo del estudiante antes de exportar.")
-        else:
-            fname, edata = guardar_expediente_disco(
-                st.session_state.input_nombre,
-                st.session_state.input_matricula,
-                st.session_state.input_grupo
-            )
-            st.download_button(
-                label="Descargar archivo generado",
-                data=json.dumps(edata, indent=2, ensure_ascii=False),
-                file_name=fname,
-                mime="application/json",
-                use_container_width=True
-            )
+                # Solo recarga si no hubo error; si falló, deja el mensaje visible
+                if not hubo_falla:
+                    st.rerun()
 
     # --- STAGING / PREVISUALIZACIÓN DE IA ---
+    if st.session_state.get("debug_raw_ollama"):
+        with st.expander("🔬 Respuesta cruda de Ollama (Debug)", expanded=True):
+            st.code(st.session_state["debug_raw_ollama"], language="json")
+
     if st.session_state.analisis_pendiente:
         st.markdown('<div class="staging-card">', unsafe_allow_html=True)
         st.markdown("#### 🔍 Previsualización del análisis de la IA")
@@ -781,8 +893,6 @@ with col_izq:
                 st.warning(f"🟡 **Semáforo AMARILLO — Atención Pedagógica:** {adv_pedag}")
             elif "VERDE" in semaforo:
                 st.success(f"🟢 **Semáforo VERDE — Condición Óptima:** {adv_pedag or 'Sin restricciones sociofisiológicas activas.'}")
-            # Si es "N/A", simplemente no se dibuja ninguna tarjeta verde
-
 
             if len(hitos_p) > 1:
                 st.markdown(f"**• Hito {item['sub_idx']}:** *\"{item['nota']}\"*")
@@ -791,10 +901,12 @@ with col_izq:
             for c_j, n_eje in MAPEO_EJES.items():
                 d_val = item["deltas"].get(n_eje, 0.0)
                 deltas_acum_totales[n_eje] += d_val
+                pct_val = res_ejes.get(c_j, {}).get("crecimiento_pct", 0)
                 if abs(d_val) > 0.01:
                     razon = res_ejes.get(c_j, {}).get("razonamiento", "")
-                    color_tag = f":green[**{fmt_db(d_val)} dB**]" if d_val > 0 else f":red[**{fmt_db(d_val)} dB**]"
-                    st.markdown(f"  └ **{n_eje}:** {color_tag} — *{razon}*")
+                    color_tag = f":green[**{fmt_db(d_val)} dB** (+{pct_val}%)]" if d_val > 0 else f":red[**{fmt_db(d_val)} dB** ({pct_val}%)]"
+                    tag_socio = obtener_tag_sociofisiologico(d_val, semaforo)
+                    st.markdown(f"  └ **{n_eje}:** {color_tag}{tag_socio} — *{razon}*")
                     
         st.markdown("---")
         col_s1, col_s2, col_s3 = st.columns([0.35, 0.3, 0.35])
@@ -815,9 +927,10 @@ with col_izq:
                     })
                 
                 st.session_state.analisis_pendiente = None
+                st.session_state.json_ya_descargado = False
                 st.session_state.flag_limpiar_nota = True
                 
-                guardar_expediente_disco(nom_in, mat_in, grp_in)
+                guardar_expediente_disco(nom_in, mat_in, grp_in, nivel_in, materia_in)
                 st.session_state.mostrar_modal_resguardo = True
                 st.rerun()
                 
@@ -837,20 +950,20 @@ with col_izq:
                 
         st.markdown('</div>', unsafe_allow_html=True)
 
-    # --- META-ANÁLISIS DE TRAYECTORIA (DOCENTE/USUARIO) ---
+    # --- META-ANÁLISIS DE TRAYECTORIA ---
     st.markdown("---")
-    st.subheader("3. Meta-Análisis de Trayectoria")
-    st.caption("Evaluación holística multidimensional recomendada por PRISMA.")
+    st.subheader("4. Meta-análisis de trayectoria")
+    st.caption("Evaluación holística multidimensional.")
     
-    if st.button("🌌 Meta-Análisis PRISMA", use_container_width=True, disabled=st.session_state.procesando):
-        if not nom_in.strip() or not grp_in.strip():
-            st.error("⚠️ Por favor completa el Nombre y Grupo del estudiante antes de ejecutar el Meta-Análisis.")
+    if st.button("🌌 Meta-análisis PRISMA™", use_container_width=True, disabled=st.session_state.procesando):
+        if not nom_in.strip():
+            st.error("⚠️ Por favor completa el Nombre del estudiante antes de ejecutar el Meta-análisis.")
         elif len(st.session_state.historial_observaciones) < 2:
-            st.warning("⚠️ Se requieren al menos 2 hitos acumulados para realizar un Meta-Análisis de Trayectoria.")
+            st.warning("⚠️ Se requieren al menos 2 hitos acumulados para realizar un Meta-análisis de trayectoria.")
         else:
-            with st.spinner("Analizando trayectoria multidimensional integral en ℝ⁸ (PRISMA-Engine)..."):
+            with st.spinner("Analizando trayectoria multidimensional integral en ℝ⁸ (PRISMA™-Engine)..."):
                 try:
-                    summary_prompt = f"Evaluación holística de trayectoria en R8 para {nom_in}:\nVector Acumulado Actual: {json.dumps(st.session_state.valores_db)}\nTotal de hitos evaluados: {len(st.session_state.historial_observaciones)}"
+                    summary_prompt = f"Evaluación holística de trayectoria en R8 para {nom_in} ({nivel_in}):\nVector Acumulado Actual: {json.dumps(st.session_state.valores_db)}\nTotal de hitos evaluados: {len(st.session_state.historial_observaciones)}"
                     
                     response_meta = requests.post(
                         "http://localhost:11434/api/generate",
@@ -866,7 +979,7 @@ with col_izq:
                         meta_res = json.loads(response_meta.json()["response"])
                         eval_meta = meta_res.get("evaluacion_ejes", meta_res)
                         
-                        st.info("🌌 **Diagnóstico Holístico Sugerido por PRISMA:**")
+                        st.info("🌌 **Diagnóstico holístico sugerido por PRISMA™:**")
                         
                         diag_gen = meta_res.get("diagnostico_general", meta_res.get("resumen", ""))
                         if diag_gen:
@@ -877,31 +990,32 @@ with col_izq:
                             for c_j, n_eje in MAPEO_EJES.items():
                                 if c_j in eval_meta:
                                     item_m = eval_meta[c_j]
-                                    delta_m = float(item_m.get("delta_db", 0.0)) if isinstance(item_m, dict) else 0.0
+                                    pct_m = item_m.get("crecimiento_pct", 0) if isinstance(item_m, dict) else 0
+                                    delta_m = calcular_delta_db(pct_m)
                                     razon_m = item_m.get("razonamiento", "") if isinstance(item_m, dict) else str(item_m)
                                     overrides_sugeridos[n_eje] = delta_m
                                     st.write(f"• **{n_eje}:** `{fmt_db(delta_m)} dB` — {razon_m if razon_m else 'Sin observaciones adicionales'}")
                         
-                        if st.button("Aceptar y registrar Meta-Análisis PRISMA como Hito", disabled=st.session_state.procesando):
+                        if st.button("Aceptar y registrar Meta-análisis PRISMA™ como hito", disabled=st.session_state.procesando):
                             for eje, d_m in overrides_sugeridos.items():
                                 st.session_state.valores_db[eje] += d_m
                                 
                             st.session_state.historial_observaciones.append({
                                 "tipo": "META_ANALISIS",
                                 "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                                "justificacion": "Ajuste holístico de trayectoria por Meta-Análisis PRISMA.",
+                                "justificacion": "Ajuste holístico de trayectoria por Meta-análisis PRISMA™.",
                                 "deltas": overrides_sugeridos,
                                 "resultado_ia": meta_res,
                                 "vector_snapshot": dict(st.session_state.valores_db)
                             })
-                            guardar_expediente_disco(nom_in, mat_in, grp_in)
+                            guardar_expediente_disco(nom_in, mat_in, grp_in, nivel_in, materia_in)
                             st.rerun()
                     else:
-                        st.error("No se pudo obtener la respuesta del Meta-Análisis.")
+                        st.error("No se pudo obtener la respuesta del Meta-análisis.")
                 except Exception as e:
                     st.error(f"Error de conexión: {e}")
 
-    # --- HISTORIAL DE HITOS ACUMULADOS ---
+   # --- HISTORIAL DE HITOS ACUMULADOS ---
     if st.session_state.historial_observaciones:
         st.markdown("---")
         st.subheader(f"📋 Historial de hitos acumulados ({len(st.session_state.historial_observaciones)})")
@@ -911,13 +1025,13 @@ with col_izq:
             tipo_hito = obs.get("tipo", "IA")
             
             if tipo_hito == "IA":
-                etiqueta_tipo = "🌌 Inferencia PRISMA"
+                etiqueta_tipo = "🌌 Inferencia PRISMA™"
             elif tipo_hito == "MANUAL":
                 etiqueta_tipo = "🎨 Calibración manual docente"
             elif tipo_hito == "META_ANALISIS":
-                etiqueta_tipo = "🌌 Meta-Análisis PRISMA"
+                etiqueta_tipo = "🌌 Meta-análisis PRISMA™"
             else:
-                etiqueta_tipo = "🔄 Transición: Año nuevo, vida nueva"
+                etiqueta_tipo = "🔄 Cierre de ciclo"
                 
             ts = obs.get("timestamp", "")
             
@@ -926,7 +1040,6 @@ with col_izq:
                     if "nota" in obs:
                         st.write(f"**Nota narrativa docente:** *\"{obs['nota']}\"*")
 
-                    # Reconstrucción del Semáforo de Educabilidad guardado
                     res_ia_hist = obs.get("resultado_ia", {})
                     est_edu_hist = res_ia_hist.get("estado_educabilidad", obs.get("educabilidad", {}))
                     sem_hist = str(est_edu_hist.get("semaforo", "N/A")).upper()
@@ -937,23 +1050,25 @@ with col_izq:
                     elif "AMARILLO" in sem_hist:
                         st.warning(f"🟡 **Semáforo AMARILLO — Atención Pedagógica:** {adv_hist}")
                     elif "VERDE" in sem_hist:
-                        st.success(f"🟢 **Semáforo VERDE — Condición Óptima:** {adv_hist or 'Equilibrio biológico adecuado.'}")
+                        st.success(f"🟢 **Semáforo VERDE — Condición Óptima:** {adv_hist or 'Equilibrio sociofisiológico adecuado.'}")
                     
-                    st.markdown("**Desglose e Inferencia de PRISMA:**")
-                    eval_ejes = obs.get("resultado_ia", {}).get("evaluacion_ejes", {})
+                    st.markdown("**Desglose e Inferencia de PRISMA™:**")
+                    deltas_hist = obs.get("deltas", {})
+                    eval_ejes = res_ia_hist.get("evaluacion_ejes", {})
                     hubo_cambios = False
-                    if isinstance(eval_ejes, dict):
-                        for clave_json, datos in eval_ejes.items():
-                            if isinstance(datos, dict):
-                                delta = datos.get("delta_db", 0.0)
-                                if abs(delta) > 0.01:
-                                    hubo_cambios = True
-                                    nombre_eje = MAPEO_EJES.get(clave_json, clave_json)
-                                    razon = datos.get("razonamiento", "")
-                                    color_tag = f":green[**{fmt_db(delta)} dB**]" if delta > 0 else f":red[**{fmt_db(delta)} dB**]"
-                                    st.markdown(f"• **{nombre_eje}:** {color_tag} — *{razon}*")
+                    for c_j, n_eje in MAPEO_EJES.items():
+                        delta = deltas_hist.get(n_eje, 0.0)
+                        if abs(delta) > 0.01:
+                            hubo_cambios = True
+                            razon = eval_ejes.get(c_j, {}).get("razonamiento", "")
+                            pct_eje = eval_ejes.get(c_j, {}).get("crecimiento_pct", "")
+                            pct_str = f" ({pct_eje:+d}%)" if isinstance(pct_eje, int) else ""
+                            color_tag = f":green[**{fmt_db(delta)} dB**{pct_str}]" if delta > 0 else f":red[**{fmt_db(delta)} dB**{pct_str}]"
+                            tag_socio_hist = obtener_tag_sociofisiologico(delta, sem_hist)
+                            st.markdown(f"• **{n_eje}:** {color_tag}{tag_socio_hist} — *{razon}*")
+
                     if not hubo_cambios:
-                        st.caption("ℹ️ *El motor no detectó evidencias para aplicar deltas en este hito.*")
+                        st.caption("ℹ️ *El motor PRISMA™ no detectó evidencias para aplicar deltas en este hito.*")
                         
                 elif tipo_hito == "MANUAL":
                     st.write(f"**Razonamiento pedagógico docente:** *\"{obs.get('justificacion', '')}\"*")
@@ -966,7 +1081,7 @@ with col_izq:
 
     # --- CALIBRACIÓN MANUAL DOCENTE (EN 2 TIEMPOS) ---
     st.markdown("---")
-    st.subheader("4. Calibración manual docente (dB)")
+    st.subheader("5. Calibración manual docente (dB)")
     st.caption("Ajusta los valores deseados y presiona 'Previsualizar calibración manual en el mapa' para proyectar la propuesta en el mapa vectorial antes de registrarla.")
     
     for eje in EJE_NOMBRES:
@@ -1014,8 +1129,8 @@ with col_izq:
     )
 
     if btn_previsualizar_manual:
-        if not nom_in.strip() or not grp_in.strip():
-            st.error("⚠️ Por favor completa el Nombre y Grupo del estudiante antes de previsualizar.")
+        if not nom_in.strip() or nivel_in == NIVELES_EDUCATIVOS[0]:
+            st.error("⚠️ Por favor ingresa el Nombre y selecciona el Nivel educativo del estudiante antes de previsualizar.")
         elif justificacion_docente.strip():
             deltas_propuestos = {eje: float(st.session_state[f"num_{eje}"]) for eje in EJE_NOMBRES}
             hubo_ajuste = any(abs(v) > 0.001 for v in deltas_propuestos.values())
@@ -1030,7 +1145,7 @@ with col_izq:
     # PASO 2: CONFIRMACIÓN DE STAGING MANUAL
     if st.session_state.previsualizacion_manual:
         st.markdown('<div class="manual-staging-card">', unsafe_allow_html=True)
-        st.markdown("#### 🎨 Previsualización de Calibración Manual")
+        st.markdown("#### 🎨 Previsualización de calibración manual")
         st.caption("Verifica la proyección punteada morada en el mapa visual a la derecha.")
         
         for eje, d_v in st.session_state.previsualizacion_manual.items():
@@ -1060,7 +1175,7 @@ with col_izq:
                 st.session_state.flag_limpiar_justificacion = True
                 st.session_state.flag_reset_calib = True
                 
-                guardar_expediente_disco(nom_in, mat_in, grp_in)
+                guardar_expediente_disco(nom_in, mat_in, grp_in, nivel_in, materia_in)
                 st.session_state.mostrar_modal_resguardo = True
                 st.rerun()
                 
@@ -1091,7 +1206,7 @@ with col_der:
         label_historico,
         disabled=not (es_admin and tiene_ciclos_previos) or st.session_state.procesando,
         value=False,
-        help="Habilitado para Administrador tras ejecutar 'Año nuevo, vida nueva'."
+        help="Habilitado para Administrador tras ejecutar Transición de Cierre de Ciclo."
     )
     
     nombre_tit = st.session_state.input_nombre.strip()
@@ -1136,12 +1251,11 @@ with col_der:
             
     max_valor_global = max([val for vec in todos_vectores for val in vec] + [0.0])
     
-    # Límite exterior dinámico del mapa (6.0, 12.0, 18.0 o 24.0 dB)
+    # Límite exterior dinámico (6, 12, 18 o 24 dB)
     limite_radar = 6.0 if max_valor_global <= 6.0 else (12.0 if max_valor_global <= 12.0 else (18.0 if max_valor_global <= 18.0 else 24.0))
     
     fig = go.Figure()
 
-    # --- FUNCIÓN AUXILIAR DE ÓRBITAS CIRCULARES CONTINUAS ---
     def agregar_orbita_circular(fig_obj, r_val, nombre, color="#475569", width=1.5, dash="solid"):
         fig_obj.add_trace(go.Scatterpolar(
             r=[r_val] * 361,
@@ -1152,44 +1266,38 @@ with col_der:
             hoverinfo="skip"
         ))
 
-    # --- DIBUJO DE ÓRBITAS CLAVE Y FRONTERAS PERIMETRALES EN GRIS PIZARRA SUAVE ---
-    
-    # 0.0 dB (Línea base) — Círculo continuo suave en gris pizarra oscuro
-    agregar_orbita_circular(fig, 0.0, "Línea base (0.0 dB)", color="#334155", width=1.8)
+  # Anillos con lectura dual: Decibeles + Multiplicador psicofísico
+    agregar_orbita_circular(fig, 0.0, "0 dB (Línea base 1.0x)", color="#334155", width=1.8)
 
-    # +6.0 dB (Principiante) — Perímetro inicial o hito interno si se expande
     is_perimeter_6 = (limite_radar == 6.0)
     agregar_orbita_circular(
-        fig, 6.0, "+6.0 dB (Principiante)",
+        fig, 6.0, "+6 dB (Principiante 2.0x)",
         color="#334155" if is_perimeter_6 else "#475569",
         width=1.8 if is_perimeter_6 else 1.5,
         dash="solid"
     )
 
-    # +12.0 dB (Intermedio) — Se activa únicamente cuando se sobrepasa +6.0 dB
     if limite_radar >= 12.0:
         is_perimeter_12 = (limite_radar == 12.0)
         agregar_orbita_circular(
-        fig, 12.0, "+12.0 dB (Intermedio)",
-        color="#334155" if is_perimeter_12 else "#475569",
-        width=1.8 if is_perimeter_12 else 1.5,
-        dash="solid"
-    )    
+            fig, 12.0, "+12 dB (Intermedio 4.0x)",
+            color="#334155" if is_perimeter_12 else "#475569",
+            width=1.8 if is_perimeter_12 else 1.5,
+            dash="solid"
+        )    
 
-    # +18.0 dB (Avanzado) — Se activa cuando el mapa se expande a 18 dB
     if limite_radar >= 18.0:
         is_perimeter_18 = (limite_radar == 18.0)
         agregar_orbita_circular(
-            fig, 18.0, "+18.0 dB (Avanzado)",
+            fig, 18.0, "+18 dB (Avanzado 8.0x)",
             color="#334155" if is_perimeter_18 else "#475569",
             width=1.8 if is_perimeter_18 else 1.5,
             dash="solid"
         )
 
-    # +24.0 dB (Experto) — Se activa cuando el mapa se expande a 24 dB
     if limite_radar >= 24.0:
         agregar_orbita_circular(
-            fig, 24.0, "+24.0 dB (Experto)",
+            fig, 24.0, "+24 dB (Experto 16.0x)",
             color="#334155",
             width=1.8,
             dash="solid"
@@ -1321,66 +1429,68 @@ with col_der:
             hovertemplate="<b>%{r:+.1f} dB</b><extra></extra>"
         ))
 
-    # Construcción de ticks de 2 en 2 dB
+    # Ticks duales concéntricos: dB + Multiplicador
     tick_vals_2db = list(range(-6, int(limite_radar) + 1, 2))
     tick_texts_2db = []
     for tv in tick_vals_2db:
         if tv == 0:
-            tick_texts_2db.append("0.0 dB (Línea base)")
+            tick_texts_2db.append("0 dB (Línea base: 1x)")
         elif tv == 6:
-            tick_texts_2db.append("+6.0 dB (Principiante)")
+            tick_texts_2db.append("+6 dB (Principiante: 2x)")
         elif tv == 12:
-            tick_texts_2db.append("+12.0 dB (Intermedio)")
+            tick_texts_2db.append("+12 dB / (Intermedio: 4x)")
         elif tv == 18:
-            tick_texts_2db.append("+18.0 dB (Avanzado)")
+            tick_texts_2db.append("+18 dB / (Avanzado: 8x)")
         elif tv == 24:
-            tick_texts_2db.append("+24.0 dB (Experto)")
+            tick_texts_2db.append("+24 dB / (Experto: 16x)")
         else:
             tick_texts_2db.append("")
 
     fig.update_layout(
             title=dict(
-                text=f"<b>PRISMA™ — Espacio Vectorial ℝ⁸</b><br><span style='font-size:12px;opacity:0.75;'>{id_estudiante if id_estudiante else 'Evaluación Cualitativa Formativa'}</span>",
-                x=0.5,
-                xanchor="center",
-                y=0.98,
-                yanchor="top",
-                font=dict(size=16)  # Sin forzar color oscuro para que herede el tema (claro/oscuro) de la pantalla
+                text=f"<b>PRISMA™ — Espacio Vectorial ℝ⁸</b><br><span style='font-size:12px;opacity:0.75;'>{id_estudiante if id_estudiante else 'Evaluación Formativa Integral'}</span>",
+            x=0.5,
+            xanchor="center",
+            y=0.96,
+            yanchor="top",
+            font=dict(size=16)
+        ),
+        uirevision=True,
+        polar=dict(
+            domain=dict(y=[0.04, 0.88]),  # <- Candado de seguridad: reserva el 14% superior para el título
+            gridshape="circular",
+            radialaxis=dict(
+                visible=True,
+                range=[-6, limite_radar],
+                tickvals=tick_vals_2db,
+                ticktext=tick_texts_2db,
+                angle=22.5,
+                gridcolor="#CBD5E1",
+                gridwidth=0.8,
+                tickfont=dict(size=9, color="#334155")
             ),
-            uirevision=True,
-            polar=dict(
-                gridshape="circular",
-                radialaxis=dict(
-                    visible=True,
-                    range=[-6, limite_radar],
-                    tickvals=tick_vals_2db,
-                    ticktext=tick_texts_2db,
-                    angle=22.5,
-                    gridcolor="#CBD5E1",
-                    gridwidth=0.8,
-                    tickfont=dict(size=8, color="#334155")
-                ),
-                angularaxis=dict(
-                    tickmode="array",
-                    tickvals=list(range(0, 360, 45)),
-                    ticktext=ejes_etiquetados,
-                    tickfont=dict(size=9), # Respeta contraste
-                    rotation=90,
-                    direction="clockwise",
-                    gridcolor="#E2E8F0"
-                )
-            ),
-            showlegend=True,
-            legend=dict(
-                orientation="h",
-                yanchor="bottom",
-                y=-0.22,
-                xanchor="center",
-                x=0.5,
-                font=dict(size=9.0)
-            ),
-            margin=dict(l=50, r=50, t=85, b=80) # t=85 le da aire suficiente al título para no encimarse
-        )
+            angularaxis=dict(
+                tickmode="array",
+                tickvals=list(range(0, 360, 45)),
+                ticktext=ejes_etiquetados,
+                tickfont=dict(size=11),
+                rotation=90,
+                direction="clockwise",
+                gridcolor="#E2E8F0"
+            )
+        ),
+        showlegend=True,
+        legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=-0.16,
+            xanchor="center",
+            x=0.5,
+            font=dict(size=10.0)
+        ),
+        height=620,  # Aumentamos la altura de 510 a 620 para que llene la columna y equilibre los 8 sliders
+        margin=dict(l=55, r=55, t=65, b=65)  # t=65 le da el espacio perfecto a la camarita para no cortarse        
+    )
 
     # Configuración limpia de barra de herramientas: sin logo de Plotly, conserva Pantalla Completa y Descargar PNG
     st.plotly_chart(
@@ -1404,7 +1514,9 @@ if st.session_state.mostrar_modal_resguardo and not st.session_state.analisis_pe
     modal_exportar_resguardo(
         st.session_state.input_nombre,
         st.session_state.input_matricula,
-        st.session_state.input_grupo
+        st.session_state.input_grupo,
+        st.session_state.input_nivel,
+        st.session_state.input_materia
     )
 
 elif st.session_state.mostrar_modal_confirmar_reiniciar:
