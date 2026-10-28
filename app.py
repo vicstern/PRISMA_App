@@ -280,7 +280,11 @@ def limpiar_cadena(texto):
     return re.sub(r"[-\s]+", "_", cadena)
 
 def calcular_delta_db(crecimiento_pct, semaforo="VERDE"):
-    """Transductor psicofísico (Weber-Fechner) con compasión sociofisiológica."""
+    """
+    Transductor psicofísico puro (Weber-Fechner).
+    Convierte el crecimiento relativo porcentual sugerido por el SLM
+    a la escala logarítmica de decibeles de aprendizaje (dB).
+    """
     try:
         if isinstance(crecimiento_pct, str):
             crecimiento_pct = crecimiento_pct.replace("%", "").replace("+", "").strip()
@@ -291,12 +295,7 @@ def calcular_delta_db(crecimiento_pct, semaforo="VERDE"):
     if abs(g) < 0.001:
         return 0.0
 
-    sem = str(semaforo).upper()
-    if "AMARILLO" in sem:
-        g = g * 1.10 if g > 0 else g * (2.0 / 3.0)
-    elif "ROJO" in sem:
-        g = g * 1.20 if g > 0 else g * (1.0 / 3.0)
-
+    # Weber-Fechner directo: sin dobles multiplicadores ocultos
     ratio = max(1.0 + g, 0.01)
     delta_db = 20.0 * np.log10(ratio)
     return round(float(delta_db), 1)
@@ -307,14 +306,14 @@ def obtener_tag_sociofisiologico(d_val, semaforo):
         return ""
     if d_val < 0:
         if "AMARILLO" in sem:
-            return " 🛡️ *[Atenuado a 2/3 del impacto original por protección sociofisiológica (semáforo AMARILLO)]*"
+            return " 🛡️ *[Atenuado por protección sociofisiológica (semáforo AMARILLO)]*"
         elif "ROJO" in sem:
-            return " 🛡️ *[Atenuado a 1/3 del impacto original por protección sociofisiológica (semáforo ROJO)]*"
+            return " 🛡️ *[Atenuado por protección sociofisiológica (semáforo ROJO)]*"
     elif d_val > 0:
         if "AMARILLO" in sem:
-            return " ⚡ *[Amplificado +10% del impacto original por resiliencia sociofisiológica (semáforo AMARILLO)]*"
+            return " ⚡ *[Amplificado por resiliencia sociofisiológica (semáforo AMARILLO)]*"
         elif "ROJO" in sem:
-            return " ⚡ *[Amplificado +20% del impacto original por resiliencia sociofisiológica (semáforo ROJO)]*"
+            return " ⚡ *[Amplificado por resiliencia sociofisiológica (semáforo ROJO)]*"
     return ""
 
 # --- INICIALIZACIÓN Y CONTROL DE ESTADO LIMPIO ---
