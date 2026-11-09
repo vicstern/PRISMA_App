@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aula Viva® — PRISMA™</title>
+  <title id="pageTitle">Aula Viva® with AI — PRISMA™</title>
   <style>
     :root {
       --bg: #090d13;
@@ -36,7 +36,7 @@
 
     .top-bar {
       position: absolute;
-      top: 16px;
+      top: 14px;
       right: 24px;
       z-index: 20;
     }
@@ -75,7 +75,7 @@
     .header-zone {
       text-align: center;
       max-width: 800px;
-      padding-top: 2px;
+      padding-top: 6px;
     }
     h1 {
       font-size: clamp(1.4rem, 2.2vw, 1.85rem);
@@ -83,8 +83,9 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: #ffffff;
+      margin-top: 2px;
       margin-bottom: 2px;
-      line-height: 1.15;
+      line-height: 1.32;
     }
     h1 span.reg {
       font-size: 0.75rem;
@@ -92,49 +93,48 @@
       font-weight: 400;
       color: var(--text-muted);
     }
+    h1 span.ai-tag {
+      font-weight: 300;
+      opacity: 0.88;
+      text-transform: none;
+      letter-spacing: 0.02em;
+      font-size: clamp(1.1rem, 1.7vw, 1.45rem);
+    }
     p.descriptor {
       font-size: clamp(0.85rem, 1.1vw, 0.94rem);
       color: var(--accent-blue);
       letter-spacing: 0.015em;
-      margin-bottom: 8px;
+      margin-bottom: 4px;
       font-weight: 500;
     }
 
     .quote-box {
-      height: 54px;
+      min-height: 56px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       margin-bottom: 12px;
+      width: 100%;
+      max-width: 780px;
+      text-align: center;
     }
     p.primary-quote {
       font-style: italic;
       font-size: clamp(0.86rem, 1.05vw, 0.94rem);
-      line-height: 1.35;
+      line-height: 1.36;
       color: #e6edf3;
-      max-width: 740px;
       transition: opacity 0.35s ease;
-      text-align: center;
+      width: 100%;
     }
-    .secondary-ticker {
-      margin-top: 4px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.76rem;
-      color: var(--text-dim);
-      transition: opacity 0.35s ease;
-    }
-    .secondary-ticker span.tag {
-      background: #1c2128;
-      border: 1px solid var(--border);
-      padding: 1px 7px;
-      border-radius: 8px;
-      color: var(--text-muted);
-      font-size: 0.68rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
+    .quote-sub {
+      font-size: 0.72rem;
+      font-style: normal;
+      opacity: 0.55;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin-left: 6px;
+      white-space: nowrap;
+      vertical-align: baseline;
     }
 
     .tabs-dock {
@@ -146,7 +146,7 @@
       padding: 4px;
       border-radius: 24px;
       border: 1px solid var(--border);
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
     .tab-btn {
       background: transparent;
@@ -187,7 +187,7 @@
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 30px 34px;
+      padding: 28px 32px;
       line-height: 1.65;
       text-align: left;
       animation: fadeIn 0.25s ease;
@@ -233,6 +233,18 @@
       color: #c9d1d9;
     }
 
+    .static-radar-card {
+      background: #0d1117;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 10px 8px;
+      margin: 18px 0 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
     .sandbox-container {
       background: var(--card-inner);
       border: 1px solid var(--border);
@@ -245,17 +257,8 @@
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       margin-bottom: 14px;
-    }
-    .select-scenario {
-      background: #0d1117;
-      border: 1px solid var(--border);
-      color: #f0f6fc;
-      padding: 7px 11px;
-      border-radius: 8px;
-      font-size: 0.84rem;
-      cursor: pointer;
     }
     .btn-action {
       background: #238636;
@@ -273,41 +276,46 @@
       background: #0d1117;
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 12px;
+      padding: 14px;
       margin-bottom: 16px;
-      font-size: 0.86rem;
-      color: #8b949e;
-      font-family: monospace;
-      line-height: 1.45;
-      white-space: pre-line;
+      font-size: 0.88rem;
+      color: #c9d1d9;
+      line-height: 1.5;
     }
+
     .sandbox-viz {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
+      display: flex;
+      flex-direction: column;
       align-items: center;
+      gap: 18px;
+      width: 100%;
     }
     .radar-svg-box {
       width: 100%;
+      max-width: 480px;
       background: #0d1117;
       border-radius: 8px;
       border: 1px solid var(--border);
-      padding: 10px;
+      padding: 8px 4px;
       display: flex;
       justify-content: center;
+      overflow: visible;
+    }
+    .sandbox-table-box {
+      width: 100%;
     }
     .delta-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.8rem;
+      font-size: 0.84rem;
     }
     .delta-table th, .delta-table td {
-      padding: 7px 8px;
+      padding: 8px 10px;
       border-bottom: 1px solid var(--border);
       text-align: left;
     }
-    .delta-table th { color: var(--text-dim); text-transform: uppercase; font-size: 0.68rem; }
-    .delta-val { color: #3fb950; font-weight: 600; font-family: monospace; }
+    .delta-table th { color: var(--text-dim); text-transform: uppercase; font-size: 0.7rem; }
+    .delta-val { color: #3fb950; font-weight: 600; font-family: monospace; white-space: nowrap; }
     .table-idle {
       color: var(--text-dim);
       font-style: italic;
@@ -329,11 +337,13 @@
       flex-shrink: 0;
       width: 100%;
       max-width: 920px;
-      padding: 10px 0 4px;
-      font-size: 0.74rem;
-      color: var(--text-dim);
+      padding: 16px 0 10px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
       text-align: center;
       line-height: 1.6;
+      border-top: 1px solid var(--border);
+      margin-top: auto;
     }
     footer a { color: var(--accent-blue); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
@@ -345,22 +355,21 @@
         overflow-y: auto;
         overflow-x: hidden;
       }
-      body { padding: 12px 14px 20px; }
+      body { padding: 14px 12px 20px; }
       .top-bar {
         position: static;
         width: 100%;
         display: flex;
         justify-content: flex-end;
-        margin-bottom: 6px;
+        margin-bottom: 4px;
       }
       .quote-box {
-        height: auto;
-        min-height: 48px;
+        min-height: 70px;
         margin-bottom: 10px;
       }
       .tabs-dock {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 6px;
         width: 100%;
         border-radius: 14px;
@@ -368,7 +377,7 @@
       }
       .tab-btn {
         padding: 8px 6px;
-        font-size: 0.78rem;
+        font-size: 0.76rem;
         text-align: center;
         border-radius: 10px;
       }
@@ -377,88 +386,32 @@
         padding-right: 0;
         padding-bottom: 12px;
       }
-      .panel { padding: 20px 16px; border-radius: 12px; }
-      .sandbox-viz { grid-template-columns: 1fr; }
+      .panel { padding: 18px 14px; border-radius: 12px; }
+      .radar-svg-box svg { max-width: 100%; height: auto; }
       footer { margin-top: auto; padding: 20px 0 10px; }
     }
   
-/* Refracción óptica PRISMA: Luz blanca -> Dispersión espectral */
-.refraction-text {
-  background: linear-gradient(
-    90deg,
-    #FFFFFF 0%,
-    #FFFFFF 38%,
-    #F1F5F9 45%,
-    #C084FC 55%,
-    #60A5FA 63%,
-    #38BDF8 71%,
-    #4ADE80 79%,
-    #FACC15 87%,
-    #FB923C 94%,
-    #F87171 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-  display: inline;
-}
-
-.quote-doi {
-  color: #64748B;
-  font-style: normal;
-  font-size: 0.75rem;
-  margin-left: 0.5rem;
-  -webkit-text-fill-color: #64748B;
-}
-
-
-/* Refracción óptica directa sobre la cita principal */
-#primaryQuote, p.primary-quote {
-  background: linear-gradient(
-    90deg,
-    #FFFFFF 0%,
-    #FFFFFF 28%,
-    #E2E8F0 36%,
-    #C084FC 48%,  /* Violeta */
-    #60A5FA 58%,  /* Azul */
-    #38BDF8 68%,  /* Cian */
-    #4ADE80 78%,  /* Verde */
-    #FACC15 86%,  /* Amarillo */
-    #FB923C 93%,  /* Naranja */
-    #F87171 100%  /* Rojo */
-  ) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
-  color: transparent !important;
-  display: inline-block !important;
-}
-
-
-/* Refracción óptica sutil ("light") para las traducciones rotativas */
-#tickerText {
-  background: linear-gradient(
-    90deg,
-    #94A3B8 0%,
-    #CBD5E1 30%,
-    #D8B4FE 45%,  /* Lavanda suave */
-    #93C5FD 55%,  /* Azul pastel */
-    #67E8F9 65%,  /* Cian tenue */
-    #86EFAC 75%,  /* Menta suave */
-    #FDE047 84%,  /* Vainilla / oro tenue */
-    #FDBA74 92%,  /* Melocotón suave */
-    #FCA5A5 100%  /* Coral pastel */
-  ) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
-  color: transparent !important;
-  display: inline-block !important;
-  opacity: 0.82 !important;
-}
-
-</style>
+    #primaryQuote, p.primary-quote {
+      background: linear-gradient(
+        90deg,
+        #FFFFFF 0%,
+        #FFFFFF 28%,
+        #E2E8F0 36%,
+        #C084FC 48%,
+        #60A5FA 58%,
+        #38BDF8 68%,
+        #4ADE80 78%,
+        #FACC15 86%,
+        #FB923C 93%,
+        #F87171 100%
+      ) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      background-clip: text !important;
+      color: transparent !important;
+      display: inline-block !important;
+    }
+  </style>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="ee5c2cc1-ee34-492a-8997-c454e193ff8c"></script>
 </head>
 <body>
@@ -472,50 +425,49 @@
 
   <div class="header-wrapper">
     <div class="header-zone">
-      <h1>Aula Viva<span class="reg">®</span></h1>
+      <h1 id="mainHeading">Aula Viva<span class="reg">®</span> <span class="ai-tag">with AI</span></h1>
       <p class="descriptor" id="appDescriptor">PRISMA™ — Offline Edge-AI for qualitative assessment in ℝ⁸</p>
       
-      <div class="quote-box">
+      <div class="quote-box" id="quoteContainer">
         <p id="primaryQuote" class="primary-quote">“Shining white light through learners, projecting its refracted colors to reveal the profound journey of their growth.”</p>
-        <div id="secondaryTicker" class="secondary-ticker">
-          <span class="tag" id="tickerLang">Español</span>
-          <span id="tickerText">“Hacer brillar luz blanca a través de cada estudiante...”</span>
-        </div>
       </div>
     </div>
 
+    <!-- Navegación de 5 botones canónicos -->
     <div class="tabs-dock">
       <button class="tab-btn" id="tab-btn-vision" onclick="switchTab('vision')">Vision</button>
       <button class="tab-btn" id="tab-btn-architecture" onclick="switchTab('architecture')">Architecture</button>
-      <button class="tab-btn" id="tab-btn-ethos" onclick="switchTab('ethos')">Ethos & sovereignty</button>
+      <button class="tab-btn" id="tab-btn-ethos" onclick="switchTab('ethos')">Ethos</button>
       <button class="tab-btn" id="tab-btn-prototype" onclick="switchTab('prototype')">Interactive sandbox</button>
+      <button class="tab-btn" id="tab-btn-interface" onclick="switchTab('interface')">On-device interface</button>
     </div>
   </div>
 
   <div class="content-stage">
 
+    <!-- 1. VISION -->
     <div id="vision" class="panel">
       <div id="vision-content"></div>
     </div>
 
+    <!-- 2. ARCHITECTURE -->
     <div id="architecture" class="panel">
       <div id="architecture-content"></div>
     </div>
 
+    <!-- 3. ETHOS -->
     <div id="ethos" class="panel">
       <div id="ethos-content"></div>
     </div>
 
+    <!-- 4. INTERACTIVE SANDBOX -->
     <div id="prototype" class="panel">
       <div id="sandbox-intro"></div>
 
       <div class="sandbox-container">
         <div class="sandbox-header">
-          <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
-            <select id="scenarioSelect" class="select-scenario" onchange="resetSandboxUI()">
-              <option value="maria">Scenario 1: María — STEAM filter & conflict resolution</option>
-              <option value="carlos">Scenario 2: Carlos — Intercultural community archives</option>
-            </select>
+          <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
+            <span style="font-size:0.82rem; font-weight:600; color:var(--text-muted);" id="lblState">Educability condition:</span>
             <div class="lang-switcher" style="background:#0d1117;">
               <button class="lang-btn active" id="btn-state-opt" onclick="setEducabilityState('optimal')">Optimal</button>
               <button class="lang-btn" id="btn-state-comp" onclick="setEducabilityState('compromised')">Compromised</button>
@@ -528,9 +480,11 @@
 
         <div class="sandbox-viz">
           <div class="radar-svg-box">
-            <svg id="radarSvg" width="340" height="340" viewBox="0 0 340 340"></svg>
+            <svg id="radarSvg" width="460" height="300" viewBox="0 0 460 300"></svg>
           </div>
-          <div>
+          <div class="sandbox-table-box">
+            <div id="sandboxStatusBox" style="display:none; margin-bottom:14px; background:#0d1117; padding:10px 14px; border-radius:8px; border:1px solid var(--border);"></div>
+
             <table class="delta-table">
               <thead>
                 <tr>
@@ -542,47 +496,112 @@
               <tbody id="deltaTableBody"></tbody>
             </table>
 
-            <div id="teacherAdjustBox" style="display:none; margin-top:16px; background:#0d1117; padding:12px 14px; border-radius:8px; border:1px solid var(--border);">
-              <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--accent-blue); font-weight:600; margin-bottom:8px;" id="teacherAdjustTitle">
+            <!-- DIALS DOCENTES RECUPERADOS (CALIBRACIÓN SOBERANA) -->
+            <div id="teacherAdjustBox" style="display:none; margin-top:20px; background:#0d1117; padding:16px 20px; border-radius:10px; border:1px solid var(--border);">
+              <div style="font-size:0.78rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--accent-blue); font-weight:600; margin-bottom:12px;" id="teacherAdjustTitle">
                 Teacher calibration & sovereign override
               </div>
-              <div id="sliderControls" style="display:flex; flex-direction:column; gap:8px;"></div>
+              <div id="sliderControls" style="display:grid; grid-template-columns: 1fr 1fr; gap:12px 24px;"></div>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <h3 id="appScreenshotTitle">On-device capture interface</h3>
+    <!-- 5. ON-DEVICE INTERFACE -->
+    <div id="interface" class="panel">
+      <h2 id="interfaceTitle">On-device capture interface</h2>
+      <p id="interfaceDesc">Local Streamlit execution environment running offline SLM qualitative inference directly on educator hardware, ensuring zero cloud dependency and strict student data sovereignty.</p>
       <div class="preview-card">
-        <img src="screenshot.png" alt="PRISMA application interface in dark mode">
+        <img src="screenshot.png" alt="PRISMA on-device interface running offline">
       </div>
     </div>
 
   </div>
 
-  <footer>
-    <span id="footerText"></span>
+  <footer id="footerText">
+    <div><strong>Aula Viva® with AI</strong> by Víctor Stern Rodríguez</div>
+    <div style="font-size:0.8rem; margin:4px 0;">ASPIRE® Framework | PRISMA™ Engine · SSRN: <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">10.2139/ssrn.7310080</a> · INDAUTOR Reg. 03-2026-040710022300-01</div>
+    <div style="font-size:0.75rem; opacity:0.75;">© 2026 Grupo SIEFH Sistemas Educativos para el Florecimiento Humano S.A.S. All rights reserved.</div>
   </footer>
 
   <script>
     const QUOTES = {
-      en: { lang: "English", text: "“Shining white light through learners, projecting its refracted colors to reveal the profound journey of their growth.”" },
-      es: { lang: "Español", text: "“Hacer brillar luz blanca a través de cada estudiante, proyectando sus colores refractados para revelar el profundo camino de su crecimiento.”" },
-      ar: { lang: "العربية", text: "«إشعاع الضوء الأبيض عَبْرَ المتعلّمين، وإسقاط ألوانه المنكسرة للكشف عن المسار العميق لنموّهم.»" },
-      he: { lang: "עברית", text: "«להאיר באור לבן מבעד ללומדים, ולהקרין את צבעיו הנשברים כדי לחשוף את המסע העמוק של צמיחתם.»" },
-      zh: { lang: "中文", text: "“将全光谱白光照向学习者，并投射其折射色彩，以揭示其成长历程的深邃轨迹。”" },
-      hi: { lang: "हिन्दी", text: "“शिक्षार्थियों के भीतर से श्वेत प्रकाश प्रवाहित करना, और उनके विकास की गहन यात्रा को उजागर करने के लिए उसके अपवर्तित रंगों को प्रक्षेपित करना।”" },
-      fr: { lang: "Français", text: "« Faire rayonner une lumière blanche à travers les apprenants, projetant ses couleurs réfractées pour révéler le profond voyage de leur croissance. »" },
-      nah: { lang: "Náhuatl", text: "« Titlanextiah ica iztac tlahuilli inpan in momachtianih, ihuan tiquincuepilia in itlapaliz in tlahuilli inic tictlanextizqueh in hueyi tlamahuizolli ic mozcaliayeh. »" },
-      zu: { lang: "isiZulu", text: "« Ukukhanyisa ukukhanya okumhlophe kubafundi, nokukhiqiza ukuhlakazeka kwemibala yako ukuze kwembulwe uhambo olunzulu lokukhula kwabo. »" },
-      ja: { lang: "日本語", text: "「学習者に白色光を透過させ、その屈折した色彩を投影することで、彼らの成長の深遠な軌跡を明らかにする。」" }
+      en: { text: "“Shining white light through learners, projecting its refracted colors to reveal the profound journey of their growth.”" },
+      es: { text: "«Hacer brillar luz blanca a través de cada estudiante, proyectando sus colores refractados para revelar el profundo camino de su crecimiento.»" },
+      ar: { text: "«إشعاع الضوء الأبيض عَبْرَ المتعلّمين، وإسقاط ألوانه المنكسرة للكشف عن المسار العميق لنموّهم.»" },
+      he: { text: "«להאיר באור לבן מבעד ללומדים, ולהקרין את צבעיו הנשברים כדי לחשוף את המסע העמוק של צמיחתם.»" },
+      zh: { text: "“将全光谱白光照向学习者，并投射其折射色彩，以揭示其成长历程的深邃轨迹。”" },
+      hi: { text: "“शिक्षार्थियों के भीतर से श्वेत प्रकाश प्रवाहित करना, और उनके विकास की गहन यात्रा को उजागर करने के लिए उसके अपवर्तित रंगों को प्रक्षेपित करना।”" },
+      fr: { text: "« Faire rayonner une lumière blanche à travers les apprenants, projetant ses couleurs réfractées pour révéler le profond voyage de leur croissance. »" },
+      nah: { text: "« Titlanextiah ica iztac tlahuilli inpan in momachtianih, ihuan tiquincuepilia in itlapaliz in tlahuilli inic tictlanextizqueh in hueyi tlamahuizolli ic mozcaliayeh. »" },
+      zu: { text: "« Ukukhanyisa ukukhanya okumhlophe kubafundi, nokukhiqiza ukuhlakazeka kwemibala yako ukuze kwembulwe uhambo olunzulu lokukhula kwabo. »" },
+      ja: { text: "「学習者に白色光を透過させ、その屈折した色彩を投影することで、彼らの成長の深遠な軌跡を明らかにする。」" }
+    };
+
+    const LANG_LABELS = {
+      en: { en: "English", es: "Spanish", ar: "Arabic", he: "Hebrew", zh: "Chinese", hi: "Hindi", fr: "French", nah: "Nahuatl", zu: "isiZulu", ja: "Japanese" },
+      es: { en: "Inglés", es: "Español", ar: "Árabe", he: "Hebreo", zh: "Chino", hi: "Hindi", fr: "Francés", nah: "Náhuatl", zu: "isiZulu", ja: "Japonés" }
+    };
+
+    const STATIC_RADAR_SVG = {
+      en: `<div class="static-radar-card">
+        <svg width="440" height="260" viewBox="0 0 440 260">
+          <polygon points="220,50 284,76 310,140 284,204 220,230 156,204 130,140 156,76" fill="rgba(88,166,255,0.06)" stroke="#262f3d" stroke-width="1.2"/>
+          <circle cx="220" cy="140" r="42" fill="none" stroke="#334155" stroke-dasharray="3,3" stroke-width="1"/>
+          <line x1="220" y1="50" x2="220" y2="230" stroke="#262f3d" stroke-width="1"/>
+          <line x1="130" y1="140" x2="310" y2="140" stroke="#262f3d" stroke-width="1"/>
+          <line x1="156" y1="76" x2="284" y2="204" stroke="#262f3d" stroke-width="1"/>
+          <line x1="284" y1="76" x2="156" y2="204" stroke="#262f3d" stroke-width="1"/>
+          <text x="220" y="38" fill="#58a6ff" font-size="9.5" text-anchor="middle" font-weight="600">Inquiry</text>
+          <text x="296" y="72" fill="#8b949e" font-size="9" text-anchor="start">Critical thinking</text>
+          <text x="322" y="143" fill="#8b949e" font-size="9" text-anchor="start">Ethical reasoning</text>
+          <text x="296" y="214" fill="#8b949e" font-size="9" text-anchor="start">Intercultural agency</text>
+          <text x="220" y="246" fill="#58a6ff" font-size="9.5" text-anchor="middle" font-weight="600">Leadership</text>
+          <text x="144" y="214" fill="#8b949e" font-size="9" text-anchor="end">Technical mastery</text>
+          <text x="118" y="143" fill="#8b949e" font-size="9" text-anchor="end">Resilience</text>
+          <text x="144" y="72" fill="#8b949e" font-size="9" text-anchor="end">Metacognition</text>
+          <text x="224" y="103" fill="#5c6570" font-size="7.5" font-family="monospace">0.0 dB (Baseline)</text>
+          <text x="224" y="62" fill="#58a6ff" font-size="8" font-family="monospace" font-weight="bold">+6.0 dB (Beginner)</text>
+        </svg>
+        <span style="font-size:0.75rem; color:var(--text-dim); margin-top:2px;">Initial topological space in ℝ⁸: Progressive disclosure from +6.0 dB orbit</span>
+      </div>`,
+      es: `<div class="static-radar-card">
+        <svg width="440" height="260" viewBox="0 0 440 260">
+          <polygon points="220,50 284,76 310,140 284,204 220,230 156,204 130,140 156,76" fill="rgba(88,166,255,0.06)" stroke="#262f3d" stroke-width="1.2"/>
+          <circle cx="220" cy="140" r="42" fill="none" stroke="#334155" stroke-dasharray="3,3" stroke-width="1"/>
+          <line x1="220" y1="50" x2="220" y2="230" stroke="#262f3d" stroke-width="1"/>
+          <line x1="130" y1="140" x2="310" y2="140" stroke="#262f3d" stroke-width="1"/>
+          <line x1="156" y1="76" x2="284" y2="204" stroke="#262f3d" stroke-width="1"/>
+          <line x1="284" y1="76" x2="156" y2="204" stroke="#262f3d" stroke-width="1"/>
+          <text x="220" y="38" fill="#58a6ff" font-size="9.5" text-anchor="middle" font-weight="600">Indagación</text>
+          <text x="296" y="72" fill="#8b949e" font-size="9" text-anchor="start">Pensamiento crítico</text>
+          <text x="322" y="143" fill="#8b949e" font-size="9" text-anchor="start">Razonamiento ético</text>
+          <text x="296" y="214" fill="#8b949e" font-size="9" text-anchor="start">Agencia intercultural</text>
+          <text x="220" y="246" fill="#58a6ff" font-size="9.5" text-anchor="middle" font-weight="600">Liderazgo</text>
+          <text x="144" y="214" fill="#8b949e" font-size="9" text-anchor="end">Saber técnico</text>
+          <text x="118" y="143" fill="#8b949e" font-size="9" text-anchor="end">Resiliencia</text>
+          <text x="144" y="72" fill="#8b949e" font-size="9" text-anchor="end">Metacognición</text>
+          <text x="224" y="103" fill="#5c6570" font-size="7.5" font-family="monospace">0.0 dB (Línea base)</text>
+          <text x="224" y="62" fill="#58a6ff" font-size="8" font-family="monospace" font-weight="bold">+6.0 dB (Principiante)</text>
+        </svg>
+        <span style="font-size:0.75rem; color:var(--text-dim); margin-top:2px;">Espacio topológico inicial en ℝ⁸: Revelación progresiva centrada en la órbita de +6.0 dB</span>
+      </div>`
     };
 
     const CONTENT = {
       en: {
+        pageTitle: "Aula Viva® with AI — PRISMA™",
+        heading: `Aula Viva<span class="reg">®</span> <span class="ai-tag">with AI</span>`,
         descriptor: "PRISMA™ — Offline Edge-AI for qualitative assessment in ℝ⁸",
-        tabs: { vision: "Vision", architecture: "Architecture", ethos: "Ethos & sovereignty", prototype: "Interactive sandbox" },
+        tabs: { vision: "Vision", architecture: "Architecture", ethos: "Ethos", prototype: "Interactive sandbox", interface: "On-device interface" },
+        lblState: "Educability condition:",
         vision: `
+          <div class="callout" style="border-left-color: #58a6ff; margin-bottom: 24px;">
+            <p style="margin-bottom: 8px;"><strong>Vision:</strong> A better and more peaceful world where every individual reaches the fullness of their potential by freely developing their individuality.</p>
+            <p style="margin-bottom: 0;"><strong>Mission:</strong> Transforming pedagogical observation into deep understanding of human growth to empower learning, establishing mental health and holistic well-being as the fundamental principle and supreme purpose of education.</p>
+          </div>
+
           <h2>Beyond the scalar fallacy</h2>
           <p>Traditional evaluation compresses the irreducible complexity of human learning into a flat, unidimensional number (0–100 or GPA). This reductive scalar tells educators nothing about developmental direction, intellectual resilience, or situated context—it merely ranks, labels, and punishes.</p>
           
@@ -590,7 +609,9 @@
             <strong>Symbiotic coexistence:</strong> PRISMA does not replace statutory institutional grading. Rather, it operates alongside mandated administrative records as a qualitative companion layer, turning bureaucratic compliance into rich developmental insight without generating double-work for teachers.
           </div>
 
-          <p><strong>PRISMA™</strong> (Plataforma de Reflexión e Interpretación para el Seguimiento Multidimensional del Aprendizaje), grounded in the <strong>ASPIRE®</strong> research framework (<em>AI-Synthesised Portal for Integrated Readiness & Excellence</em>), treats assessment as an act of spectral refraction. By analyzing unstructured natural-language observations, PRISMA projects growth onto an eight-dimensional vector space (ℝ⁸) synthesized from premier international inquiry frameworks and community-rooted educational standards.</p>
+          <p><strong>PRISMA™</strong>, grounded in the <strong>ASPIRE®</strong> framework, treats assessment as an act of spectral refraction. By analyzing unstructured natural-language observations, PRISMA projects growth onto an eight-dimensional vector space (ℝ⁸) synthesized from premier international inquiry frameworks and community-rooted educational standards.</p>
+
+          ${STATIC_RADAR_SVG.en}
 
           <h3>The four cybernetic quadrants</h3>
           <ul>
@@ -616,40 +637,49 @@
             <li><strong>Air-gapped inferences:</strong> Powered by lightweight Small Language Models (SLMs: 1.5B to 7B parameters at 4-bit quantization) running entirely on-device via open local runtimes (such as Ollama, llama.cpp, or PocketPal).</li>
             <li><strong>Zero recurring API cost:</strong> Eliminates SaaS operational expenses and per-token fees, democratizing advanced qualitative analytics for resource-constrained community schools.</li>
             <li><strong>Absolute child data sovereignty:</strong> Student observations, student IDs, and developmental evaluations never cross an internet connection or touch corporate cloud servers. Data stays permanently inside the school.</li>
-            <li><strong>Logarithmic calibration (+6 dB per doubling):</strong> Grounded in the Weber-Fechner psychophysical scale (<em>L</em> = 20 · log₁₀(<em>A</em> / <em>A</em>₀)). Each +6 dB step represents an exact geometric doubling (2×) of demonstrated capability relative to baseline, eliminating ceiling saturation and allowing initial progress to coexist harmoniously with advanced mastery.</li>
+            <li><strong>Logarithmic decibel calibration:</strong> Learning does not advance in a flat, linear progression from 0 to 100. Overcoming initial friction to take the very first step demands colossal effort, while refining technical mastery at advanced stages requires subtle precision. PRISMA expresses transformation deltas in decibels (dB): mirroring human sensory perception, each logarithmic step measures authentic relative effort and qualitative impact in context, replacing arbitrary additive points.</li>
           </ul>
         `,
         ethos: `
-          <h2>Pedagogical sovereignty & sociophysiological care</h2>
+          <h2>Pedagogical sovereignty & educability conditions</h2>
           <p>PRISMA is neither an algorithmic judge nor an administrative surveillance engine. It is an assistive heuristic governed by non-negotiable ethical boundaries:</p>
           <ul>
             <li><strong>Human always in charge:</strong> PRISMA suggests; the educator decides. The system proposes logarithmic deltas and extracts evidence citations, but the educator retains absolute pedagogical authority to accept, amend, or reject any recommendation.</li>
-            <li><strong>State of educability (UNICEF / Maturana):</strong> Cognitive educability is inseparable from metabolic and somatic homeostasis. Before logging assessment observations, PRISMA records a non-punitive, un-graded baseline across three physiological indicators:
-              <br>&bull; <em>Sleep recovery</em> (rest quality and hours)
-              <br>&bull; <em>Nutritional support</em> (caloric intake prior to session)
-              <br>&bull; <em>Somatic comfort & menstrual pain</em> (direct registration of acute physical fatigue, somatic discomfort, and menstrual pain).
-              <br>Low classroom performance is never misdiagnosed as cognitive deficit when driven by somatic distress.</li>
+            <li><strong>Conditions of educability:</strong> Cognitive educability is inseparable from somatic and emotional homeostasis. Prior to logging qualitative notes, PRISMA registers three vital factors without moral judgment or numerical grading:
+              <br>&bull; <strong>Sleep & rest</strong>
+              <br>&bull; <strong>Food & nutrition</strong>
+              <br>&bull; <strong>Biopsychosocial & emotional well-being</strong>
+              <br>A temporary struggle in classroom execution is never misdiagnosed as an intellectual deficit when driven by somatic exhaustion or acute stress.</li>
             <li><strong>100% auditable evidence trails:</strong> Every coordinate in ℝ⁸ links directly to raw teacher narrative commentary and student artifacts, ending black-box grading forever.</li>
           </ul>
         `,
         sandboxIntro: `
           <h2>Interactive architectural sandbox</h2>
           <div class="callout">
-            <strong>Demonstration notice:</strong> This browser sandbox runs a pre-recorded demonstration of PRISMA's algorithmic synthetic analysis and qualitative projection onto ℝ⁸. In live field deployments, all inferences execute 100% on-device via local <em>offline</em> SLMs (1.5B–7B) with zero internet connectivity.
+            <strong>Demonstration notice:</strong> This browser sandbox demonstrates PRISMA's qualitative projection onto ℝ⁸ using the invariant observation of María's water filter prototype. Switch between <strong>Optimal</strong> and <strong>Compromised</strong> educability to observe instantaneous logarithmic damping in real time.
           </div>
         `,
         btnRun: "Visualize projection",
         thAxis: "Dimension (ℝ⁸)",
         thDelta: "Δ (dB)",
         thCitation: "Traceable evidence",
-        idleText: "Select a scenario and click &ldquo;Visualize projection&rdquo; to project the vector coordinates.",
-        screenshotTitle: "On-device capture interface",
-        footer: `Aula Viva® &bull; Systems architecture & research by Víctor Stern Rodríguez<br>Grounded in <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">SSRN DOI: 10.2139/ssrn.7310080</a> &bull; INDAUTOR Reg. 03-2026-040710022300-01<br>&copy; 2026 Víctor Stern Rodríguez &bull; Grupo SiEFH (Sistemas Educativos para el Florecimiento Humano S.A.S.). All rights reserved.`
+        idleText: "Click &ldquo;Visualize projection&rdquo; to project the vector coordinates.",
+        interfaceTitle: "On-device capture interface",
+        interfaceDesc: "Local Streamlit execution environment running offline SLM qualitative inference directly on educator hardware, ensuring zero cloud dependency and strict student data sovereignty.",
+        footer: `<div><strong>Aula Viva® with AI</strong> by Víctor Stern Rodríguez</div><div style="font-size:0.8rem; margin:4px 0;">ASPIRE® Framework | PRISMA™ Engine · SSRN: <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">10.2139/ssrn.7310080</a> · INDAUTOR Reg. 03-2026-040710022300-01</div><div style="font-size:0.75rem; opacity:0.75;">© 2026 Grupo SIEFH Sistemas Educativos para el Florecimiento Humano S.A.S. All rights reserved.</div>`
       },
       es: {
+        pageTitle: "Aula Viva® con IA — PRISMA™",
+        heading: `Aula Viva<span class="reg">®</span> <span class="ai-tag">con IA</span>`,
         descriptor: "PRISMA™ — IA local para la evaluación cualitativa en ℝ⁸",
-        tabs: { vision: "Visión", architecture: "Arquitectura", ethos: "Ética y gobernanza", prototype: "Sandbox interactivo" },
+        tabs: { vision: "Visión", architecture: "Arquitectura", ethos: "Ethos", prototype: "Sandbox interactivo", interface: "Interfaz en dispositivo" },
+        lblState: "Condición de educabilidad:",
         vision: `
+          <div class="callout" style="border-left-color: #58a6ff; margin-bottom: 24px;">
+            <p style="margin-bottom: 8px;"><strong>Visión:</strong> Un mundo mejor y más pacífico donde cada persona alcanza la plenitud de su potencial al desarrollar libremente su individualidad.</p>
+            <p style="margin-bottom: 0;"><strong>Misión:</strong> Transformar la observación pedagógica en comprensión profunda del crecimiento humano para potenciar el aprendizaje, situando la salud mental y el bienestar integral como el principio fundamental y fin supremo de la educación.</p>
+          </div>
+
           <h2>Más allá de la falacia escalar</h2>
           <p>La evaluación tradicional comprime la complejidad irreductible del aprendizaje humano en un número plano y unidimensional (0–100 o escala de 10). Esta cifra reduccionista no informa a los educadores sobre la dirección del desarrollo, la resiliencia intelectual o el contexto situado: se limita a clasificar, etiquetar y castigar.</p>
           
@@ -657,7 +687,9 @@
             <strong>Coexistencia simbiótica:</strong> PRISMA no sustituye las calificaciones institucionales obligatorias. Funciona en paralelo a los registros administrativos oficiales como una capa cualitativa de acompañamiento, transformando el cumplimiento burocrático en comprensión profunda del desarrollo sin generar trabajo doble para el docente.
           </div>
 
-          <p><strong>PRISMA™</strong> (Plataforma de Reflexión e Interpretación para el Seguimiento Multidimensional del Aprendizaje), sustentado en el marco de investigación ASPIRE® (PRISM: Portable Record of Integrated Skills & Mastery), concibe la evaluación formativa como un acto de refracción espectral. Al analizar notas narrativas no estructuradas, PRISMA proyecta el crecimiento sobre un espacio vectorial de ocho dimensiones (ℝ⁸) sintetizado a partir de taxonomías internacionales de indagación y marcos de educación comunitaria.</p>
+          <p><strong>PRISMA™</strong>, sustentado en el marco <strong>ASPIRE®</strong>, concibe la evaluación formativa como un acto de refracción espectral. Al analizar notas narrativas no estructuradas, PRISMA proyecta el crecimiento sobre un espacio vectorial de ocho dimensiones (ℝ⁸) sintetizado a partir de taxonomías internacionales de indagación y marcos de educación comunitaria.</p>
+
+          ${STATIC_RADAR_SVG.es}
 
           <h3>Los cuatro cuadrantes cibernéticos</h3>
           <ul>
@@ -683,250 +715,231 @@
             <li><strong>Inferencias aisladas (<em>air-gapped</em>):</strong> Impulsado por modelos de lenguaje pequeños (SLM: 1.5B a 7B parámetros cuantizados a 4 bits) ejecutados enteramente en el hardware local mediante entornos abiertos (como Ollama, llama.cpp o PocketPal).</li>
             <li><strong>Cero costo operativo de API:</strong> Elimina pagos de suscripción SaaS o cobros por consulta, democratizando la analítica cualitativa para escuelas comunitarias y entornos de recursos limitados.</li>
             <li><strong>Soberanía absoluta de datos del menor:</strong> Las observaciones docentes, identificadores y evaluaciones formativas jamás cruzan una conexión a internet ni tocan servidores corporativos. Los datos permanecen permanentemente en el aula.</li>
-            <li><strong>Calibración logarítmica (+6 dB por duplicación):</strong> Basado en la ley psicofísica sensorial de Weber-Fechner (<em>L</em> = 20 · log₁₀(<em>A</em> / <em>A</em>₀)). Cada incremento de +6 dB representa una duplicación geométrica exacta (2×) de la capacidad respecto a la línea de base, evitando la saturación de escala y permitiendo convivir avances iniciales con niveles de maestría avanzada.</li>
+            <li><strong>Calibración logarítmica en decibeles:</strong> El aprendizaje no avanza como una regla fija de centímetros de 0 a 100. Pasar del desconocimiento al primer destello de autonomía exige una energía colosal, mientras que afinar un detalle en etapas avanzadas requiere precisión quirúrgica. PRISMA mide las transformaciones en decibeles (dB): al igual que la percepción sensorial de la luz o el sonido, cada incremento relativo refleja el esfuerzo formativo real y el impacto cualitativo en su contexto, erradicando la suma mecánica de puntos arbitrarios.</li>
           </ul>
         `,
         ethos: `
-          <h2>Soberanía pedagógica y cuidado sociofisiológico</h2>
+          <h2>Soberanía pedagógica y condiciones de educabilidad</h2>
           <p>PRISMA no es un calificador automático ni una herramienta de vigilancia. Es una heurística asistencial delimitada por salvaguardas éticas irrenunciables:</p>
           <ul>
             <li><strong>El humano siempre a cargo:</strong> PRISMA sugiere; el docente decide. El sistema propone variaciones logarítmicas (deltas) y extrae citas textuales de evidencia, pero el docente conserva la autoridad pedagógica absoluta de aceptar, editar o rechazar cualquier sugerencia.</li>
-            <li><strong>Nota de estado de educabilidad (UNICEF / Maturana):</strong> El aprendizaje depende del equilibrio metabólico y emocional del organismo. Previo a registrar observaciones formativas, PRISMA registra tres indicadores biológicos temporales, sin calificación ni juicio moral:
-              <br>&bull; <em>Recuperación y sueño</em> (calidad de descanso)
-              <br>&bull; <em>Soporte nutricional</em> (ingesta calórica previa a la sesión)
-              <br>&bull; <em>Confort somático y dolor menstrual</em> (identificación explícita de fatiga física aguda, malestar somático y dolor menstrual).
-              <br>Un bajo desempeño en aula nunca se confunde con déficit cognitivo cuando su origen es el agotamiento somático o biológico.</li>
+            <li><strong>Condiciones de educabilidad:</strong> El aprendizaje depende de la homeostasis somática y emocional del organismo. Previo a registrar observaciones formativas, PRISMA registra tres factores esenciales sin juicio moral ni calificación:
+              <br>&bull; <strong>Sueño y descanso</strong>
+              <br>&bull; <strong>Alimentación y nutrición</strong>
+              <br>&bull; <strong>Bienestar biopsicosocial y emocional</strong>
+              <br>Una dificultad momentánea en el aula jamás se confunde con una deficiencia intelectual cuando su causa raíz es el agotamiento físico o el estrés.</li>
             <li><strong>Trazabilidad y transparencia absoluta:</strong> Cada coordenada en ℝ⁸ está vinculada directamente con la cita textual de la observación docente y los entregables del estudiante, erradicando por completo la opacidad algorítmica.</li>
           </ul>
         `,
         sandboxIntro: `
           <h2>Sandbox de demostración arquitectónica</h2>
           <div class="callout">
-            <strong>Aviso de demostración:</strong> Este <em>sandbox</em> ejecuta una demostración pregrabada del análisis sintético algorítmico y proyección cualitativa hacia ℝ⁸. En despliegues reales en aula, todas las inferencias se procesan 100% en el dispositivo mediante SLMs locales (1.5B–7B) en modo <em>offline</em> sin conexión a internet.
+            <strong>Aviso de demostración:</strong> Este sandbox interactivo demuestra la proyección cualitativa hacia ℝ⁸ utilizando la observación invariante del filtro de agua de María. Alterna entre condición <strong>Óptima</strong> y <strong>Comprometida</strong> para comprobar la amortiguación logarítmica reactiva en tiempo real.
           </div>
         `,
         btnRun: "Visualizar proyección",
         thAxis: "Dimensión (ℝ⁸)",
         thDelta: "Δ (dB)",
         thCitation: "Evidencia trazable",
-        idleText: "Selecciona un escenario y presiona &ldquo;Visualizar proyección&rdquo; para proyectar las coordenadas.",
-        screenshotTitle: "Interfaz de captura en el dispositivo",
-        footer: `Aula Viva® &bull; Arquitectura de sistemas e investigación por Víctor Stern Rodríguez<br>Basado en <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">SSRN DOI: 10.2139/ssrn.7310080</a> &bull; Registro INDAUTOR: 03-2026-040710022300-01<br>&copy; 2026 Víctor Stern Rodríguez &bull; Grupo SiEFH (Sistemas Educativos para el Florecimiento Humano S.A.S.). Todos los derechos reservados.`
+        idleText: "Presiona &ldquo;Visualizar proyección&rdquo; para proyectar las coordenadas vectoriales.",
+        interfaceTitle: "Interfaz de captura en el dispositivo",
+        interfaceDesc: "Entorno local Streamlit ejecutando inferencia cualitativa con SLMs directamente en el equipo del educador, garantizando cero dependencia de la nube y soberanía total de datos.",
+        footer: `<div><strong>Aula Viva® con IA</strong> por Víctor Stern Rodríguez</div><div style="font-size:0.8rem; margin:4px 0;">Marco ASPIRE® | Motor PRISMA™ · SSRN: <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">10.2139/ssrn.7310080</a> · Registro INDAUTOR: 03-2026-040710022300-01</div><div style="font-size:0.75rem; opacity:0.75;">© 2026 Grupo SIEFH Sistemas Educativos para el Florecimiento Humano S.A.S. Todos los derechos reservados.</div>`
       }
     };
 
     const AXIS_NAMES = {
-      en: ["Inquiry", "Critical thinking", "Ethical reasoning", "Intercultural", "Leadership", "Technical skill", "Resilience", "Metacognition"],
+      en: ["Inquiry", "Critical thinking", "Ethical reasoning", "Intercultural", "Leadership", "Technical mastery", "Resilience", "Metacognition"],
       es: ["Indagación", "Pensamiento crítico", "Razonamiento ético", "Intercultural", "Liderazgo", "Saber técnico", "Resiliencia", "Metacognición"]
     };
 
-    const SCENARIOS_V2 = {
-      maria: {
-        en: {
-          name: "Scenario 1: María — STEAM filter & conflict resolution",
-          optimal: {
-            note: "Student: María | Grade: 10th\nEducability triage: Sleep: 7.8h (Rested) | Breakfast: Complete | Somatic: No physical pain.\nTeacher narrative: 'María led the assembly of the biological filtration layer. When a disagreement stalled her group, she mediated calmly and redesigned the gravel mesh after an initial overflow.'",
-            deltas: [
-              { axisIdx: 4, axis: "Collaborative leadership", delta: "+2.2 dB", val: 2.2, quote: "mediated group disagreement calmly and facilitated consensus" },
-              { axisIdx: 6, axis: "Resilience & self-management", delta: "+1.7 dB", val: 1.7, quote: "persevered through filter overflow without emotional frustration" },
-              { axisIdx: 1, axis: "Critical & analytical thinking", delta: "+1.3 dB", val: 1.3, quote: "deduced root cause of leakage in the gravel mesh layout" },
-              { axisIdx: 5, axis: "Technical & professional expertise", delta: "+1.1 dB", val: 1.1, quote: "practical precision re-assembly of filtration unit" }
-            ],
-            polygon: [6.0, 7.3, 6.0, 6.0, 8.2, 7.1, 7.7, 6.0]
-          },
-          compromised: {
-            note: "Student: María | Grade: 10th\nEducability triage: Sleep: 4.5h (Exhaustion) | Breakfast: None | Somatic: Severe acute menstrual pain reported.\nTeacher narrative: 'María arrived in visible physical pain from intense menstrual cramps. She spoke softly and was physically withdrawn, yet listened attentively to her team and offered the pivotal design correction that saved the prototype.'",
-            deltas: [
-              { axisIdx: 6, axis: "Resilience & self-management", delta: "+2.4 dB (Somatic defense)", val: 2.4, quote: "exceptional fortitude: sustained emotional composure despite severe somatic cramping" },
-              { axisIdx: 4, axis: "Collaborative leadership", delta: "+1.4 dB", val: 1.4, quote: "offered pivotal design guidance despite severe physical fatigue" },
-              { axisIdx: 1, axis: "Critical & analytical thinking", delta: "+1.1 dB", val: 1.1, quote: "identified root cause of overflow with minimal verbal intervention" },
-              { axisIdx: 5, axis: "Technical & professional expertise", delta: "0.0 dB (Protected)", val: 0.0, quote: "hands-on physical assembly exempted; zero punitive regression" }
-            ],
-            polygon: [6.0, 7.1, 6.0, 6.0, 7.4, 6.0, 8.4, 6.0]
-          }
+    const MARIA_NOTE = {
+      en: "Student: María | Academic level: Secondary Education\nTeacher narrative observation (invariant):\n\"Today María led the construction of the water filter prototype. She resolved a team conflict by listening to her peers and adjusted materials following an initial filtration test failure. Observing slow flow, she examined sand density and halved the layer thickness. When her team became distracted by their phones, she called them together to assign roles for tomorrow's presentation.\"",
+      es: "Estudiante: María | Nivel educativo: Educación Secundaria\nNota narrativa docente (invariante):\n\"Hoy María lideró la construcción del prototipo de filtro de agua. Resolvió un conflicto en su equipo escuchando a sus compañeras y ajustó los materiales tras un primer fallo en la prueba de filtración. Notó que el flujo estaba muy lento, revisó la densidad de la arena y redujo la capa a la mitad. Cuando su equipo se distrajo con los teléfonos, los llamó para repartir las tareas de la presentación de mañana.\""
+    };
+
+    const SANDBOX_DATA = {
+      en: {
+        optimal: {
+          triage: "Educability record: Sleep / rest: > 7 hours (Optimal) | Food / nutrition: Complete (Adequate)",
+          statusText: "🟢 GREEN — Optimal Condition: Baseline socio-physiological state stable.",
+          statusColor: "#3fb950",
+          deltas: [
+            { axisIdx: 0, axis: "Inquiry & research", delta: "+1.2 dB", val: 1.2, quote: "empirical adjustment of sand density following initial test failure" },
+            { axisIdx: 1, axis: "Critical & analytical thinking", delta: "+1.0 dB", val: 1.0, quote: "identified root cause of slow flow and corrected physical parameters" },
+            { axisIdx: 2, axis: "Ethical reasoning", delta: "+1.4 dB", val: 1.4, quote: "mediated peer disagreement and prioritized group purpose over distraction" },
+            { axisIdx: 3, axis: "Intercultural agency", delta: "+0.8 dB", val: 0.8, quote: "facilitated peer collaboration without authoritarian imposition" },
+            { axisIdx: 4, axis: "Collaborative leadership", delta: "+1.6 dB", val: 1.6, quote: "actively organized task distribution for upcoming presentation" },
+            { axisIdx: 5, axis: "Technical mastery", delta: "+1.7 dB", val: 1.7, quote: "executed prototype re-assembly and layer calibration" },
+            { axisIdx: 6, axis: "Resilience & self-management", delta: "+1.2 dB", val: 1.2, quote: "persevered past initial test failure without task abandonment" },
+            { axisIdx: 7, axis: "Metacognitive reflection", delta: "+1.0 dB", val: 1.0, quote: "demonstrated self-monitoring during iterative design adjustment" }
+          ],
+          polygon: [6.8, 6.7, 7.0, 6.5, 7.1, 7.2, 6.8, 6.7]
         },
-        es: {
-          name: "Escenario 1: María — Filtro STEAM y mediación de conflicto",
-          optimal: {
-            note: "Estudiante: María | Grado: 10º\nTriaje de educabilidad: Sueño: 7.8h (Descanso óptimo) | Desayuno: Completo | Somático: Sin dolor físico.\nNota docente: 'María lideró el ensamblaje de la capa biológica del filtro. Cuando un desacuerdo frenó al equipo, medió con calma y rediseñó la malla de grava tras un desbordamiento inicial.'",
-            deltas: [
-              { axisIdx: 4, axis: "Liderazgo colaborativo", delta: "+2.2 dB", val: 2.2, quote: "medió el conflicto con calma y facilitó la toma de acuerdos" },
-              { axisIdx: 6, axis: "Resiliencia y autogestión", delta: "+1.7 dB", val: 1.7, quote: "perseveró ante el desbordamiento sin frustración emocional" },
-              { axisIdx: 1, axis: "Pensamiento crítico y analítico", delta: "+1.3 dB", val: 1.3, quote: "dedujo la causa de fuga en la disposición del material" },
-              { axisIdx: 5, axis: "Saber técnico y ejecución", delta: "+1.1 dB", val: 1.1, quote: "ensamblaje manual preciso de la unidad de filtrado" }
-            ],
-            polygon: [6.0, 7.3, 6.0, 6.0, 8.2, 7.1, 7.7, 6.0]
-          },
-          compromised: {
-            note: "Estudiante: María | Grado: 10º\nTriaje de educabilidad: Sueño: 4.5h (Agotamiento) | Desayuno: Ninguno | Somático: Dolor menstrual agudo reportado.\nNota docente: 'María llegó con dolor visible por cólicos menstruales intensos. Permaneció replegada físicamente, pero escuchó con paciencia a sus compañeros y aportó la corrección técnica que salvó el prototipo.'",
-            deltas: [
-              { axisIdx: 6, axis: "Resiliencia y autogestión", delta: "+2.4 dB (Amplificación somática)", val: 2.4, quote: "fortaleza excepcional: mantuvo templanza y escucha activa bajo dolor físico agudo" },
-              { axisIdx: 4, axis: "Liderazgo colaborativo", delta: "+1.4 dB", val: 1.4, quote: "aportó orientación decisiva al equipo sin desgaste verbal innecesario" },
-              { axisIdx: 1, axis: "Pensamiento crítico y analítico", delta: "+1.1 dB", val: 1.1, quote: "identificó el fallo estructural con mínima intervención" },
-              { axisIdx: 5, axis: "Saber técnico y ejecución", delta: "0.0 dB (Protegido)", val: 0.0, quote: "tarea manual pesada exenta; blindaje absoluto ante penalizaciones" }
-            ],
-            polygon: [6.0, 7.1, 6.0, 6.0, 7.4, 6.0, 8.4, 6.0]
-          }
+        compromised: {
+          triage: "Educability record: Sleep / rest: < 5 hours (Severe vulnerability) | Food / nutrition: Fasting (Severe vulnerability)",
+          statusText: "🟡 YELLOW — Pedagogical Support: Prioritize somatic care and account for biological fatigue. Volitional merit amplified in Resilience (+2.4 dB) with complete protection against test errors.",
+          statusColor: "#e3b341",
+          deltas: [
+            { axisIdx: 0, axis: "Inquiry & research", delta: "+1.2 dB", val: 1.2, quote: "empirical inquiry maintained; shielded from cognitive fatigue penalties" },
+            { axisIdx: 1, axis: "Critical & analytical thinking", delta: "+1.0 dB", val: 1.0, quote: "root-cause analysis preserved; protected under compensatory cognitive load" },
+            { axisIdx: 2, axis: "Ethical reasoning", delta: "+1.4 dB", val: 1.4, quote: "ethical immunity: active mediation and listening fully preserved" },
+            { axisIdx: 3, axis: "Intercultural agency", delta: "+0.8 dB", val: 0.8, quote: "empathetic peer coordination sustained despite somatic tension" },
+            { axisIdx: 4, axis: "Collaborative leadership", delta: "+1.6 dB", val: 1.6, quote: "task redistribution sustained despite physical wear" },
+            { axisIdx: 5, axis: "Technical mastery", delta: "+1.7 dB", val: 1.7, quote: "hands-on physical calibration completed; zero error penalty on trial failure" },
+            { axisIdx: 6, axis: "Resilience & self-management", delta: "+2.4 dB", val: 2.4, quote: "high volitional regulation: persevered past failure under severe fatigue ⚡ [Amplified by socio-physiological resilience]" },
+            { axisIdx: 7, axis: "Metacognitive reflection", delta: "+1.0 dB", val: 1.0, quote: "reflective self-correction sustained under metabolic wear" }
+          ],
+          polygon: [6.8, 6.7, 7.0, 6.5, 7.1, 7.2, 8.4, 6.7]
         }
       },
-      carlos: {
-        en: {
-          name: "Scenario 2: Carlos — Intercultural community archives",
-          optimal: {
-            note: "Student: Carlos | Grade: 11th\nEducability triage: Sleep: 8.0h (Rested) | Breakfast: Yes | Somatic: Comfort.\nTeacher narrative: 'Carlos interviewed neighborhood elders in their native tongue. When his digital voice recorder failed, he captured qualitative notes by hand and connected local oral memory with historical records.'",
-            deltas: [
-              { axisIdx: 3, axis: "Intercultural agency", delta: "+2.6 dB", val: 2.6, quote: "translated native testimonies with cultural nuance and respect" },
-              { axisIdx: 7, axis: "Metacognitive reflection", delta: "+1.9 dB", val: 1.9, quote: "contrasted oral testimony against omissions in the official textbook" },
-              { axisIdx: 0, axis: "Inquisitiveness & investigation", delta: "+1.4 dB", val: 1.4, quote: "autonomous qualitative interview protocols in community setting" },
-              { axisIdx: 6, axis: "Resilience & self-management", delta: "+1.1 dB", val: 1.1, quote: "smooth transition to manual field notes upon device failure" }
-            ],
-            polygon: [7.4, 6.0, 6.0, 8.6, 6.0, 6.0, 7.1, 7.9]
-          },
-          compromised: {
-            note: "Student: Carlos | Grade: 11th\nEducability triage: Sleep: 4.0h (Chronic insomnia) | Breakfast: Incomplete | Somatic: Acute physical fatigue and tension.\nTeacher narrative: 'Carlos was visibly exhausted with slow reflexes. Instead of abandoning the session, he documented the interview quietly and noted in his diary how fatigue made him appreciate the patience of elders.'",
-            deltas: [
-              { axisIdx: 7, axis: "Metacognitive reflection", delta: "+2.3 dB (Amplified)", val: 2.3, quote: "profound self-awareness: reflected on how physical frailty opened empathetic rapport" },
-              { axisIdx: 6, axis: "Resilience & self-management", delta: "+1.8 dB", val: 1.8, quote: "sustained focus and respectful presence under severe sleep deficit" },
-              { axisIdx: 3, axis: "Intercultural agency", delta: "+1.4 dB", val: 1.4, quote: "patient ethnographic listening despite metabolic exhaustion" },
-              { axisIdx: 0, axis: "Inquisitiveness & investigation", delta: "0.0 dB (Protected)", val: 0.0, quote: "speed of inquiry not evaluated; shielded from cognitive deficit label" }
-            ],
-            polygon: [6.0, 6.0, 6.0, 7.4, 6.0, 6.0, 7.8, 8.3]
-          }
+      es: {
+        optimal: {
+          triage: "Registro sociofisiológico: Sueño / descanso: > 7 horas (óptimo) | Alimentación / nutrición: Completa (adecuada)",
+          statusText: "🟢 Semáforo VERDE — Condición Óptima: Condición sociofisiológica basal estable.",
+          statusColor: "#3fb950",
+          deltas: [
+            { axisIdx: 0, axis: "Indagación e investigación", delta: "+1.2 dB", val: 1.2, quote: "ajuste empírico de densidad de arena tras fallo en la prueba" },
+            { axisIdx: 1, axis: "Pensamiento crítico y analítico", delta: "+1.0 dB", val: 1.0, quote: "identificación técnica de causa de flujo lento y corrección" },
+            { axisIdx: 2, axis: "Razonamiento ético", delta: "+1.4 dB", val: 1.4, quote: "resolvió conflicto escuchando a compañeras y priorizó la meta grupal" },
+            { axisIdx: 3, axis: "Agencia intercultural", delta: "+0.8 dB", val: 0.8, quote: "coordinación respetuosa del equipo sin imposición jerárquica" },
+            { axisIdx: 4, axis: "Liderazgo colaborativo", delta: "+1.6 dB", val: 1.6, quote: "redistribución activa de tareas ante distracción del grupo" },
+            { axisIdx: 5, axis: "Saber hacer y ejecución técnica", delta: "+1.7 dB", val: 1.7, quote: "calibración física de materiales y reducción de capa del filtro" },
+            { axisIdx: 6, axis: "Resiliencia y autogestión", delta: "+1.2 dB", val: 1.2, quote: "superación del fallo inicial en la prueba sin abandono de tarea" },
+            { axisIdx: 7, axis: "Reflexión metacognitiva", delta: "+1.0 dB", val: 1.0, quote: "monitoreo consciente y autorregulación del proceso de diseño" }
+          ],
+          polygon: [6.8, 6.7, 7.0, 6.5, 7.1, 7.2, 6.8, 6.7]
         },
-        es: {
-          name: "Escenario 2: Carlos — Archivos comunitarios e interculturales",
-          optimal: {
-            note: "Estudiante: Carlos | Grado: 11º\nTriaje de educabilidad: Sueño: 8.0h (Descansado) | Desayuno: Sí | Somático: Confort pleno.\nNota docente: 'Carlos entrevistó a ancianos del barrio en su lengua originaria. Al fallar su grabadora, registró notas de campo a mano y contrastó la memoria oral con los registros oficiales.'",
-            deltas: [
-              { axisIdx: 3, axis: "Agencia intercultural", delta: "+2.6 dB", val: 2.6, quote: "tradujo testimonios originarios con respeto y sentido comunitario" },
-              { axisIdx: 7, axis: "Reflexión metacognitiva", delta: "+1.9 dB", val: 1.9, quote: "contrastó el relato oral frente a las omisiones del libro de texto" },
-              { axisIdx: 0, axis: "Indagación e investigación", delta: "+1.4 dB", val: 1.4, quote: "protocolos autónomos de recolección cualitativa en campo" },
-              { axisIdx: 6, axis: "Resiliencia y autogestión", delta: "+1.1 dB", val: 1.1, quote: "resolvió la contingencia técnica tomando notas manuales sin dudar" }
-            ],
-            polygon: [7.4, 6.0, 6.0, 8.6, 6.0, 6.0, 7.1, 7.9]
-          },
-          compromised: {
-            note: "Estudiante: Carlos | Grado: 11º\nTriaje de educabilidad: Sueño: 4.0h (Insomnio severo) | Desayuno: Incompleto | Somático: Fatiga física aguda y cefalea tensional.\nNota docente: 'Carlos llegó con agotamiento extremo y lentitud motriz. En lugar de abandonar la entrevista, escuchó en silencio y anotó en su diario cómo su propia fragilidad le ayudó a valorar la paciencia de los abuelos.'",
-            deltas: [
-              { axisIdx: 7, axis: "Reflexión metacognitiva", delta: "+2.3 dB (Amplificación reflexiva)", val: 2.3, quote: "introspección profunda: reconoció cómo su cansancio corporal abrió un canal de empatía" },
-              { axisIdx: 6, axis: "Resiliencia y autogestión", delta: "+1.8 dB", val: 1.8, quote: "mantuvo compostura ética y respeto comunitario bajo privación de sueño" },
-              { axisIdx: 3, axis: "Agencia intercultural", delta: "+1.4 dB", val: 1.4, quote: "escucha etnográfica compasiva sin imponer prisas" },
-              { axisIdx: 0, axis: "Indagación e investigación", delta: "0.0 dB (Protegido)", val: 0.0, quote: "ritmo de recolección no penalizado; amparo frente a etiquetas de desinterés" }
-            ],
-            polygon: [6.0, 6.0, 6.0, 7.4, 6.0, 6.0, 7.8, 8.3]
-          }
+        compromised: {
+          triage: "Registro sociofisiológico: Sueño / descanso: < 5 horas (vulnerabilidad severa) | Alimentación / nutrición: Ayuno (vulnerabilidad severa)",
+          statusText: "🟡 Semáforo AMARILLO — Atención Pedagógica: Priorizar el cuidado somático y considerar el desgaste biológico. Mérito volitivo amplificado en Resiliencia (+2.4 dB) y blindaje absoluto ante errores de prueba.",
+          statusColor: "#e3b341",
+          deltas: [
+            { axisIdx: 0, axis: "Indagación e investigación", delta: "+1.2 dB", val: 1.2, quote: "ajuste empírico mantenido; blindaje cognitivo basal ante fatiga" },
+            { axisIdx: 1, axis: "Pensamiento crítico y analítico", delta: "+1.0 dB", val: 1.0, quote: "análisis de causa raíz preservado; protegido ante sobrecarga compensatoria" },
+            { axisIdx: 2, axis: "Razonamiento ético", delta: "+1.4 dB", val: 1.4, quote: "inmunidad ética: mediación activa y escucha respetuosa plenamente preservadas" },
+            { axisIdx: 3, axis: "Agencia intercultural", delta: "+0.8 dB", val: 0.8, quote: "coordinación empática sostenida sin fricciones de convivencia" },
+            { axisIdx: 4, axis: "Liderazgo colaborativo", delta: "+1.6 dB", val: 1.6, quote: "rearticulación de tareas sostenida a pesar del desgaste físico" },
+            { axisIdx: 5, axis: "Saber hacer y ejecución técnica", delta: "+1.7 dB", val: 1.7, quote: "calibración manual completada; blindaje total ante fallo técnico inicial" },
+            { axisIdx: 6, axis: "Resiliencia y autogestión", delta: "+2.4 dB", val: 2.4, quote: "alta regulación volitiva: superó el fallo inicial bajo vulnerabilidad somática ⚡ [Amplificado por resiliencia sociofisiológica]" },
+            { axisIdx: 7, axis: "Reflexión metacognitiva", delta: "+1.0 dB", val: 1.0, quote: "autocorrección reflexiva mantenida ante el desgaste físico" }
+          ],
+          polygon: [6.8, 6.7, 7.0, 6.5, 7.1, 7.2, 8.4, 6.7]
         }
       }
     };
 
-    let currentLocale = 'en';
-    let educabilityState = 'optimal';
+    let currentLocale = "en";
+    let educabilityState = "optimal";
+    let isSimulationActive = false;
     let currentDeltas = [];
     let currentPoly = [];
-    let secondaryKeys = ['ar', 'he', 'zh', 'hi', 'fr', 'nah', 'zu', 'ja'];
-    let secondaryIdx = 0;
-    let isAnalyzed = false;
 
+    let quoteKeys = Object.keys(QUOTES);
     function shuffleArray(arr) {
       for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [arr[i], arr[j]] = [arr[j], arr[i]];
       }
     }
-    shuffleArray(secondaryKeys);
+    shuffleArray(quoteKeys);
+    let quoteIdx = 0;
 
     function updateQuoteTicker() {
-      const qKey = secondaryKeys[secondaryIdx];
+      const qKey = quoteKeys[quoteIdx];
       const qObj = QUOTES[qKey];
-      const tLang = document.getElementById('tickerLang');
-      const tText = document.getElementById('tickerText');
-      
-      tLang.style.opacity = 0;
-      tText.style.opacity = 0;
-      setTimeout(() => {
-        tLang.textContent = qObj.lang;
-        tText.textContent = qObj.text;
-        tLang.style.opacity = 1;
-        tText.style.opacity = 1;
-      }, 350);
+      const quoteEl = document.getElementById("primaryQuote");
+      if (!quoteEl) return;
+      const isRtl = (qKey === "ar" || qKey === "he");
+      const langName = LANG_LABELS[currentLocale][qKey] || qKey;
 
-      secondaryIdx = (secondaryIdx + 1) % secondaryKeys.length;
-      if (secondaryIdx === 0) shuffleArray(secondaryKeys);
+      quoteEl.style.opacity = 0;
+
+      setTimeout(() => {
+        quoteEl.setAttribute("dir", isRtl ? "rtl" : "ltr");
+        quoteEl.style.direction = isRtl ? "rtl" : "ltr";
+        quoteEl.innerHTML = `${qObj.text} <span class="quote-sub">(${langName})</span>`;
+        quoteEl.style.opacity = 1;
+
+        quoteIdx = (quoteIdx + 1) % quoteKeys.length;
+        if (quoteIdx === 0) shuffleArray(quoteKeys);
+      }, 350);
     }
-    setInterval(updateQuoteTicker, 11000);
+    setInterval(updateQuoteTicker, 9000);
 
     function setLocale(loc) {
       currentLocale = loc;
-      document.getElementById('btn-en').classList.toggle('active', loc === 'en');
-      document.getElementById('btn-es').classList.toggle('active', loc === 'es');
+      document.getElementById("btn-en").classList.toggle("active", loc === "en");
+      document.getElementById("btn-es").classList.toggle("active", loc === "es");
 
       const data = CONTENT[loc];
-      document.getElementById('appDescriptor').textContent = data.descriptor;
-      document.getElementById('primaryQuote').textContent = QUOTES[loc].text;
+      document.getElementById("pageTitle").textContent = data.pageTitle;
+      document.getElementById("mainHeading").innerHTML = data.heading;
+      document.getElementById("appDescriptor").textContent = data.descriptor;
 
-      document.getElementById('tab-btn-vision').textContent = data.tabs.vision;
-      document.getElementById('tab-btn-architecture').textContent = data.tabs.architecture;
-      document.getElementById('tab-btn-ethos').textContent = data.tabs.ethos;
-      document.getElementById('tab-btn-prototype').textContent = data.tabs.prototype;
+      document.getElementById("tab-btn-vision").textContent = data.tabs.vision;
+      document.getElementById("tab-btn-architecture").textContent = data.tabs.architecture;
+      document.getElementById("tab-btn-ethos").textContent = data.tabs.ethos;
+      document.getElementById("tab-btn-prototype").textContent = data.tabs.prototype;
+      document.getElementById("tab-btn-interface").textContent = data.tabs.interface;
 
-      document.getElementById('vision-content').innerHTML = data.vision;
-      document.getElementById('architecture-content').innerHTML = data.architecture;
-      document.getElementById('ethos-content').innerHTML = data.ethos;
-      document.getElementById('sandbox-intro').innerHTML = data.sandboxIntro;
+      document.getElementById("vision-content").innerHTML = data.vision;
+      document.getElementById("architecture-content").innerHTML = data.architecture;
+      document.getElementById("ethos-content").innerHTML = data.ethos;
+      document.getElementById("sandbox-intro").innerHTML = data.sandboxIntro;
 
-      document.getElementById('btnRunSandbox').textContent = data.btnRun;
-      document.getElementById('th-axis').textContent = data.thAxis;
-      document.getElementById('th-delta').textContent = data.thDelta;
-      document.getElementById('th-citation').textContent = data.thCitation;
-      document.getElementById('appScreenshotTitle').textContent = data.screenshotTitle;
-      document.getElementById('footerText').innerHTML = data.footer;
+      document.getElementById("btnRunSandbox").textContent = data.btnRun;
+      document.getElementById("th-axis").textContent = data.thAxis;
+      document.getElementById("th-delta").textContent = data.thDelta;
+      document.getElementById("th-citation").textContent = data.thCitation;
+      document.getElementById("lblState").textContent = data.lblState;
 
-      const altLoc = (loc === 'en') ? 'es' : 'en';
-      secondaryKeys = [altLoc, 'ar', 'he', 'zh', 'hi', 'fr', 'nah', 'zu', 'ja'];
-      shuffleArray(secondaryKeys);
-      secondaryIdx = 0;
-      updateQuoteTicker();
+      document.getElementById("interfaceTitle").textContent = data.interfaceTitle;
+      document.getElementById("interfaceDesc").textContent = data.interfaceDesc;
+      document.getElementById("footerText").innerHTML = data.footer;
 
-      const sel = document.getElementById('scenarioSelect');
-      sel.options[0].text = SCENARIOS_V2.maria[loc].name;
-      sel.options[1].text = SCENARIOS_V2.carlos[loc].name;
+      document.getElementById("btn-state-opt").textContent = (loc === "en") ? "Optimal" : "Óptimo";
+      document.getElementById("btn-state-comp").textContent = (loc === "en") ? "Compromised" : "Comprometido";
 
-      document.getElementById('btn-state-opt').textContent = (loc === 'en') ? "Optimal" : "Óptimo";
-      document.getElementById('btn-state-comp').textContent = (loc === 'en') ? "Compromised" : "Comprometido";
-      
-      resetSandboxUI();
+      if (isSimulationActive) {
+        updateSimulationVisuals();
+      } else {
+        renderSandbox();
+      }
     }
 
     function switchTab(tabId) {
-      const activeBtn = document.getElementById('tab-btn-' + tabId);
-      const isAlreadyActive = activeBtn.classList.contains('active');
+      const activeBtn = document.getElementById("tab-btn-" + tabId);
+      const activePanel = document.getElementById(tabId);
+      const isAlreadyActive = activeBtn ? activeBtn.classList.contains("active") : false;
 
-      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-      document.querySelectorAll('.panel').forEach(panel => panel.classList.remove('active'));
+      document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.remove("active"));
+      document.querySelectorAll(".panel").forEach(panel => panel.classList.remove("active"));
 
-      if (!isAlreadyActive) {
-        activeBtn.classList.add('active');
-        document.getElementById(tabId).classList.add('active');
-        if (tabId === 'prototype' && !isAnalyzed) {
-          resetSandboxUI();
+      if (!isAlreadyActive && activeBtn && activePanel) {
+        activeBtn.classList.add("active");
+        activePanel.classList.add("active");
+        if (tabId === "prototype" && !isSimulationActive) {
+          renderSandbox();
         }
       }
     }
 
     function drawRadar(polyPoints) {
-      const svg = document.getElementById('radarSvg');
-      const cx = 170, cy = 170, r = 110;
+      const svg = document.getElementById("radarSvg");
+      if (!svg) return;
+      const cx = 230, cy = 150, r = 86;
       const axesCount = 8;
       const names = AXIS_NAMES[currentLocale];
-      let out = '';
+      let out = "";
 
-      [0.25, 0.5, 0.75, 1.0].forEach(factor => {
+      [0.5, 1.0].forEach(factor => {
         let pts = [];
         for (let i = 0; i < axesCount; i++) {
           const angle = (Math.PI * 2 / axesCount) * i - Math.PI / 2;
           pts.push(`${cx + Math.cos(angle) * r * factor},${cy + Math.sin(angle) * r * factor}`);
         }
-        out += `<polygon points="${pts.join(' ')}" fill="none" stroke="#262f3d" stroke-width="1"/>`;
+        out += `<polygon points="${pts.join(" ")}" fill="none" stroke="#262f3d" stroke-width="1.2"/>`;
       });
 
       for (let i = 0; i < axesCount; i++) {
@@ -935,31 +948,31 @@
         const y2 = cy + Math.sin(angle) * r;
         out += `<line x1="${cx}" y1="${cy}" x2="${x2}" y2="${y2}" stroke="#262f3d" stroke-width="1"/>`;
 
-        const lx = cx + Math.cos(angle) * (r + 20);
-        const ly = cy + Math.sin(angle) * (r + 14);
+        const lx = cx + Math.cos(angle) * (r + 18);
+        const ly = cy + Math.sin(angle) * (r + 12);
         let anchor = "middle";
         if (Math.cos(angle) > 0.3) anchor = "start";
         else if (Math.cos(angle) < -0.3) anchor = "end";
-        out += `<text x="${lx}" y="${ly}" fill="#8b949e" font-size="9.5" text-anchor="${anchor}" alignment-baseline="middle" font-family="-apple-system, sans-serif">${names[i]}</text>`;
+        out += `<text x="${lx}" y="${ly}" fill="#8b949e" font-size="9" text-anchor="${anchor}" alignment-baseline="middle" font-family="-apple-system, sans-serif">${names[i]}</text>`;
       }
 
       let basePts = [];
       for (let i = 0; i < axesCount; i++) {
         const angle = (Math.PI * 2 / axesCount) * i - Math.PI / 2;
-        basePts.push(`${cx + Math.cos(angle) * r * 0.55},${cy + Math.sin(angle) * r * 0.55}`);
+        basePts.push(`${cx + Math.cos(angle) * r * 0.5},${cy + Math.sin(angle) * r * 0.5}`);
       }
-      out += `<polygon points="${basePts.join(' ')}" fill="rgba(255,255,255,0.02)" stroke="#5c6570" stroke-dasharray="3,3" stroke-width="1.2"/>`;
+      out += `<polygon points="${basePts.join(" ")}" fill="rgba(255,255,255,0.02)" stroke="#5c6570" stroke-dasharray="3,3" stroke-width="1.2"/>`;
 
       if (polyPoints) {
         let activePts = [];
         for (let i = 0; i < axesCount; i++) {
           const angle = (Math.PI * 2 / axesCount) * i - Math.PI / 2;
-          const val = (polyPoints[i] || 5.5) / 10;
+          const val = (polyPoints[i] || 5.0) / 10;
           activePts.push(`${cx + Math.cos(angle) * r * val},${cy + Math.sin(angle) * r * val}`);
         }
-        out += `<polygon points="${activePts.join(' ')}" fill="rgba(88, 166, 255, 0.28)" stroke="#58a6ff" stroke-width="2"/>`;
+        out += `<polygon points="${activePts.join(" ")}" fill="rgba(88, 166, 255, 0.28)" stroke="#58a6ff" stroke-width="2"/>`;
         activePts.forEach(pt => {
-          const [px, py] = pt.split(',');
+          const [px, py] = pt.split(",");
           out += `<circle cx="${px}" cy="${py}" r="3.5" fill="#58a6ff"/>`;
         });
       }
@@ -969,96 +982,109 @@
 
     function setEducabilityState(state) {
       educabilityState = state;
-      document.getElementById('btn-state-opt').classList.toggle('active', state === 'optimal');
-      document.getElementById('btn-state-comp').classList.toggle('active', state === 'compromised');
-      resetSandboxUI();
+      document.getElementById("btn-state-opt").classList.toggle("active", state === "optimal");
+      document.getElementById("btn-state-comp").classList.toggle("active", state === "compromised");
+      
+      if (isSimulationActive) {
+        updateSimulationVisuals();
+      } else {
+        renderSandbox();
+      }
     }
 
-    function resetSandboxUI() {
-      isAnalyzed = false;
-      const sKey = document.getElementById('scenarioSelect').value;
-      const s = SCENARIOS_V2[sKey][currentLocale][educabilityState];
-      document.getElementById('sandboxNoteBox').textContent = s.note;
+    function renderSandbox() {
+      const data = SANDBOX_DATA[currentLocale][educabilityState];
+      const noteBox = document.getElementById("sandboxNoteBox");
+      const lines = MARIA_NOTE[currentLocale].split("\n");
+      noteBox.innerHTML = `<strong>${lines[0]}</strong><br><span style="color:var(--text-dim); font-size:0.82rem;">${data.triage}</span><br><br><span style="color:var(--text-muted); font-size:0.8rem; text-transform:uppercase; letter-spacing:0.04em;">${lines[1]}</span><br><span style="font-style:italic;">${lines[2]}</span>`;
 
-      const tbody = document.getElementById('deltaTableBody');
+      const tbody = document.getElementById("deltaTableBody");
       tbody.innerHTML = `<tr><td colspan="3" class="table-idle">${CONTENT[currentLocale].idleText}</td></tr>`;
       
-      document.getElementById('teacherAdjustBox').style.display = 'none';
+      const statusBox = document.getElementById("sandboxStatusBox");
+      if (statusBox) statusBox.style.display = "none";
+      const adjustBox = document.getElementById("teacherAdjustBox");
+      if (adjustBox) adjustBox.style.display = "none";
       drawRadar(null);
     }
 
     function runSandboxSimulation() {
-      const btn = document.getElementById('btnRunSandbox');
-      const origText = btn.textContent;
-      btn.textContent = (currentLocale === 'en') ? "Visualizing..." : "Visualizando...";
-      btn.style.opacity = 0.6;
-
-      setTimeout(() => {
-        isAnalyzed = true;
-        const sKey = document.getElementById('scenarioSelect').value;
-        const s = SCENARIOS_V2[sKey][currentLocale][educabilityState];
-
-        currentPoly = [...s.polygon];
-        currentDeltas = s.deltas.map(d => ({ ...d }));
-
-        renderDeltaTable();
-        drawRadar(currentPoly);
-        buildTeacherSliders();
-
-        btn.textContent = origText;
-        btn.style.opacity = 1;
-      }, 300);
+      isSimulationActive = true;
+      updateSimulationVisuals();
     }
 
     function renderDeltaTable() {
-      const tbody = document.getElementById('deltaTableBody');
-      tbody.innerHTML = '';
+      const tbody = document.getElementById("deltaTableBody");
+      if (!tbody) return;
+      tbody.innerHTML = "";
       currentDeltas.forEach(d => {
-        const tr = document.createElement('tr');
+        const tr = document.createElement("tr");
         tr.innerHTML = `<td><strong>${d.axis}</strong></td><td class="delta-val">${d.delta}</td><td style="color:#8b949e"><em>“${d.quote}”</em></td>`;
         tbody.appendChild(tr);
       });
     }
 
     function buildTeacherSliders() {
-      const box = document.getElementById('teacherAdjustBox');
-      const container = document.getElementById('sliderControls');
-      container.innerHTML = '';
+      const box = document.getElementById("teacherAdjustBox");
+      const container = document.getElementById("sliderControls");
+      if (!box || !container) return;
+      container.innerHTML = "";
 
       currentDeltas.forEach((d, idx) => {
-        if (d.val === 0 && educabilityState === 'compromised') return;
-        const row = document.createElement('div');
-        row.style.display = 'flex';
-        row.style.justifyContent = 'space-between';
-        row.style.alignItems = 'center';
-        row.style.gap = '10px';
+        const row = document.createElement("div");
+        row.style.display = "flex";
+        row.style.justifyContent = "space-between";
+        row.style.alignItems = "center";
+        row.style.gap = "10px";
 
         row.innerHTML = `
-          <span style="font-size:0.78rem; color:#c9d1d9; flex:1;">${d.axis}</span>
+          <span style="font-size:0.78rem; color:#c9d1d9; flex:1.2; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${d.axis}</span>
           <input type="range" min="0" max="40" value="${Math.round(d.val * 10)}" style="flex:1; accent-color:#58a6ff; cursor:pointer;" oninput="updateTeacherDelta(${idx}, this.value)">
-          <span id="slider-val-${idx}" style="font-size:0.78rem; font-family:monospace; color:#3fb950; width:45px; text-align:right;">+${d.val.toFixed(1)} dB</span>
+          <span id="slider-val-${idx}" style="font-size:0.78rem; font-family:monospace; color:#3fb950; width:52px; text-align:right;">+${d.val.toFixed(1)} dB</span>
         `;
         container.appendChild(row);
       });
 
-      document.getElementById('teacherAdjustTitle').textContent = 
-        (currentLocale === 'en') ? "Teacher calibration & sovereign override" : "Calibración y validación soberana docente";
-      box.style.display = 'block';
+      document.getElementById("teacherAdjustTitle").textContent = 
+        (currentLocale === "en") ? "Teacher calibration & sovereign override" : "Calibración y validación soberana docente";
+      box.style.display = "block";
     }
 
     function updateTeacherDelta(deltaIdx, rawVal) {
       const val = rawVal / 10;
       currentDeltas[deltaIdx].val = val;
       currentDeltas[deltaIdx].delta = `+${val.toFixed(1)} dB`;
-      document.getElementById(`slider-val-${deltaIdx}`).textContent = `+${val.toFixed(1)} dB`;
+      const valLabel = document.getElementById(`slider-val-${deltaIdx}`);
+      if (valLabel) valLabel.textContent = `+${val.toFixed(1)} dB`;
 
       const targetAxis = currentDeltas[deltaIdx].axisIdx;
-      currentPoly[targetAxis] = 5.5 + (val * 1.2);
+      currentPoly[targetAxis] = 5.0 + (val * 1.2);
       drawRadar(currentPoly);
       renderDeltaTable();
     }
 
-    setLocale('en');
+    function updateSimulationVisuals() {
+      const data = SANDBOX_DATA[currentLocale][educabilityState];
+      currentDeltas = data.deltas.map(d => ({ ...d }));
+      currentPoly = [...data.polygon];
+
+      const noteBox = document.getElementById("sandboxNoteBox");
+      const lines = MARIA_NOTE[currentLocale].split("\n");
+      noteBox.innerHTML = `<strong>${lines[0]}</strong><br><span style="color:var(--accent-blue); font-size:0.82rem; font-weight:500;">${data.triage}</span><br><br><span style="color:var(--text-muted); font-size:0.8rem; text-transform:uppercase; letter-spacing:0.04em;">${lines[1]}</span><br><span style="font-style:italic;">${lines[2]}</span>`;
+
+      renderDeltaTable();
+      drawRadar(currentPoly);
+      buildTeacherSliders();
+
+      const statusBox = document.getElementById("sandboxStatusBox");
+      if (statusBox) {
+        statusBox.style.display = "block";
+        statusBox.style.borderColor = data.statusColor;
+        statusBox.innerHTML = `<span style="font-size:0.82rem; color:${data.statusColor}; font-weight:600;">${data.statusText}</span>`;
+      }
+    }
+
+    setLocale("en");
   </script>
 
 </body>
