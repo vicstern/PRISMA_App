@@ -381,7 +381,84 @@
       .sandbox-viz { grid-template-columns: 1fr; }
       footer { margin-top: auto; padding: 20px 0 10px; }
     }
-  </style>
+  
+/* Refracción óptica PRISMA: Luz blanca -> Dispersión espectral */
+.refraction-text {
+  background: linear-gradient(
+    90deg,
+    #FFFFFF 0%,
+    #FFFFFF 38%,
+    #F1F5F9 45%,
+    #C084FC 55%,
+    #60A5FA 63%,
+    #38BDF8 71%,
+    #4ADE80 79%,
+    #FACC15 87%,
+    #FB923C 94%,
+    #F87171 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: inline;
+}
+
+.quote-doi {
+  color: #64748B;
+  font-style: normal;
+  font-size: 0.75rem;
+  margin-left: 0.5rem;
+  -webkit-text-fill-color: #64748B;
+}
+
+
+/* Refracción óptica directa sobre la cita principal */
+#primaryQuote, p.primary-quote {
+  background: linear-gradient(
+    90deg,
+    #FFFFFF 0%,
+    #FFFFFF 28%,
+    #E2E8F0 36%,
+    #C084FC 48%,  /* Violeta */
+    #60A5FA 58%,  /* Azul */
+    #38BDF8 68%,  /* Cian */
+    #4ADE80 78%,  /* Verde */
+    #FACC15 86%,  /* Amarillo */
+    #FB923C 93%,  /* Naranja */
+    #F87171 100%  /* Rojo */
+  ) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
+  display: inline-block !important;
+}
+
+
+/* Refracción óptica sutil ("light") para las traducciones rotativas */
+#tickerText {
+  background: linear-gradient(
+    90deg,
+    #94A3B8 0%,
+    #CBD5E1 30%,
+    #D8B4FE 45%,  /* Lavanda suave */
+    #93C5FD 55%,  /* Azul pastel */
+    #67E8F9 65%,  /* Cian tenue */
+    #86EFAC 75%,  /* Menta suave */
+    #FDE047 84%,  /* Vainilla / oro tenue */
+    #FDBA74 92%,  /* Melocotón suave */
+    #FCA5A5 100%  /* Coral pastel */
+  ) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
+  display: inline-block !important;
+  opacity: 0.82 !important;
+}
+
+</style>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="ee5c2cc1-ee34-492a-8997-c454e193ff8c"></script>
 </head>
 <body>
@@ -513,7 +590,7 @@
             <strong>Symbiotic coexistence:</strong> PRISMA does not replace statutory institutional grading. Rather, it operates alongside mandated administrative records as a qualitative companion layer, turning bureaucratic compliance into rich developmental insight without generating double-work for teachers.
           </div>
 
-          <p><strong>PRISMA™</strong> (Plataforma de Reflexión e Interpretación para el Seguimiento Multidimensional del Aprendizaje), grounded in the ASPIRE® research framework (PRISM: Portable Record of Integrated Skills & Mastery), treats assessment as an act of spectral refraction. By analyzing unstructured natural-language observations, PRISMA projects growth onto an eight-dimensional vector space (ℝ⁸) synthesized from premier international inquiry frameworks and community-rooted educational standards.</p>
+          <p><strong>PRISMA™</strong> (Plataforma de Reflexión e Interpretación para el Seguimiento Multidimensional del Aprendizaje), grounded in the <strong>ASPIRE®</strong> research framework (<em>AI-Synthesised Portal for Integrated Readiness & Excellence</em>), treats assessment as an act of spectral refraction. By analyzing unstructured natural-language observations, PRISMA projects growth onto an eight-dimensional vector space (ℝ⁸) synthesized from premier international inquiry frameworks and community-rooted educational standards.</p>
 
           <h3>The four cybernetic quadrants</h3>
           <ul>
