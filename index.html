@@ -18,7 +18,6 @@
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     
-    /* DESKTOP VIEWPORT LOCK */
     html, body {
       height: 100%;
       overflow: hidden;
@@ -31,11 +30,11 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 16px 20px 0;
+      padding: 16px 20px 10px;
       position: relative;
     }
 
-    /* FLOATING COMPACT LANGUAGE SWITCHER */
+    /* FLOATING LANGUAGE SWITCHER */
     .top-bar {
       position: absolute;
       top: 16px;
@@ -65,7 +64,7 @@
       color: #ffffff;
     }
 
-    /* HEADER ZONE (STREAMLINED ~18-20% VIEWPORT) */
+    /* HEADER WRAPPER */
     .header-wrapper {
       width: 100%;
       max-width: 920px;
@@ -103,7 +102,7 @@
       font-weight: 500;
     }
 
-    /* COMPACT QUOTE BOX (54PX STRICT HEIGHT ON DESKTOP) */
+    /* FIXED-HEIGHT QUOTE BOX */
     .quote-box {
       height: 54px;
       display: flex;
@@ -141,7 +140,7 @@
       letter-spacing: 0.04em;
     }
 
-    /* SLIM BUTTON DOCK */
+    /* BUTTONS DOCK */
     .tabs-dock {
       display: flex;
       flex-wrap: wrap;
@@ -178,7 +177,7 @@
       flex: 1;
       overflow-y: auto;
       padding-right: 6px;
-      padding-bottom: 32px;
+      padding-bottom: 16px;
       scrollbar-width: thin;
       scrollbar-color: var(--border) transparent;
     }
@@ -199,7 +198,7 @@
       line-height: 1.65;
       text-align: left;
       animation: fadeIn 0.25s ease;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
     .panel.active { display: block; }
     @keyframes fadeIn {
@@ -331,25 +330,30 @@
     }
     .preview-card img { width: 100%; height: auto; display: block; }
     
+    /* PINNED DOCKED FOOTER */
     footer {
-      padding: 24px 0 12px;
-      font-size: 0.78rem;
+      flex-shrink: 0;
+      width: 100%;
+      max-width: 920px;
+      padding: 10px 0 4px;
+      font-size: 0.74rem;
       color: var(--text-dim);
       text-align: center;
-      line-height: 1.7;
+      line-height: 1.6;
     }
     footer a { color: var(--accent-blue); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
-    /* MOBILE BREAKPOINT — NATURAL FLUID SCROLL */
+    /* MOBILE BREAKPOINT */
     @media (max-width: 768px) {
       html, body {
         height: auto;
+        min-height: 100%;
         overflow-y: auto;
         overflow-x: hidden;
       }
       body {
-        padding: 12px 14px 24px;
+        padding: 12px 14px 20px;
       }
       .top-bar {
         position: static;
@@ -357,9 +361,6 @@
         display: flex;
         justify-content: flex-end;
         margin-bottom: 6px;
-      }
-      .header-wrapper {
-        padding-top: 0;
       }
       .quote-box {
         height: auto;
@@ -391,6 +392,10 @@
       }
       .sandbox-viz {
         grid-template-columns: 1fr;
+      }
+      footer {
+        margin-top: auto;
+        padding: 20px 0 10px;
       }
     }
   </style>
@@ -483,14 +488,11 @@
       </div>
     </div>
 
-    <footer>
-      <span id="footerText">
-        Aula Viva® &bull; Independent research &bull; Grounded in <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">SSRN DOI: 10.2139/ssrn.7310080</a><br>
-        Registered intellectual property: INDAUTOR 03-2026-040710022300-01
-      </span>
-    </footer>
-
   </div>
+
+  <footer>
+    <span id="footerText"></span>
+  </footer>
 
   <script>
     const QUOTES = {
@@ -572,7 +574,7 @@
         thCitation: "Traceable evidence",
         idleText: "Select a scenario and click &ldquo;Run synthetic analysis & projection&rdquo; to project the vector coordinates.",
         screenshotTitle: "On-device capture interface",
-        footer: `Aula Viva® &bull; Independent research &bull; Grounded in <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">SSRN DOI: 10.2139/ssrn.7310080</a><br>Registered intellectual property: INDAUTOR 03-2026-040710022300-01`
+        footer: `Aula Viva® &bull; Systems architecture & research by Víctor Stern Rodríguez<br>Grounded in <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">SSRN DOI: 10.2139/ssrn.7310080</a> &bull; INDAUTOR Reg. 03-2026-040710022300-01<br>&copy; 2026 Víctor Stern Rodríguez &bull; Grupo SiEFH (Sistemas Educativos para el Florecimiento Humano S.A.S.). All rights reserved.`
       },
       es: {
         descriptor: "PRISMA™ — IA local para la evaluación cualitativa en ℝ⁸",
@@ -639,7 +641,7 @@
         thCitation: "Evidencia trazable",
         idleText: "Selecciona un escenario y presiona &ldquo;Ejecutar análisis sintético y proyección&rdquo; para proyectar las coordenadas.",
         screenshotTitle: "Interfaz de captura en el dispositivo",
-        footer: `Aula Viva® &bull; Investigación independiente &bull; Basado en <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">SSRN DOI: 10.2139/ssrn.7310080</a><br>Registro de propiedad intelectual: INDAUTOR 03-2026-040710022300-01`
+        footer: `Aula Viva® &bull; Arquitectura de sistemas e investigación por Víctor Stern Rodríguez<br>Basado en <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">SSRN DOI: 10.2139/ssrn.7310080</a> &bull; Registro INDAUTOR: 03-2026-040710022300-01<br>&copy; 2026 Víctor Stern Rodríguez &bull; Grupo SiEFH (Sistemas Educativos para el Florecimiento Humano S.A.S.). Todos los derechos reservados.`
       }
     };
 
@@ -862,7 +864,6 @@
       }, 350);
     }
 
-    // Initialize English view with no tabs open
     setLocale('en');
   </script>
 
