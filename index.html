@@ -34,7 +34,6 @@
       position: relative;
     }
 
-    /* FLOATING LANGUAGE SWITCHER */
     .top-bar {
       position: absolute;
       top: 16px;
@@ -64,7 +63,6 @@
       color: #ffffff;
     }
 
-    /* HEADER WRAPPER */
     .header-wrapper {
       width: 100%;
       max-width: 920px;
@@ -102,7 +100,6 @@
       font-weight: 500;
     }
 
-    /* FIXED-HEIGHT QUOTE BOX */
     .quote-box {
       height: 54px;
       display: flex;
@@ -140,7 +137,6 @@
       letter-spacing: 0.04em;
     }
 
-    /* BUTTONS DOCK */
     .tabs-dock {
       display: flex;
       flex-wrap: wrap;
@@ -170,7 +166,6 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.5);
     }
 
-    /* INDEPENDENT SCROLL STAGE */
     .content-stage {
       max-width: 920px;
       width: 100%;
@@ -181,9 +176,7 @@
       scrollbar-width: thin;
       scrollbar-color: var(--border) transparent;
     }
-    .content-stage::-webkit-scrollbar {
-      width: 6px;
-    }
+    .content-stage::-webkit-scrollbar { width: 6px; }
     .content-stage::-webkit-scrollbar-thumb {
       background: var(--border);
       border-radius: 4px;
@@ -239,6 +232,7 @@
       font-size: 0.88rem;
       color: #c9d1d9;
     }
+
     .sandbox-container {
       background: var(--card-inner);
       border: 1px solid var(--border);
@@ -285,6 +279,7 @@
       color: #8b949e;
       font-family: monospace;
       line-height: 1.45;
+      white-space: pre-line;
     }
     .sandbox-viz {
       display: grid;
@@ -330,7 +325,6 @@
     }
     .preview-card img { width: 100%; height: auto; display: block; }
     
-    /* PINNED DOCKED FOOTER */
     footer {
       flex-shrink: 0;
       width: 100%;
@@ -344,7 +338,6 @@
     footer a { color: var(--accent-blue); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
-    /* MOBILE BREAKPOINT */
     @media (max-width: 768px) {
       html, body {
         height: auto;
@@ -352,9 +345,7 @@
         overflow-y: auto;
         overflow-x: hidden;
       }
-      body {
-        padding: 12px 14px 20px;
-      }
+      body { padding: 12px 14px 20px; }
       .top-bar {
         position: static;
         width: 100%;
@@ -386,17 +377,9 @@
         padding-right: 0;
         padding-bottom: 12px;
       }
-      .panel {
-        padding: 20px 16px;
-        border-radius: 12px;
-      }
-      .sandbox-viz {
-        grid-template-columns: 1fr;
-      }
-      footer {
-        margin-top: auto;
-        padding: 20px 0 10px;
-      }
+      .panel { padding: 20px 16px; border-radius: 12px; }
+      .sandbox-viz { grid-template-columns: 1fr; }
+      footer { margin-top: auto; padding: 20px 0 10px; }
     }
   </style>
 </head>
@@ -433,22 +416,18 @@
 
   <div class="content-stage">
 
-    <!-- TAB 1: VISION -->
     <div id="vision" class="panel">
       <div id="vision-content"></div>
     </div>
 
-    <!-- TAB 2: ARCHITECTURE -->
     <div id="architecture" class="panel">
       <div id="architecture-content"></div>
     </div>
 
-    <!-- TAB 3: ETHOS -->
     <div id="ethos" class="panel">
       <div id="ethos-content"></div>
     </div>
 
-    <!-- TAB 4: SANDBOX -->
     <div id="prototype" class="panel">
       <div id="sandbox-intro"></div>
 
@@ -485,10 +464,9 @@
               <tbody id="deltaTableBody"></tbody>
             </table>
 
-            <!-- TEACHER VALIDATION SLIDERS -->
             <div id="teacherAdjustBox" style="display:none; margin-top:16px; background:#0d1117; padding:12px 14px; border-radius:8px; border:1px solid var(--border);">
               <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--accent-blue); font-weight:600; margin-bottom:8px;" id="teacherAdjustTitle">
-                Teacher override & calibration
+                Teacher calibration & sovereign override
               </div>
               <div id="sliderControls" style="display:flex; flex-direction:column; gap:8px;"></div>
             </div>
@@ -582,11 +560,11 @@
             <strong>Demonstration notice:</strong> This browser sandbox runs a pre-recorded demonstration of PRISMA's algorithmic synthetic analysis and qualitative projection onto ℝ⁸. In live field deployments, all inferences execute 100% on-device via local <em>offline</em> SLMs (1.5B–7B) with zero internet connectivity.
           </div>
         `,
-        btnRun: "Visualize synthetic projection",
+        btnRun: "Visualize projection",
         thAxis: "Dimension (ℝ⁸)",
         thDelta: "Δ (dB)",
         thCitation: "Traceable evidence",
-        idleText: "Select a scenario and click &ldquo;Run synthetic analysis & projection&rdquo; to project the vector coordinates.",
+        idleText: "Select a scenario and click &ldquo;Visualize projection&rdquo; to project the vector coordinates.",
         screenshotTitle: "On-device capture interface",
         footer: `Aula Viva® &bull; Systems architecture & research by Víctor Stern Rodríguez<br>Grounded in <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">SSRN DOI: 10.2139/ssrn.7310080</a> &bull; INDAUTOR Reg. 03-2026-040710022300-01<br>&copy; 2026 Víctor Stern Rodríguez &bull; Grupo SiEFH (Sistemas Educativos para el Florecimiento Humano S.A.S.). All rights reserved.`
       },
@@ -653,70 +631,11 @@
         thAxis: "Dimensión (ℝ⁸)",
         thDelta: "Δ (dB)",
         thCitation: "Evidencia trazable",
-        idleText: "Selecciona un escenario y presiona &ldquo;Ejecutar análisis sintético y proyección&rdquo; para proyectar las coordenadas.",
+        idleText: "Selecciona un escenario y presiona &ldquo;Visualizar proyección&rdquo; para proyectar las coordenadas.",
         screenshotTitle: "Interfaz de captura en el dispositivo",
         footer: `Aula Viva® &bull; Arquitectura de sistemas e investigación por Víctor Stern Rodríguez<br>Basado en <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">SSRN DOI: 10.2139/ssrn.7310080</a> &bull; Registro INDAUTOR: 03-2026-040710022300-01<br>&copy; 2026 Víctor Stern Rodríguez &bull; Grupo SiEFH (Sistemas Educativos para el Florecimiento Humano S.A.S.). Todos los derechos reservados.`
       }
     };
-
-    const SCENARIOS = {
-      maria: {
-        en: {
-          name: "Scenario 1: María — STEAM filter & conflict resolution",
-          note: "Student: María | Grade: 10th\nEducability: Sleep: 7.5h (Good) | Breakfast: Yes | Somatic/Menstrual: No acute pain reported.\nTeacher narrative: 'Today María led the construction of the water filter prototype. She resolved an internal dispute within her team by listening attentively and adjusted the filtration materials after an initial test failure.'",
-          deltas: [
-            { axis: "Collaborative leadership", delta: "+2.0 dB", quote: "led the construction... resolved an internal dispute by listening attentively" },
-            { axis: "Resilience & self-management", delta: "+1.5 dB", quote: "adjusted the filtration materials after an initial test failure" },
-            { axis: "Critical & analytical thinking", delta: "+1.0 dB", quote: "deduced how materials should be restructured to prevent leaks" },
-            { axis: "Technical & professional expertise", delta: "+1.0 dB", quote: "practical functional assembly of STEAM prototype" }
-          ],
-          polygon: [6.5, 7.5, 6.0, 6.0, 8.0, 7.0, 7.5, 6.0]
-        },
-        es: {
-          name: "Escenario 1: María — Filtro STEAM y mediación de conflicto",
-          note: "Estudiante: María | Grado: 10º\nEducabilidad: Sueño: 7.5h (Óptimo) | Desayuno: Sí | Somático/Menstrual: Sin dolor agudo reportado.\nNota docente: 'Hoy María lideró la construcción del prototipo de filtro de agua. Resolvió un conflicto en su equipo escuchando a sus compañeras y ajustó los materiales tras un primer fallo en la prueba de filtración.'",
-          deltas: [
-            { axis: "Liderazgo colaborativo", delta: "+2.0 dB", quote: "lideró la construcción... resolvió un conflicto escuchando activamente" },
-            { axis: "Resiliencia y autogestión", delta: "+1.5 dB", quote: "ajustó los materiales tras un primer fallo en la prueba" },
-            { axis: "Pensamiento crítico y analítico", delta: "+1.0 dB", quote: "analizó la falla técnica y dedujo el ajuste de materiales" },
-            { axis: "Saber hacer y ejecución técnica", delta: "+1.0 dB", quote: "ensamblaje práctico de prototipo funcional STEAM" }
-          ],
-          polygon: [6.5, 7.5, 6.0, 6.0, 8.0, 7.0, 7.5, 6.0]
-        }
-      },
-      carlos: {
-        en: {
-          name: "Scenario 2: Carlos — Intercultural community archives",
-          note: "Student: Carlos | Grade: 11th\nEducability: Sleep: 5.0h (Mild fatigue) | Breakfast: Yes | Somatic/Menstrual: Muscle soreness from sports.\nTeacher narrative: 'Carlos conducted oral history interviews with neighborhood elders, translating testimonies from their native tongue. When his audio recorder malfunctioned, he kept field notes by hand and critically reflected on how official history omits communal struggles.'",
-          deltas: [
-            { axis: "Intercultural agency", delta: "+2.5 dB", quote: "interviews with elders, translating testimonies from native tongue" },
-            { axis: "Metacognitive reflection", delta: "+2.0 dB", quote: "critically reflected on how official history omits communal struggles" },
-            { axis: "Inquisitiveness & investigation", delta: "+1.5 dB", quote: "conducted oral history interviews, autonomous source gathering" },
-            { axis: "Resilience & self-management", delta: "+1.0 dB", quote: "when audio recorder malfunctioned, kept field notes by hand" }
-          ],
-          polygon: [7.5, 7.0, 7.0, 8.5, 6.0, 6.0, 7.0, 8.0]
-        },
-        es: {
-          name: "Escenario 2: Carlos — Archivos comunitarios e interculturales",
-          note: "Estudiante: Carlos | Grado: 11º\nEducabilidad: Sueño: 5.0h (Fatiga leve) | Desayuno: Sí | Somático/Menstrual: Cansancio físico por entrenamiento.\nNota docente: 'Carlos realizó entrevistas orales con ancianos del barrio, traduciendo testimonios desde su lengua materna. Cuando falló su grabadora, tomó notas de campo a mano y reflexionó críticamente sobre cómo la historia oficial omite las luchas comunitarias.'",
-          deltas: [
-            { axis: "Agencia intercultural", delta: "+2.5 dB", quote: "entrevistas con ancianos, traduciendo testimonios de lengua materna" },
-            { axis: "Reflexión metacognitiva", delta: "+2.0 dB", quote: "reflexionó críticamente sobre la omisión de luchas comunitarias" },
-            { axis: "Indagación e investigación", delta: "+1.5 dB", quote: "entrevistas de historia oral, rescate testimonial autónomo" },
-            { axis: "Resiliencia y autogestión", delta: "+1.0 dB", quote: "al fallar la grabadora continuó tomando notas a mano" }
-          ],
-          polygon: [7.5, 7.0, 7.0, 8.5, 6.0, 6.0, 7.0, 8.0]
-        }
-      }
-    };
-
-    let currentLocale = 'en';
-    let educabilityState = 'optimal';
-    let currentDeltas = [];
-    let currentPoly = [];
-    let secondaryKeys = ['ar', 'he', 'zh', 'hi', 'fr', 'nah', 'zu', 'ja'];
-    let secondaryIdx = 0;
-    let isAnalyzed = false;
 
     const AXIS_NAMES = {
       en: ["Inquiry", "Critical thinking", "Ethical reasoning", "Intercultural", "Leadership", "Technical skill", "Resilience", "Metacognition"],
@@ -728,9 +647,7 @@
         en: {
           name: "Scenario 1: María — STEAM filter & conflict resolution",
           optimal: {
-            note: "Student: María | Grade: 10th
-Educability triage: Sleep: 7.8h (Rested) | Breakfast: Complete | Somatic: No physical pain.
-Teacher narrative: 'María led the assembly of the biological filtration layer. When a disagreement stalled her group, she mediated calmly and redesigned the gravel mesh after an initial overflow.'",
+            note: "Student: María | Grade: 10th\nEducability triage: Sleep: 7.8h (Rested) | Breakfast: Complete | Somatic: No physical pain.\nTeacher narrative: 'María led the assembly of the biological filtration layer. When a disagreement stalled her group, she mediated calmly and redesigned the gravel mesh after an initial overflow.'",
             deltas: [
               { axisIdx: 4, axis: "Collaborative leadership", delta: "+2.2 dB", val: 2.2, quote: "mediated group disagreement calmly and facilitated consensus" },
               { axisIdx: 6, axis: "Resilience & self-management", delta: "+1.7 dB", val: 1.7, quote: "persevered through filter overflow without emotional frustration" },
@@ -740,9 +657,7 @@ Teacher narrative: 'María led the assembly of the biological filtration layer. 
             polygon: [6.0, 7.3, 6.0, 6.0, 8.2, 7.1, 7.7, 6.0]
           },
           compromised: {
-            note: "Student: María | Grade: 10th
-Educability triage: Sleep: 4.5h (Exhaustion) | Breakfast: None | Somatic: Severe acute menstrual pain reported.
-Teacher narrative: 'María arrived in visible physical pain from intense menstrual cramps. She spoke softly and was physically withdrawn, yet listened attentively to her team and offered the pivotal design correction that saved the prototype.'",
+            note: "Student: María | Grade: 10th\nEducability triage: Sleep: 4.5h (Exhaustion) | Breakfast: None | Somatic: Severe acute menstrual pain reported.\nTeacher narrative: 'María arrived in visible physical pain from intense menstrual cramps. She spoke softly and was physically withdrawn, yet listened attentively to her team and offered the pivotal design correction that saved the prototype.'",
             deltas: [
               { axisIdx: 6, axis: "Resilience & self-management", delta: "+2.4 dB (Somatic defense)", val: 2.4, quote: "exceptional fortitude: sustained emotional composure despite severe somatic cramping" },
               { axisIdx: 4, axis: "Collaborative leadership", delta: "+1.4 dB", val: 1.4, quote: "offered pivotal design guidance despite severe physical fatigue" },
@@ -755,9 +670,7 @@ Teacher narrative: 'María arrived in visible physical pain from intense menstru
         es: {
           name: "Escenario 1: María — Filtro STEAM y mediación de conflicto",
           optimal: {
-            note: "Estudiante: María | Grado: 10º
-Triaje de educabilidad: Sueño: 7.8h (Descanso óptimo) | Desayuno: Completo | Somático: Sin dolor físico.
-Nota docente: 'María lideró el ensamblaje de la capa biológica del filtro. Cuando un desacuerdo frenó al equipo, medió con calma y rediseñó la malla de grava tras un desbordamiento inicial.'",
+            note: "Estudiante: María | Grado: 10º\nTriaje de educabilidad: Sueño: 7.8h (Descanso óptimo) | Desayuno: Completo | Somático: Sin dolor físico.\nNota docente: 'María lideró el ensamblaje de la capa biológica del filtro. Cuando un desacuerdo frenó al equipo, medió con calma y rediseñó la malla de grava tras un desbordamiento inicial.'",
             deltas: [
               { axisIdx: 4, axis: "Liderazgo colaborativo", delta: "+2.2 dB", val: 2.2, quote: "medió el conflicto con calma y facilitó la toma de acuerdos" },
               { axisIdx: 6, axis: "Resiliencia y autogestión", delta: "+1.7 dB", val: 1.7, quote: "perseveró ante el desbordamiento sin frustración emocional" },
@@ -767,9 +680,7 @@ Nota docente: 'María lideró el ensamblaje de la capa biológica del filtro. Cu
             polygon: [6.0, 7.3, 6.0, 6.0, 8.2, 7.1, 7.7, 6.0]
           },
           compromised: {
-            note: "Estudiante: María | Grado: 10º
-Triaje de educabilidad: Sueño: 4.5h (Agotamiento) | Desayuno: Ninguno | Somático: Dolor menstrual agudo reportado.
-Nota docente: 'María llegó con dolor visible por cólicos menstruales intensos. Permaneció replegada físicamente, pero escuchó con paciencia a sus compañeros y aportó la corrección técnica que salvó el prototipo.'",
+            note: "Estudiante: María | Grado: 10º\nTriaje de educabilidad: Sueño: 4.5h (Agotamiento) | Desayuno: Ninguno | Somático: Dolor menstrual agudo reportado.\nNota docente: 'María llegó con dolor visible por cólicos menstruales intensos. Permaneció replegada físicamente, pero escuchó con paciencia a sus compañeros y aportó la corrección técnica que salvó el prototipo.'",
             deltas: [
               { axisIdx: 6, axis: "Resiliencia y autogestión", delta: "+2.4 dB (Amplificación somática)", val: 2.4, quote: "fortaleza excepcional: mantuvo templanza y escucha activa bajo dolor físico agudo" },
               { axisIdx: 4, axis: "Liderazgo colaborativo", delta: "+1.4 dB", val: 1.4, quote: "aportó orientación decisiva al equipo sin desgaste verbal innecesario" },
@@ -784,9 +695,7 @@ Nota docente: 'María llegó con dolor visible por cólicos menstruales intensos
         en: {
           name: "Scenario 2: Carlos — Intercultural community archives",
           optimal: {
-            note: "Student: Carlos | Grade: 11th
-Educability triage: Sleep: 8.0h (Rested) | Breakfast: Yes | Somatic: Comfort.
-Teacher narrative: 'Carlos interviewed neighborhood elders in their native tongue. When his digital voice recorder failed, he captured qualitative notes by hand and connected local oral memory with historical records.'",
+            note: "Student: Carlos | Grade: 11th\nEducability triage: Sleep: 8.0h (Rested) | Breakfast: Yes | Somatic: Comfort.\nTeacher narrative: 'Carlos interviewed neighborhood elders in their native tongue. When his digital voice recorder failed, he captured qualitative notes by hand and connected local oral memory with historical records.'",
             deltas: [
               { axisIdx: 3, axis: "Intercultural agency", delta: "+2.6 dB", val: 2.6, quote: "translated native testimonies with cultural nuance and respect" },
               { axisIdx: 7, axis: "Metacognitive reflection", delta: "+1.9 dB", val: 1.9, quote: "contrasted oral testimony against omissions in the official textbook" },
@@ -796,9 +705,7 @@ Teacher narrative: 'Carlos interviewed neighborhood elders in their native tongu
             polygon: [7.4, 6.0, 6.0, 8.6, 6.0, 6.0, 7.1, 7.9]
           },
           compromised: {
-            note: "Student: Carlos | Grade: 11th
-Educability triage: Sleep: 4.0h (Chronic insomnia) | Breakfast: Incomplete | Somatic: Acute physical fatigue and tension.
-Teacher narrative: 'Carlos was visibly exhausted with slow reflexes. Instead of abandoning the session, he documented the interview quietly and noted in his diary how fatigue made him appreciate the patience of elders.'",
+            note: "Student: Carlos | Grade: 11th\nEducability triage: Sleep: 4.0h (Chronic insomnia) | Breakfast: Incomplete | Somatic: Acute physical fatigue and tension.\nTeacher narrative: 'Carlos was visibly exhausted with slow reflexes. Instead of abandoning the session, he documented the interview quietly and noted in his diary how fatigue made him appreciate the patience of elders.'",
             deltas: [
               { axisIdx: 7, axis: "Metacognitive reflection", delta: "+2.3 dB (Amplified)", val: 2.3, quote: "profound self-awareness: reflected on how physical frailty opened empathetic rapport" },
               { axisIdx: 6, axis: "Resilience & self-management", delta: "+1.8 dB", val: 1.8, quote: "sustained focus and respectful presence under severe sleep deficit" },
@@ -811,9 +718,7 @@ Teacher narrative: 'Carlos was visibly exhausted with slow reflexes. Instead of 
         es: {
           name: "Escenario 2: Carlos — Archivos comunitarios e interculturales",
           optimal: {
-            note: "Estudiante: Carlos | Grado: 11º
-Triaje de educabilidad: Sueño: 8.0h (Descansado) | Desayuno: Sí | Somático: Confort pleno.
-Nota docente: 'Carlos entrevistó a ancianos del barrio en su lengua originaria. Al fallar su grabadora, registró notas de campo a mano y contrastó la memoria oral con los registros oficiales.'",
+            note: "Estudiante: Carlos | Grado: 11º\nTriaje de educabilidad: Sueño: 8.0h (Descansado) | Desayuno: Sí | Somático: Confort pleno.\nNota docente: 'Carlos entrevistó a ancianos del barrio en su lengua originaria. Al fallar su grabadora, registró notas de campo a mano y contrastó la memoria oral con los registros oficiales.'",
             deltas: [
               { axisIdx: 3, axis: "Agencia intercultural", delta: "+2.6 dB", val: 2.6, quote: "tradujo testimonios originarios con respeto y sentido comunitario" },
               { axisIdx: 7, axis: "Reflexión metacognitiva", delta: "+1.9 dB", val: 1.9, quote: "contrastó el relato oral frente a las omisiones del libro de texto" },
@@ -823,9 +728,7 @@ Nota docente: 'Carlos entrevistó a ancianos del barrio en su lengua originaria.
             polygon: [7.4, 6.0, 6.0, 8.6, 6.0, 6.0, 7.1, 7.9]
           },
           compromised: {
-            note: "Estudiante: Carlos | Grado: 11º
-Triaje de educabilidad: Sueño: 4.0h (Insomnio severo) | Desayuno: Incompleto | Somático: Fatiga física aguda y cefalea tensional.
-Nota docente: 'Carlos llegó con agotamiento extremo y lentitud motriz. En lugar de abandonar la entrevista, escuchó en silencio y anotó en su diario cómo su propia fragilidad le ayudó a valorar la paciencia de los abuelos.'",
+            note: "Estudiante: Carlos | Grado: 11º\nTriaje de educabilidad: Sueño: 4.0h (Insomnio severo) | Desayuno: Incompleto | Somático: Fatiga física aguda y cefalea tensional.\nNota docente: 'Carlos llegó con agotamiento extremo y lentitud motriz. En lugar de abandonar la entrevista, escuchó en silencio y anotó en su diario cómo su propia fragilidad le ayudó a valorar la paciencia de los abuelos.'",
             deltas: [
               { axisIdx: 7, axis: "Reflexión metacognitiva", delta: "+2.3 dB (Amplificación reflexiva)", val: 2.3, quote: "introspección profunda: reconoció cómo su cansancio corporal abrió un canal de empatía" },
               { axisIdx: 6, axis: "Resiliencia y autogestión", delta: "+1.8 dB", val: 1.8, quote: "mantuvo compostura ética y respeto comunitario bajo privación de sueño" },
@@ -837,6 +740,14 @@ Nota docente: 'Carlos llegó con agotamiento extremo y lentitud motriz. En lugar
         }
       }
     };
+
+    let currentLocale = 'en';
+    let educabilityState = 'optimal';
+    let currentDeltas = [];
+    let currentPoly = [];
+    let secondaryKeys = ['ar', 'he', 'zh', 'hi', 'fr', 'nah', 'zu', 'ja'];
+    let secondaryIdx = 0;
+    let isAnalyzed = false;
 
     function shuffleArray(arr) {
       for (let i = arr.length - 1; i > 0; i--) {
@@ -946,7 +857,6 @@ Nota docente: 'Carlos llegó con agotamiento extremo y lentitud motriz. En lugar
         const y2 = cy + Math.sin(angle) * r;
         out += `<line x1="${cx}" y1="${cy}" x2="${x2}" y2="${y2}" stroke="#262f3d" stroke-width="1"/>`;
 
-        // Axis labels
         const lx = cx + Math.cos(angle) * (r + 20);
         const ly = cy + Math.sin(angle) * (r + 14);
         let anchor = "middle";
@@ -1065,7 +975,6 @@ Nota docente: 'Carlos llegó con agotamiento extremo y lentitud motriz. En lugar
       document.getElementById(`slider-val-${deltaIdx}`).textContent = `+${val.toFixed(1)} dB`;
 
       const targetAxis = currentDeltas[deltaIdx].axisIdx;
-      // Re-scale polygon coordinate dynamically
       currentPoly[targetAxis] = 5.5 + (val * 1.2);
       drawRadar(currentPoly);
       renderDeltaTable();
