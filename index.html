@@ -454,18 +454,24 @@
 
       <div class="sandbox-container">
         <div class="sandbox-header">
-          <select id="scenarioSelect" class="select-scenario" onchange="resetSandboxUI()">
-            <option value="maria">Scenario 1: María — STEAM filter & conflict resolution</option>
-            <option value="carlos">Scenario 2: Carlos — Intercultural community archives</option>
-          </select>
-          <button class="btn-action" id="btnRunSandbox" onclick="runSandboxSimulation()">Run synthetic analysis</button>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
+            <select id="scenarioSelect" class="select-scenario" onchange="resetSandboxUI()">
+              <option value="maria">Scenario 1: María — STEAM filter & conflict resolution</option>
+              <option value="carlos">Scenario 2: Carlos — Intercultural community archives</option>
+            </select>
+            <div class="lang-switcher" style="background:#0d1117;">
+              <button class="lang-btn active" id="btn-state-opt" onclick="setEducabilityState('optimal')">Optimal</button>
+              <button class="lang-btn" id="btn-state-comp" onclick="setEducabilityState('compromised')">Compromised</button>
+            </div>
+          </div>
+          <button class="btn-action" id="btnRunSandbox" onclick="runSandboxSimulation()">Visualize projection</button>
         </div>
         
         <div id="sandboxNoteBox" class="sandbox-note"></div>
 
         <div class="sandbox-viz">
           <div class="radar-svg-box">
-            <svg id="radarSvg" width="280" height="280" viewBox="0 0 280 280"></svg>
+            <svg id="radarSvg" width="340" height="340" viewBox="0 0 340 340"></svg>
           </div>
           <div>
             <table class="delta-table">
@@ -478,6 +484,14 @@
               </thead>
               <tbody id="deltaTableBody"></tbody>
             </table>
+
+            <!-- TEACHER VALIDATION SLIDERS -->
+            <div id="teacherAdjustBox" style="display:none; margin-top:16px; background:#0d1117; padding:12px 14px; border-radius:8px; border:1px solid var(--border);">
+              <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--accent-blue); font-weight:600; margin-bottom:8px;" id="teacherAdjustTitle">
+                Teacher override & calibration
+              </div>
+              <div id="sliderControls" style="display:flex; flex-direction:column; gap:8px;"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -557,7 +571,7 @@
             <li><strong>State of educability (UNICEF / Maturana):</strong> Cognitive educability is inseparable from metabolic and somatic homeostasis. Before logging assessment observations, PRISMA records a non-punitive, un-graded baseline across three physiological indicators:
               <br>&bull; <em>Sleep recovery</em> (rest quality and hours)
               <br>&bull; <em>Nutritional support</em> (caloric intake prior to session)
-              <br>&bull; <em>Somatic comfort & menstrual pain</em> (direct registration of acute physical fatigue, somatic discomfort, and menstrual pain / dysmenorrhea).
+              <br>&bull; <em>Somatic comfort & menstrual pain</em> (direct registration of acute physical fatigue, somatic discomfort, and menstrual pain).
               <br>Low classroom performance is never misdiagnosed as cognitive deficit when driven by somatic distress.</li>
             <li><strong>100% auditable evidence trails:</strong> Every coordinate in ℝ⁸ links directly to raw teacher narrative commentary and student artifacts, ending black-box grading forever.</li>
           </ul>
@@ -568,7 +582,7 @@
             <strong>Demonstration notice:</strong> This browser sandbox runs a pre-recorded demonstration of PRISMA's algorithmic synthetic analysis and qualitative projection onto ℝ⁸. In live field deployments, all inferences execute 100% on-device via local <em>offline</em> SLMs (1.5B–7B) with zero internet connectivity.
           </div>
         `,
-        btnRun: "Run synthetic analysis & projection",
+        btnRun: "Visualize synthetic projection",
         thAxis: "Dimension (ℝ⁸)",
         thDelta: "Δ (dB)",
         thCitation: "Traceable evidence",
@@ -624,7 +638,7 @@
             <li><strong>Nota de estado de educabilidad (UNICEF / Maturana):</strong> El aprendizaje depende del equilibrio metabólico y emocional del organismo. Previo a registrar observaciones formativas, PRISMA registra tres indicadores biológicos temporales, sin calificación ni juicio moral:
               <br>&bull; <em>Recuperación y sueño</em> (calidad de descanso)
               <br>&bull; <em>Soporte nutricional</em> (ingesta calórica previa a la sesión)
-              <br>&bull; <em>Confort somático y dolor menstrual</em> (identificación explícita de fatiga física aguda, malestar somático y dolor menstrual / dismenorrea).
+              <br>&bull; <em>Confort somático y dolor menstrual</em> (identificación explícita de fatiga física aguda, malestar somático y dolor menstrual).
               <br>Un bajo desempeño en aula nunca se confunde con déficit cognitivo cuando su origen es el agotamiento somático o biológico.</li>
             <li><strong>Trazabilidad y transparencia absoluta:</strong> Cada coordenada en ℝ⁸ está vinculada directamente con la cita textual de la observación docente y los entregables del estudiante, erradicando por completo la opacidad algorítmica.</li>
           </ul>
@@ -635,7 +649,7 @@
             <strong>Aviso de demostración:</strong> Este <em>sandbox</em> ejecuta una demostración pregrabada del análisis sintético algorítmico y proyección cualitativa hacia ℝ⁸. En despliegues reales en aula, todas las inferencias se procesan 100% en el dispositivo mediante SLMs locales (1.5B–7B) en modo <em>offline</em> sin conexión a internet.
           </div>
         `,
-        btnRun: "Ejecutar análisis sintético y proyección",
+        btnRun: "Visualizar proyección",
         thAxis: "Dimensión (ℝ⁸)",
         thDelta: "Δ (dB)",
         thCitation: "Evidencia trazable",
@@ -697,9 +711,132 @@
     };
 
     let currentLocale = 'en';
+    let educabilityState = 'optimal';
+    let currentDeltas = [];
+    let currentPoly = [];
     let secondaryKeys = ['ar', 'he', 'zh', 'hi', 'fr', 'nah', 'zu', 'ja'];
     let secondaryIdx = 0;
     let isAnalyzed = false;
+
+    const AXIS_NAMES = {
+      en: ["Inquiry", "Critical thinking", "Ethical reasoning", "Intercultural", "Leadership", "Technical skill", "Resilience", "Metacognition"],
+      es: ["Indagación", "Pensamiento crítico", "Razonamiento ético", "Intercultural", "Liderazgo", "Saber técnico", "Resiliencia", "Metacognición"]
+    };
+
+    const SCENARIOS_V2 = {
+      maria: {
+        en: {
+          name: "Scenario 1: María — STEAM filter & conflict resolution",
+          optimal: {
+            note: "Student: María | Grade: 10th
+Educability triage: Sleep: 7.8h (Rested) | Breakfast: Complete | Somatic: No physical pain.
+Teacher narrative: 'María led the assembly of the biological filtration layer. When a disagreement stalled her group, she mediated calmly and redesigned the gravel mesh after an initial overflow.'",
+            deltas: [
+              { axisIdx: 4, axis: "Collaborative leadership", delta: "+2.2 dB", val: 2.2, quote: "mediated group disagreement calmly and facilitated consensus" },
+              { axisIdx: 6, axis: "Resilience & self-management", delta: "+1.7 dB", val: 1.7, quote: "persevered through filter overflow without emotional frustration" },
+              { axisIdx: 1, axis: "Critical & analytical thinking", delta: "+1.3 dB", val: 1.3, quote: "deduced root cause of leakage in the gravel mesh layout" },
+              { axisIdx: 5, axis: "Technical & professional expertise", delta: "+1.1 dB", val: 1.1, quote: "practical precision re-assembly of filtration unit" }
+            ],
+            polygon: [6.0, 7.3, 6.0, 6.0, 8.2, 7.1, 7.7, 6.0]
+          },
+          compromised: {
+            note: "Student: María | Grade: 10th
+Educability triage: Sleep: 4.5h (Exhaustion) | Breakfast: None | Somatic: Severe acute menstrual pain reported.
+Teacher narrative: 'María arrived in visible physical pain from intense menstrual cramps. She spoke softly and was physically withdrawn, yet listened attentively to her team and offered the pivotal design correction that saved the prototype.'",
+            deltas: [
+              { axisIdx: 6, axis: "Resilience & self-management", delta: "+2.4 dB (Somatic defense)", val: 2.4, quote: "exceptional fortitude: sustained emotional composure despite severe somatic cramping" },
+              { axisIdx: 4, axis: "Collaborative leadership", delta: "+1.4 dB", val: 1.4, quote: "offered pivotal design guidance despite severe physical fatigue" },
+              { axisIdx: 1, axis: "Critical & analytical thinking", delta: "+1.1 dB", val: 1.1, quote: "identified root cause of overflow with minimal verbal intervention" },
+              { axisIdx: 5, axis: "Technical & professional expertise", delta: "0.0 dB (Protected)", val: 0.0, quote: "hands-on physical assembly exempted; zero punitive regression" }
+            ],
+            polygon: [6.0, 7.1, 6.0, 6.0, 7.4, 6.0, 8.4, 6.0]
+          }
+        },
+        es: {
+          name: "Escenario 1: María — Filtro STEAM y mediación de conflicto",
+          optimal: {
+            note: "Estudiante: María | Grado: 10º
+Triaje de educabilidad: Sueño: 7.8h (Descanso óptimo) | Desayuno: Completo | Somático: Sin dolor físico.
+Nota docente: 'María lideró el ensamblaje de la capa biológica del filtro. Cuando un desacuerdo frenó al equipo, medió con calma y rediseñó la malla de grava tras un desbordamiento inicial.'",
+            deltas: [
+              { axisIdx: 4, axis: "Liderazgo colaborativo", delta: "+2.2 dB", val: 2.2, quote: "medió el conflicto con calma y facilitó la toma de acuerdos" },
+              { axisIdx: 6, axis: "Resiliencia y autogestión", delta: "+1.7 dB", val: 1.7, quote: "perseveró ante el desbordamiento sin frustración emocional" },
+              { axisIdx: 1, axis: "Pensamiento crítico y analítico", delta: "+1.3 dB", val: 1.3, quote: "dedujo la causa de fuga en la disposición del material" },
+              { axisIdx: 5, axis: "Saber técnico y ejecución", delta: "+1.1 dB", val: 1.1, quote: "ensamblaje manual preciso de la unidad de filtrado" }
+            ],
+            polygon: [6.0, 7.3, 6.0, 6.0, 8.2, 7.1, 7.7, 6.0]
+          },
+          compromised: {
+            note: "Estudiante: María | Grado: 10º
+Triaje de educabilidad: Sueño: 4.5h (Agotamiento) | Desayuno: Ninguno | Somático: Dolor menstrual agudo reportado.
+Nota docente: 'María llegó con dolor visible por cólicos menstruales intensos. Permaneció replegada físicamente, pero escuchó con paciencia a sus compañeros y aportó la corrección técnica que salvó el prototipo.'",
+            deltas: [
+              { axisIdx: 6, axis: "Resiliencia y autogestión", delta: "+2.4 dB (Amplificación somática)", val: 2.4, quote: "fortaleza excepcional: mantuvo templanza y escucha activa bajo dolor físico agudo" },
+              { axisIdx: 4, axis: "Liderazgo colaborativo", delta: "+1.4 dB", val: 1.4, quote: "aportó orientación decisiva al equipo sin desgaste verbal innecesario" },
+              { axisIdx: 1, axis: "Pensamiento crítico y analítico", delta: "+1.1 dB", val: 1.1, quote: "identificó el fallo estructural con mínima intervención" },
+              { axisIdx: 5, axis: "Saber técnico y ejecución", delta: "0.0 dB (Protegido)", val: 0.0, quote: "tarea manual pesada exenta; blindaje absoluto ante penalizaciones" }
+            ],
+            polygon: [6.0, 7.1, 6.0, 6.0, 7.4, 6.0, 8.4, 6.0]
+          }
+        }
+      },
+      carlos: {
+        en: {
+          name: "Scenario 2: Carlos — Intercultural community archives",
+          optimal: {
+            note: "Student: Carlos | Grade: 11th
+Educability triage: Sleep: 8.0h (Rested) | Breakfast: Yes | Somatic: Comfort.
+Teacher narrative: 'Carlos interviewed neighborhood elders in their native tongue. When his digital voice recorder failed, he captured qualitative notes by hand and connected local oral memory with historical records.'",
+            deltas: [
+              { axisIdx: 3, axis: "Intercultural agency", delta: "+2.6 dB", val: 2.6, quote: "translated native testimonies with cultural nuance and respect" },
+              { axisIdx: 7, axis: "Metacognitive reflection", delta: "+1.9 dB", val: 1.9, quote: "contrasted oral testimony against omissions in the official textbook" },
+              { axisIdx: 0, axis: "Inquisitiveness & investigation", delta: "+1.4 dB", val: 1.4, quote: "autonomous qualitative interview protocols in community setting" },
+              { axisIdx: 6, axis: "Resilience & self-management", delta: "+1.1 dB", val: 1.1, quote: "smooth transition to manual field notes upon device failure" }
+            ],
+            polygon: [7.4, 6.0, 6.0, 8.6, 6.0, 6.0, 7.1, 7.9]
+          },
+          compromised: {
+            note: "Student: Carlos | Grade: 11th
+Educability triage: Sleep: 4.0h (Chronic insomnia) | Breakfast: Incomplete | Somatic: Acute physical fatigue and tension.
+Teacher narrative: 'Carlos was visibly exhausted with slow reflexes. Instead of abandoning the session, he documented the interview quietly and noted in his diary how fatigue made him appreciate the patience of elders.'",
+            deltas: [
+              { axisIdx: 7, axis: "Metacognitive reflection", delta: "+2.3 dB (Amplified)", val: 2.3, quote: "profound self-awareness: reflected on how physical frailty opened empathetic rapport" },
+              { axisIdx: 6, axis: "Resilience & self-management", delta: "+1.8 dB", val: 1.8, quote: "sustained focus and respectful presence under severe sleep deficit" },
+              { axisIdx: 3, axis: "Intercultural agency", delta: "+1.4 dB", val: 1.4, quote: "patient ethnographic listening despite metabolic exhaustion" },
+              { axisIdx: 0, axis: "Inquisitiveness & investigation", delta: "0.0 dB (Protected)", val: 0.0, quote: "speed of inquiry not evaluated; shielded from cognitive deficit label" }
+            ],
+            polygon: [6.0, 6.0, 6.0, 7.4, 6.0, 6.0, 7.8, 8.3]
+          }
+        },
+        es: {
+          name: "Escenario 2: Carlos — Archivos comunitarios e interculturales",
+          optimal: {
+            note: "Estudiante: Carlos | Grado: 11º
+Triaje de educabilidad: Sueño: 8.0h (Descansado) | Desayuno: Sí | Somático: Confort pleno.
+Nota docente: 'Carlos entrevistó a ancianos del barrio en su lengua originaria. Al fallar su grabadora, registró notas de campo a mano y contrastó la memoria oral con los registros oficiales.'",
+            deltas: [
+              { axisIdx: 3, axis: "Agencia intercultural", delta: "+2.6 dB", val: 2.6, quote: "tradujo testimonios originarios con respeto y sentido comunitario" },
+              { axisIdx: 7, axis: "Reflexión metacognitiva", delta: "+1.9 dB", val: 1.9, quote: "contrastó el relato oral frente a las omisiones del libro de texto" },
+              { axisIdx: 0, axis: "Indagación e investigación", delta: "+1.4 dB", val: 1.4, quote: "protocolos autónomos de recolección cualitativa en campo" },
+              { axisIdx: 6, axis: "Resiliencia y autogestión", delta: "+1.1 dB", val: 1.1, quote: "resolvió la contingencia técnica tomando notas manuales sin dudar" }
+            ],
+            polygon: [7.4, 6.0, 6.0, 8.6, 6.0, 6.0, 7.1, 7.9]
+          },
+          compromised: {
+            note: "Estudiante: Carlos | Grado: 11º
+Triaje de educabilidad: Sueño: 4.0h (Insomnio severo) | Desayuno: Incompleto | Somático: Fatiga física aguda y cefalea tensional.
+Nota docente: 'Carlos llegó con agotamiento extremo y lentitud motriz. En lugar de abandonar la entrevista, escuchó en silencio y anotó en su diario cómo su propia fragilidad le ayudó a valorar la paciencia de los abuelos.'",
+            deltas: [
+              { axisIdx: 7, axis: "Reflexión metacognitiva", delta: "+2.3 dB (Amplificación reflexiva)", val: 2.3, quote: "introspección profunda: reconoció cómo su cansancio corporal abrió un canal de empatía" },
+              { axisIdx: 6, axis: "Resiliencia y autogestión", delta: "+1.8 dB", val: 1.8, quote: "mantuvo compostura ética y respeto comunitario bajo privación de sueño" },
+              { axisIdx: 3, axis: "Agencia intercultural", delta: "+1.4 dB", val: 1.4, quote: "escucha etnográfica compasiva sin imponer prisas" },
+              { axisIdx: 0, axis: "Indagación e investigación", delta: "0.0 dB (Protegido)", val: 0.0, quote: "ritmo de recolección no penalizado; amparo frente a etiquetas de desinterés" }
+            ],
+            polygon: [6.0, 6.0, 6.0, 7.4, 6.0, 6.0, 7.8, 8.3]
+          }
+        }
+      }
+    };
 
     function shuffleArray(arr) {
       for (let i = arr.length - 1; i > 0; i--) {
@@ -762,8 +899,11 @@
       updateQuoteTicker();
 
       const sel = document.getElementById('scenarioSelect');
-      sel.options[0].text = SCENARIOS.maria[loc].name;
-      sel.options[1].text = SCENARIOS.carlos[loc].name;
+      sel.options[0].text = SCENARIOS_V2.maria[loc].name;
+      sel.options[1].text = SCENARIOS_V2.carlos[loc].name;
+
+      document.getElementById('btn-state-opt').textContent = (loc === 'en') ? "Optimal" : "Óptimo";
+      document.getElementById('btn-state-comp').textContent = (loc === 'en') ? "Compromised" : "Comprometido";
       
       resetSandboxUI();
     }
@@ -786,9 +926,10 @@
 
     function drawRadar(polyPoints) {
       const svg = document.getElementById('radarSvg');
-      const cx = 140, cy = 140, r = 100;
+      const cx = 170, cy = 170, r = 110;
       const axesCount = 8;
-      let html = '';
+      const names = AXIS_NAMES[currentLocale];
+      let out = '';
 
       [0.25, 0.5, 0.75, 1.0].forEach(factor => {
         let pts = [];
@@ -796,14 +937,22 @@
           const angle = (Math.PI * 2 / axesCount) * i - Math.PI / 2;
           pts.push(`${cx + Math.cos(angle) * r * factor},${cy + Math.sin(angle) * r * factor}`);
         }
-        html += `<polygon points="${pts.join(' ')}" fill="none" stroke="#262f3d" stroke-width="1"/>`;
+        out += `<polygon points="${pts.join(' ')}" fill="none" stroke="#262f3d" stroke-width="1"/>`;
       });
 
       for (let i = 0; i < axesCount; i++) {
         const angle = (Math.PI * 2 / axesCount) * i - Math.PI / 2;
         const x2 = cx + Math.cos(angle) * r;
         const y2 = cy + Math.sin(angle) * r;
-        html += `<line x1="${cx}" y1="${cy}" x2="${x2}" y2="${y2}" stroke="#262f3d" stroke-width="1"/>`;
+        out += `<line x1="${cx}" y1="${cy}" x2="${x2}" y2="${y2}" stroke="#262f3d" stroke-width="1"/>`;
+
+        // Axis labels
+        const lx = cx + Math.cos(angle) * (r + 20);
+        const ly = cy + Math.sin(angle) * (r + 14);
+        let anchor = "middle";
+        if (Math.cos(angle) > 0.3) anchor = "start";
+        else if (Math.cos(angle) < -0.3) anchor = "end";
+        out += `<text x="${lx}" y="${ly}" fill="#8b949e" font-size="9.5" text-anchor="${anchor}" alignment-baseline="middle" font-family="-apple-system, sans-serif">${names[i]}</text>`;
       }
 
       let basePts = [];
@@ -811,7 +960,7 @@
         const angle = (Math.PI * 2 / axesCount) * i - Math.PI / 2;
         basePts.push(`${cx + Math.cos(angle) * r * 0.55},${cy + Math.sin(angle) * r * 0.55}`);
       }
-      html += `<polygon points="${basePts.join(' ')}" fill="rgba(255,255,255,0.02)" stroke="#5c6570" stroke-dasharray="3,3" stroke-width="1.2"/>`;
+      out += `<polygon points="${basePts.join(' ')}" fill="rgba(255,255,255,0.02)" stroke="#5c6570" stroke-dasharray="3,3" stroke-width="1.2"/>`;
 
       if (polyPoints) {
         let activePts = [];
@@ -820,48 +969,106 @@
           const val = (polyPoints[i] || 5.5) / 10;
           activePts.push(`${cx + Math.cos(angle) * r * val},${cy + Math.sin(angle) * r * val}`);
         }
-        html += `<polygon points="${activePts.join(' ')}" fill="rgba(88, 166, 255, 0.25)" stroke="#58a6ff" stroke-width="2"/>`;
+        out += `<polygon points="${activePts.join(' ')}" fill="rgba(88, 166, 255, 0.28)" stroke="#58a6ff" stroke-width="2"/>`;
+        activePts.forEach(pt => {
+          const [px, py] = pt.split(',');
+          out += `<circle cx="${px}" cy="${py}" r="3.5" fill="#58a6ff"/>`;
+        });
       }
 
-      svg.innerHTML = html;
+      svg.innerHTML = out;
+    }
+
+    function setEducabilityState(state) {
+      educabilityState = state;
+      document.getElementById('btn-state-opt').classList.toggle('active', state === 'optimal');
+      document.getElementById('btn-state-comp').classList.toggle('active', state === 'compromised');
+      resetSandboxUI();
     }
 
     function resetSandboxUI() {
       isAnalyzed = false;
       const sKey = document.getElementById('scenarioSelect').value;
-      const s = SCENARIOS[sKey][currentLocale];
+      const s = SCENARIOS_V2[sKey][currentLocale][educabilityState];
       document.getElementById('sandboxNoteBox').textContent = s.note;
 
       const tbody = document.getElementById('deltaTableBody');
       tbody.innerHTML = `<tr><td colspan="3" class="table-idle">${CONTENT[currentLocale].idleText}</td></tr>`;
-
+      
+      document.getElementById('teacherAdjustBox').style.display = 'none';
       drawRadar(null);
     }
 
     function runSandboxSimulation() {
       const btn = document.getElementById('btnRunSandbox');
       const origText = btn.textContent;
-      btn.textContent = (currentLocale === 'en') ? "Synthesizing on-device..." : "Sintetizando en local...";
+      btn.textContent = (currentLocale === 'en') ? "Visualizing..." : "Visualizando...";
       btn.style.opacity = 0.6;
 
       setTimeout(() => {
         isAnalyzed = true;
         const sKey = document.getElementById('scenarioSelect').value;
-        const s = SCENARIOS[sKey][currentLocale];
+        const s = SCENARIOS_V2[sKey][currentLocale][educabilityState];
 
-        const tbody = document.getElementById('deltaTableBody');
-        tbody.innerHTML = '';
-        s.deltas.forEach(d => {
-          const tr = document.createElement('tr');
-          tr.innerHTML = `<td><strong>${d.axis}</strong></td><td class="delta-val">${d.delta}</td><td style="color:#8b949e"><em>“${d.quote}”</em></td>`;
-          tbody.appendChild(tr);
-        });
+        currentPoly = [...s.polygon];
+        currentDeltas = s.deltas.map(d => ({ ...d }));
 
-        drawRadar(s.polygon);
+        renderDeltaTable();
+        drawRadar(currentPoly);
+        buildTeacherSliders();
 
         btn.textContent = origText;
         btn.style.opacity = 1;
-      }, 350);
+      }, 300);
+    }
+
+    function renderDeltaTable() {
+      const tbody = document.getElementById('deltaTableBody');
+      tbody.innerHTML = '';
+      currentDeltas.forEach(d => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td><strong>${d.axis}</strong></td><td class="delta-val">${d.delta}</td><td style="color:#8b949e"><em>“${d.quote}”</em></td>`;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function buildTeacherSliders() {
+      const box = document.getElementById('teacherAdjustBox');
+      const container = document.getElementById('sliderControls');
+      container.innerHTML = '';
+
+      currentDeltas.forEach((d, idx) => {
+        if (d.val === 0 && educabilityState === 'compromised') return;
+        const row = document.createElement('div');
+        row.style.display = 'flex';
+        row.style.justifyContent = 'space-between';
+        row.style.alignItems = 'center';
+        row.style.gap = '10px';
+
+        row.innerHTML = `
+          <span style="font-size:0.78rem; color:#c9d1d9; flex:1;">${d.axis}</span>
+          <input type="range" min="0" max="40" value="${Math.round(d.val * 10)}" style="flex:1; accent-color:#58a6ff; cursor:pointer;" oninput="updateTeacherDelta(${idx}, this.value)">
+          <span id="slider-val-${idx}" style="font-size:0.78rem; font-family:monospace; color:#3fb950; width:45px; text-align:right;">+${d.val.toFixed(1)} dB</span>
+        `;
+        container.appendChild(row);
+      });
+
+      document.getElementById('teacherAdjustTitle').textContent = 
+        (currentLocale === 'en') ? "Teacher calibration & sovereign override" : "Calibración y validación soberana docente";
+      box.style.display = 'block';
+    }
+
+    function updateTeacherDelta(deltaIdx, rawVal) {
+      const val = rawVal / 10;
+      currentDeltas[deltaIdx].val = val;
+      currentDeltas[deltaIdx].delta = `+${val.toFixed(1)} dB`;
+      document.getElementById(`slider-val-${deltaIdx}`).textContent = `+${val.toFixed(1)} dB`;
+
+      const targetAxis = currentDeltas[deltaIdx].axisIdx;
+      // Re-scale polygon coordinate dynamically
+      currentPoly[targetAxis] = 5.5 + (val * 1.2);
+      drawRadar(currentPoly);
+      renderDeltaTable();
     }
 
     setLocale('en');
