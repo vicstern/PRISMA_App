@@ -17,38 +17,46 @@
       --text-dim: #5c6570;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    
+    /* DESKTOP VIEWPORT LOCK */
+    html, body {
+      height: 100%;
+      overflow: hidden;
       background-color: var(--bg);
       color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-height: 100vh;
-      padding: 36px 20px 48px;
+      padding: 16px 20px 0;
+      position: relative;
     }
+
+    /* FLOATING COMPACT LANGUAGE SWITCHER */
     .top-bar {
-      width: 100%;
-      max-width: 980px;
-      display: flex;
-      justify-content: flex-end;
-      margin-bottom: 24px;
+      position: absolute;
+      top: 16px;
+      right: 24px;
+      z-index: 20;
     }
     .lang-switcher {
       display: inline-flex;
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 20px;
-      padding: 3px;
+      padding: 2px;
     }
     .lang-btn {
       background: transparent;
       border: none;
       color: var(--text-muted);
-      padding: 5px 14px;
-      font-size: 0.8rem;
+      padding: 4px 11px;
+      font-size: 0.75rem;
       font-weight: 600;
-      border-radius: 16px;
+      border-radius: 14px;
       cursor: pointer;
       transition: all 0.2s;
     }
@@ -56,86 +64,103 @@
       background: #21262d;
       color: #ffffff;
     }
+
+    /* HEADER ZONE (STREAMLINED ~18-20% VIEWPORT) */
+    .header-wrapper {
+      width: 100%;
+      max-width: 920px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     .header-zone {
       text-align: center;
-      max-width: 840px;
-      margin-bottom: 36px;
+      max-width: 800px;
+      padding-top: 2px;
     }
     h1 {
-      font-size: 2.2rem;
+      font-size: clamp(1.4rem, 2.2vw, 1.85rem);
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: #ffffff;
-      margin-bottom: 6px;
+      margin-bottom: 2px;
+      line-height: 1.15;
     }
     h1 span.reg {
-      font-size: 0.9rem;
+      font-size: 0.75rem;
       vertical-align: super;
       font-weight: 400;
       color: var(--text-muted);
     }
     p.descriptor {
-      font-size: 1.05rem;
+      font-size: clamp(0.85rem, 1.1vw, 0.94rem);
       color: var(--accent-blue);
-      letter-spacing: 0.02em;
-      margin-bottom: 26px;
+      letter-spacing: 0.015em;
+      margin-bottom: 8px;
       font-weight: 500;
     }
+
+    /* COMPACT QUOTE BOX (54PX STRICT HEIGHT ON DESKTOP) */
     .quote-box {
-      min-height: 80px;
+      height: 54px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
     }
     p.primary-quote {
       font-style: italic;
-      font-size: 1.05rem;
-      line-height: 1.6;
+      font-size: clamp(0.86rem, 1.05vw, 0.94rem);
+      line-height: 1.35;
       color: #e6edf3;
-      max-width: 760px;
-      transition: opacity 0.5s ease;
+      max-width: 740px;
+      transition: opacity 0.35s ease;
+      text-align: center;
     }
     .secondary-ticker {
-      margin-top: 8px;
+      margin-top: 4px;
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 0.82rem;
+      gap: 6px;
+      font-size: 0.76rem;
       color: var(--text-dim);
-      transition: opacity 0.5s ease;
+      transition: opacity 0.35s ease;
     }
     .secondary-ticker span.tag {
       background: #1c2128;
       border: 1px solid var(--border);
-      padding: 2px 8px;
-      border-radius: 10px;
+      padding: 1px 7px;
+      border-radius: 8px;
       color: var(--text-muted);
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
     }
+
+    /* SLIM BUTTON DOCK */
     .tabs-dock {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px;
       justify-content: center;
       background: var(--card-bg);
-      padding: 6px;
-      border-radius: 30px;
+      padding: 4px;
+      border-radius: 24px;
       border: 1px solid var(--border);
-      margin-bottom: 32px;
+      margin-bottom: 16px;
     }
     .tab-btn {
       background: transparent;
       border: none;
       color: var(--text-muted);
-      padding: 10px 22px;
-      font-size: 0.88rem;
+      padding: 7px 16px;
+      font-size: 0.82rem;
       font-weight: 600;
-      border-radius: 20px;
+      border-radius: 18px;
       cursor: pointer;
       transition: all 0.2s;
     }
@@ -143,22 +168,38 @@
     .tab-btn.active {
       background: #21262d;
       color: #ffffff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
     }
+
+    /* INDEPENDENT SCROLL STAGE */
     .content-stage {
-      max-width: 980px;
+      max-width: 920px;
       width: 100%;
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 6px;
+      padding-bottom: 32px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border) transparent;
     }
+    .content-stage::-webkit-scrollbar {
+      width: 6px;
+    }
+    .content-stage::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 4px;
+    }
+
     .panel {
       display: none;
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 36px 40px;
-      line-height: 1.7;
+      border-radius: 14px;
+      padding: 30px 34px;
+      line-height: 1.65;
       text-align: left;
       animation: fadeIn 0.25s ease;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
     .panel.active { display: block; }
     @keyframes fadeIn {
@@ -166,69 +207,70 @@
       to { opacity: 1; transform: translateY(0); }
     }
     .panel h2 {
-      font-size: 1.5rem;
-      margin-bottom: 18px;
+      font-size: 1.35rem;
+      margin-bottom: 14px;
       color: #ffffff;
       font-weight: 600;
     }
     .panel h3 {
-      font-size: 1.15rem;
-      margin: 24px 0 10px;
+      font-size: 1.05rem;
+      margin: 20px 0 8px;
       color: var(--accent-blue);
       font-weight: 600;
     }
     .panel p {
-      font-size: 0.98rem;
+      font-size: 0.94rem;
       color: #c9d1d9;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
     .panel ul {
       margin-left: 20px;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       color: #8b949e;
+      font-size: 0.92rem;
     }
-    .panel ul li { margin-bottom: 8px; }
+    .panel ul li { margin-bottom: 6px; }
     .panel ul li strong { color: #f0f6fc; }
     .callout {
       background: var(--card-inner);
       border-left: 3px solid var(--accent-blue);
-      padding: 14px 18px;
+      padding: 12px 16px;
       border-radius: 0 8px 8px 0;
-      margin: 20px 0;
-      font-size: 0.92rem;
+      margin: 16px 0;
+      font-size: 0.88rem;
       color: #c9d1d9;
     }
     .sandbox-container {
       background: var(--card-inner);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 24px;
-      margin-bottom: 28px;
+      padding: 20px;
+      margin-bottom: 24px;
     }
     .sandbox-header {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 16px;
+      gap: 10px;
+      margin-bottom: 14px;
     }
     .select-scenario {
       background: #0d1117;
       border: 1px solid var(--border);
       color: #f0f6fc;
-      padding: 8px 12px;
+      padding: 7px 11px;
       border-radius: 8px;
-      font-size: 0.88rem;
+      font-size: 0.84rem;
       cursor: pointer;
     }
     .btn-action {
       background: #238636;
       border: 1px solid rgba(240, 246, 252, 0.1);
       color: #ffffff;
-      padding: 8px 18px;
+      padding: 7px 16px;
       border-radius: 8px;
-      font-size: 0.88rem;
+      font-size: 0.84rem;
       font-weight: 600;
       cursor: pointer;
       transition: background 0.2s;
@@ -238,48 +280,44 @@
       background: #0d1117;
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 14px;
-      margin-bottom: 18px;
-      font-size: 0.9rem;
+      padding: 12px;
+      margin-bottom: 16px;
+      font-size: 0.86rem;
       color: #8b949e;
       font-family: monospace;
-      line-height: 1.5;
+      line-height: 1.45;
     }
     .sandbox-viz {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 18px;
       align-items: center;
-    }
-    @media (max-width: 768px) {
-      .sandbox-viz { grid-template-columns: 1fr; }
-      .panel { padding: 24px 20px; }
     }
     .radar-svg-box {
       width: 100%;
       background: #0d1117;
       border-radius: 8px;
       border: 1px solid var(--border);
-      padding: 12px;
+      padding: 10px;
       display: flex;
       justify-content: center;
     }
     .delta-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
     }
     .delta-table th, .delta-table td {
-      padding: 8px 10px;
+      padding: 7px 8px;
       border-bottom: 1px solid var(--border);
       text-align: left;
     }
-    .delta-table th { color: var(--text-dim); text-transform: uppercase; font-size: 0.72rem; }
+    .delta-table th { color: var(--text-dim); text-transform: uppercase; font-size: 0.68rem; }
     .delta-val { color: #3fb950; font-weight: 600; font-family: monospace; }
     .table-idle {
       color: var(--text-dim);
       font-style: italic;
-      padding: 20px 10px;
+      padding: 16px 8px;
       text-align: center;
     }
     .preview-card {
@@ -289,19 +327,72 @@
       border: 1px solid var(--border);
       background: #000;
       box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
-      margin-top: 16px;
+      margin-top: 14px;
     }
     .preview-card img { width: 100%; height: auto; display: block; }
+    
     footer {
-      margin-top: auto;
-      padding-top: 48px;
-      font-size: 0.82rem;
+      padding: 24px 0 12px;
+      font-size: 0.78rem;
       color: var(--text-dim);
       text-align: center;
-      line-height: 1.8;
+      line-height: 1.7;
     }
     footer a { color: var(--accent-blue); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
+
+    /* MOBILE BREAKPOINT — NATURAL FLUID SCROLL */
+    @media (max-width: 768px) {
+      html, body {
+        height: auto;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+      body {
+        padding: 12px 14px 24px;
+      }
+      .top-bar {
+        position: static;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 6px;
+      }
+      .header-wrapper {
+        padding-top: 0;
+      }
+      .quote-box {
+        height: auto;
+        min-height: 48px;
+        margin-bottom: 10px;
+      }
+      .tabs-dock {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+        width: 100%;
+        border-radius: 14px;
+        margin-bottom: 14px;
+      }
+      .tab-btn {
+        padding: 8px 6px;
+        font-size: 0.78rem;
+        text-align: center;
+        border-radius: 10px;
+      }
+      .content-stage {
+        overflow-y: visible;
+        padding-right: 0;
+        padding-bottom: 12px;
+      }
+      .panel {
+        padding: 20px 16px;
+        border-radius: 12px;
+      }
+      .sandbox-viz {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -313,24 +404,26 @@
     </div>
   </div>
 
-  <div class="header-zone">
-    <h1>Aula Viva<span class="reg">®</span></h1>
-    <p class="descriptor" id="appDescriptor">PRISMA™ — Offline Edge-AI for qualitative assessment in ℝ⁸</p>
-    
-    <div class="quote-box">
-      <p id="primaryQuote" class="primary-quote">“Shining white light through learners, projecting its refracted colors to reveal the profound journey of their growth.”</p>
-      <div id="secondaryTicker" class="secondary-ticker">
-        <span class="tag" id="tickerLang">Español</span>
-        <span id="tickerText">“Hacer brillar luz blanca a través de cada estudiante...”</span>
+  <div class="header-wrapper">
+    <div class="header-zone">
+      <h1>Aula Viva<span class="reg">®</span></h1>
+      <p class="descriptor" id="appDescriptor">PRISMA™ — Offline Edge-AI for qualitative assessment in ℝ⁸</p>
+      
+      <div class="quote-box">
+        <p id="primaryQuote" class="primary-quote">“Shining white light through learners, projecting its refracted colors to reveal the profound journey of their growth.”</p>
+        <div id="secondaryTicker" class="secondary-ticker">
+          <span class="tag" id="tickerLang">Español</span>
+          <span id="tickerText">“Hacer brillar luz blanca a través de cada estudiante...”</span>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="tabs-dock">
-    <button class="tab-btn" id="tab-btn-vision" onclick="switchTab('vision')">Vision</button>
-    <button class="tab-btn" id="tab-btn-architecture" onclick="switchTab('architecture')">Architecture</button>
-    <button class="tab-btn" id="tab-btn-ethos" onclick="switchTab('ethos')">Ethos & sovereignty</button>
-    <button class="tab-btn" id="tab-btn-prototype" onclick="switchTab('prototype')">Interactive sandbox</button>
+    <div class="tabs-dock">
+      <button class="tab-btn" id="tab-btn-vision" onclick="switchTab('vision')">Vision</button>
+      <button class="tab-btn" id="tab-btn-architecture" onclick="switchTab('architecture')">Architecture</button>
+      <button class="tab-btn" id="tab-btn-ethos" onclick="switchTab('ethos')">Ethos & sovereignty</button>
+      <button class="tab-btn" id="tab-btn-prototype" onclick="switchTab('prototype')">Interactive sandbox</button>
+    </div>
   </div>
 
   <div class="content-stage">
@@ -390,14 +483,14 @@
       </div>
     </div>
 
-  </div>
+    <footer>
+      <span id="footerText">
+        Aula Viva® &bull; Independent research &bull; Grounded in <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">SSRN DOI: 10.2139/ssrn.7310080</a><br>
+        Registered intellectual property: INDAUTOR 03-2026-040710022300-01
+      </span>
+    </footer>
 
-  <footer>
-    <span id="footerText">
-      Aula Viva® &bull; Independent research &bull; Grounded in <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">SSRN DOI: 10.2139/ssrn.7310080</a><br>
-      Registered intellectual property: INDAUTOR 03-2026-040710022300-01
-    </span>
-  </footer>
+  </div>
 
   <script>
     const QUOTES = {
@@ -627,7 +720,7 @@
         tText.textContent = qObj.text;
         tLang.style.opacity = 1;
         tText.style.opacity = 1;
-      }, 400);
+      }, 350);
 
       secondaryIdx = (secondaryIdx + 1) % secondaryKeys.length;
       if (secondaryIdx === 0) shuffleArray(secondaryKeys);
