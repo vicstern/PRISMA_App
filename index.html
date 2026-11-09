@@ -25,14 +25,14 @@
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
-      padding: 32px 20px 48px;
+      padding: 36px 20px 48px;
     }
     .top-bar {
       width: 100%;
       max-width: 980px;
       display: flex;
       justify-content: flex-end;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
     .lang-switcher {
       display: inline-flex;
@@ -59,7 +59,7 @@
     .header-zone {
       text-align: center;
       max-width: 840px;
-      margin-bottom: 28px;
+      margin-bottom: 36px;
     }
     h1 {
       font-size: 2.2rem;
@@ -79,7 +79,7 @@
       font-size: 1.05rem;
       color: var(--accent-blue);
       letter-spacing: 0.02em;
-      margin-bottom: 24px;
+      margin-bottom: 26px;
       font-weight: 500;
     }
     .quote-box {
@@ -88,7 +88,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
     p.primary-quote {
       font-style: italic;
@@ -120,7 +120,7 @@
     .tabs-dock {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 10px;
       justify-content: center;
       background: var(--card-bg);
       padding: 6px;
@@ -132,7 +132,7 @@
       background: transparent;
       border: none;
       color: var(--text-muted);
-      padding: 10px 20px;
+      padding: 10px 22px;
       font-size: 0.88rem;
       font-weight: 600;
       border-radius: 20px;
@@ -148,7 +148,6 @@
     .content-stage {
       max-width: 980px;
       width: 100%;
-      min-height: 420px;
     }
     .panel {
       display: none;
@@ -159,6 +158,7 @@
       line-height: 1.7;
       text-align: left;
       animation: fadeIn 0.25s ease;
+      margin-bottom: 30px;
     }
     .panel.active { display: block; }
     @keyframes fadeIn {
@@ -173,8 +173,8 @@
     }
     .panel h3 {
       font-size: 1.15rem;
-      margin: 22px 0 10px;
-      color: #58a6ff;
+      margin: 24px 0 10px;
+      color: var(--accent-blue);
       font-weight: 600;
     }
     .panel p {
@@ -243,6 +243,7 @@
       font-size: 0.9rem;
       color: #8b949e;
       font-family: monospace;
+      line-height: 1.5;
     }
     .sandbox-viz {
       display: grid;
@@ -269,12 +270,18 @@
       font-size: 0.82rem;
     }
     .delta-table th, .delta-table td {
-      padding: 6px 10px;
+      padding: 8px 10px;
       border-bottom: 1px solid var(--border);
       text-align: left;
     }
     .delta-table th { color: var(--text-dim); text-transform: uppercase; font-size: 0.72rem; }
     .delta-val { color: #3fb950; font-weight: 600; font-family: monospace; }
+    .table-idle {
+      color: var(--text-dim);
+      font-style: italic;
+      padding: 20px 10px;
+      text-align: center;
+    }
     .preview-card {
       width: 100%;
       border-radius: 12px;
@@ -282,7 +289,7 @@
       border: 1px solid var(--border);
       background: #000;
       box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
-      margin-top: 20px;
+      margin-top: 16px;
     }
     .preview-card img { width: 100%; height: auto; display: block; }
     footer {
@@ -308,7 +315,7 @@
 
   <div class="header-zone">
     <h1>Aula Viva<span class="reg">®</span></h1>
-    <p class="descriptor" id="appDescriptor">PRISMA™ — Offline Edge-AI for Qualitative Assessment in ℝ⁸</p>
+    <p class="descriptor" id="appDescriptor">PRISMA™ — Offline Edge-AI for qualitative assessment in ℝ⁸</p>
     
     <div class="quote-box">
       <p id="primaryQuote" class="primary-quote">“Shining white light through learners, projecting its refracted colors to reveal the profound journey of their growth.”</p>
@@ -320,16 +327,16 @@
   </div>
 
   <div class="tabs-dock">
-    <button class="tab-btn active" id="tab-btn-vision" onclick="switchTab('vision')">Vision</button>
+    <button class="tab-btn" id="tab-btn-vision" onclick="switchTab('vision')">Vision</button>
     <button class="tab-btn" id="tab-btn-architecture" onclick="switchTab('architecture')">Architecture</button>
-    <button class="tab-btn" id="tab-btn-ethos" onclick="switchTab('ethos')">Ethos & Sovereignty</button>
-    <button class="tab-btn" id="tab-btn-prototype" onclick="switchTab('prototype')">Interactive Sandbox</button>
+    <button class="tab-btn" id="tab-btn-ethos" onclick="switchTab('ethos')">Ethos & sovereignty</button>
+    <button class="tab-btn" id="tab-btn-prototype" onclick="switchTab('prototype')">Interactive sandbox</button>
   </div>
 
   <div class="content-stage">
 
     <!-- TAB 1: VISION -->
-    <div id="vision" class="panel active">
+    <div id="vision" class="panel">
       <div id="vision-content"></div>
     </div>
 
@@ -349,11 +356,11 @@
 
       <div class="sandbox-container">
         <div class="sandbox-header">
-          <select id="scenarioSelect" class="select-scenario" onchange="loadScenario()">
-            <option value="maria">Scenario 1: María — STEAM Filter & Conflict Resolution</option>
-            <option value="carlos">Scenario 2: Carlos — Intercultural Community Archives</option>
+          <select id="scenarioSelect" class="select-scenario" onchange="resetSandboxUI()">
+            <option value="maria">Scenario 1: María — STEAM filter & conflict resolution</option>
+            <option value="carlos">Scenario 2: Carlos — Intercultural community archives</option>
           </select>
-          <button class="btn-action" id="btnRunSandbox" onclick="runSandboxSimulation()">Run Synthetic Analysis</button>
+          <button class="btn-action" id="btnRunSandbox" onclick="runSandboxSimulation()">Run synthetic analysis</button>
         </div>
         
         <div id="sandboxNoteBox" class="sandbox-note"></div>
@@ -368,7 +375,7 @@
                 <tr>
                   <th id="th-axis">Dimension (ℝ⁸)</th>
                   <th id="th-delta">Δ (dB)</th>
-                  <th id="th-citation">Traceable Evidence</th>
+                  <th id="th-citation">Traceable evidence</th>
                 </tr>
               </thead>
               <tbody id="deltaTableBody"></tbody>
@@ -377,9 +384,9 @@
         </div>
       </div>
 
-      <h3 id="appScreenshotTitle">Actual Streamlit On-Device Interface</h3>
+      <h3 id="appScreenshotTitle">On-device capture interface</h3>
       <div class="preview-card">
-        <img src="screenshot.png" alt="PRISMA Application Interface on Retina Display">
+        <img src="screenshot.png" alt="PRISMA application interface in dark mode">
       </div>
     </div>
 
@@ -387,8 +394,8 @@
 
   <footer>
     <span id="footerText">
-      Aula Viva® &bull; Independent Research &bull; Grounded in <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">SSRN DOI: 10.2139/ssrn.7310080</a><br>
-      Registered Intellectual Property: INDAUTOR 03-2026-040710022300-01
+      Aula Viva® &bull; Independent research &bull; Grounded in <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">SSRN DOI: 10.2139/ssrn.7310080</a><br>
+      Registered intellectual property: INDAUTOR 03-2026-040710022300-01
     </span>
   </footer>
 
@@ -408,184 +415,186 @@
 
     const CONTENT = {
       en: {
-        descriptor: "PRISMA™ — Offline Edge-AI for Qualitative Assessment in ℝ⁸",
-        tabs: { vision: "Vision", architecture: "Architecture", ethos: "Ethos & Sovereignty", prototype: "Interactive Sandbox" },
+        descriptor: "PRISMA™ — Offline Edge-AI for qualitative assessment in ℝ⁸",
+        tabs: { vision: "Vision", architecture: "Architecture", ethos: "Ethos & sovereignty", prototype: "Interactive sandbox" },
         vision: `
-          <h2>Beyond the Scalar Fallacy</h2>
+          <h2>Beyond the scalar fallacy</h2>
           <p>Traditional evaluation compresses the irreducible complexity of human learning into a flat, unidimensional number (0–100 or GPA). This reductive scalar tells educators nothing about developmental direction, intellectual resilience, or situated context—it merely ranks, labels, and punishes.</p>
           
           <div class="callout">
-            <strong>Symbiotic Coexistence:</strong> PRISMA does not replace statutory institutional grading. Rather, it operates alongside mandated administrative records as a qualitative companion layer, turning bureaucratic compliance into rich developmental insight without generating double-work for teachers.
+            <strong>Symbiotic coexistence:</strong> PRISMA does not replace statutory institutional grading. Rather, it operates alongside mandated administrative records as a qualitative companion layer, turning bureaucratic compliance into rich developmental insight without generating double-work for teachers.
           </div>
 
-          <p><strong>PRISMA™</strong> (Plataforma de Reflexión e Interpretación para el Seguimiento Multidimensional del Aprendizaje), grounded in the ASPIRE® research framework (PRISM: Portable Record of Integrated Skills & Mastery), treats assessment as an act of spectral refraction. By analyzing unstructured natural-language observations, PRISMA projects growth onto an eight-dimensional vector space (ℝ⁸) synthesized from international inquiry taxonomies and community-rooted educational frameworks.</p>
+          <p><strong>PRISMA™</strong> (Plataforma de Reflexión e Interpretación para el Seguimiento Multidimensional del Aprendizaje), grounded in the ASPIRE® research framework (PRISM: Portable Record of Integrated Skills & Mastery), treats assessment as an act of spectral refraction. By analyzing unstructured natural-language observations, PRISMA projects growth onto an eight-dimensional vector space (ℝ⁸) synthesized from premier international inquiry frameworks and community-rooted educational standards.</p>
 
-          <h3>The Four Cybernetic Quadrants</h3>
+          <h3>The four cybernetic quadrants</h3>
           <ul>
-            <li><strong>Inquiring Mind (Cognitive-Epistemological):</strong> Inquisitiveness & Investigation / Critical & Analytical Thinking.</li>
-            <li><strong>Contextual Gaze (Socio-Ethical & Situational):</strong> Ethical Reasoning / Intercultural Agency.</li>
-            <li><strong>Collective Action (Practical & Relational):</strong> Collaborative Leadership / Technical & Professional Expertise.</li>
-            <li><strong>Inner Equilibrium & Autopoiesis (Intrapersonal):</strong> Self-Management & Resilience / Metacognitive Reflection.</li>
+            <li><strong>Inquiring mind (cognitive-epistemological domain):</strong> Inquisitiveness & investigation / Critical & analytical thinking.</li>
+            <li><strong>Contextual gaze (socio-ethical & situational domain):</strong> Ethical reasoning / Intercultural agency.</li>
+            <li><strong>Collective action (practical & relational domain):</strong> Collaborative leadership / Technical & professional expertise.</li>
+            <li><strong>Inner equilibrium & autopoiesis (intrapersonal domain):</strong> Self-management & resilience / Metacognitive reflection.</li>
           </ul>
 
-          <h3>180° Complementary Polar Symmetry</h3>
-          <p>PRISMA eliminates arbitrary ordinal hierarchies (A₁...A₈). The 8 axes exist simultaneously across a 360° topology of complementary dialectical pairs:</p>
+          <h3>180° complementary polar symmetry</h3>
+          <p>PRISMA eliminates arbitrary ordinal hierarchies. The 8 axes exist simultaneously across a 360° topology of complementary dialectical pairs:</p>
           <ul>
-            <li><strong>Inquiry & Research ↔ Collaborative Leadership:</strong> Autonomous theoretical investigation contrasted with collective group execution.</li>
-            <li><strong>Critical Thinking ↔ Technical Expertise:</strong> Abstract analytical deconstruction balanced against practical, tangible craftsmanship.</li>
-            <li><strong>Ethical Reasoning ↔ Resilience & Self-Management:</strong> Outward moral responsibility to the community balanced with internal emotional fortitude.</li>
-            <li><strong>Intercultural Agency ↔ Metacognitive Reflection:</strong> Empathic awareness of the diverse other mirrored by deep introspection of self.</li>
+            <li><strong>Inquiry & research ↔ Collaborative leadership:</strong> Autonomous theoretical investigation contrasted with collective group execution.</li>
+            <li><strong>Critical thinking ↔ Technical expertise:</strong> Abstract analytical deconstruction balanced against practical, tangible craftsmanship.</li>
+            <li><strong>Ethical reasoning ↔ Resilience & self-management:</strong> Outward moral responsibility to the community balanced with internal emotional fortitude.</li>
+            <li><strong>Intercultural agency ↔ Metacognitive reflection:</strong> Empathic awareness of the diverse other mirrored by deep introspection of self.</li>
           </ul>
         `,
         architecture: `
-          <h2>Offline-First Edge-AI Infrastructure</h2>
+          <h2>Offline-first Edge-AI infrastructure</h2>
           <p>Mainstream educational technologies rely on cloud subscriptions, recurring API fees, and centralized databases that harvest sensitive student records. PRISMA is engineered with an uncompromising local-first architecture:</p>
           <ul>
-            <li><strong>100% Air-Gapped Inferences:</strong> Powered by lightweight Small Language Models (SLMs: 1.5B to 7B parameters at 4-bit quantization) running entirely on-device via open local runtimes (such as Ollama, llama.cpp, or PocketPal).</li>
-            <li><strong>Zero Recurring API Cost:</strong> Eliminates SaaS operational expenses and per-token fees, democratizing advanced qualitative analytics for resource-constrained community schools.</li>
-            <li><strong>Absolute Child Data Sovereignty:</strong> Student observations, student IDs, and developmental evaluations never cross an internet connection or touch corporate cloud servers. Data stays permanently inside the school.</li>
-            <li><strong>Logarithmic Calibration (+6 dB per Doubling):</strong> Grounded in the Weber-Fechner psychophysical scale ($L = 20 \\cdot \\log_{10}(A / A_0)$). Each +6 dB step represents a geometric doubling ($2\\times$) of demonstrated capability relative to baseline, eliminating ceiling saturation and allowing initial progress to coexist harmoniously with advanced mastery.</li>
+            <li><strong>Air-gapped inferences:</strong> Powered by lightweight Small Language Models (SLMs: 1.5B to 7B parameters at 4-bit quantization) running entirely on-device via open local runtimes (such as Ollama, llama.cpp, or PocketPal).</li>
+            <li><strong>Zero recurring API cost:</strong> Eliminates SaaS operational expenses and per-token fees, democratizing advanced qualitative analytics for resource-constrained community schools.</li>
+            <li><strong>Absolute child data sovereignty:</strong> Student observations, student IDs, and developmental evaluations never cross an internet connection or touch corporate cloud servers. Data stays permanently inside the school.</li>
+            <li><strong>Logarithmic calibration (+6 dB per doubling):</strong> Grounded in the Weber-Fechner psychophysical scale (<em>L</em> = 20 · log₁₀(<em>A</em> / <em>A</em>₀)). Each +6 dB step represents an exact geometric doubling (2×) of demonstrated capability relative to baseline, eliminating ceiling saturation and allowing initial progress to coexist harmoniously with advanced mastery.</li>
           </ul>
         `,
         ethos: `
-          <h2>Pedagogical Sovereignty & Sociophysiological Care</h2>
+          <h2>Pedagogical sovereignty & sociophysiological care</h2>
           <p>PRISMA is neither an algorithmic judge nor an administrative surveillance engine. It is an assistive heuristic governed by non-negotiable ethical boundaries:</p>
           <ul>
-            <li><strong>Human Always in Charge:</strong> PRISMA suggests; the educator decides. The system proposes logarithmic deltas and extracts evidence citations, but the educator retains absolute pedagogical authority to accept, amend, or reject any recommendation.</li>
-            <li><strong>State of Educability (UNICEF / Maturana):</strong> Cognitive educability is inseparable from metabolic and somatic homeostasis. Before logging assessment observations, PRISMA records a non-punitive, un-graded baseline of three physiological indicators:
-              <br>&bull; <em>Sleep Recovery</em> (rest quality and hours)
-              <br>&bull; <em>Nutritional Support</em> (caloric intake prior to session)
-              <br>&bull; <em>Somatic Comfort & Menstrual Pain</em> (direct identification of acute physical discomfort, chronic fatigue, and menstrual pain / dysmenorrhea).
+            <li><strong>Human always in charge:</strong> PRISMA suggests; the educator decides. The system proposes logarithmic deltas and extracts evidence citations, but the educator retains absolute pedagogical authority to accept, amend, or reject any recommendation.</li>
+            <li><strong>State of educability (UNICEF / Maturana):</strong> Cognitive educability is inseparable from metabolic and somatic homeostasis. Before logging assessment observations, PRISMA records a non-punitive, un-graded baseline across three physiological indicators:
+              <br>&bull; <em>Sleep recovery</em> (rest quality and hours)
+              <br>&bull; <em>Nutritional support</em> (caloric intake prior to session)
+              <br>&bull; <em>Somatic comfort & menstrual pain</em> (direct registration of acute physical fatigue, somatic discomfort, and menstrual pain / dysmenorrhea).
               <br>Low classroom performance is never misdiagnosed as cognitive deficit when driven by somatic distress.</li>
-            <li><strong>100% Auditable Evidence Trails:</strong> Every coordinate in ℝ⁸ links directly to raw teacher narrative commentary and student artifacts, ending black-box grading forever.</li>
+            <li><strong>100% auditable evidence trails:</strong> Every coordinate in ℝ⁸ links directly to raw teacher narrative commentary and student artifacts, ending black-box grading forever.</li>
           </ul>
         `,
         sandboxIntro: `
-          <h2>Interactive Architectural Sandbox</h2>
+          <h2>Interactive architectural sandbox</h2>
           <div class="callout">
-            <strong>Demonstration Notice:</strong> This browser sandbox runs a pre-recorded demonstration of PRISMA's algorithmic synthetic analysis and qualitative projection onto ℝ⁸. In live field deployments, all inferences execute 100% on-device via local offline SLMs (1.5B–7B) with zero internet connectivity.
+            <strong>Demonstration notice:</strong> This browser sandbox runs a pre-recorded demonstration of PRISMA's algorithmic synthetic analysis and qualitative projection onto ℝ⁸. In live field deployments, all inferences execute 100% on-device via local <em>offline</em> SLMs (1.5B–7B) with zero internet connectivity.
           </div>
         `,
-        btnRun: "Run Synthetic Analysis & Projection",
+        btnRun: "Run synthetic analysis & projection",
         thAxis: "Dimension (ℝ⁸)",
         thDelta: "Δ (dB)",
-        thCitation: "Traceable Evidence",
-        screenshotTitle: "Streamlit On-Device Interface (Retina Capture)",
-        footer: `Aula Viva® &bull; Independent Research &bull; Grounded in <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">SSRN DOI: 10.2139/ssrn.7310080</a><br>Registered Intellectual Property: INDAUTOR 03-2026-040710022300-01`
+        thCitation: "Traceable evidence",
+        idleText: "Select a scenario and click &ldquo;Run synthetic analysis & projection&rdquo; to project the vector coordinates.",
+        screenshotTitle: "On-device capture interface",
+        footer: `Aula Viva® &bull; Independent research &bull; Grounded in <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">SSRN DOI: 10.2139/ssrn.7310080</a><br>Registered intellectual property: INDAUTOR 03-2026-040710022300-01`
       },
       es: {
-        descriptor: "PRISMA™ — IA Local en el Borde para la Evaluación Cualitativa en ℝ⁸",
-        tabs: { vision: "Visión", architecture: "Arquitectura", ethos: "Ética y Gobernanza", prototype: "Sandbox Interactivo" },
+        descriptor: "PRISMA™ — IA local para la evaluación cualitativa en ℝ⁸",
+        tabs: { vision: "Visión", architecture: "Arquitectura", ethos: "Ética y gobernanza", prototype: "Sandbox interactivo" },
         vision: `
-          <h2>Más allá de la Falacia Escalar</h2>
+          <h2>Más allá de la falacia escalar</h2>
           <p>La evaluación tradicional comprime la complejidad irreductible del aprendizaje humano en un número plano y unidimensional (0–100 o escala de 10). Esta cifra reduccionista no informa a los educadores sobre la dirección del desarrollo, la resiliencia intelectual o el contexto situado: se limita a clasificar, etiquetar y castigar.</p>
           
           <div class="callout">
-            <strong>Coexistencia Simbiótica:</strong> PRISMA no sustituye las calificaciones institucionales obligatorias. Funciona en paralelo a los registros administrativos oficiales como una capa cualitativa de acompañamiento, transformando el cumplimiento burocrático en comprensión profunda del desarrollo sin generar trabajo doble para el docente.
+            <strong>Coexistencia simbiótica:</strong> PRISMA no sustituye las calificaciones institucionales obligatorias. Funciona en paralelo a los registros administrativos oficiales como una capa cualitativa de acompañamiento, transformando el cumplimiento burocrático en comprensión profunda del desarrollo sin generar trabajo doble para el docente.
           </div>
 
           <p><strong>PRISMA™</strong> (Plataforma de Reflexión e Interpretación para el Seguimiento Multidimensional del Aprendizaje), sustentado en el marco de investigación ASPIRE® (PRISM: Portable Record of Integrated Skills & Mastery), concibe la evaluación formativa como un acto de refracción espectral. Al analizar notas narrativas no estructuradas, PRISMA proyecta el crecimiento sobre un espacio vectorial de ocho dimensiones (ℝ⁸) sintetizado a partir de taxonomías internacionales de indagación y marcos de educación comunitaria.</p>
 
-          <h3>Los Cuatro Cuadrantes Cibernéticos</h3>
+          <h3>Los cuatro cuadrantes cibernéticos</h3>
           <ul>
-            <li><strong>Mente que Indaga (Dominio Cognitivo-Epistemológico):</strong> Indagación e Investigación / Pensamiento Crítico y Analítico.</li>
-            <li><strong>Mirada al Entorno (Dominio Socio-Ético y Situacional):</strong> Razonamiento Ético / Agencia Intercultural.</li>
-            <li><strong>Hacer Colectivo (Dominio Práctico y Relacional):</strong> Liderazgo Colaborativo / Saber Hacer y Ejecución Técnica.</li>
-            <li><strong>Equilibrio Interno y Autopoiesis (Dominio Intrapersonal):</strong> Resiliencia y Autogestión / Reflexión Metacognitiva.</li>
+            <li><strong>Mente que indaga (dominio cognitivo-epistemológico):</strong> Indagación e investigación / Pensamiento crítico y analítico.</li>
+            <li><strong>Mirada al entorno (dominio socio-ético y situacional):</strong> Razonamiento ético / Agencia intercultural.</li>
+            <li><strong>Hacer colectivo (dominio práctico y relacional):</strong> Liderazgo colaborativo / Saber hacer y ejecución técnica.</li>
+            <li><strong>Equilibrio interno y autopoiesis (dominio intrapersonal):</strong> Resiliencia y autogestión / Reflexión metacognitiva.</li>
           </ul>
 
-          <h3>Simetría Dialéctica Polar a 180°</h3>
-          <p>PRISMA elimina definitivamente las jerarquías ordinales (A₁...A₈). Los 8 ejes coexisten simultáneamente en una topología de 360° articulada en pares dialécticos complementarios:</p>
+          <h3>Simetría dialéctica polar a 180°</h3>
+          <p>PRISMA elimina definitivamente las jerarquías ordinales. Los 8 ejes coexisten simultáneamente en una topología de 360° articulada en pares dialécticos complementarios:</p>
           <ul>
-            <li><strong>Indagación e Investigación ↔ Liderazgo Colaborativo:</strong> Búsqueda teórica autónoma en tensión complementaria con la acción grupal colectiva.</li>
-            <li><strong>Pensamiento Crítico ↔ Ejecución Técnica:</strong> Deconstrucción abstracta y analítica equilibrada con la construcción práctica y tangible del oficio.</li>
-            <li><strong>Razonamiento Ético ↔ Resiliencia y Autogestión:</strong> Responsabilidad moral externa hacia la comunidad equilibrada con la fortaleza emocional interna.</li>
-            <li><strong>Agencia Intercultural ↔ Reflexión Metacognitiva:</strong> Conciencia empática hacia la diversidad del otro reflejada en la introspección profunda de uno mismo.</li>
+            <li><strong>Indagación e investigación ↔ Liderazgo colaborativo:</strong> Búsqueda teórica autónoma en tensión complementaria con la acción grupal colectiva.</li>
+            <li><strong>Pensamiento crítico ↔ Ejecución técnica:</strong> Deconstrucción abstracta y analítica equilibrada con la construcción práctica y tangible del oficio.</li>
+            <li><strong>Razonamiento ético ↔ Resiliencia y autogestión:</strong> Responsabilidad moral externa hacia la comunidad equilibrada con la fortaleza emocional interna.</li>
+            <li><strong>Agencia intercultural ↔ Reflexión metacognitiva:</strong> Conciencia empática hacia la diversidad del otro reflejada en la introspección profunda de uno mismo.</li>
           </ul>
         `,
         architecture: `
-          <h2>Arquitectura de IA en el Borde (100% Offline)</h2>
-          <p>Las aplicaciones educativas comerciales imponen suscripciones en la nube, costos recurrentes por tokens y servidores centralizados que recolectan información sensible del alumnado. PRISMA está diseñado bajo una arquitectura de borde estricta:</p>
+          <h2>Arquitectura de IA local (100% aislada)</h2>
+          <p>Las aplicaciones educativas comerciales imponen suscripciones en la nube, costos recurrentes por tokens y servidores centralizados que recolectan información sensible del alumnado. PRISMA está diseñado bajo una arquitectura local estricta:</p>
           <ul>
-            <li><strong>Inferencias 100% Aisladas (Air-Gapped):</strong> Impulsado por Modelos de Lenguaje Pequeños (SLM: 1.5B a 7B parámetros cuantizados a 4 bits) ejecutados enteramente en el hardware local mediante entornos abiertos (como Ollama, llama.cpp o PocketPal).</li>
-            <li><strong>Cero Costo Operativo de API:</strong> Elimina pagos de suscripción SaaS o cobros por consulta, democratizando la analítica cualitativa para escuelas comunitarias y entornos de recursos limitados.</li>
-            <li><strong>Soberanía Absoluta de Datos del Menor:</strong> Las observaciones docentes, identificadores y evaluaciones formativas jamás cruzan una conexión a internet ni tocan servidores corporativos. Los datos permanecen permanentemente en el aula.</li>
-            <li><strong>Calibración Logarítmica (+6 dB por Duplicación):</strong> Basado en la ley psicofísica sensorial de Weber-Fechner ($L = 20 \\cdot \\log_{10}(A / A_0)$). Cada incremento de +6 dB representa una duplicación geométrica ($2\\times$) de la capacidad respecto a la línea de base, evitando la saturación de escala y permitiendo convivir avances iniciales con niveles de maestría avanzada.</li>
+            <li><strong>Inferencias aisladas (<em>air-gapped</em>):</strong> Impulsado por modelos de lenguaje pequeños (SLM: 1.5B a 7B parámetros cuantizados a 4 bits) ejecutados enteramente en el hardware local mediante entornos abiertos (como Ollama, llama.cpp o PocketPal).</li>
+            <li><strong>Cero costo operativo de API:</strong> Elimina pagos de suscripción SaaS o cobros por consulta, democratizando la analítica cualitativa para escuelas comunitarias y entornos de recursos limitados.</li>
+            <li><strong>Soberanía absoluta de datos del menor:</strong> Las observaciones docentes, identificadores y evaluaciones formativas jamás cruzan una conexión a internet ni tocan servidores corporativos. Los datos permanecen permanentemente en el aula.</li>
+            <li><strong>Calibración logarítmica (+6 dB por duplicación):</strong> Basado en la ley psicofísica sensorial de Weber-Fechner (<em>L</em> = 20 · log₁₀(<em>A</em> / <em>A</em>₀)). Cada incremento de +6 dB representa una duplicación geométrica exacta (2×) de la capacidad respecto a la línea de base, evitando la saturación de escala y permitiendo convivir avances iniciales con niveles de maestría avanzada.</li>
           </ul>
         `,
         ethos: `
-          <h2>Soberanía Pedagógica y Cuidado Sociofisiológico</h2>
+          <h2>Soberanía pedagógica y cuidado sociofisiológico</h2>
           <p>PRISMA no es un calificador automático ni una herramienta de vigilancia. Es una heurística asistencial delimitada por salvaguardas éticas irrenunciables:</p>
           <ul>
-            <li><strong>El Humano Siempre a Cargo:</strong> PRISMA sugiere; el docente decide. El sistema propone variaciones logarítmicas (deltas) y extrae citas textuales de evidencia, pero el docente conserva la autoridad pedagógica absoluta de aceptar, editar o rechazar cualquier sugerencia.</li>
-            <li><strong>Nota de Estado de Educabilidad (UNICEF / Maturana):</strong> El aprendizaje depende del equilibrio metabólico y emocional del organismo. Previo a registrar observaciones formativas, PRISMA registra tres indicadores biológicos temporales, sin calificación ni juicio moral:
-              <br>&bull; <em>Recuperación y Sueño</em> (calidad de descanso)
-              <br>&bull; <em>Soporte Nutricional</em> (ingesta calórica previa a la sesión)
-              <br>&bull; <em>Confort Somático y Dolor Menstrual</em> (identificación explícita de fatiga física aguda y dolor menstrual / dismenorrea).
+            <li><strong>El humano siempre a cargo:</strong> PRISMA sugiere; el docente decide. El sistema propone variaciones logarítmicas (deltas) y extrae citas textuales de evidencia, pero el docente conserva la autoridad pedagógica absoluta de aceptar, editar o rechazar cualquier sugerencia.</li>
+            <li><strong>Nota de estado de educabilidad (UNICEF / Maturana):</strong> El aprendizaje depende del equilibrio metabólico y emocional del organismo. Previo a registrar observaciones formativas, PRISMA registra tres indicadores biológicos temporales, sin calificación ni juicio moral:
+              <br>&bull; <em>Recuperación y sueño</em> (calidad de descanso)
+              <br>&bull; <em>Soporte nutricional</em> (ingesta calórica previa a la sesión)
+              <br>&bull; <em>Confort somático y dolor menstrual</em> (identificación explícita de fatiga física aguda, malestar somático y dolor menstrual / dismenorrea).
               <br>Un bajo desempeño en aula nunca se confunde con déficit cognitivo cuando su origen es el agotamiento somático o biológico.</li>
-            <li><strong>Trazabilidad y Transparencia Absoluta:</strong> Cada coordenada en ℝ⁸ está vinculada directamente con la cita textual de la observación docente y los entregables del estudiante, erradicando por completo la opacidad algorítmica.</li>
+            <li><strong>Trazabilidad y transparencia absoluta:</strong> Cada coordenada en ℝ⁸ está vinculada directamente con la cita textual de la observación docente y los entregables del estudiante, erradicando por completo la opacidad algorítmica.</li>
           </ul>
         `,
         sandboxIntro: `
-          <h2>Sandbox de Demostración Arquitectónica</h2>
+          <h2>Sandbox de demostración arquitectónica</h2>
           <div class="callout">
-            <strong>Aviso de Demostración:</strong> Este sandbox ejecuta una demostración pregrabada del análisis sintético algorítmico y proyección cualitativa hacia ℝ⁸. En despliegues reales en aula, todas las inferencias se procesan 100% en el dispositivo mediante SLMs locales (1.5B–7B) sin conexión a internet.
+            <strong>Aviso de demostración:</strong> Este <em>sandbox</em> ejecuta una demostración pregrabada del análisis sintético algorítmico y proyección cualitativa hacia ℝ⁸. En despliegues reales en aula, todas las inferencias se procesan 100% en el dispositivo mediante SLMs locales (1.5B–7B) en modo <em>offline</em> sin conexión a internet.
           </div>
         `,
-        btnRun: "Ejecutar Análisis Sintético y Proyección",
+        btnRun: "Ejecutar análisis sintético y proyección",
         thAxis: "Dimensión (ℝ⁸)",
         thDelta: "Δ (dB)",
-        thCitation: "Evidencia Trazable",
-        screenshotTitle: "Interfaz Real en Streamlit (Captura Nativa Retina)",
-        footer: `Aula Viva® &bull; Investigación Independiente &bull; Basado en <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">SSRN DOI: 10.2139/ssrn.7310080</a><br>Registro de Propiedad Intelectual: INDAUTOR 03-2026-040710022300-01`
+        thCitation: "Evidencia trazable",
+        idleText: "Selecciona un escenario y presiona &ldquo;Ejecutar análisis sintético y proyección&rdquo; para proyectar las coordenadas.",
+        screenshotTitle: "Interfaz de captura en el dispositivo",
+        footer: `Aula Viva® &bull; Investigación independiente &bull; Basado en <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">SSRN DOI: 10.2139/ssrn.7310080</a><br>Registro de propiedad intelectual: INDAUTOR 03-2026-040710022300-01`
       }
     };
 
     const SCENARIOS = {
       maria: {
         en: {
-          name: "Scenario 1: María — STEAM Filter & Conflict Resolution",
-          note: "Student: María | Grade: 10th\nEducability: Sleep: 7.5h (Good) | Breakfast: Yes | Somatic/Menstrual: No acute pain reported.\nTeacher Narrative: 'Today María led the construction of the water filter prototype. She resolved an internal dispute within her team by listening attentively and adjusted the filtration materials after an initial test failure.'",
+          name: "Scenario 1: María — STEAM filter & conflict resolution",
+          note: "Student: María | Grade: 10th\nEducability: Sleep: 7.5h (Good) | Breakfast: Yes | Somatic/Menstrual: No acute pain reported.\nTeacher narrative: 'Today María led the construction of the water filter prototype. She resolved an internal dispute within her team by listening attentively and adjusted the filtration materials after an initial test failure.'",
           deltas: [
-            { axis: "Collaborative Leadership", delta: "+2.0 dB", quote: "led the construction... resolved an internal dispute by listening attentively" },
-            { axis: "Resilience & Self-Management", delta: "+1.5 dB", quote: "adjusted the filtration materials after an initial test failure" },
-            { axis: "Critical & Analytical Thinking", delta: "+1.0 dB", quote: "deduced how materials should be restructured to prevent leaks" },
-            { axis: "Technical & Professional Expertise", delta: "+1.0 dB", quote: "practical functional assembly of STEAM prototype" }
+            { axis: "Collaborative leadership", delta: "+2.0 dB", quote: "led the construction... resolved an internal dispute by listening attentively" },
+            { axis: "Resilience & self-management", delta: "+1.5 dB", quote: "adjusted the filtration materials after an initial test failure" },
+            { axis: "Critical & analytical thinking", delta: "+1.0 dB", quote: "deduced how materials should be restructured to prevent leaks" },
+            { axis: "Technical & professional expertise", delta: "+1.0 dB", quote: "practical functional assembly of STEAM prototype" }
           ],
           polygon: [6.5, 7.5, 6.0, 6.0, 8.0, 7.0, 7.5, 6.0]
         },
         es: {
-          name: "Escenario 1: María — Filtro STEAM y Mediación de Conflicto",
-          note: "Estudiante: María | Grado: 10º\nEducabilidad: Sueño: 7.5h (Óptimo) | Desayuno: Sí | Somático/Menstrual: Sin dolor agudo reportado.\nNota Docente: 'Hoy María lideró la construcción del prototipo de filtro de agua. Resolvió un conflicto en su equipo escuchando a sus compañeras y ajustó los materiales tras un primer fallo en la prueba de filtración.'",
+          name: "Escenario 1: María — Filtro STEAM y mediación de conflicto",
+          note: "Estudiante: María | Grado: 10º\nEducabilidad: Sueño: 7.5h (Óptimo) | Desayuno: Sí | Somático/Menstrual: Sin dolor agudo reportado.\nNota docente: 'Hoy María lideró la construcción del prototipo de filtro de agua. Resolvió un conflicto en su equipo escuchando a sus compañeras y ajustó los materiales tras un primer fallo en la prueba de filtración.'",
           deltas: [
-            { axis: "Liderazgo Colaborativo", delta: "+2.0 dB", quote: "lideró la construcción... resolvió un conflicto escuchando activamente" },
-            { axis: "Resilience y Autogestión", delta: "+1.5 dB", quote: "ajustó los materiales tras un primer fallo en la prueba" },
-            { axis: "Pensamiento Crítico y Analítico", delta: "+1.0 dB", quote: "analizó la falla técnica y dedujo el ajuste de materiales" },
-            { axis: "Saber Hacer y Ejecución Técnica", delta: "+1.0 dB", quote: "ensamblaje práctico de prototipo funcional STEAM" }
+            { axis: "Liderazgo colaborativo", delta: "+2.0 dB", quote: "lideró la construcción... resolvió un conflicto escuchando activamente" },
+            { axis: "Resiliencia y autogestión", delta: "+1.5 dB", quote: "ajustó los materiales tras un primer fallo en la prueba" },
+            { axis: "Pensamiento crítico y analítico", delta: "+1.0 dB", quote: "analizó la falla técnica y dedujo el ajuste de materiales" },
+            { axis: "Saber hacer y ejecución técnica", delta: "+1.0 dB", quote: "ensamblaje práctico de prototipo funcional STEAM" }
           ],
           polygon: [6.5, 7.5, 6.0, 6.0, 8.0, 7.0, 7.5, 6.0]
         }
       },
       carlos: {
         en: {
-          name: "Scenario 2: Carlos — Intercultural Community Archives",
-          note: "Student: Carlos | Grade: 11th\nEducability: Sleep: 5.0h (Mild fatigue) | Breakfast: Yes | Somatic/Menstrual: Muscle soreness from sports.\nTeacher Narrative: 'Carlos conducted oral history interviews with neighborhood elders, translating testimonies from their native tongue. When his audio recorder malfunctioned, he kept field notes by hand and critically reflected on how official history omits communal struggles.'",
+          name: "Scenario 2: Carlos — Intercultural community archives",
+          note: "Student: Carlos | Grade: 11th\nEducability: Sleep: 5.0h (Mild fatigue) | Breakfast: Yes | Somatic/Menstrual: Muscle soreness from sports.\nTeacher narrative: 'Carlos conducted oral history interviews with neighborhood elders, translating testimonies from their native tongue. When his audio recorder malfunctioned, he kept field notes by hand and critically reflected on how official history omits communal struggles.'",
           deltas: [
-            { axis: "Intercultural Agency", delta: "+2.5 dB", quote: "interviews with elders, translating testimonies from native tongue" },
-            { axis: "Metacognitive Reflection", delta: "+2.0 dB", quote: "critically reflected on how official history omits communal struggles" },
-            { axis: "Inquisitiveness & Investigation", delta: "+1.5 dB", quote: "conducted oral history interviews, autonomous source gathering" },
-            { axis: "Resilience & Self-Management", delta: "+1.0 dB", quote: "when audio recorder malfunctioned, kept field notes by hand" }
+            { axis: "Intercultural agency", delta: "+2.5 dB", quote: "interviews with elders, translating testimonies from native tongue" },
+            { axis: "Metacognitive reflection", delta: "+2.0 dB", quote: "critically reflected on how official history omits communal struggles" },
+            { axis: "Inquisitiveness & investigation", delta: "+1.5 dB", quote: "conducted oral history interviews, autonomous source gathering" },
+            { axis: "Resilience & self-management", delta: "+1.0 dB", quote: "when audio recorder malfunctioned, kept field notes by hand" }
           ],
           polygon: [7.5, 7.0, 7.0, 8.5, 6.0, 6.0, 7.0, 8.0]
         },
         es: {
-          name: "Escenario 2: Carlos — Archivos Comunitarios e Interculturales",
-          note: "Estudiante: Carlos | Grado: 11º\nEducabilidad: Sueño: 5.0h (Fatiga leve) | Desayuno: Sí | Somático/Menstrual: Cansancio físico por entrenamiento.\nNota Docente: 'Carlos realizó entrevistas orales con ancianos del barrio, traduciendo testimonios desde su lengua materna. Cuando falló su grabadora, tomó notas de campo a mano y reflexionó críticamente sobre cómo la historia oficial omite las luchas comunitarias.'",
+          name: "Escenario 2: Carlos — Archivos comunitarios e interculturales",
+          note: "Estudiante: Carlos | Grado: 11º\nEducabilidad: Sueño: 5.0h (Fatiga leve) | Desayuno: Sí | Somático/Menstrual: Cansancio físico por entrenamiento.\nNota docente: 'Carlos realizó entrevistas orales con ancianos del barrio, traduciendo testimonios desde su lengua materna. Cuando falló su grabadora, tomó notas de campo a mano y reflexionó críticamente sobre cómo la historia oficial omite las luchas comunitarias.'",
           deltas: [
-            { axis: "Agencia Intercultural", delta: "+2.5 dB", quote: "entrevistas con ancianos, traduciendo testimonios de lengua materna" },
-            { axis: "Reflexión Metacognitiva", delta: "+2.0 dB", quote: "reflexionó críticamente sobre la omisión de luchas comunitarias" },
-            { axis: "Indagación e Investigación", delta: "+1.5 dB", quote: "entrevistas de historia oral, rescate testimonial autónomo" },
-            { axis: "Resiliencia y Autogestión", delta: "+1.0 dB", quote: "al fallar la grabadora continuó tomando notas a mano" }
+            { axis: "Agencia intercultural", delta: "+2.5 dB", quote: "entrevistas con ancianos, traduciendo testimonios de lengua materna" },
+            { axis: "Reflexión metacognitiva", delta: "+2.0 dB", quote: "reflexionó críticamente sobre la omisión de luchas comunitarias" },
+            { axis: "Indagación e investigación", delta: "+1.5 dB", quote: "entrevistas de historia oral, rescate testimonial autónomo" },
+            { axis: "Resiliencia y autogestión", delta: "+1.0 dB", quote: "al fallar la grabadora continuó tomando notas a mano" }
           ],
           polygon: [7.5, 7.0, 7.0, 8.5, 6.0, 6.0, 7.0, 8.0]
         }
@@ -595,6 +604,7 @@
     let currentLocale = 'en';
     let secondaryKeys = ['ar', 'he', 'zh', 'hi', 'fr', 'nah', 'zu', 'ja'];
     let secondaryIdx = 0;
+    let isAnalyzed = false;
 
     function shuffleArray(arr) {
       for (let i = arr.length - 1; i > 0; i--) {
@@ -659,14 +669,24 @@
       const sel = document.getElementById('scenarioSelect');
       sel.options[0].text = SCENARIOS.maria[loc].name;
       sel.options[1].text = SCENARIOS.carlos[loc].name;
-      loadScenario();
+      
+      resetSandboxUI();
     }
 
     function switchTab(tabId) {
+      const activeBtn = document.getElementById('tab-btn-' + tabId);
+      const isAlreadyActive = activeBtn.classList.contains('active');
+
       document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
       document.querySelectorAll('.panel').forEach(panel => panel.classList.remove('active'));
-      document.getElementById('tab-btn-' + tabId).classList.add('active');
-      document.getElementById(tabId).classList.add('active');
+
+      if (!isAlreadyActive) {
+        activeBtn.classList.add('active');
+        document.getElementById(tabId).classList.add('active');
+        if (tabId === 'prototype' && !isAnalyzed) {
+          resetSandboxUI();
+        }
+      }
     }
 
     function drawRadar(polyPoints) {
@@ -696,33 +716,31 @@
         const angle = (Math.PI * 2 / axesCount) * i - Math.PI / 2;
         basePts.push(`${cx + Math.cos(angle) * r * 0.55},${cy + Math.sin(angle) * r * 0.55}`);
       }
-      html += `<polygon points="${basePts.join(' ')}" fill="rgba(255,255,255,0.03)" stroke="#5c6570" stroke-dasharray="3,3" stroke-width="1.5"/>`;
+      html += `<polygon points="${basePts.join(' ')}" fill="rgba(255,255,255,0.02)" stroke="#5c6570" stroke-dasharray="3,3" stroke-width="1.2"/>`;
 
-      let activePts = [];
-      for (let i = 0; i < axesCount; i++) {
-        const angle = (Math.PI * 2 / axesCount) * i - Math.PI / 2;
-        const val = (polyPoints[i] || 5.5) / 10;
-        activePts.push(`${cx + Math.cos(angle) * r * val},${cy + Math.sin(angle) * r * val}`);
+      if (polyPoints) {
+        let activePts = [];
+        for (let i = 0; i < axesCount; i++) {
+          const angle = (Math.PI * 2 / axesCount) * i - Math.PI / 2;
+          const val = (polyPoints[i] || 5.5) / 10;
+          activePts.push(`${cx + Math.cos(angle) * r * val},${cy + Math.sin(angle) * r * val}`);
+        }
+        html += `<polygon points="${activePts.join(' ')}" fill="rgba(88, 166, 255, 0.25)" stroke="#58a6ff" stroke-width="2"/>`;
       }
-      html += `<polygon points="${activePts.join(' ')}" fill="rgba(88, 166, 255, 0.25)" stroke="#58a6ff" stroke-width="2"/>`;
 
       svg.innerHTML = html;
     }
 
-    function loadScenario() {
+    function resetSandboxUI() {
+      isAnalyzed = false;
       const sKey = document.getElementById('scenarioSelect').value;
       const s = SCENARIOS[sKey][currentLocale];
       document.getElementById('sandboxNoteBox').textContent = s.note;
-      
-      const tbody = document.getElementById('deltaTableBody');
-      tbody.innerHTML = '';
-      s.deltas.forEach(d => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `<td><strong>${d.axis}</strong></td><td class="delta-val">${d.delta}</td><td style="color:#8b949e"><em>“${d.quote}”</em></td>`;
-        tbody.appendChild(tr);
-      });
 
-      drawRadar(s.polygon);
+      const tbody = document.getElementById('deltaTableBody');
+      tbody.innerHTML = `<tr><td colspan="3" class="table-idle">${CONTENT[currentLocale].idleText}</td></tr>`;
+
+      drawRadar(null);
     }
 
     function runSandboxSimulation() {
@@ -730,14 +748,28 @@
       const origText = btn.textContent;
       btn.textContent = (currentLocale === 'en') ? "Synthesizing on-device..." : "Sintetizando en local...";
       btn.style.opacity = 0.6;
+
       setTimeout(() => {
-        loadScenario();
+        isAnalyzed = true;
+        const sKey = document.getElementById('scenarioSelect').value;
+        const s = SCENARIOS[sKey][currentLocale];
+
+        const tbody = document.getElementById('deltaTableBody');
+        tbody.innerHTML = '';
+        s.deltas.forEach(d => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `<td><strong>${d.axis}</strong></td><td class="delta-val">${d.delta}</td><td style="color:#8b949e"><em>“${d.quote}”</em></td>`;
+          tbody.appendChild(tr);
+        });
+
+        drawRadar(s.polygon);
+
         btn.textContent = origText;
         btn.style.opacity = 1;
       }, 350);
     }
 
-    // Initialize English view
+    // Initialize English view with no tabs open
     setLocale('en');
   </script>
 
