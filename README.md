@@ -40,17 +40,22 @@ Developed as the analytical intero-proprioceptive engine of the **ASPIRE® Ecosy
 
 ### 1. Clone Repository
 ```bash
-git clone [https://github.com/vicstern/PRISMA_App.git](https://github.com/vicstern/PRISMA_App.git)
+git clone https://github.com/vicstern/PRISMA_App.git
 cd PRISMA_App
-<img width="468" height="621" alt="image" src="https://github.com/user-attachments/assets/9408a05a-0b7b-4eb6-b8b7-eada17940a20" />
+```
 
-# 2. Configure Local Model
+### 2. Configure Local Model
+```bash
 ollama create prisma-engine -f Modelfile
+```
 
-# 3. Install Dependencies & Launch UI
+### 3. Install Dependencies & Launch UI
+```bash
 pip install streamlit plotly numpy requests
 streamlit run app.py
+```
 
 ---
+
 ## 📄 License & Open-Source Commitment
 This project is licensed under the **Apache License 2.0** — see the [LICENSE](LICENSE) file for details.
