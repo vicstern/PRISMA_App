@@ -83,9 +83,9 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: #ffffff;
-      margin-top: 2px;
+      margin-top: 4px;
       margin-bottom: 2px;
-      line-height: 1.32;
+      line-height: 1.45; /* antes decía 1.32 */
     }
     h1 span.reg {
       font-size: 0.75rem;
@@ -413,6 +413,38 @@
     }
   </style>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="ee5c2cc1-ee34-492a-8997-c454e193ff8c"></script>
+  <!-- Google Knowledge Graph & Identity Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://aulaviva.lat/#victor-stern",
+      "name": "Víctor Stern Rodríguez",
+      "alternateName": ["Víctor Stern", "Victor Stern Rodriguez"],
+      "url": "https://aulaviva.lat",
+      "jobTitle": "Educational Systems Architect & Researcher",
+      "sameAs": [
+        "https://doi.org/10.2139/ssrn.7310080",
+        "https://github.com/vicstern"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://aulaviva.lat/#website",
+      "url": "https://aulaviva.lat",
+      "name": "Aula Viva | PRISMA™ & ASPIRE®",
+      "author": {
+        "@id": "https://aulaviva.lat/#victor-stern"
+      },
+      "creator": {
+        "@id": "https://aulaviva.lat/#victor-stern"
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -519,13 +551,12 @@
 
   </div>
 
-  <footer id="footerText">
-    <div><strong>Aula Viva® with AI</strong> by Víctor Stern Rodríguez</div>
-    <div style="font-size:0.8rem; margin:4px 0;">ASPIRE® Framework | PRISMA™ Engine · SSRN: <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">10.2139/ssrn.7310080</a> · INDAUTOR Reg. 03-2026-040710022300-01</div>
-    <div style="font-size:0.75rem; opacity:0.75;">© 2026 Grupo SIEFH Sistemas Educativos para el Florecimiento Humano S.A.S. All rights reserved.</div>
+  <footer id="footerText" style="padding: 12px 10px; font-size: 0.8rem; opacity: 0.82; line-height: 1.45; text-align: center;">
+    <strong>Aula Viva®</strong> with AI by Víctor Stern Rodríguez<br>
+    ASPIRE® · PRISMA™ · SSRN: <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">10.2139/ssrn.7310080</a> · INDAUTOR 03-2026-040710022300-01 · © 2026 Grupo SIEFH S.A.S.
   </footer>
-
-  <script>
+  
+   <script>
     const QUOTES = {
       en: { text: "“Shining white light through learners, projecting its refracted colors to reveal the profound journey of their growth.”" },
       es: { text: "«Hacer brillar luz blanca a través de cada estudiante, proyectando sus colores refractados para revelar el profundo camino de su crecimiento.»" },
@@ -744,7 +775,7 @@
         idleText: "Presiona &ldquo;Visualizar proyección&rdquo; para proyectar las coordenadas vectoriales.",
         interfaceTitle: "Interfaz de captura en el dispositivo",
         interfaceDesc: "Entorno local Streamlit ejecutando inferencia cualitativa con SLMs directamente en el equipo del educador, garantizando cero dependencia de la nube y soberanía total de datos.",
-        footer: `<div><strong>Aula Viva® con IA</strong> por Víctor Stern Rodríguez</div><div style="font-size:0.8rem; margin:4px 0;">Marco ASPIRE® | Motor PRISMA™ · SSRN: <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">10.2139/ssrn.7310080</a> · Registro INDAUTOR: 03-2026-040710022300-01</div><div style="font-size:0.75rem; opacity:0.75;">© 2026 Grupo SIEFH Sistemas Educativos para el Florecimiento Humano S.A.S. Todos los derechos reservados.</div>`
+        footer: `<strong>Aula Viva®</strong> con IA por Víctor Stern Rodríguez<br>ASPIRE® · PRISMA™ · SSRN: <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">10.2139/ssrn.7310080</a> · INDAUTOR 03-2026-040710022300-01 · © 2026 Grupo SIEFH S.A.S.`
       }
     };
 
