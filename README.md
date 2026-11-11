@@ -50,3 +50,7 @@ ollama create prisma-engine -f Modelfile
 # 3. Install Dependencies & Launch UI
 pip install streamlit plotly numpy requests
 streamlit run app.py
+
+---
+## 📄 License & Open-Source Commitment
+This project is licensed under the **Apache License 2.0** — see the [LICENSE](LICENSE) file for details.
