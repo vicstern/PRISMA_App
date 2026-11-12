@@ -706,6 +706,7 @@
         idleText: "Click &ldquo;Visualize projection&rdquo; to project the vector coordinates.",
         interfaceTitle: "On-device capture interface",
         interfaceDesc: "Local Streamlit execution environment running offline SLM qualitative inference directly on educator hardware, ensuring zero cloud dependency and strict student data sovereignty.",
+        interfaceStatus: "Coming soon for local download and deployment · Apache 2.0",
         footer: `<strong>Aula Viva®</strong> with AI by Víctor Stern Rodríguez<br>ASPIRE® · PRISMA™ · SSRN: <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">10.2139/ssrn.7310080</a> · INDAUTOR 03-2026-040710022300-01 · © 2026 Grupo SiEFH S.A.S.`
       },
       es: {
@@ -784,6 +785,7 @@
         idleText: "Presiona &ldquo;Visualizar proyección&rdquo; para proyectar las coordenadas vectoriales.",
         interfaceTitle: "Interfaz de captura en el dispositivo",
         interfaceDesc: "Entorno local Streamlit ejecutando inferencia cualitativa con SLMs directamente en el equipo del educador, garantizando cero dependencia de la nube y soberanía total de datos.",
+        interfaceStatus: "Próximamente disponible para descarga y despliegue local · Apache 2.0",
         footer: `<strong>Aula Viva®</strong> con IA por Víctor Stern Rodríguez<br>ASPIRE® · PRISMA™ · SSRN: <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">10.2139/ssrn.7310080</a> · INDAUTOR 03-2026-040710022300-01 · © 2026 Grupo SiEFH S.A.S.`
       }
     };
@@ -936,6 +938,7 @@
 
       document.getElementById("interfaceTitle").textContent = data.interfaceTitle;
       document.getElementById("interfaceDesc").textContent = data.interfaceDesc;
+      document.getElementById("interfaceStatus").textContent = data.interfaceStatus;
       document.getElementById("footerText").innerHTML = data.footer;
 
       document.getElementById("btn-state-opt").textContent = (loc === "en") ? "Optimal" : "Óptimo";
