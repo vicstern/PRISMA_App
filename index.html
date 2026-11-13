@@ -125,7 +125,7 @@
       justify-content: center;
       margin-bottom: 4px;
       width: 100%;
-      max-width: 780px;
+      max-width: 900px;
       text-align: center;
     }
     p.primary-quote {
@@ -422,7 +422,6 @@
       color: transparent !important;
 display: block !important;
       text-align: center !important;
-      text-wrap: balance;
     }
     #sliderControls {
       display: grid;
@@ -592,7 +591,7 @@ display: block !important;
 
             <!-- DIALS DOCENTES RECUPERADOS (CALIBRACIÓN SOBERANA) -->
             <div id="teacherAdjustBox" style="display:none; margin-top:20px; background:#0d1117; padding:16px 20px; border-radius:10px; border:1px solid var(--border);">
-              <div style="font-size:0.78rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--accent-blue); font-weight:600; margin-bottom:12px;" id="teacherAdjustTitle">
+              <div style="font-size:0.78rem; letter-spacing:0.04em; color:var(--accent-blue); font-weight:600; margin-bottom:12px;" id="teacherAdjustTitle">
                 Teacher calibration & sovereign override
               </div>
               <div id="sliderControls"></div>
@@ -864,7 +863,7 @@ display: block !important;
 const SANDBOX_DATA = {
       en: {
         optimal: {
-          triage: "Sociophysiological record: Sleep / rest: > 7 hours (optimal) | Food / nutrition: Complete (adequate) | Holistic well-being: Optimal well-being (no pain, discomfort, or fatigue)",
+          triage: "<strong>Sociophysiological record:</strong><br>Sleep / rest: > 7 hours (optimal)<br>Food / nutrition: Complete (adequate)<br>Holistic well-being: Optimal well-being (no pain, discomfort, or fatigue)",
           statusText: "🟢 GREEN — Optimal Condition: Baseline socio-physiological state stable.",
           statusColor: "#3fb950",
           deltas: [
@@ -879,7 +878,7 @@ const SANDBOX_DATA = {
           ]
         },
         compromised: {
-          triage: "Sociophysiological record: Sleep / rest: > 7 hours (optimal) | Food / nutrition: Complete (adequate) | Holistic well-being: Acute discomfort (severe colic, pain, or fatigue from domestic emergency/care)",
+          triage: "<strong>Sociophysiological record:</strong><br>Sleep / rest: > 7 hours (optimal)<br>Food / nutrition: Complete (adequate)<br>Holistic well-being: Acute discomfort (severe colic, pain, or fatigue from domestic emergency/care)",
           statusText: "🟡 YELLOW — Pedagogical Attention: Prioritize rest and somatic recovery before demanding higher cognitive or physical load. Acute distress from domestic emergency may affect frustration tolerance and technical precision.",
           statusColor: "#e3b341",
           deltas: [
@@ -896,7 +895,7 @@ const SANDBOX_DATA = {
       },
       es: {
         optimal: {
-          triage: "Registro sociofisiológico: Sueño / descanso: > 7 horas (óptimo) | Alimentación / nutrición: Completa (adecuada) | Bienestar integral: Bienestar óptimo (sin dolor, molestia o fatiga)",
+          triage: "<strong>Registro sociofisiológico:</strong><br>Sueño / descanso: > 7 horas (óptimo)<br>Alimentación / nutrición: Completa (adecuada)<br>Bienestar integral: Bienestar óptimo (sin dolor, molestia o fatiga)",
           statusText: "🟢 Semáforo VERDE — Condición Óptima: Condición sociofisiológica basal estable.",
           statusColor: "#3fb950",
           deltas: [
@@ -911,7 +910,7 @@ const SANDBOX_DATA = {
           ]
         },
         compromised: {
-          triage: "Registro sociofisiológico: Sueño / descanso: > 7 horas (óptimo) | Alimentación / nutrición: Completa (adecuada) | Bienestar integral: Malestar agudo (cólico, dolor, molestia o fatiga severa por emergencia/ayuda intensiva en casa)",
+          triage: "<strong>Registro sociofisiológico:</strong><br>Sueño / descanso: > 7 horas (óptimo)<br>Alimentación / nutrición: Completa (adecuada)<br>Bienestar integral: Malestar agudo (cólico, dolor, molestia o fatiga severa por emergencia/ayuda intensiva en casa)",
           statusText: "🟡 Semáforo AMARILLO — Atención Pedagógica: Priorizar el descanso y la recuperación somática antes de exigir mayor carga cognitiva o física. El malestar agudo por emergencia en casa puede afectar la tolerancia a la frustración y la precisión técnica.",
           statusColor: "#e3b341",
           deltas: [
@@ -1123,7 +1122,7 @@ const SANDBOX_DATA = {
         container.appendChild(row);
       });
       document.getElementById("teacherAdjustTitle").textContent =
-        (currentLocale === "en") ? "Teacher manual calibration (dB)" : "Calibración manual docente (dB)";
+        (currentLocale === "en") ? "TEACHER MANUAL CALIBRATION (dB)" : "CALIBRACIÓN MANUAL DOCENTE (dB)";
       box.style.display = "block";
     }
     function updateTeacherDelta(deltaIdx, rawVal) {
