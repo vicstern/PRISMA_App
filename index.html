@@ -131,7 +131,6 @@
       width: 100%;
     }
     .quote-sub {
-      -webkit-text-fill-color: #8b949e;
       font-size: 0.72rem;
       font-style: normal;
       opacity: 1;
@@ -288,15 +287,13 @@
     }
 
     .sandbox-viz {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 18px;
-      width: 100%;
-    }
+   display: block;
+   width: 100%;
+ }
     .radar-svg-box {
       width: 100%;
       max-width: 480px;
+      margin: 0 auto 18px;
       background: #0d1117;
       border-radius: 8px;
       border: 1px solid var(--border);
@@ -451,14 +448,18 @@ display: block !important;
       min-height: 36px;
       margin-bottom: 6px;
     }
-    body.sandbox-focus .radar-svg-box {
-      position: sticky;
-      top: 0;
-      z-index: 15;
-      background: #0d1117;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.75);
-      padding: 4px;
-    }
+    .content-stage {
+   overflow-anchor: none;
+ }
+ body.sandbox-focus .radar-svg-box {
+   position: sticky;
+   top: 0;
+   z-index: 15;
+   max-width: 100%;
+   background: #0d1117;
+   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.75);
+   padding: 6px 4px;
+ }
     body.sandbox-focus .radar-svg-box svg {
       max-height: 225px;
       width: auto;
@@ -513,7 +514,7 @@ display: block !important;
       <p class="descriptor" id="appDescriptor">PRISMA™ — Offline Edge-AI for qualitative assessment in ℝ⁸</p>
       
       <div class="quote-box" id="quoteContainer">
-        <p id="primaryQuote" class="primary-quote">“Shining white light through learners, projecting its refracted colors to reveal the profound journey of their growth.”</p>
+        <p id="primaryQuote" class="primary-quote">“Shining white light through learners, projecting its refracted colors to reveal the profound journey of their growth.” <span class="quote-sub">(English)</span></p>
       </div>
     </div>
 
@@ -588,7 +589,7 @@ display: block !important;
               <div style="font-size:0.78rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--accent-blue); font-weight:600; margin-bottom:12px;" id="teacherAdjustTitle">
                 Teacher calibration & sovereign override
               </div>
-              <div id="sliderControls" style="display:grid; grid-template-columns: 1fr 1fr; gap:12px 24px;"></div>
+              <div id="sliderControls"></div>
             </div>
           </div>
         </div>
@@ -691,7 +692,7 @@ display: block !important;
             <p style="margin-bottom: 0;"><strong>Mission:</strong> To reconceive AI as a metacognitive mirror that illuminates and projects learning as complex human transformation, recognizing mental health and holistic well-being as both the catalyst and the outcome of the internal balance required for sustainable growth.</p>
           </div>
           <h2>Beyond unidimensional reduction</h2>
-          <p>Traditional evaluation compresses the irreducible complexity of human learning into a flat, one-dimensional number (0–100 or GPA). This reductive scalar tells educators and students nothing about developmental direction, intellectual resilience, or situated context—it merely ranks, labels, and punishes.</p>
+          <p>Traditional evaluation assumes learning happens in a flat, linear progression, compressing the irreducible complexity of human growth into a single number (0–100 or GPA). This reductive scalar tells educators and students nothing about developmental direction, intellectual resilience, or situated context—it merely ranks, labels, and punishes, sidelining diverse learning rhythms and neurodivergent profiles.</p>
           <div class="callout">
             <strong>Symbiotic coexistence:</strong> PRISMA does not replace statutory institutional grading. Rather, it operates alongside mandated administrative records as a qualitative companion layer, turning bureaucratic compliance into rich developmental insight without generating double-work for teachers.
           </div>
@@ -707,9 +708,11 @@ display: block !important;
             <li><strong>Absolute child data sovereignty:</strong> Observations, student IDs, and developmental evaluations never cross an internet connection or touch corporate cloud servers. Data stays permanently inside the school.</li>
             <li><strong>Logarithmic decibel calibration:</strong> Learning does not advance in a flat, linear progression from 0 to 100. Overcoming initial friction to take the very first step demands colossal effort, while refining technical mastery at advanced stages requires subtle precision. PRISMA expresses transformation deltas in decibels (dB): mirroring human sensory perception, each logarithmic step measures authentic relative effort and qualitative impact in context, replacing arbitrary additive points.</li>
             <li><strong>100% auditable evidence trails:</strong> Every coordinate in ℝ⁸ links directly to the raw narrative observation, educability baseline, and human adjustments—preventing algorithmic automation drift and eliminating black-box opacity.</li>
+            <li><strong>Cumulative growth &amp; non-regression by omission:</strong> Traditional grades act as volatile snapshots—a single bad day can overwrite or drag down prior achievement. In PRISMA, demonstrated competencies accumulate structurally in ℝ⁸ rather than being erased by a rough session, while any dimension not observed in a given note remains strictly at <code>0.0 dB</code> (epistemic silence), never penalized for omission.</li>
+            <li><strong>Analog-first scale invariance:</strong> PRISMA's eight-axis topology operates independently of hardware—working on paper logs and hand-drawn radar charts in disconnected classrooms, and scaling seamlessly to on-device SLM assistance wherever devices are available.</li>
           </ul>
           <h3>How the ℝ⁸ vector space is constructed</h3>
-          <p>Rather than relying on arbitrary labels, PRISMA's eight dimensions were constructed through an analytical synthesis of <strong>19 international educational attributes and competencies</strong>—integrating the five International Baccalaureate (IB) Approaches to Learning (ATL) categories, ten Learner Profile attributes, and four Career-related Programme (CP) core competencies—woven together with community-rooted pedagogical principles such as Mexico's <em>Nueva Escuela Mexicana</em> (NEM).</p>
+          <p>Rather than relying on arbitrary labels, PRISMA's eight dimensions were constructed through an analytical synthesis of <strong>19 international educational attributes and competencies</strong>—integrating the five International Baccalaureate (IB) Approaches to Learning (ATL) categories, ten Learner Profile attributes, and four Career-related Programme (CP) core competencies—woven together with community-rooted pedagogical principles such as Mexico's <em>Nueva Escuela Mexicana</em> (NEM). Rather than acting as a rigid mandate, this topology serves as an adaptable starting template that each educational community can rename or tailor through participatory co-design—incorporating local agricultural competencies, Indigenous community knowledge, or context-specific socio-emotional projects.</p>
           <h3>The four cybernetic quadrants</h3>
           <ul>
             <li><strong>Inquiring mind (cognitive-epistemological domain):</strong> <em>Inquiry &amp; research</em> (autonomous source validation, curiosity, and empirical questioning) and <em>Critical &amp; analytical thinking</em> (logical synthesis, variable analysis, and applied problem-solving).</li>
@@ -771,7 +774,7 @@ display: block !important;
             <p style="margin-bottom: 0;"><strong>Misión:</strong> Reconcebir la IA como un espejo metacognitivo que ilumina y proyecta el aprendizaje como una compleja transformación humana, reconociendo la salud mental y el bienestar integral simultáneamente como el catalizador y el resultado del equilibrio interno necesario para el crecimiento sostenible.</p>
           </div>
           <h2>Más allá de la reducción unidimensional</h2>
-          <p>La evaluación tradicional comprime la complejidad irreductible del aprendizaje humano en un número plano y unidimensional (0–100 o escala de 10). Esta cifra reduccionista no les dice nada ni al docente ni al propio estudiante sobre la dirección del desarrollo, la resiliencia intelectual o el contexto situado: se limita a clasificar, etiquetar y castigar.</p>
+          <p>La evaluación tradicional parte del error de asumir que el aprendizaje ocurre de forma lineal y mecánica, comprimiendo la complejidad irreductible del desarrollo humano en un número plano y unidimensional (0–100 o escala de 10). Esta cifra reduccionista no les dice nada ni al docente ni al propio estudiante sobre la dirección del crecimiento, la resiliencia intelectual o el contexto situado: se limita a clasificar, etiquetar y castigar, invisibilizando a quienes aprenden a ritmos distintos o poseen perfiles neurodivergentes.</p>
           <div class="callout">
             <strong>Coexistencia simbiótica:</strong> PRISMA no sustituye las calificaciones institucionales obligatorias. Funciona en paralelo a los registros administrativos oficiales como una capa cualitativa de acompañamiento, transformando el cumplimiento burocrático en comprensión profunda del desarrollo sin generar trabajo doble para el docente.
           </div>
@@ -787,9 +790,11 @@ display: block !important;
             <li><strong>Soberanía absoluta de datos del menor:</strong> Las observaciones, identificadores y evaluaciones formativas jamás cruzan una conexión a internet ni tocan servidores corporativos. Los datos permanecen permanentemente en el aula.</li>
             <li><strong>Calibración logarítmica en decibeles:</strong> El aprendizaje no avanza como una regla fija de centímetros de 0 a 100. Pasar del desconocimiento al primer destello de autonomía exige una energía colosal, mientras que afinar un detalle en etapas avanzadas requiere precisión quirúrgica. PRISMA mide las transformaciones en decibeles (dB): al igual que la percepción sensorial de la luz o el sonido, cada incremento relativo refleja el esfuerzo formativo real y el impacto cualitativo en su contexto, erradicando la suma mecánica de puntos arbitrarios.</li>
             <li><strong>Trazabilidad y transparencia absoluta:</strong> Cada coordenada en ℝ⁸ está vinculada directamente con la observación narrativa original, el registro de educabilidad y los ajustes humanos, evitando la opacidad algorítmica y la deriva hacia la automatización.</li>
+            <li><strong>Crecimiento acumulativo y no-retroceso por omisión:</strong> Las calificaciones tradicionales funcionan como fotos volátiles: un solo mal día puede promediar hacia abajo o borrar un logro previo. En PRISMA, las competencias demostradas se acumulan estructuralmente en ℝ⁸ sin que un tropiezo aislado anule lo ya consolidado, y toda dimensión no observada en una nota permanece estrictamente en <code>0.0 dB</code> (silencio epistémico), jamás penalizada por omisión.</li>
+            <li><strong>Invarianza de escala (primero analógico):</strong> La topología vectorial de PRISMA funciona incluso sin electricidad ni computadoras —mediante bitácoras físicas y gráficas trazadas a mano— y escala de forma natural hacia la micro-IA local cuando hay dispositivos disponibles en el aula.</li>
           </ul>
           <h3>Cómo se construye el espacio vectorial ℝ⁸</h3>
-          <p>Lejos de ser etiquetas arbitrarias, las ocho dimensiones de PRISMA nacen de una síntesis analítica de <strong>19 atributos y competencias educativas internacionales</strong> —integrando las cinco categorías de Enfoques del Aprendizaje (ATL), los diez atributos del Perfil de la Comunidad de Aprendizaje y las cuatro competencias troncales del Programa de Orientación Profesional (CP) del Bachillerato Internacional (IB)— articuladas con principios pedagógicos comunitarios como los de la <em>Nueva Escuela Mexicana</em> (NEM).</p>
+          <p>Lejos de ser etiquetas arbitrarias, las ocho dimensiones de PRISMA nacen de una síntesis analítica de <strong>19 atributos y competencias educativas internacionales</strong> —integrando las cinco categorías de Enfoques del Aprendizaje (ATL), los diez atributos del Perfil de la Comunidad de Aprendizaje y las cuatro competencias troncales del Programa de Orientación Profesional (CP) del Bachillerato Internacional (IB)— articuladas con principios pedagógicos comunitarios como los de la <em>Nueva Escuela Mexicana</em> (NEM). Más que una imposición rígida, esta matriz es una plantilla inicial adaptable que cada comunidad educativa puede renombrar o rediseñar de forma participativa —integrando competencias técnicas agrícolas, saberes comunitarios indígenas o proyectos socioemocionales propios de su entorno.</p>
           <h3>Los cuatro cuadrantes cibernéticos</h3>
           <ul>
             <li><strong>Mente que indaga (dominio cognitivo-epistemológico):</strong> <em>Indagación e investigación</em> (curiosidad epistémica, búsqueda autónoma y validación de fuentes) y <em>Pensamiento crítico y analítico</em> (síntesis lógica, análisis de variables y resolución de problemas).</li>
@@ -812,7 +817,7 @@ display: block !important;
           <p>La IA nunca califica, evalúa ni juzga: únicamente sugiere y proyecta. Funciona como un espejo metacognitivo delimitado por principios éticos irrenunciables:</p>
           <ul>
             <li><strong>Autonomía humana y palabra final:</strong> PRISMA sugiere, la persona decide. El sistema propone deltas logarítmicos y los fundamenta textualmente en la observación narrativa, pero la persona docente conserva la autoridad pedagógica absoluta para aceptar, modificar o rechazar cualquier sugerencia.</li>
-            <li><strong>Condiciones de educabilidad:</strong> Un estudiante no puede aprender si sus necesidades básicas no están cubiertas. La educabilidad cognitiva es inseparable del equilibrio somático y emocional. PRISMA permite registrar tres factores esenciales sin juicio moral ni castigo numérico, y ajusta su razonamiento cuando la persona experimenta estrés tóxico:
+            <li><strong>Condiciones de educabilidad:</strong> Una persona no puede aprender si sus necesidades básicas no están cubiertas. La educabilidad cognitiva es inseparable del equilibrio somático y emocional. PRISMA permite registrar tres factores esenciales sin juicio moral ni castigo numérico, y ajusta su razonamiento cuando la persona experimenta estrés tóxico:
               <br>&bull; <strong>Sueño / descanso</strong>
               <br>&bull; <strong>Alimentación / nutrición</strong>
               <br>&bull; <strong>Bienestar integral</strong>
