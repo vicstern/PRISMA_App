@@ -356,11 +356,31 @@
     footer a:hover { text-decoration: underline; }
 
     @media (max-width: 768px) {
-      html, body {
-        height: auto;
+      html, body, .content-stage {
+        height: auto !important;
         min-height: 100%;
-        overflow-y: auto;
-        overflow-x: hidden;
+        overflow-x: clip !important;
+        overflow-y: visible !important;
+      }
+      .header-wrapper,
+      .header-zone {
+        display: contents;
+      }
+      .quote-box {
+        position: sticky;
+        top: 0;
+        z-index: 25;
+        background: rgba(9, 13, 19, 0.94);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--border);
+      }
+      body.sandbox-focus .quote-box {
+        position: static;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border-bottom: none;
       }
       body { padding: 14px 12px 20px; }
       .top-bar {
@@ -702,6 +722,10 @@ display: block !important;
             <strong>Symbiotic coexistence:</strong> PRISMA does not replace statutory institutional grading. Rather, it operates alongside mandated administrative records as a qualitative companion layer, turning bureaucratic compliance into rich developmental insight without generating double-work for teachers.
           </div>
           <p><strong>PRISMA™</strong>, grounded in the <strong>ASPIRE®</strong> framework, treats assessment as an act of spectral refraction. By analyzing unstructured natural-language observations, PRISMA projects growth onto an eight-dimensional vector space (ℝ⁸) synthesized from premier international inquiry frameworks and community-rooted educational standards.</p>
+          <p style="font-size: 0.8rem; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 10px; margin-top: 14px; line-height: 1.5;">
+            <strong>ASPIRE®:</strong> AI-Synthesised Portal for Integrated Readiness &amp; Excellence<br>
+            <strong>PRISMA™:</strong> Plataforma de Reflexión e Interpretación para el Seguimiento Multidimensional del Aprendizaje <em>(Platform for Reflection and Interpretation in Sustained Multidimensional Advancement)</em>
+          </p>
           ${STATIC_RADAR_SVG.en}
         `,
         architecture: `
@@ -714,16 +738,16 @@ display: block !important;
             <li><strong>Logarithmic decibel calibration:</strong> Learning does not advance in a flat, linear progression from 0 to 100. Overcoming initial friction to take the very first step demands colossal effort, while refining technical mastery at advanced stages requires subtle precision. PRISMA expresses transformation deltas in decibels (dB): mirroring human sensory perception, each logarithmic step measures authentic relative effort and qualitative impact in context, replacing arbitrary additive points.</li>
             <li><strong>100% auditable evidence trails:</strong> Every coordinate in ℝ⁸ links directly to the raw narrative observation, educability baseline, and human adjustments—preventing algorithmic automation drift and eliminating black-box opacity.</li>
             <li><strong>Cumulative growth &amp; non-regression by omission:</strong> Traditional grades act as volatile snapshots—a single bad day can overwrite or drag down prior achievement. In PRISMA, demonstrated competencies accumulate structurally in ℝ⁸ rather than being erased by a rough session, while any dimension not observed in a given note remains strictly at <code>0.0 dB</code> (epistemic silence), never penalized for omission.</li>
-            <li><strong>Analog-first scale invariance:</strong> PRISMA's eight-axis topology operates independently of hardware—working on paper logs and hand-drawn radar charts in disconnected classrooms, and scaling seamlessly to on-device SLM assistance wherever devices are available.</li>
+            <li><strong>Analog-first scale invariance:</strong> The eight-axis vector topology works even without electricity or computers, using physical logs and radial graphs hand-drawn together by teacher and student, a laboratory mathematics practice that helps learners understand how their own learning evolves, while on local hardware PRISMA™ autonomously suggests vector coordinates completely offline.</li>
           </ul>
           <h3>How the ℝ⁸ vector space is constructed</h3>
-          <p>Rather than relying on arbitrary labels, PRISMA's eight dimensions were constructed through an analytical synthesis of <strong>19 international educational attributes and competencies</strong>—integrating the five International Baccalaureate (IB) Approaches to Learning (ATL) categories, ten Learner Profile attributes, and four Career-related Programme (CP) core competencies—woven together with community-rooted pedagogical principles such as Mexico's <em>Nueva Escuela Mexicana</em> (NEM). Rather than acting as a rigid mandate, this topology serves as an adaptable starting template that each educational community can rename or tailor through participatory co-design—incorporating local agricultural competencies, Indigenous community knowledge, or context-specific socio-emotional projects.</p>
+          <p>PRISMA's eight dimensions were constructed through an analytical synthesis of <strong>19 international educational attributes and competencies</strong>—integrating the five International Baccalaureate (IB) Approaches to Learning (ATL) categories, ten Learner Profile attributes, and four Career-related Programme (CP) core competencies—woven together with community-rooted pedagogical principles such as Mexico's <em>Nueva Escuela Mexicana</em> (NEM). Rather than acting as a rigid mandate, this topology serves as an adaptable starting template that each educational community can rename or tailor through participatory co-design, incorporating local agricultural competencies, Indigenous community knowledge, or context-specific socio-emotional projects.</p>
           <h3>The four cybernetic quadrants</h3>
           <ul>
-            <li><strong>Inquiring mind (cognitive-epistemological domain):</strong> <em>Inquiry &amp; research</em> (autonomous source validation, curiosity, and empirical questioning) and <em>Critical &amp; analytical thinking</em> (logical synthesis, variable analysis, and applied problem-solving).</li>
-            <li><strong>Contextual gaze (socio-ethical &amp; situational domain):</strong> <em>Ethical reasoning</em> (moral agency, fairness, and care for human dignity) and <em>Intercultural agency</em> (empathy, mother-tongue validation, and cross-cultural dialogue).</li>
-            <li><strong>Collective action (practical &amp; relational domain):</strong> <em>Collaborative leadership</em> (conflict mediation, teamwork, and non-coercive coordination) and <em>Technical mastery</em> (applied domain expertise, craftsmanship, and iterative debugging).</li>
-            <li><strong>Inner equilibrium &amp; autopoiesis (intrapersonal domain):</strong> <em>Resilience &amp; self-management</em> (emotional regulation, frustration tolerance, and endurance under uncertainty) and <em>Metacognitive reflection</em> (self-awareness, intellectual humility, and learning from error).</li>
+            <li><strong>Northeast quadrant — Inquiring mind (cognitive-epistemological domain):</strong> <em>Inquiry &amp; research</em> (autonomous source validation, curiosity, and empirical questioning) and <em>Critical &amp; analytical thinking</em> (logical synthesis, variable analysis, and applied problem-solving).</li>
+            <li><strong>Southeast quadrant — Contextual gaze (socio-ethical &amp; situational domain):</strong> <em>Ethical reasoning</em> (moral agency, fairness, and care for human dignity) and <em>Intercultural agency</em> (empathy, mother-tongue validation, and cross-cultural dialogue).</li>
+            <li><strong>Southwest quadrant — Collective action (practical &amp; relational domain):</strong> <em>Collaborative leadership</em> (conflict mediation, teamwork, and non-coercive coordination) and <em>Technical mastery</em> (applied domain expertise, craftsmanship, and iterative debugging).</li>
+            <li><strong>Northwest quadrant — Inner equilibrium &amp; autopoiesis (intrapersonal domain):</strong> <em>Resilience &amp; self-management</em> (emotional regulation, frustration tolerance, and endurance under uncertainty) and <em>Metacognitive reflection</em> (self-awareness, intellectual humility, and learning from error).</li>
           </ul>
           ${STATIC_RADAR_SVG.en}
           <h3>180° complementary polar symmetry</h3>
@@ -779,11 +803,15 @@ display: block !important;
             <p style="margin-bottom: 0;"><strong>Misión:</strong> Reconcebir la IA como un espejo metacognitivo que ilumina y proyecta el aprendizaje como una compleja transformación humana, reconociendo la salud mental y el bienestar integral simultáneamente como el catalizador y el resultado del equilibrio interno necesario para el crecimiento sostenible.</p>
           </div>
           <h2>Más allá de la reducción unidimensional</h2>
-          <p>La evaluación tradicional parte del error de asumir que el aprendizaje ocurre de forma lineal y mecánica, comprimiendo la complejidad irreductible del desarrollo humano en un número plano y unidimensional (0–100 o escala de 10). Esta cifra reduccionista no les dice nada ni al docente ni al propio estudiante sobre la dirección del crecimiento, la resiliencia intelectual o el contexto situado: se limita a clasificar, etiquetar y castigar, invisibilizando a quienes aprenden a ritmos distintos o poseen perfiles neurodivergentes.</p>
+          <p>La evaluación tradicional parte del error de asumir que el aprendizaje ocurre de forma lineal y mecánica, comprimiendo la complejidad irreductible del desarrollo humano en un número plano y unidimensional (0–100 o escala de 10). Esta cifra reduccionista no le dice nada ni al docente ni al propio estudiante sobre la dirección del crecimiento, la resiliencia intelectual o el contexto situado: se limita a clasificar, etiquetar y castigar, invisibilizando a quienes aprenden a ritmos distintos o poseen perfiles neurodivergentes.</p>
           <div class="callout">
             <strong>Coexistencia simbiótica:</strong> PRISMA no sustituye las calificaciones institucionales obligatorias. Funciona en paralelo a los registros administrativos oficiales como una capa cualitativa de acompañamiento, transformando el cumplimiento burocrático en comprensión profunda del desarrollo sin generar trabajo doble para el docente.
           </div>
           <p><strong>PRISMA™</strong>, sustentado en el marco <strong>ASPIRE®</strong>, concibe la evaluación formativa como un acto de refracción espectral. Al analizar notas narrativas no estructuradas, PRISMA proyecta el crecimiento sobre un espacio vectorial de ocho dimensiones (ℝ⁸) sintetizado a partir de taxonomías internacionales de indagación y marcos de educación comunitaria.</p>
+          <p style="font-size: 0.8rem; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 10px; margin-top: 14px; line-height: 1.5;">
+            <strong>ASPIRE®:</strong> AI-Synthesised Portal for Integrated Readiness &amp; Excellence <em>(Arquitectura Sistémica y Portal de Integración, Resiliencia y Excelencia)</em><br>
+            <strong>PRISMA™:</strong> Plataforma de Reflexión e Interpretación para el Seguimiento Multidimensional del Aprendizaje
+          </p>
           ${STATIC_RADAR_SVG.es}
         `,
         architecture: `
@@ -796,16 +824,16 @@ display: block !important;
             <li><strong>Calibración logarítmica en decibeles:</strong> El aprendizaje no avanza como una regla fija de centímetros de 0 a 100. Pasar del desconocimiento al primer destello de autonomía exige una energía colosal, mientras que afinar un detalle en etapas avanzadas requiere precisión quirúrgica. PRISMA mide las transformaciones en decibeles (dB): al igual que la percepción sensorial de la luz o el sonido, cada incremento relativo refleja el esfuerzo formativo real y el impacto cualitativo en su contexto, erradicando la suma mecánica de puntos arbitrarios.</li>
             <li><strong>Trazabilidad y transparencia absoluta:</strong> Cada coordenada en ℝ⁸ está vinculada directamente con la observación narrativa original, el registro de educabilidad y los ajustes humanos, evitando la opacidad algorítmica y la deriva hacia la automatización.</li>
             <li><strong>Crecimiento acumulativo y no-retroceso por omisión:</strong> Las calificaciones tradicionales funcionan como fotos volátiles: un solo mal día puede promediar hacia abajo o borrar un logro previo. En PRISMA, las competencias demostradas se acumulan estructuralmente en ℝ⁸ sin que un tropiezo aislado anule lo ya consolidado, y toda dimensión no observada en una nota permanece estrictamente en <code>0.0 dB</code> (silencio epistémico), jamás penalizada por omisión.</li>
-            <li><strong>Invarianza de escala (primero analógico):</strong> La topología vectorial de PRISMA funciona incluso sin electricidad ni computadoras —mediante bitácoras físicas y gráficas trazadas a mano— y escala de forma natural hacia la micro-IA local cuando hay dispositivos disponibles en el aula.</li>
+            <li><strong>Invarianza de escala (primero analógico):</strong> La topología vectorial de ocho ejes funciona incluso sin electricidad ni computadoras, mediante bitácoras físicas y gráficas radiales trazadas a mano entre docente y estudiante, una práctica de matemáticas de laboratorio que ayuda al aprendiz a comprender cómo evoluciona su propio aprendizaje, mientras que, al disponer de equipo local, PRISMA™ sugiere las coordenadas de forma autónoma sin conexión a internet.</li>
           </ul>
           <h3>Cómo se construye el espacio vectorial ℝ⁸</h3>
-          <p>Lejos de ser etiquetas arbitrarias, las ocho dimensiones de PRISMA nacen de una síntesis analítica de <strong>19 atributos y competencias educativas internacionales</strong> —integrando las cinco categorías de Enfoques del Aprendizaje (ATL), los diez atributos del Perfil de la Comunidad de Aprendizaje y las cuatro competencias troncales del Programa de Orientación Profesional (CP) del Bachillerato Internacional (IB)— articuladas con principios pedagógicos comunitarios como los de la <em>Nueva Escuela Mexicana</em> (NEM). Más que una imposición rígida, esta matriz es una plantilla inicial adaptable que cada comunidad educativa puede renombrar o rediseñar de forma participativa —integrando competencias técnicas agrícolas, saberes comunitarios indígenas o proyectos socioemocionales propios de su entorno.</p>
+          <p>Las ocho dimensiones de PRISMA nacen de una síntesis analítica de <strong>19 atributos y competencias educativas internacionales</strong> —integrando las cinco categorías de Enfoques del Aprendizaje (ATL), los diez atributos del Perfil de la Comunidad de Aprendizaje y las cuatro competencias troncales del Programa de Orientación Profesional (CP) del Bachillerato Internacional (IB)— articuladas con principios pedagógicos comunitarios como los de la <em>Nueva Escuela Mexicana</em> (NEM). Más que una imposición rígida, esta matriz es una plantilla inicial adaptable que cada comunidad educativa puede renombrar o rediseñar de forma participativa, integrando competencias técnicas agrícolas, saberes comunitarios indígenas o proyectos socioemocionales propios de su entorno.</p>
           <h3>Los cuatro cuadrantes cibernéticos</h3>
           <ul>
-            <li><strong>Mente que indaga (dominio cognitivo-epistemológico):</strong> <em>Indagación e investigación</em> (curiosidad epistémica, búsqueda autónoma y validación de fuentes) y <em>Pensamiento crítico y analítico</em> (síntesis lógica, análisis de variables y resolución de problemas).</li>
-            <li><strong>Mirada al entorno (dominio socio-ético y situacional):</strong> <em>Razonamiento ético</em> (agencia moral, justicia y cuidado de la dignidad humana) y <em>Agencia intercultural</em> (empatía, valoración de la lengua materna y diálogo entre saberes).</li>
-            <li><strong>Hacer colectivo (dominio práctico y relacional):</strong> <em>Liderazgo colaborativo</em> (mediación de conflictos, trabajo en equipo y articulación sin imposición) y <em>Saber hacer y ejecución técnica</em> (pericia aplicada, oficio y depuración iterativa de errores).</li>
-            <li><strong>Equilibrio interno y autopoiesis (dominio intrapersonal):</strong> <em>Resiliencia y autogestión</em> (regulación emocional, tolerancia a la frustración y persistencia ante la incertidumbre) y <em>Reflexión metacognitiva</em> (autoconocimiento, humildad intelectual y aprendizaje a partir del error).</li>
+            <li><strong>Cuadrante noreste — Mente que indaga (dominio cognitivo-epistemológico):</strong> <em>Indagación e investigación</em> (curiosidad epistémica, búsqueda autónoma y validación de fuentes) y <em>Pensamiento crítico y analítico</em> (síntesis lógica, análisis de variables y resolución de problemas).</li>
+            <li><strong>Cuadrante sureste — Mirada al entorno (dominio socio-ético y situacional):</strong> <em>Razonamiento ético</em> (agencia moral, justicia y cuidado de la dignidad humana) y <em>Agencia intercultural</em> (empatía, valoración de la lengua materna y diálogo entre saberes).</li>
+            <li><strong>Cuadrante suroeste — Hacer colectivo (dominio práctico y relacional):</strong> <em>Liderazgo colaborativo</em> (mediación de conflictos, trabajo en equipo y articulación sin imposición) y <em>Saber hacer y ejecución técnica</em> (pericia aplicada, oficio y depuración iterativa de errores).</li>
+            <li><strong>Cuadrante noroeste — Equilibrio interno y autopoiesis (dominio intrapersonal):</strong> <em>Resiliencia y autogestión</em> (regulación emocional, tolerancia a la frustración y persistencia ante la incertidumbre) y <em>Reflexión metacognitiva</em> (autoconocimiento, humildad intelectual y aprendizaje a partir del error).</li>
           </ul>
           ${STATIC_RADAR_SVG.es}
           <h3>Simetría dialéctica polar a 180°</h3>
