@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title id="pageTitle">Aula Viva®</title>
   <meta property="og:title" content="Aula Viva® — PRISMA™">
-  <meta property="og:description" content="Platform for Reflection and Interpretation in Multidimensional Assessment of Learning (ℝ⁸). Grounded in the ASPIRE® framework.">
+  <meta property="og:description" content="Multidimensional illumination of human learning in ℝ⁸ assisted by local AI. Grounded in the ASPIRE® framework.">
   <meta property="og:image" content="https://aulaviva.lat/og-cover.png">
   <meta name="author" content="Víctor Stern Rodríguez">
   <meta property="article:published_time" content="2026-11-12">
@@ -536,7 +536,7 @@ display: block !important;
   <div class="header-wrapper">
     <div class="header-zone">
       <h1 id="mainHeading">Aula Viva<span class="reg">®</span></h1>
-      <p class="descriptor" id="appDescriptor">PRISMA™ — Platform for Reflection and Interpretation in Multidimensional Assessment of Learning</p>
+      <p class="descriptor" id="appDescriptor">PRISMA™ — Multidimensional illumination of human learning assisted by local AI</p>
       
       <div class="quote-box" id="quoteContainer">
         <p id="primaryQuote" class="primary-quote">“Shining white light through learners, projecting its refracted colors to reveal the profound journey of their growth.” <span class="quote-sub">(English)</span></p>
@@ -707,7 +707,7 @@ display: block !important;
       en: {
         pageTitle: "Aula Viva®",
         heading: `Aula Viva<span class="reg">®</span>`,
-        descriptor: "PRISMA™ — Platform for Reflection and Interpretation in Multidimensional Assessment of Learning",
+        descriptor: "PRISMA™ — Multidimensional illumination of human learning assisted by local AI",
         tabs: { vision: "Vision", architecture: "Architecture", ethos: "Ethos", prototype: "Interactive sandbox", interface: "On-device interface" },
         lblState: "Educability condition:",
         exitFocus: "← Menu",
@@ -793,7 +793,7 @@ display: block !important;
       es: {
         pageTitle: "Aula Viva®",
         heading: `Aula Viva<span class="reg">®</span>`,
-        descriptor: "PRISMA™ — Plataforma de Reflexión e Interpretación para el Seguimiento Multidimensional del Aprendizaje",
+        descriptor: "PRISMA™ — Iluminación multidimensional del aprendizaje humano asistida por IA local",
         tabs: { vision: "Visión", architecture: "Arquitectura", ethos: "Ethos", prototype: "Sandbox interactivo", interface: "Interfaz en dispositivo" },
         lblState: "Condición de educabilidad:",
         exitFocus: "← Menú",
