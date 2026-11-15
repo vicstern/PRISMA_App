@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -548,6 +548,7 @@
       display: flex;
     }
     body.sandbox-focus .quote-box {
+      height: auto;
       min-height: 36px;
       margin-bottom: 6px;
     }
@@ -610,7 +611,57 @@
       <button class="lang-btn active" id="btn-en" onclick="setLocale('en')">EN</button>
       <button class="lang-btn" id="btn-es" onclick="setLocale('es')">ES</button>
     </div>
-  </div><div class="lang-switcher" style="background:var(--surface-deep);">
+  </div>
+
+  <div class="header-wrapper">
+    <div class="header-zone">
+      <h1 id="mainHeading">Aula Viva<span class="reg">®</span></h1>
+      <p class="descriptor" id="appDescriptor">PRISMA™ — Multidimensional illumination of human learning assisted by local AI</p>
+      
+      <div class="quote-box" id="quoteContainer">
+        <p id="primaryQuote" class="primary-quote">“Shining white light through learners, projecting its refracted colors to reveal the profound journey of their growth.” <span class="quote-sub">(English)</span></p>
+      </div>
+    </div>
+
+    <!-- Navegación de 5 botones canónicos -->
+    <div class="focus-exit-bar">
+      <button class="lang-btn" id="btnExitFocus" onclick="exitFocusMode()" style="background:var(--card-bg); border:1px solid var(--border); padding:4px 12px;">← Menu</button>
+    </div>
+    <div class="tabs-dock">
+      <button class="tab-btn" id="tab-btn-vision" onclick="switchTab('vision')">Vision</button>
+      <button class="tab-btn" id="tab-btn-architecture" onclick="switchTab('architecture')">Architecture</button>
+      <button class="tab-btn" id="tab-btn-ethos" onclick="switchTab('ethos')">Ethos</button>
+      <button class="tab-btn" id="tab-btn-prototype" onclick="switchTab('prototype')">Interactive sandbox</button>
+      <button class="tab-btn" id="tab-btn-interface" onclick="switchTab('interface')">On-device interface</button>
+    </div>
+  </div>
+
+  <div class="content-stage">
+
+    <!-- 1. VISION -->
+    <div id="vision" class="panel">
+      <div id="vision-content"></div>
+    </div>
+
+    <!-- 2. ARCHITECTURE -->
+    <div id="architecture" class="panel">
+      <div id="architecture-content"></div>
+    </div>
+
+    <!-- 3. ETHOS -->
+    <div id="ethos" class="panel">
+      <div id="ethos-content"></div>
+    </div>
+
+    <!-- 4. INTERACTIVE SANDBOX -->
+    <div id="prototype" class="panel">
+      <div id="sandbox-intro"></div>
+
+      <div class="sandbox-container">
+        <div class="sandbox-header">
+          <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
+            <span style="font-size:0.82rem; font-weight:600; color:var(--text-muted);" id="lblState">Educability condition:</span>
+            <div class="lang-switcher" style="background:var(--surface-deep);">
               <button class="lang-btn active" id="btn-state-opt" onclick="setEducabilityState('optimal')">Optimal</button>
               <button class="lang-btn" id="btn-state-comp" onclick="setEducabilityState('compromised')">Compromised</button>
             </div>
@@ -669,7 +720,7 @@
     ASPIRE® · PRISMA™ · SSRN: <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">10.2139/ssrn.7310080</a> · INDAUTOR 03-2026-040710022300-01 · © 2026 Grupo SiEFH S.A.S.
   </footer>
   
-   <script>
+  <script>
     const QUOTES = {
       en: { text: "“Shining white light through learners, projecting its refracted colors to reveal the profound journey of their growth.”" },
       es: { text: "«Hacer brillar luz blanca a través de cada estudiante, proyectando sus colores refractados para revelar el profundo camino de su crecimiento.»" },
@@ -688,7 +739,7 @@
       es: { en: "Inglés", es: "Español", ar: "Árabe", he: "Hebreo", zh: "Chino", hi: "Hindi", fr: "Francés", nah: "Náhuatl", zu: "isiZulu", ja: "Japonés" }
     };
 
- const STATIC_RADAR_SVG = {
+    const STATIC_RADAR_SVG = {
       en: `<div class="static-radar-card">
         <svg width="440" height="260" viewBox="0 0 440 260">
           <polygon points="220,50 284,76 310,140 284,204 220,230 156,204 130,140 156,76" fill="rgba(88,166,255,0.06)" stroke="var(--radar-grid)" stroke-width="1.2"/>
@@ -904,7 +955,6 @@
         interfaceDesc: "Entorno local Streamlit ejecutando inferencia cualitativa con SLMs directamente en el equipo del educador, garantizando cero dependencia de la nube y soberanía total de datos.",
         interfaceStatus: "Próximamente disponible para descarga y despliegue local · Apache 2.0",
         footer: `<strong>Aula Viva®</strong> por Víctor Stern Rodríguez<br>ASPIRE® · PRISMA™ · SSRN: <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">10.2139/ssrn.7310080</a> · INDAUTOR 03-2026-040710022300-01 · © 2026 Grupo SiEFH S.A.S.`
-        
       }
     };
 
@@ -918,7 +968,7 @@
       es: "Estudiante: María | Nivel educativo: Educación Secundaria\nNota narrativa docente (invariante):\n\"Hoy María lideró la construcción del prototipo de filtro de agua. Resolvió un conflicto en su equipo escuchando a sus compañeras y ajustó los materiales tras un primer fallo en la prueba de filtración. Notó que el flujo estaba muy lento, revisó la densidad de la arena y redujo la capa a la mitad. Cuando su equipo se distrajo con los teléfonos, los llamó para repartir las tareas de la presentación de mañana.\""
     };
 
-const SANDBOX_DATA = {
+    const SANDBOX_DATA = {
       en: {
         optimal: {
           triage: "<strong>Sociophysiological record:</strong><br>Sleep / rest: > 7 hours (optimal)<br>Food / nutrition: Complete (adequate)<br>Holistic well-being: Optimal well-being (no pain, discomfort, or fatigue)",
@@ -984,11 +1034,13 @@ const SANDBOX_DATA = {
         }
       }
     };
+
     let currentLocale = "en";
     let educabilityState = "optimal";
     let isSimulationActive = false;
     let currentDeltas = [];
     let quoteKeys = Object.keys(QUOTES);
+
     function shuffleArray(arr) {
       for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -997,6 +1049,7 @@ const SANDBOX_DATA = {
     }
     shuffleArray(quoteKeys);
     let quoteIdx = 0;
+
     function updateQuoteTicker() {
       const qKey = quoteKeys[quoteIdx];
       const qObj = QUOTES[qKey];
@@ -1015,6 +1068,7 @@ const SANDBOX_DATA = {
       }, 350);
     }
     setInterval(updateQuoteTicker, 9000);
+
     function updateThemeBtnLabel() {
       const btn = document.getElementById("btnTheme");
       if (!btn) return;
@@ -1025,26 +1079,7 @@ const SANDBOX_DATA = {
         btn.textContent = isLight ? "☾ Dark" : "☀ Light";
       }
     }
-    function toggleTheme() {
-      const htmlEl = document.documentElement;
-      const isLight = htmlEl.getAttribute("data-theme") === "light";
-      if (isLight) {
-        htmlEl.removeAttribute("data-theme");
-      } else {
-        htmlEl.setAttribute("data-theme", "light");
-      }
-      updateThemeBtnLabel();
-    }
-    function updateThemeBtnLabel() {
-      const btn = document.getElementById("btnTheme");
-      if (!btn) return;
-      const isLight = document.documentElement.getAttribute("data-theme") === "light";
-      if (currentLocale === "es") {
-        btn.textContent = isLight ? "☾ Oscuro" : "☀ Claro";
-      } else {
-        btn.textContent = isLight ? "☾ Dark" : "☀ Light";
-      }
-    }
+
     function toggleTheme() {
       const htmlEl = document.documentElement;
       const isLight = htmlEl.getAttribute("data-theme") === "light";
@@ -1057,6 +1092,7 @@ const SANDBOX_DATA = {
       }
       updateThemeBtnLabel();
     }
+
     if (window.matchMedia) {
       window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", function(e) {
         var saved = null;
@@ -1071,9 +1107,11 @@ const SANDBOX_DATA = {
         }
       });
     }
+
     function exitFocusMode() {
       document.body.classList.remove("sandbox-focus");
     }
+
     function setLocale(loc) {
       currentLocale = loc;
       document.getElementById("btn-en").classList.toggle("active", loc === "en");
@@ -1110,6 +1148,7 @@ const SANDBOX_DATA = {
         renderSandbox();
       }
     }
+
     function switchTab(tabId) {
       exitFocusMode();
       const activeBtn = document.getElementById("tab-btn-" + tabId);
@@ -1125,6 +1164,7 @@ const SANDBOX_DATA = {
         }
       }
     }
+
     function drawRadar(activeDeltas) {
       const svg = document.getElementById("radarSvg");
       if (!svg) return;
@@ -1174,6 +1214,7 @@ const SANDBOX_DATA = {
       }
       svg.innerHTML = out;
     }
+
     function setEducabilityState(state) {
       educabilityState = state;
       document.getElementById("btn-state-opt").classList.toggle("active", state === "optimal");
@@ -1184,6 +1225,7 @@ const SANDBOX_DATA = {
         renderSandbox();
       }
     }
+
     function renderSandbox() {
       const data = SANDBOX_DATA[currentLocale][educabilityState];
       const noteBox = document.getElementById("sandboxNoteBox");
@@ -1197,15 +1239,18 @@ const SANDBOX_DATA = {
       if (adjustBox) adjustBox.style.display = "none";
       drawRadar(null);
     }
+
     function runSandboxSimulation() {
       isSimulationActive = true;
       document.body.classList.add("sandbox-focus");
       updateSimulationVisuals();
     }
+
     function formatSignedDb(val) {
       if (Math.abs(val) < 0.01) return "0.0 dB";
       return `${val > 0 ? "+" : ""}${val.toFixed(1)} dB`;
     }
+
     function renderDeltaTable() {
       const tbody = document.getElementById("deltaTableBody");
       if (!tbody) return;
@@ -1218,6 +1263,7 @@ const SANDBOX_DATA = {
         tbody.appendChild(tr);
       });
     }
+
     function buildTeacherSliders() {
       const box = document.getElementById("teacherAdjustBox");
       const container = document.getElementById("sliderControls");
@@ -1240,6 +1286,7 @@ const SANDBOX_DATA = {
         (currentLocale === "en") ? "TEACHER MANUAL CALIBRATION (dB)" : "CALIBRACIÓN MANUAL DOCENTE (dB)";
       box.style.display = "block";
     }
+
     function updateTeacherDelta(deltaIdx, rawVal) {
       const adj = rawVal / 10;
       currentDeltas[deltaIdx].adjVal = adj;
@@ -1248,6 +1295,7 @@ const SANDBOX_DATA = {
       drawRadar(currentDeltas);
       renderDeltaTable();
     }
+
     function updateSimulationVisuals() {
       const data = SANDBOX_DATA[currentLocale][educabilityState];
       currentDeltas = data.deltas.map(d => ({ ...d }));
@@ -1264,6 +1312,7 @@ const SANDBOX_DATA = {
         statusBox.innerHTML = `<span style="font-size:0.82rem; color:${data.statusColor}; font-weight:600;">${data.statusText}</span>`;
       }
     }
+
     setLocale("en");
   </script>
 
