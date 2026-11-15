@@ -225,6 +225,15 @@
       border-radius: 18px;
       cursor: pointer;
       transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .tab-btn svg {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
     }
     .tab-btn:hover { color: var(--text-main); }
     .tab-btn.active {
@@ -267,15 +276,46 @@
     }
     .panel h2 {
       font-size: 1.35rem;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
       color: var(--text-main);
       font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 14px;
     }
     .panel h3 {
       font-size: 1.05rem;
-      margin: 20px 0 8px;
+      margin: 24px 0 14px;
       color: var(--accent-blue);
       font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .heading-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 68px;
+      height: 68px;
+      border-radius: 15px;
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      color: var(--accent-blue);
+      flex-shrink: 0;
+    }
+    .heading-icon svg {
+      width: 46px;
+      height: 46px;
+    }
+    .panel h3 .heading-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 13px;
+    }
+    .panel h3 .heading-icon svg {
+      width: 38px;
+      height: 38px;
     }
     .panel p {
       font-size: 0.94rem;
@@ -290,6 +330,63 @@
     }
     .panel ul li { margin-bottom: 6px; }
     .panel ul li strong { color: var(--text-main); }
+
+    .panel ul.icon-list {
+      list-style: none;
+      margin-left: 0;
+    }
+    .panel ul.icon-list > li {
+      position: relative;
+      padding-left: 66px;
+      margin-bottom: 16px;
+      min-height: 54px;
+    }
+    .li-icon {
+      position: absolute;
+      left: 0;
+      top: 2px;
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-blue);
+    }
+    .li-icon svg {
+      width: 34px;
+      height: 34px;
+    }
+    .somatic-factors {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 14px 0 16px;
+    }
+    .somatic-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .somatic-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-blue);
+      flex-shrink: 0;
+    }
+    .somatic-icon svg {
+      width: 28px;
+      height: 28px;
+    }
+
     .callout {
       background: var(--card-inner);
       border-left: 3px solid var(--accent-blue);
@@ -463,6 +560,11 @@
         font-size: 0.76rem;
         text-align: center;
         border-radius: 10px;
+        gap: 6px;
+      }
+      .tab-btn svg {
+        width: 19px;
+        height: 19px;
       }
 
       #tab-btn-vision {
@@ -474,6 +576,19 @@
         padding-bottom: 12px;
       }
       .panel { padding: 18px 14px; border-radius: 12px; }
+      .panel ul.icon-list > li {
+        padding-left: 66px;
+        min-height: 54px;
+      }
+      .li-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 12px;
+      }
+      .li-icon svg {
+        width: 36px;
+        height: 36px;
+      }
       .radar-svg-box svg { max-width: 100%; height: auto; }
       footer { margin-top: auto; padding: 20px 0 10px; }
     }
@@ -719,6 +834,41 @@
   </footer>
   
   <script>
+    const ICONS = {
+      prism: `<svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="1.5" y1="14" x2="9.2" y2="11.2" stroke="var(--text-main)" stroke-width="1.8"/><line x1="14" y1="9.8" x2="22.5" y2="6.2" stroke="#c084fc" stroke-width="1.6"/><line x1="14.6" y1="11.2" x2="22.5" y2="9.6" stroke="#38bdf8" stroke-width="1.6"/><line x1="15.2" y1="12.6" x2="22.5" y2="13.1" stroke="#4ade80" stroke-width="1.6"/><line x1="15.8" y1="14" x2="22.5" y2="16.4" stroke="#facc15" stroke-width="1.6"/><line x1="16.3" y1="15.4" x2="22.5" y2="19.5" stroke="#f87171" stroke-width="1.6"/><polygon points="12,3.2 20.5,19.5 3.5,19.5" stroke="currentColor" stroke-width="1.65" fill="none"/></svg>`,
+      building: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="12,2.5 21.5,7.5 2.5,7.5"/><rect x="3" y="7.5" width="18" height="2" rx="0.4"/><line x1="5.5" y1="9.5" x2="5.5" y2="17.5"/><line x1="9.8" y1="9.5" x2="9.8" y2="17.5"/><line x1="14.2" y1="9.5" x2="14.2" y2="17.5"/><line x1="18.5" y1="9.5" x2="18.5" y2="17.5"/><rect x="2.8" y="17.5" width="18.4" height="2" rx="0.4"/><line x1="1.5" y1="21" x2="22.5" y2="21"/></svg>`,
+      atomHeart: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="10.2" ry="4.5" transform="rotate(38 12 12)"/><ellipse cx="12" cy="12" rx="10.2" ry="4.5" transform="rotate(-38 12 12)"/><path d="M 10.7,6.8 C 11.5,5.1 13.3,5.5 12.8,7.2 C 12.5,8.2 12.1,9.2 12,10.2"/><path d="M 12,14.9 C 12,14.9 9.1,13.1 9.1,11.2 C 9.1,10.0 10.1,9.1 11.2,9.6 C 11.6,9.8 12,10.3 12,10.3 C 12,10.3 12.4,9.8 12.8,9.6 C 13.9,9.1 14.9,10.0 14.9,11.2 C 14.9,13.1 12,14.9 12,14.9 Z"/></svg>`,
+      sliders: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><line x1="2.5" y1="6" x2="7.8" y2="6"/><line x1="12.2" y1="6" x2="21.5" y2="6"/><circle cx="10" cy="6" r="2.2"/><line x1="2.5" y1="12" x2="13.8" y2="12"/><line x1="18.2" y1="12" x2="21.5" y2="12"/><circle cx="16" cy="12" r="2.2"/><line x1="2.5" y1="18" x2="5.8" y2="18"/><line x1="10.2" y1="18" x2="21.5" y2="18"/><circle cx="8" cy="18" r="2.2"/></svg>`,
+      camera: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6.8" width="20" height="12.8" rx="2.2"/><path d="M 8.2,6.8 L 9.6,4.2 H 14.4 L 15.8,6.8"/><path d="M 4.5,6.8 V 5.3 H 6.6 V 6.8"/><circle cx="12" cy="13.2" r="4.1"/><circle cx="12" cy="13.2" r="2.2"/><circle cx="18.5" cy="9.6" r="0.7" fill="currentColor"/></svg>`,
+      cloudOff: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18.5 17.5H6.5a4.5 4.5 0 0 1-.8-8.9 6 6 0 0 1 11.6-1.4 4 4 0 0 1 1.2 7.8"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5"/></svg>`,
+      zeroCost: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="M14.8 9.2a2.8 2.8 0 0 0-2.8-1.7c-1.7 0-2.8.9-2.8 2.2 0 3 5.6 1.6 5.6 4.6 0 1.3-1.1 2.2-2.8 2.2a2.8 2.8 0 0 1-2.8-1.7"/><line x1="12" y1="5.5" x2="12" y2="18.5"/><line x1="4.2" y1="19.8" x2="19.8" y2="4.2"/></svg>`,
+      shieldCheck: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5l8 3.3v5.8c0 5.3-3.4 9.6-8 11.2-4.6-1.6-8-5.9-8-11.2V5.8L12 2.5z"/><polyline points="8.5 12.2 11 14.7 15.8 9.6"/></svg>`,
+      logCurve: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5 3.2 3.5 20.5 20.8 20.5"/><path d="M3.5 20.5C4.4 10.8 9.8 6.4 20.5 5.6"/></svg>`,
+      auditTrail: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="19" r="2.4"/><circle cx="19" cy="5" r="2.4"/><path d="M 6.9,17.5 C 12.2,15.5 11.8,8.5 17.1,6.5"/></svg>`,
+      growthArrow: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 18.5L9.8 12.2L13.5 15.2L20.5 6.5"/><polyline points="15 6.5 20.5 6.5 20.5 12"/></svg>`,
+      pencil: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M 16.5,3.5 a 2.12,2.12 0 0 1 3,3 L 8,18 L 3,19.5 L 4.5,14.5 Z"/><line x1="14.2" y1="5.8" x2="17.2" y2="8.8"/><line x1="4.5" y1="14.5" x2="8" y2="18"/><line x1="3.8" y1="17" x2="5.5" y2="18.7"/></svg>`,
+      radarWeb: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12,2 19.1,4.9 22,12 19.1,19.1 12,22 4.9,19.1 2,12 4.9,4.9"/><polygon points="12,7 15.5,8.5 17,12 15.5,15.5 12,17 8.5,15.5 7,12 8.5,8.5"/><line x1="12" y1="2" x2="12" y2="22" stroke-width="1.25"/><line x1="2" y1="12" x2="22" y2="12" stroke-width="1.25"/><line x1="4.9" y1="4.9" x2="19.1" y2="19.1" stroke-width="1.25"/><line x1="19.1" y1="4.9" x2="4.9" y2="19.1" stroke-width="1.25"/></svg>`,
+      compass: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><polygon points="15.8,8.2 13.5,13.5 8.2,15.8 10.5,10.5"/><line x1="12" y1="2.5" x2="12" y2="4.5"/><line x1="12" y1="19.5" x2="12" y2="21.5"/><line x1="2.5" y1="12" x2="4.5" y2="12"/><line x1="19.5" y1="12" x2="21.5" y2="12"/></svg>`,
+      questionMark: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.8 8.8a3.4 3.4 0 0 1 6.4 1.2c0 2.2-3.2 3-3.2 5.4"/><circle cx="12" cy="19" r="0.9" fill="currentColor"/></svg>`,
+      scalesTilted: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="8.3" x2="12" y2="20.5"/><line x1="6.5" y1="20.5" x2="17.5" y2="20.5"/><circle cx="12" cy="6.5" r="1.8"/><line x1="4.5" y1="4.8" x2="10.3" y2="6.1"/><line x1="13.7" y1="6.9" x2="19.5" y2="8.2"/><polygon points="4.5,4.8 2,12.2 7,12.2"/><polygon points="19.5,8.2 17,15.6 22,15.6"/></svg>`,
+      threePeople: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5.8" r="2.2"/><path d="M 7.6,19.5 V 13 C 7.6,11 9.1,10 12,10 C 14.9,10 16.4,11 16.4,13 V 19.5"/><line x1="9.8" y1="13.8" x2="9.8" y2="20.2"/><line x1="14.2" y1="13.8" x2="14.2" y2="20.2"/><circle cx="5.2" cy="7.5" r="1.8"/><path d="M 2,18.5 V 13.6 C 2,12 3.2,11.2 5.5,11.2 H 6.5"/><line x1="4.2" y1="14.5" x2="4.2" y2="19.2"/><circle cx="18.8" cy="7.5" r="1.8"/><path d="M 22,18.5 V 13.6 C 22,12 20.8,11.2 18.5,11.2 H 17.5"/><line x1="19.8" y1="14.5" x2="19.8" y2="19.2"/></svg>`,
+      meditatingYogi: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5.2" r="2.2"/><path d="M 12,9 C 9.2,9 7.5,10.5 6.2,13.2 L 4.4,15.4"/><path d="M 12,9 C 14.8,9 16.5,10.5 17.8,13.2 L 19.6,15.4"/><line x1="9.5" y1="9.6" x2="9" y2="15"/><line x1="14.5" y1="9.6" x2="15" y2="15"/><path d="M 4.2,16.8 C 4.2,15.2 7.5,14.8 12,16.5 C 16.5,14.8 19.8,15.2 19.8,16.8 C 19.8,18.5 16.2,19.5 12,19.5 C 7.8,19.5 4.2,18.5 4.2,16.8 Z"/></svg>`,
+      yinYang: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="M 12,2.8 A 4.6,4.6 0 0,1 12,12 A 4.6,4.6 0 0,0 12,21.2"/><circle cx="12" cy="7.4" r="1.4"/><circle cx="12" cy="16.6" r="1.4"/></svg>`,
+      pairInquiryLead: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><circle cx="9.5" cy="11.5" r="5.4"/><path d="M 6.5,11.5 A 3,3 0 0,1 9.5,8.5"/><path d="M 5.6,15.4 L 2.5,18.5 A 1.2,1.2 0 0,0 4.2,20.2 L 7.3,17.1"/><polyline points="14.2,8.5 16.4,8.5 18.4,5.5"/><circle cx="19.5" cy="4.4" r="1.5"/><line x1="14.9" y1="11.5" x2="19.2" y2="11.5"/><circle cx="20.7" cy="11.5" r="1.5"/><polyline points="14.2,14.5 16.4,14.5 18.4,17.5"/><circle cx="19.5" cy="18.6" r="1.5"/></svg>`,
+      pairCritTech: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><polygon points="6.8,3.8 11.5,19.8 2,19.8"/><line x1="4.4" y1="11.8" x2="11.5" y2="9.8"/><line x1="4.4" y1="11.8" x2="11.5" y2="14.8"/><path d="M 12.8,3.8 h 1.8 l .6,2.1 l 1.7,.9 l 1.9,-1 l 1.3,1.3 l -1,1.9 l .9,1.7 l 2.1,.6 v 1.8 l -2.1,.6 l -.9,1.7 l 1,1.9 l -1.3,1.3 l -1.9,-1 l -1.7,.9 l -.6,2.1 h -1.8 Z"/><path d="M 12.8,8.3 a 3.5,3.5 0 0,1 0,7"/></svg>`,
+      pairEthicResil: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.2l8.2 3.3v6c0 5.5-3.5 9.8-8.2 11.3-4.7-1.5-8.2-5.8-8.2-11.3v-6L12 2.2z"/><line x1="12" y1="6.8" x2="12" y2="17.2"/><line x1="8.8" y1="17.2" x2="15.2" y2="17.2"/><line x1="7.6" y1="9.4" x2="16.4" y2="9.4"/><polygon points="7.6,9.4 6,13.6 9.2,13.6"/><polygon points="16.4,9.4 14.8,13.6 18,13.6"/></svg>`,
+      pairInterMeta: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22" stroke-dasharray="1.8,1.8"/><path d="M 10.5,3.5 A 8.5,8.5 0 0,0 10.5,20.5 Z"/><path d="M 10.5,3.5 C 5.8,5.5 5.8,18.5 10.5,20.5"/><line x1="3.2" y1="8" x2="10.5" y2="8"/><line x1="2" y1="12" x2="10.5" y2="12"/><line x1="3.2" y1="16" x2="10.5" y2="16"/><path d="M 13.5,3.5 C 17.5,3.5 19.8,5.8 19.8,9.2 L 21.5,11.8 L 19.8,12.8 C 19.8,14.5 19.2,15.8 17.8,16.3 L 15.8,16.8 V 20.5"/><path d="M 16.2,9.4 a 0.9,0.9 0 1,0 0.9,0.9 a 1.8,1.8 0 1,0 -1.8,-1.8 a 2.6,2.6 0 1,0 2.6,2.6"/></svg>`,
+      humanAutonomy: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6.2" rx="3.2" ry="3.8"/><path d="M 4.5,20.5 C 5.2,14.2 7.5,12 10.5,12 C 12.8,12 14,13.5 14,15 C 14,16.3 13.1,17.2 12,17.2 C 10.9,17.2 10,16.3 10,15 C 10,13.5 11.2,12 13.5,12 C 16.5,12 18.8,14.2 19.5,20.5 Z"/></svg>`,
+      ecgPulse: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="2.5 12.5 7 12.5 9.2 7.2 11.8 18.8 14.5 5.2 16.8 15.8 18.5 12.5 21.5 12.5"/></svg>`,
+      sleepMoon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14.5A7.5 7.5 0 0 1 9.5 5a7.5 7.5 0 1 0 9.5 9.5z"/></svg>`,
+      nutritionLeaf: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M17 4C9.5 4 5 8.5 5 16c0 1.2.2 2.3.5 3.5 1.2.3 2.3.5 3.5.5 7.5 0 12-4.5 12-12 0-1.5-.3-2.8-1-4h-3z"/><line x1="5.5" y1="18.5" x2="14.5" y2="9.5"/></svg>`,
+      heartClean: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.2s-7.5-4.6-7.5-10.2a4.4 4.4 0 0 1 7.5-3.1 4.4 4.4 0 0 1 7.5 3.1c0 5.6-7.5 10.2-7.5 10.2z"/></svg>`
+    };
+
+    const hIcon = (name) => `<span class="heading-icon">${ICONS[name]}</span>`;
+    const liIcon = (name) => `<span class="li-icon">${ICONS[name]}</span>`;
+    const somIcon = (name) => `<span class="somatic-icon">${ICONS[name]}</span>`;
+
     const QUOTES = {
       en: { text: "“Shining white light through learners, projecting its refracted colors to reveal the profound journey of their growth.”" },
       es: { text: "«Hacer brillar luz blanca a través de cada estudiante, proyectando sus colores refractados para revelar el profundo camino de su crecimiento.»" },
@@ -794,7 +944,7 @@
             <p style="margin-bottom: 8px;"><strong>Vision:</strong> To restore human and planetary flourishing as the fundamental principle and supreme purpose of education, and build a better and more peaceful world where every individual can fulfill their potential by freely developing their individuality.</p>
             <p style="margin-bottom: 0;"><strong>Mission:</strong> To reconceive AI as a metacognitive mirror that illuminates and projects learning as complex human transformation, recognizing mental health and holistic well-being as both the catalyst and the outcome of the internal balance required for sustainable growth.</p>
           </div>
-          <h2>Beyond unidimensional reduction</h2>
+          <h2>${hIcon('prism')}<span>Beyond unidimensional reduction</span></h2>
           <p>Traditional evaluation assumes learning happens in a flat, linear progression, compressing the irreducible complexity of human growth into a single number (0–100 or GPA). This reductive scalar tells educators and students nothing about developmental direction, intellectual resilience, or situated context—it merely ranks, labels, and punishes, sidelining diverse learning rhythms and neurodivergent profiles.</p>
           <div class="callout">
             <strong>Symbiotic coexistence:</strong> PRISMA does not replace statutory institutional grading. Rather, it operates alongside mandated administrative records as a qualitative companion layer, turning bureaucratic compliance into rich developmental insight without generating double-work for teachers.
@@ -807,45 +957,47 @@
           ${STATIC_RADAR_SVG.en}
         `,
         architecture: `
-          <h2>Offline-first Edge-AI infrastructure</h2>
+          <h2>${hIcon('building')}<span>Offline-first Edge-AI infrastructure</span></h2>
           <p>Mainstream educational technologies rely on cloud subscriptions, recurring API fees, energy-intensive data centers, and centralized databases that harvest sensitive student records. PRISMA is engineered with an uncompromising local-first architecture:</p>
-          <ul>
-            <li><strong>Air-gapped inferences &amp; local adaptability:</strong> Powered by lightweight Small Language Models (SLMs: 1.5B to 7B parameters at 4-bit quantization) running entirely on-device via open local runtimes (such as Ollama, llama.cpp, or PocketPal), PRISMA bridges the connectivity divide, eliminates cloud water and electricity footprints, and allows communities to adapt the open-source prompt and ℝ⁸ developmental anchors to their local cultural and curricular context.</li>
-            <li><strong>Zero recurring API cost:</strong> Eliminates SaaS operational expenses and per-token fees, democratizing advanced qualitative analytics for resource-constrained community schools.</li>
-            <li><strong>Absolute child data sovereignty:</strong> Observations, student IDs, and developmental evaluations never cross an internet connection or touch corporate cloud servers. Data stays permanently inside the school.</li>
-            <li><strong>Logarithmic decibel calibration:</strong> Learning does not advance in a flat, linear progression from 0 to 100. Overcoming initial friction to take the very first step demands colossal effort, while refining technical mastery at advanced stages requires subtle precision. PRISMA expresses transformation deltas in decibels (dB): mirroring human sensory perception, each logarithmic step measures authentic relative effort and qualitative impact in context, replacing arbitrary additive points.</li>
-            <li><strong>100% auditable evidence trails:</strong> Every coordinate in ℝ⁸ links directly to the raw narrative observation, educability baseline, and human adjustments—preventing algorithmic automation drift and eliminating black-box opacity.</li>
-            <li><strong>Cumulative growth &amp; non-regression by omission:</strong> Traditional grades act as volatile snapshots—a single bad day can overwrite or drag down prior achievement. In PRISMA, demonstrated competencies accumulate structurally in ℝ⁸ rather than being erased by a rough session, while any dimension not observed in a given note remains strictly at <code>0.0 dB</code> (epistemic silence), never penalized for omission.</li>
-            <li><strong>Analog-first scale invariance:</strong> The eight-axis vector topology works even without electricity or computers, using physical logs and radial graphs hand-drawn together by teacher and student, a laboratory mathematics practice that helps learners understand how their own learning evolves, while on local hardware PRISMA™ autonomously suggests vector coordinates completely offline.</li>
+          <ul class="icon-list">
+            <li>${liIcon('cloudOff')}<strong>Air-gapped inferences &amp; local adaptability:</strong> Powered by lightweight Small Language Models (SLMs: 1.5B to 7B parameters at 4-bit quantization) running entirely on-device via open local runtimes (such as Ollama, llama.cpp, or PocketPal), PRISMA bridges the connectivity divide, eliminates cloud water and electricity footprints, and allows communities to adapt the open-source prompt and ℝ⁸ developmental anchors to their local cultural and curricular context.</li>
+            <li>${liIcon('zeroCost')}<strong>Zero recurring API cost:</strong> Eliminates SaaS operational expenses and per-token fees, democratizing advanced qualitative analytics for resource-constrained community schools.</li>
+            <li>${liIcon('shieldCheck')}<strong>Absolute child data sovereignty:</strong> Observations, student IDs, and developmental evaluations never cross an internet connection or touch corporate cloud servers. Data stays permanently inside the school.</li>
+            <li>${liIcon('logCurve')}<strong>Logarithmic decibel calibration:</strong> Learning does not advance in a flat, linear progression from 0 to 100. Overcoming initial friction to take the very first step demands colossal effort, while refining technical mastery at advanced stages requires subtle precision. PRISMA expresses transformation deltas in decibels (dB): mirroring human sensory perception, each logarithmic step measures authentic relative effort and qualitative impact in context, replacing arbitrary additive points.</li>
+            <li>${liIcon('auditTrail')}<strong>100% auditable evidence trails:</strong> Every coordinate in ℝ⁸ links directly to the raw narrative observation, educability baseline, and human adjustments—preventing algorithmic automation drift and eliminating black-box opacity.</li>
+            <li>${liIcon('growthArrow')}<strong>Cumulative growth &amp; non-regression by omission:</strong> Traditional grades act as volatile snapshots—a single bad day can overwrite or drag down prior achievement. In PRISMA, demonstrated competencies accumulate structurally in ℝ⁸ rather than being erased by a rough session, while any dimension not observed in a given note remains strictly at <code>0.0 dB</code> (epistemic silence), never penalized for omission.</li>
+            <li>${liIcon('pencil')}<strong>Analog-first scale invariance:</strong> The eight-axis vector topology works even without electricity or computers, using physical logs and radial graphs hand-drawn together by teacher and student, a laboratory mathematics practice that helps learners understand how their own learning evolves, while on local hardware PRISMA™ autonomously suggests vector coordinates completely offline.</li>
           </ul>
-          <h3>How the ℝ⁸ vector space is constructed</h3>
+          <h3>${hIcon('radarWeb')}<span>How the ℝ⁸ vector space is constructed</span></h3>
           <p>PRISMA's eight dimensions were constructed through an analytical synthesis of <strong>19 international educational attributes and competencies</strong>—integrating the five International Baccalaureate (IB) Approaches to Learning (ATL) categories, ten Learner Profile attributes, and four Career-related Programme (CP) core competencies—woven together with community-rooted pedagogical principles such as Mexico's <em>Nueva Escuela Mexicana</em> (NEM). Rather than acting as a rigid mandate, this topology serves as an adaptable starting template that each educational community can rename or tailor through participatory co-design, incorporating local agricultural competencies, Indigenous community knowledge, or context-specific socio-emotional projects.</p>
-          <h3>The four cybernetic quadrants</h3>
-          <ul>
-            <li><strong>Northeast quadrant — Inquiring mind (cognitive-epistemological domain):</strong> <em>Inquiry &amp; research</em> (autonomous source validation, curiosity, and empirical questioning) and <em>Critical &amp; analytical thinking</em> (logical synthesis, variable analysis, and applied problem-solving).</li>
-            <li><strong>Southeast quadrant — Contextual gaze (socio-ethical &amp; situational domain):</strong> <em>Ethical reasoning</em> (moral agency, fairness, and care for human dignity) and <em>Intercultural agency</em> (empathy, mother-tongue validation, and cross-cultural dialogue).</li>
-            <li><strong>Southwest quadrant — Collective action (practical &amp; relational domain):</strong> <em>Collaborative leadership</em> (conflict mediation, teamwork, and non-coercive coordination) and <em>Technical mastery</em> (applied domain expertise, craftsmanship, and iterative debugging).</li>
-            <li><strong>Northwest quadrant — Inner equilibrium &amp; autopoiesis (intrapersonal domain):</strong> <em>Resilience &amp; self-management</em> (emotional regulation, frustration tolerance, and endurance under uncertainty) and <em>Metacognitive reflection</em> (self-awareness, intellectual humility, and learning from error).</li>
+          <h3>${hIcon('compass')}<span>The four cybernetic quadrants</span></h3>
+          <ul class="icon-list">
+            <li>${liIcon('questionMark')}<strong>Northeast quadrant — Inquiring mind (cognitive-epistemological domain):</strong> <em>Inquiry &amp; research</em> (autonomous source validation, curiosity, and empirical questioning) and <em>Critical &amp; analytical thinking</em> (logical synthesis, variable analysis, and applied problem-solving).</li>
+            <li>${liIcon('scalesTilted')}<strong>Southeast quadrant — Contextual gaze (socio-ethical &amp; situational domain):</strong> <em>Ethical reasoning</em> (moral agency, fairness, and care for human dignity) and <em>Intercultural agency</em> (empathy, mother-tongue validation, and cross-cultural dialogue).</li>
+            <li>${liIcon('threePeople')}<strong>Southwest quadrant — Collective action (practical &amp; relational domain):</strong> <em>Collaborative leadership</em> (conflict mediation, teamwork, and non-coercive coordination) and <em>Technical mastery</em> (applied domain expertise, craftsmanship, and iterative debugging).</li>
+            <li>${liIcon('meditatingYogi')}<strong>Northwest quadrant — Inner equilibrium &amp; autopoiesis (intrapersonal domain):</strong> <em>Resilience &amp; self-management</em> (emotional regulation, frustration tolerance, and endurance under uncertainty) and <em>Metacognitive reflection</em> (self-awareness, intellectual humility, and learning from error).</li>
           </ul>
           ${STATIC_RADAR_SVG.en}
-          <h3>180° complementary polar symmetry</h3>
+          <h3>${hIcon('yinYang')}<span>180° complementary polar symmetry</span></h3>
           <p>PRISMA eliminates arbitrary ordinal hierarchies. The 8 axes exist simultaneously across a 360° topology of complementary dialectical pairs:</p>
-          <ul>
-            <li><strong>Inquiry &amp; research ↔ Collaborative leadership:</strong> Autonomous theoretical investigation contrasted with collective group execution.</li>
-            <li><strong>Critical thinking ↔ Technical mastery:</strong> Abstract analytical deconstruction balanced against practical, tangible craftsmanship.</li>
-            <li><strong>Ethical reasoning ↔ Resilience &amp; self-management:</strong> Outward moral responsibility to the community balanced with internal emotional fortitude.</li>
-            <li><strong>Intercultural agency ↔ Metacognitive reflection:</strong> Empathic awareness of the diverse other mirrored by deep introspection of self.</li>
+          <ul class="icon-list">
+            <li>${liIcon('pairInquiryLead')}<strong>Inquiry &amp; research ↔ Collaborative leadership:</strong> Autonomous theoretical investigation contrasted with collective group execution.</li>
+            <li>${liIcon('pairCritTech')}<strong>Critical thinking ↔ Technical mastery:</strong> Abstract analytical deconstruction balanced against practical, tangible craftsmanship.</li>
+            <li>${liIcon('pairEthicResil')}<strong>Ethical reasoning ↔ Resilience &amp; self-management:</strong> Outward moral responsibility to the community balanced with internal emotional fortitude.</li>
+            <li>${liIcon('pairInterMeta')}<strong>Intercultural agency ↔ Metacognitive reflection:</strong> Empathic awareness of the diverse other mirrored by deep introspection of self.</li>
           </ul>
         `,
         ethos: `
-          <h2>Human sovereignty, educability conditions, and exposing “invisible” gender inequality</h2>
+          <h2>${hIcon('atomHeart')}<span>Human sovereignty, educability conditions, and exposing “invisible” gender inequality</span></h2>
           <p>The AI never grades, evaluates, or judges; it only suggests and projects. It operates as an assistive metacognitive mirror governed by non-negotiable ethical boundaries:</p>
-          <ul>
-            <li><strong>Human autonomy and the final word:</strong> PRISMA suggests, the person decides. The system proposes logarithmic deltas and grounds them in direct textual evidence from the narrative observation, but the educator retains absolute pedagogical authority to accept, amend, or reject any suggestion.</li>
-            <li><strong>Conditions of educability:</strong> A person cannot learn if their basic needs have not been met. Cognitive educability is inseparable from somatic and emotional balance. PRISMA allows for the registration of three essential factors without moral judgment or numerical punishment, and adjusts its reasoning when the person is under toxic stress:
-              <br>&bull; <strong>Sleep / rest</strong>
-              <br>&bull; <strong>Food / nutrition</strong>
-              <br>&bull; <strong>Holistic well-being</strong>
+          <ul class="icon-list">
+            <li>${liIcon('humanAutonomy')}<strong>Human autonomy and the final word:</strong> PRISMA suggests, the person decides. The system proposes logarithmic deltas and grounds them in direct textual evidence from the narrative observation, but the educator retains absolute pedagogical authority to accept, amend, or reject any suggestion.</li>
+            <li>${liIcon('ecgPulse')}<strong>Conditions of educability:</strong> A person cannot learn if their basic needs have not been met. Cognitive educability is inseparable from somatic and emotional balance. PRISMA allows for the registration of three essential factors without moral judgment or numerical punishment, and adjusts its reasoning when the person is under toxic stress:
+              <div class="somatic-factors">
+                <div class="somatic-item">${somIcon('sleepMoon')}<strong>Sleep / rest</strong></div>
+                <div class="somatic-item">${somIcon('nutritionLeaf')}<strong>Food / nutrition</strong></div>
+                <div class="somatic-item">${somIcon('heartClean')}<strong>Holistic well-being</strong></div>
+              </div>
               <p style="margin-top:10px; margin-bottom:10px;">Traditionally, manifestations of personal struggle are routinely attributed to a lack of capacity, intellect, or character, when, more often than not, they are due to biopsychosocial or emotional fatigue.</p>
               <p style="margin-bottom:10px;">Globally, girls and women disproportionately shoulder the “invisible” burden of unpaid domestic care, forced to carry this extreme exhaustion alongside severe somatic distress, such as acute dysmenorrhea, as if they didn't exist.</p>
               <p style="margin-bottom:0;">By recognizing and validating biopsychosocial or emotional fatigue as a condition to be supported rather than a personal shortcoming, PRISMA exposes systemic gender inequality, driving transformation across the educational community that provides women and girls with much-needed, long-overdue relief.</p>
@@ -853,7 +1005,7 @@
           </ul>
         `,
         sandboxIntro: `
-          <h2>Interactive architectural sandbox</h2>
+          <h2>${hIcon('sliders')}<span>Interactive architectural sandbox</span></h2>
           <div class="callout">
             <strong>Demonstration notice:</strong> This browser sandbox demonstrates PRISMA's qualitative projection onto ℝ⁸ using the invariant observation of María's water filter prototype. Switch between <strong>Optimal</strong> and <strong>Compromised</strong> educability to observe instantaneous logarithmic amplification and somatic protection in real time.
           </div>
@@ -880,7 +1032,7 @@
             <p style="margin-bottom: 8px;"><strong>Visión:</strong> Restablecer el florecimiento humano y planetario como el principio fundamental y fin supremo de la educación, y construir un mundo mejor y más pacífico en el que cada persona pueda alcanzar su potencial desarrollando libremente su individualidad.</p>
             <p style="margin-bottom: 0;"><strong>Misión:</strong> Reconcebir la IA como un espejo metacognitivo que ilumina y proyecta el aprendizaje como una compleja transformación humana, reconociendo la salud mental y el bienestar integral simultáneamente como el catalizador y el resultado del equilibrio interno necesario para el crecimiento sostenible.</p>
           </div>
-          <h2>Más allá de la reducción unidimensional</h2>
+          <h2>${hIcon('prism')}<span>Más allá de la reducción unidimensional</span></h2>
           <p>La evaluación tradicional parte del error de asumir que el aprendizaje ocurre de forma lineal y mecánica, comprimiendo la complejidad irreductible del desarrollo humano en un número plano y unidimensional (0–100 o escala de 10). Esta cifra reduccionista no le dice nada ni al docente ni al propio estudiante sobre la dirección del crecimiento, la resiliencia intelectual o el contexto situado: se limita a clasificar, etiquetar y castigar, invisibilizando a quienes aprenden a ritmos distintos o poseen perfiles neurodivergentes.</p>
           <div class="callout">
             <strong>Coexistencia simbiótica:</strong> PRISMA no sustituye las calificaciones institucionales obligatorias. Funciona en paralelo a los registros administrativos oficiales como una capa cualitativa de acompañamiento, transformando el cumplimiento burocrático en comprensión profunda del desarrollo sin generar trabajo doble para el docente.
@@ -893,45 +1045,47 @@
           ${STATIC_RADAR_SVG.es}
         `,
         architecture: `
-          <h2>Arquitectura de IA local (100% aislada)</h2>
+          <h2>${hIcon('building')}<span>Arquitectura de IA local (100% aislada)</span></h2>
           <p>Las aplicaciones educativas comerciales imponen suscripciones en la nube, costos recurrentes por consulta, centros de datos de alto consumo energético y servidores centralizados que recolectan información sensible del alumnado. PRISMA está diseñado bajo una arquitectura local estricta:</p>
-          <ul>
-            <li><strong>Inferencias aisladas (<em>air-gapped</em>) y adaptación local:</strong> Impulsado por modelos de lenguaje pequeños (SLM: 1.5B a 7B parámetros cuantizados a 4 bits) ejecutados enteramente en el equipo local mediante entornos abiertos (como Ollama, llama.cpp o PocketPal), PRISMA cierra la brecha de conectividad, elimina el gasto hídrico y eléctrico de la nube y permite que cada comunidad adapte el motor abierto y los anclajes formativos en ℝ⁸ a su propio contexto cultural y curricular.</li>
-            <li><strong>Cero costo operativo de API:</strong> Elimina pagos de suscripción SaaS o cobros por consulta, democratizando la analítica cualitativa para escuelas comunitarias y entornos de recursos limitados.</li>
-            <li><strong>Soberanía absoluta de datos del menor:</strong> Las observaciones, identificadores y evaluaciones formativas jamás cruzan una conexión a internet ni tocan servidores corporativos. Los datos permanecen permanentemente en el aula.</li>
-            <li><strong>Calibración logarítmica en decibeles:</strong> El aprendizaje no avanza como una regla fija de centímetros de 0 a 100. Pasar del desconocimiento al primer destello de autonomía exige una energía colosal, mientras que afinar un detalle en etapas avanzadas requiere precisión quirúrgica. PRISMA mide las transformaciones en decibeles (dB): al igual que la percepción sensorial de la luz o el sonido, cada incremento relativo refleja el esfuerzo formativo real y el impacto cualitativo en su contexto, erradicando la suma mecánica de puntos arbitrarios.</li>
-            <li><strong>Trazabilidad y transparencia absoluta:</strong> Cada coordenada en ℝ⁸ está vinculada directamente con la observación narrativa original, el registro de educabilidad y los ajustes humanos, evitando la opacidad algorítmica y la deriva hacia la automatización.</li>
-            <li><strong>Crecimiento acumulativo y no-retroceso por omisión:</strong> Las calificaciones tradicionales funcionan como fotos volátiles: un solo mal día puede promediar hacia abajo o borrar un logro previo. En PRISMA, las competencias demostradas se acumulan estructuralmente en ℝ⁸ sin que un tropiezo aislado anule lo ya consolidado, y toda dimensión no observada en una nota permanece estrictamente en <code>0.0 dB</code> (silencio epistémico), jamás penalizada por omisión.</li>
-            <li><strong>Invarianza de escala (primero analógico):</strong> La topología vectorial de ocho ejes funciona incluso sin electricidad ni computadoras, mediante bitácoras físicas y gráficas radiales trazadas a mano entre docente y estudiante, una práctica de matemáticas de laboratorio que ayuda al aprendiz a comprender cómo evoluciona su propio aprendizaje, mientras que, al disponer de equipo local, PRISMA™ sugiere las coordenadas de forma autónoma sin conexión a internet.</li>
+          <ul class="icon-list">
+            <li>${liIcon('cloudOff')}<strong>Inferencias aisladas (<em>air-gapped</em>) y adaptación local:</strong> Impulsado por modelos de lenguaje pequeños (SLM: 1.5B a 7B parámetros cuantizados a 4 bits) ejecutados enteramente en el equipo local mediante entornos abiertos (como Ollama, llama.cpp o PocketPal), PRISMA cierra la brecha de conectividad, elimina el gasto hídrico y eléctrico de la nube y permite que cada comunidad adapte el motor abierto y los anclajes formativos en ℝ⁸ a su propio contexto cultural y curricular.</li>
+            <li>${liIcon('zeroCost')}<strong>Cero costo operativo de API:</strong> Elimina pagos de suscripción SaaS o cobros por consulta, democratizando la analítica cualitativa para escuelas comunitarias y entornos de recursos limitados.</li>
+            <li>${liIcon('shieldCheck')}<strong>Soberanía absoluta de datos del menor:</strong> Las observaciones, identificadores y evaluaciones formativas jamás cruzan una conexión a internet ni tocan servidores corporativos. Los datos permanecen permanentemente en el aula.</li>
+            <li>${liIcon('logCurve')}<strong>Calibración logarítmica en decibeles:</strong> El aprendizaje no avanza como una regla fija de centímetros de 0 a 100. Pasar del desconocimiento al primer destello de autonomía exige una energía colosal, mientras que afinar un detalle en etapas avanzadas requiere precisión quirúrgica. PRISMA mide las transformaciones en decibeles (dB): al igual que la percepción sensorial de la luz o el sonido, cada incremento relativo refleja el esfuerzo formativo real y el impacto cualitativo en su contexto, erradicando la suma mecánica de puntos arbitrarios.</li>
+            <li>${liIcon('auditTrail')}<strong>Trazabilidad y transparencia absoluta:</strong> Cada coordenada en ℝ⁸ está vinculada directamente con la observación narrativa original, el registro de educabilidad y los ajustes humanos, evitando la opacidad algorítmica y la deriva hacia la automatización.</li>
+            <li>${liIcon('growthArrow')}<strong>Crecimiento acumulativo y no-retroceso por omisión:</strong> Las calificaciones tradicionales funcionan como fotos volátiles: un solo mal día puede promediar hacia abajo o borrar un logro previo. En PRISMA, las competencias demostradas se acumulan estructuralmente en ℝ⁸ sin que un tropiezo aislado anule lo ya consolidado, y toda dimensión no observada en una nota permanece estrictamente en <code>0.0 dB</code> (silencio epistémico), jamás penalizada por omisión.</li>
+            <li>${liIcon('pencil')}<strong>Invarianza de escala (primero analógico):</strong> La topología vectorial de ocho ejes funciona incluso sin electricidad ni computadoras, mediante bitácoras físicas y gráficas radiales trazadas a mano entre docente y estudiante, una práctica de matemáticas de laboratorio que ayuda al aprendiz a comprender cómo evoluciona su propio aprendizaje, mientras que, al disponer de equipo local, PRISMA™ sugiere las coordenadas de forma autónoma sin conexión a internet.</li>
           </ul>
-          <h3>Cómo se construye el espacio vectorial ℝ⁸</h3>
+          <h3>${hIcon('radarWeb')}<span>Cómo se construye el espacio vectorial ℝ⁸</span></h3>
           <p>Las ocho dimensiones de PRISMA nacen de una síntesis analítica de <strong>19 atributos y competencias educativas internacionales</strong> —integrando las cinco categorías de Enfoques del Aprendizaje (ATL), los diez atributos del Perfil de la Comunidad de Aprendizaje y las cuatro competencias troncales del Programa de Orientación Profesional (CP) del Bachillerato Internacional (IB)— articuladas con principios pedagógicos comunitarios como los de la <em>Nueva Escuela Mexicana</em> (NEM). Más que una imposición rígida, esta matriz es una plantilla inicial adaptable que cada comunidad educativa puede renombrar o rediseñar de forma participativa, integrando competencias técnicas agrícolas, saberes comunitarios indígenas o proyectos socioemocionales propios de su entorno.</p>
-          <h3>Los cuatro cuadrantes cibernéticos</h3>
-          <ul>
-            <li><strong>Cuadrante noreste — Mente que indaga (dominio cognitivo-epistemológico):</strong> <em>Indagación e investigación</em> (curiosidad epistémica, búsqueda autónoma y validación de fuentes) y <em>Pensamiento crítico y analítico</em> (síntesis lógica, análisis de variables y resolución de problemas).</li>
-            <li><strong>Cuadrante sureste — Mirada al entorno (dominio socio-ético y situacional):</strong> <em>Razonamiento ético</em> (agencia moral, justicia y cuidado de la dignidad humana) y <em>Agencia intercultural</em> (empatía, valoración de la lengua materna y diálogo entre saberes).</li>
-            <li><strong>Cuadrante suroeste — Hacer colectivo (dominio práctico y relacional):</strong> <em>Liderazgo colaborativo</em> (mediación de conflictos, trabajo en equipo y articulación sin imposición) y <em>Saber hacer y ejecución técnica</em> (pericia aplicada, oficio y depuración iterativa de errores).</li>
-            <li><strong>Cuadrante noroeste — Equilibrio interno y autopoiesis (dominio intrapersonal):</strong> <em>Resiliencia y autogestión</em> (regulación emocional, tolerancia a la frustración y persistencia ante la incertidumbre) y <em>Reflexión metacognitiva</em> (autoconocimiento, humildad intelectual y aprendizaje a partir del error).</li>
+          <h3>${hIcon('compass')}<span>Los cuatro cuadrantes cibernéticos</span></h3>
+          <ul class="icon-list">
+            <li>${liIcon('questionMark')}<strong>Cuadrante noreste — Mente que indaga (dominio cognitivo-epistemológico):</strong> <em>Indagación e investigación</em> (curiosidad epistémica, búsqueda autónoma y validación de fuentes) y <em>Pensamiento crítico y analítico</em> (síntesis lógica, análisis de variables y resolución de problemas).</li>
+            <li>${liIcon('scalesTilted')}<strong>Cuadrante sureste — Mirada al entorno (dominio socio-ético y situacional):</strong> <em>Razonamiento ético</em> (agencia moral, justicia y cuidado de la dignidad humana) y <em>Agencia intercultural</em> (empatía, valoración de la lengua materna y diálogo entre saberes).</li>
+            <li>${liIcon('threePeople')}<strong>Cuadrante suroeste — Hacer colectivo (dominio práctico y relacional):</strong> <em>Liderazgo colaborativo</em> (mediación de conflictos, trabajo en equipo y articulación sin imposición) y <em>Saber hacer y ejecución técnica</em> (pericia aplicada, oficio y depuración iterativa de errores).</li>
+            <li>${liIcon('meditatingYogi')}<strong>Cuadrante noroeste — Equilibrio interno y autopoiesis (dominio intrapersonal):</strong> <em>Resiliencia y autogestión</em> (regulación emocional, tolerancia a la frustración y persistencia ante la incertidumbre) y <em>Reflexión metacognitiva</em> (autoconocimiento, humildad intelectual y aprendizaje a partir del error).</li>
           </ul>
           ${STATIC_RADAR_SVG.es}
-          <h3>Simetría dialéctica polar a 180°</h3>
+          <h3>${hIcon('yinYang')}<span>Simetría dialéctica polar a 180°</span></h3>
           <p>PRISMA elimina definitivamente las jerarquías ordinales. Los 8 ejes coexisten simultáneamente en una topología de 360° articulada en pares dialécticos complementarios:</p>
-          <ul>
-            <li><strong>Indagación e investigación ↔ Liderazgo colaborativo:</strong> Búsqueda teórica autónoma en tensión complementaria con la acción grupal colectiva.</li>
-            <li><strong>Pensamiento crítico ↔ Ejecución técnica:</strong> Deconstrucción abstracta y analítica equilibrada con la construcción práctica y tangible del oficio.</li>
-            <li><strong>Razonamiento ético ↔ Resiliencia y autogestión:</strong> Responsabilidad moral externa hacia la comunidad equilibrada con la fortaleza emocional interna.</li>
-            <li><strong>Agencia intercultural ↔ Reflexión metacognitiva:</strong> Conciencia empática hacia la diversidad del otro reflejada en la introspección profunda de uno mismo.</li>
+          <ul class="icon-list">
+            <li>${liIcon('pairInquiryLead')}<strong>Indagación e investigación ↔ Liderazgo colaborativo:</strong> Búsqueda teórica autónoma en tensión complementaria con la acción grupal colectiva.</li>
+            <li>${liIcon('pairCritTech')}<strong>Pensamiento crítico ↔ Ejecución técnica:</strong> Deconstrucción abstracta y analítica equilibrada con la construcción práctica y tangible del oficio.</li>
+            <li>${liIcon('pairEthicResil')}<strong>Razonamiento ético ↔ Resiliencia y autogestión:</strong> Responsabilidad moral externa hacia la comunidad equilibrada con la fortaleza emocional interna.</li>
+            <li>${liIcon('pairInterMeta')}<strong>Agencia intercultural ↔ Reflexión metacognitiva:</strong> Conciencia empática hacia la diversidad del otro reflejada en la introspección profunda de uno mismo.</li>
           </ul>
         `,
         ethos: `
-          <h2>Soberanía humana, condiciones de educabilidad y la visibilización de una desigualdad de género «invisible»</h2>
+          <h2>${hIcon('atomHeart')}<span>Soberanía humana, condiciones de educabilidad y la visibilización de una desigualdad de género «invisible»</span></h2>
           <p>La IA nunca califica, evalúa ni juzga: únicamente sugiere y proyecta. Funciona como un espejo metacognitivo delimitado por principios éticos irrenunciables:</p>
-          <ul>
-            <li><strong>Autonomía humana y palabra final:</strong> PRISMA sugiere, la persona decide. El sistema propone deltas logarítmicos y los fundamenta textualmente en la observación narrativa, pero la persona docente conserva la autoridad pedagógica absoluta para aceptar, modificar o rechazar cualquier sugerencia.</li>
-            <li><strong>Condiciones de educabilidad:</strong> Una persona no puede aprender si sus necesidades básicas no están cubiertas. La educabilidad cognitiva es inseparable del equilibrio somático y emocional. PRISMA permite registrar tres factores esenciales sin juicio moral ni castigo numérico, y ajusta su razonamiento cuando la persona experimenta estrés tóxico:
-              <br>&bull; <strong>Sueño / descanso</strong>
-              <br>&bull; <strong>Alimentación / nutrición</strong>
-              <br>&bull; <strong>Bienestar integral</strong>
+          <ul class="icon-list">
+            <li>${liIcon('humanAutonomy')}<strong>Autonomía humana y palabra final:</strong> PRISMA sugiere, la persona decide. El sistema propone deltas logarítmicos y los fundamenta textualmente en la observación narrativa, pero la persona docente conserva la autoridad pedagógica absoluta para aceptar, modificar o rechazar cualquier sugerencia.</li>
+            <li>${liIcon('ecgPulse')}<strong>Condiciones de educabilidad:</strong> Una persona no puede aprender si sus necesidades básicas no están cubiertas. La educabilidad cognitiva es inseparable del equilibrio somático y emocional. PRISMA permite registrar tres factores esenciales sin juicio moral ni castigo numérico, y ajusta su razonamiento cuando la persona experimenta estrés tóxico:
+              <div class="somatic-factors">
+                <div class="somatic-item">${somIcon('sleepMoon')}<strong>Sueño / descanso</strong></div>
+                <div class="somatic-item">${somIcon('nutritionLeaf')}<strong>Alimentación / nutrición</strong></div>
+                <div class="somatic-item">${somIcon('heartClean')}<strong>Bienestar integral</strong></div>
+              </div>
               <p style="margin-top:10px; margin-bottom:10px;">Tradicionalmente, cualquier señal de dificultad personal suele atribuirse a falta de capacidad, intelecto o carácter, cuando la mayoría de las veces responde a agotamiento biopsicosocial o emocional.</p>
               <p style="margin-bottom:10px;">A nivel global, las niñas y las mujeres cargan de forma desproporcionada con el «invisible» peso del trabajo doméstico y de cuidados no remunerado, obligadas a sobrellevar ese agotamiento extremo sumado al desgaste profundo provocado por malestares somáticos, como la dismenorrea severa, como si no existieran.</p>
               <p style="margin-bottom:0;">Al reconocer y validar el agotamiento biopsicosocial o emocional como una condición que requiere acompañamiento y no como una falla personal, PRISMA visibiliza la desigualdad sistémica de género, impulsando una transformación en el clima institucional que brinda a las mujeres y niñas de la comunidad educativa un alivio muy necesario y pendiente desde hace tiempo.</p>
@@ -939,7 +1093,7 @@
           </ul>
         `,
         sandboxIntro: `
-          <h2>Sandbox de demostración arquitectónica</h2>
+          <h2>${hIcon('sliders')}<span>Sandbox de demostración arquitectónica</span></h2>
           <div class="callout">
             <strong>Aviso de demostración:</strong> Este sandbox interactivo demuestra la proyección cualitativa hacia ℝ⁸ utilizando la observación invariante del filtro de agua de María. Alterna entre condición <strong>Óptima</strong> y <strong>Comprometida</strong> para comprobar la amplificación logarítmica y el resguardo somático en tiempo real.
           </div>
@@ -1153,11 +1307,11 @@
       document.getElementById("mainHeading").innerHTML = data.heading;
       document.getElementById("appDescriptor").textContent = data.descriptor;
       document.getElementById("btnExitFocus").textContent = data.exitFocus;
-      document.getElementById("tab-btn-vision").textContent = data.tabs.vision;
-      document.getElementById("tab-btn-architecture").textContent = data.tabs.architecture;
-      document.getElementById("tab-btn-ethos").textContent = data.tabs.ethos;
-      document.getElementById("tab-btn-prototype").textContent = data.tabs.prototype;
-      document.getElementById("tab-btn-interface").textContent = data.tabs.interface;
+      document.getElementById("tab-btn-vision").innerHTML = `${ICONS.prism}<span>${data.tabs.vision}</span>`;
+      document.getElementById("tab-btn-architecture").innerHTML = `${ICONS.building}<span>${data.tabs.architecture}</span>`;
+      document.getElementById("tab-btn-ethos").innerHTML = `${ICONS.atomHeart}<span>${data.tabs.ethos}</span>`;
+      document.getElementById("tab-btn-prototype").innerHTML = `${ICONS.sliders}<span>${data.tabs.prototype}</span>`;
+      document.getElementById("tab-btn-interface").innerHTML = `${ICONS.camera}<span>${data.tabs.interface}</span>`;
       document.getElementById("vision-content").innerHTML = data.vision;
       document.getElementById("architecture-content").innerHTML = data.architecture;
       document.getElementById("ethos-content").innerHTML = data.ethos;
@@ -1167,7 +1321,7 @@
       document.getElementById("th-delta").textContent = data.thDelta;
       document.getElementById("th-citation").textContent = data.thCitation;
       document.getElementById("lblState").textContent = data.lblState;
-      document.getElementById("interfaceTitle").textContent = data.interfaceTitle;
+      document.getElementById("interfaceTitle").innerHTML = `${hIcon('camera')}<span>${data.interfaceTitle}</span>`;
       document.getElementById("interfaceDesc").textContent = data.interfaceDesc;
       document.getElementById("interfaceStatus").textContent = data.interfaceStatus;
       document.getElementById("footerText").innerHTML = data.footer;
@@ -1191,6 +1345,9 @@
       if (!isAlreadyActive && activeBtn && activePanel) {
         activeBtn.classList.add("active");
         activePanel.classList.add("active");
+        const stage = document.querySelector(".content-stage");
+        if (stage) stage.scrollTop = 0;
+        window.scrollTo(0, 0);
         if (tabId === "prototype" && !isSimulationActive) {
           renderSandbox();
         }
