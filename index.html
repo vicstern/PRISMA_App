@@ -428,9 +428,7 @@
         position: sticky;
         top: 0;
         z-index: 25;
-        background: var(--sticky-bg);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
+        background: var(--bg);
         padding: 10px 12px;
         border-bottom: 1px solid var(--border);
       }
@@ -512,7 +510,7 @@
         #2563eb 58%,
         #0284c7 68%,
         #16a34a 78%,
-        #ca8a04 86%,
+        #b45309 86%,
         #ea580c 93%,
         #dc2626 100%
       ) !important;
@@ -1059,9 +1057,13 @@
       const langName = LANG_LABELS[currentLocale][qKey] || qKey;
       quoteEl.style.opacity = 0;
       setTimeout(() => {
+        quoteEl.style.display = "none";
+        if (quoteEl.parentElement) void quoteEl.parentElement.offsetHeight;
         quoteEl.setAttribute("dir", isRtl ? "rtl" : "ltr");
         quoteEl.style.direction = isRtl ? "rtl" : "ltr";
         quoteEl.innerHTML = `${qObj.text} <span class="quote-sub">(${langName})</span>`;
+        quoteEl.style.display = "block";
+        void quoteEl.offsetHeight;
         quoteEl.style.opacity = 1;
         quoteIdx = (quoteIdx + 1) % quoteKeys.length;
         if (quoteIdx === 0) shuffleArray(quoteKeys);
