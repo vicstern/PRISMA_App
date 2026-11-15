@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,17 +11,56 @@
   <meta property="article:published_time" content="2026-11-12">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23090d13'/><polygon points='50,18 82,78 18,78' fill='none' stroke='%2358a6ff' stroke-width='6'/><line x1='10' y1='56' x2='42' y2='48' stroke='%23ffffff' stroke-width='4'/><line x1='58' y1='46' x2='90' y2='36' stroke='%23c084fc' stroke-width='3.5'/><line x1='61' y1='52' x2='90' y2='52' stroke='%234ade80' stroke-width='3.5'/><line x1='64' y1='58' x2='90' y2='68' stroke='%23facc15' stroke-width='3.5'/></svg>">
+  <script>
+    (function() {
+      var saved = null;
+      try { saved = localStorage.getItem("av-theme"); } catch (e) {}
+      var sysLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+      if (saved === "light" || (!saved && sysLight)) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
   <style>
     :root {
       --bg: #090d13;
       --card-bg: #121820;
       --card-inner: #1a222d;
+      --surface-deep: #0d1117;
+      --pill-active-bg: #21262d;
+      --pill-active-text: #ffffff;
+      --pill-shadow: rgba(0, 0, 0, 0.5);
       --border: #262f3d;
       --accent: #2ea043;
       --accent-blue: #58a6ff;
       --text-main: #f0f6fc;
+      --text-body: #c9d1d9;
       --text-muted: #8b949e;
       --text-dim: #5c6570;
+      --delta-green: #3fb950;
+      --sticky-bg: rgba(9, 13, 19, 0.94);
+      --radar-grid: #262f3d;
+      --radar-circle: #334155;
+    }
+    html[data-theme="light"] {
+      --bg: #ffffff;
+      --card-bg: #f6f8fa;
+      --card-inner: #eef1f5;
+      --surface-deep: #ffffff;
+      --pill-active-bg: #ffffff;
+      --pill-active-text: #1f2328;
+      --pill-shadow: rgba(31, 35, 40, 0.12);
+      --border: #d0d7de;
+      --accent: #1a7f37;
+      --accent-blue: #0969da;
+      --text-main: #1f2328;
+      --text-body: #32383f;
+      --text-muted: #57606a;
+      --text-dim: #6e7781;
+      --delta-green: #1a7f37;
+      --sticky-bg: rgba(255, 255, 255, 0.94);
+      --radar-grid: #d0d7de;
+      --radar-circle: #afb8c1;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     
@@ -32,6 +71,7 @@
       color: var(--text-main);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       -webkit-text-size-adjust: 100%;
+      transition: background-color 0.2s ease, color 0.2s ease;
     }
 
     body {
@@ -47,6 +87,23 @@
       top: 14px;
       right: 24px;
       z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .theme-toggle {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 5px 11px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .theme-toggle:hover {
+      color: var(--text-main);
     }
     .lang-switcher {
       display: inline-flex;
@@ -67,8 +124,9 @@
       transition: all 0.2s;
     }
     .lang-btn.active {
-      background: #21262d;
-      color: #ffffff;
+      background: var(--pill-active-bg);
+      color: var(--pill-active-text);
+      box-shadow: 0 1px 3px var(--pill-shadow);
     }
 
     .header-wrapper {
@@ -90,11 +148,11 @@
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: none;
-      color: #ffffff;
+      color: var(--text-main);
       padding-top: 6px;
       margin-top: 2px;
       margin-bottom: 2px;
-      line-height: 1.35; /* antes decía 1.32 */
+      line-height: 1.35;
     }
     h1 span.reg {
       font-size: 0.75rem;
@@ -118,7 +176,7 @@
     }
 
     .quote-box {
-      min-height: 68px;
+      height: 68px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -132,7 +190,7 @@
       font-style: italic;
       font-size: clamp(0.86rem, 1.05vw, 0.94rem);
       line-height: 1.36;
-      color: #e6edf3;
+      color: var(--text-main);
       transition: opacity 0.35s ease;
       width: 100%;
     }
@@ -170,9 +228,9 @@
     }
     .tab-btn:hover { color: var(--text-main); }
     .tab-btn.active {
-      background: #21262d;
-      color: #ffffff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+      background: var(--pill-active-bg);
+      color: var(--pill-active-text);
+      box-shadow: 0 2px 6px var(--pill-shadow);
     }
 
     .content-stage {
@@ -210,7 +268,7 @@
     .panel h2 {
       font-size: 1.35rem;
       margin-bottom: 14px;
-      color: #ffffff;
+      color: var(--text-main);
       font-weight: 600;
     }
     .panel h3 {
@@ -221,17 +279,17 @@
     }
     .panel p {
       font-size: 0.94rem;
-      color: #c9d1d9;
+      color: var(--text-body);
       margin-bottom: 14px;
     }
     .panel ul {
       margin-left: 20px;
       margin-bottom: 16px;
-      color: #8b949e;
+      color: var(--text-muted);
       font-size: 0.92rem;
     }
     .panel ul li { margin-bottom: 6px; }
-    .panel ul li strong { color: #f0f6fc; }
+    .panel ul li strong { color: var(--text-main); }
     .callout {
       background: var(--card-inner);
       border-left: 3px solid var(--accent-blue);
@@ -239,11 +297,11 @@
       border-radius: 0 8px 8px 0;
       margin: 16px 0;
       font-size: 0.88rem;
-      color: #c9d1d9;
+      color: var(--text-body);
     }
 
     .static-radar-card {
-      background: #0d1117;
+      background: var(--surface-deep);
       border: 1px solid var(--border);
       border-radius: 10px;
       padding: 14px 10px 8px;
@@ -282,25 +340,25 @@
     }
     .btn-action:hover { background: #2ea043; }
     .sandbox-note {
-      background: #0d1117;
+      background: var(--surface-deep);
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 14px;
       margin-bottom: 16px;
       font-size: 0.88rem;
-      color: #c9d1d9;
+      color: var(--text-body);
       line-height: 1.5;
     }
 
     .sandbox-viz {
-   display: block;
-   width: 100%;
- }
+      display: block;
+      width: 100%;
+    }
     .radar-svg-box {
       width: 100%;
       max-width: 480px;
       margin: 0 auto 18px;
-      background: #0d1117;
+      background: var(--surface-deep);
       border-radius: 8px;
       border: 1px solid var(--border);
       padding: 8px 4px;
@@ -322,7 +380,7 @@
       text-align: left;
     }
     .delta-table th { color: var(--text-dim); font-size: 0.74rem; letter-spacing: 0.03em; }
-    .delta-val { color: #3fb950; font-weight: 600; font-family: monospace; white-space: nowrap; }
+    .delta-val { color: var(--delta-green); font-weight: 600; font-family: monospace; white-space: nowrap; }
     .table-idle {
       color: var(--text-dim);
       font-style: italic;
@@ -335,7 +393,7 @@
       overflow: hidden;
       border: 1px solid var(--border);
       background: #000;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 12px 28px var(--pill-shadow);
       margin-top: 14px;
     }
     .preview-card img { width: 100%; height: auto; display: block; }
@@ -370,7 +428,7 @@
         position: sticky;
         top: 0;
         z-index: 25;
-        background: rgba(9, 13, 19, 0.94);
+        background: var(--sticky-bg);
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
         padding: 10px 12px;
@@ -391,7 +449,7 @@
         margin-bottom: 4px;
       }
       .quote-box {
-        min-height: 98px;
+        height: 98px;
         margin-bottom: 10px;
       }
       .tabs-dock {
@@ -440,8 +498,28 @@
       -webkit-text-fill-color: transparent !important;
       background-clip: text !important;
       color: transparent !important;
-display: block !important;
+      display: block !important;
       text-align: center !important;
+    }
+    html[data-theme="light"] #primaryQuote,
+    html[data-theme="light"] p.primary-quote {
+      background: linear-gradient(
+        90deg,
+        #1f2328 0%,
+        #1f2328 28%,
+        #334155 36%,
+        #7e22ce 48%,
+        #2563eb 58%,
+        #0284c7 68%,
+        #16a34a 78%,
+        #ca8a04 86%,
+        #ea580c 93%,
+        #dc2626 100%
+      ) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      background-clip: text !important;
+      color: transparent !important;
     }
     #sliderControls {
       display: grid;
@@ -474,17 +552,17 @@ display: block !important;
       margin-bottom: 6px;
     }
     .content-stage {
-   overflow-anchor: none;
- }
- body.sandbox-focus .radar-svg-box {
-   position: sticky;
-   top: 0;
-   z-index: 15;
-   max-width: 100%;
-   background: #0d1117;
-   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.75);
-   padding: 6px 4px;
- }
+      overflow-anchor: none;
+    }
+    body.sandbox-focus .radar-svg-box {
+      position: sticky;
+      top: 0;
+      z-index: 15;
+      max-width: 100%;
+      background: var(--surface-deep);
+      box-shadow: 0 10px 24px var(--pill-shadow);
+      padding: 6px 4px;
+    }
     body.sandbox-focus .radar-svg-box svg {
       max-height: 225px;
       width: auto;
@@ -527,61 +605,12 @@ display: block !important;
 <body>
 
   <div class="top-bar">
+    <button class="theme-toggle" id="btnTheme" onclick="toggleTheme()">☀ Light</button>
     <div class="lang-switcher">
       <button class="lang-btn active" id="btn-en" onclick="setLocale('en')">EN</button>
       <button class="lang-btn" id="btn-es" onclick="setLocale('es')">ES</button>
     </div>
-  </div>
-
-  <div class="header-wrapper">
-    <div class="header-zone">
-      <h1 id="mainHeading">Aula Viva<span class="reg">®</span></h1>
-      <p class="descriptor" id="appDescriptor">PRISMA™ — Multidimensional illumination of human learning assisted by local AI</p>
-      
-      <div class="quote-box" id="quoteContainer">
-        <p id="primaryQuote" class="primary-quote">“Shining white light through learners, projecting its refracted colors to reveal the profound journey of their growth.” <span class="quote-sub">(English)</span></p>
-      </div>
-    </div>
-
-    <!-- Navegación de 5 botones canónicos -->
-    <div class="focus-exit-bar">
-      <button class="lang-btn" id="btnExitFocus" onclick="exitFocusMode()" style="background:var(--card-bg); border:1px solid var(--border); padding:4px 12px;">← Menu</button>
-    </div>
-    <div class="tabs-dock">
-      <button class="tab-btn" id="tab-btn-vision" onclick="switchTab('vision')">Vision</button>
-      <button class="tab-btn" id="tab-btn-architecture" onclick="switchTab('architecture')">Architecture</button>
-      <button class="tab-btn" id="tab-btn-ethos" onclick="switchTab('ethos')">Ethos</button>
-      <button class="tab-btn" id="tab-btn-prototype" onclick="switchTab('prototype')">Interactive sandbox</button>
-      <button class="tab-btn" id="tab-btn-interface" onclick="switchTab('interface')">On-device interface</button>
-    </div>
-  </div>
-
-  <div class="content-stage">
-
-    <!-- 1. VISION -->
-    <div id="vision" class="panel">
-      <div id="vision-content"></div>
-    </div>
-
-    <!-- 2. ARCHITECTURE -->
-    <div id="architecture" class="panel">
-      <div id="architecture-content"></div>
-    </div>
-
-    <!-- 3. ETHOS -->
-    <div id="ethos" class="panel">
-      <div id="ethos-content"></div>
-    </div>
-
-    <!-- 4. INTERACTIVE SANDBOX -->
-    <div id="prototype" class="panel">
-      <div id="sandbox-intro"></div>
-
-      <div class="sandbox-container">
-        <div class="sandbox-header">
-          <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
-            <span style="font-size:0.82rem; font-weight:600; color:var(--text-muted);" id="lblState">Educability condition:</span>
-            <div class="lang-switcher" style="background:#0d1117;">
+  </div><div class="lang-switcher" style="background:var(--surface-deep);">
               <button class="lang-btn active" id="btn-state-opt" onclick="setEducabilityState('optimal')">Optimal</button>
               <button class="lang-btn" id="btn-state-comp" onclick="setEducabilityState('compromised')">Compromised</button>
             </div>
@@ -596,7 +625,7 @@ display: block !important;
             <svg id="radarSvg" width="460" height="300" viewBox="0 0 460 300"></svg>
           </div>
           <div class="sandbox-table-box">
-            <div id="sandboxStatusBox" style="display:none; margin-bottom:14px; background:#0d1117; padding:10px 14px; border-radius:8px; border:1px solid var(--border);"></div>
+            <div id="sandboxStatusBox" style="display:none; margin-bottom:14px; background:var(--surface-deep); padding:10px 14px; border-radius:8px; border:1px solid var(--border);"></div>
 
             <table class="delta-table">
               <thead>
@@ -610,7 +639,7 @@ display: block !important;
             </table>
 
             <!-- DIALS DOCENTES RECUPERADOS (CALIBRACIÓN SOBERANA) -->
-            <div id="teacherAdjustBox" style="display:none; margin-top:20px; background:#0d1117; padding:16px 20px; border-radius:10px; border:1px solid var(--border);">
+            <div id="teacherAdjustBox" style="display:none; margin-top:20px; background:var(--surface-deep); padding:16px 20px; border-radius:10px; border:1px solid var(--border);">
               <div style="font-size:0.78rem; letter-spacing:0.04em; color:var(--accent-blue); font-weight:600; margin-bottom:12px;" id="teacherAdjustTitle">
                 Teacher calibration & sovereign override
               </div>
@@ -625,7 +654,7 @@ display: block !important;
     <div id="interface" class="panel">
       <h2 id="interfaceTitle">On-device capture interface</h2>
       <p id="interfaceDesc">Local Streamlit execution environment running offline SLM qualitative inference directly on educator hardware, ensuring zero cloud dependency and strict student data sovereignty.</p>
-      <p id="interfaceStatus" style="display: inline-block; margin-top: 10px; padding: 5px 12px; font-size: 0.8rem; border-radius: 999px; background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.25);">
+      <p id="interfaceStatus" style="display: inline-block; margin-top: 10px; padding: 5px 12px; font-size: 0.8rem; border-radius: 999px; background: rgba(9, 105, 218, 0.1); color: var(--accent-blue); border: 1px solid rgba(9, 105, 218, 0.25);">
         Coming soon for local download and deployment · Apache 2.0
       </p>
       <div class="preview-card">
@@ -662,43 +691,43 @@ display: block !important;
  const STATIC_RADAR_SVG = {
       en: `<div class="static-radar-card">
         <svg width="440" height="260" viewBox="0 0 440 260">
-          <polygon points="220,50 284,76 310,140 284,204 220,230 156,204 130,140 156,76" fill="rgba(88,166,255,0.06)" stroke="#262f3d" stroke-width="1.2"/>
-          <circle cx="220" cy="140" r="42" fill="none" stroke="#334155" stroke-dasharray="3,3" stroke-width="1"/>
-          <line x1="220" y1="50" x2="220" y2="230" stroke="#262f3d" stroke-width="1"/>
-          <line x1="130" y1="140" x2="310" y2="140" stroke="#262f3d" stroke-width="1"/>
-          <line x1="156" y1="76" x2="284" y2="204" stroke="#262f3d" stroke-width="1"/>
-          <line x1="284" y1="76" x2="156" y2="204" stroke="#262f3d" stroke-width="1"/>
-          <text x="220" y="38" fill="#8b949e" font-size="9" text-anchor="middle">Inquiry</text>
-          <text x="296" y="72" fill="#8b949e" font-size="9" text-anchor="start">Critical thinking</text>
-          <text x="322" y="143" fill="#8b949e" font-size="9" text-anchor="start">Ethical reasoning</text>
-          <text x="296" y="214" fill="#8b949e" font-size="9" text-anchor="start">Intercultural agency</text>
-          <text x="220" y="246" fill="#8b949e" font-size="9" text-anchor="middle">Leadership</text>
-          <text x="144" y="214" fill="#8b949e" font-size="9" text-anchor="end">Technical mastery</text>
-          <text x="118" y="143" fill="#8b949e" font-size="9" text-anchor="end">Resilience</text>
-          <text x="144" y="72" fill="#8b949e" font-size="9" text-anchor="end">Metacognition</text>
-          <text x="224" y="103" fill="#58a6ff" font-size="7.5" font-family="monospace">0.0 dB (Baseline)</text>
-          <text x="224" y="62" fill="#58a6ff" font-size="8" font-family="monospace" font-weight="bold">+6.0 dB (Beginner)</text>
+          <polygon points="220,50 284,76 310,140 284,204 220,230 156,204 130,140 156,76" fill="rgba(88,166,255,0.06)" stroke="var(--radar-grid)" stroke-width="1.2"/>
+          <circle cx="220" cy="140" r="42" fill="none" stroke="var(--radar-circle)" stroke-dasharray="3,3" stroke-width="1"/>
+          <line x1="220" y1="50" x2="220" y2="230" stroke="var(--radar-grid)" stroke-width="1"/>
+          <line x1="130" y1="140" x2="310" y2="140" stroke="var(--radar-grid)" stroke-width="1"/>
+          <line x1="156" y1="76" x2="284" y2="204" stroke="var(--radar-grid)" stroke-width="1"/>
+          <line x1="284" y1="76" x2="156" y2="204" stroke="var(--radar-grid)" stroke-width="1"/>
+          <text x="220" y="38" fill="var(--text-muted)" font-size="9" text-anchor="middle">Inquiry</text>
+          <text x="296" y="72" fill="var(--text-muted)" font-size="9" text-anchor="start">Critical thinking</text>
+          <text x="322" y="143" fill="var(--text-muted)" font-size="9" text-anchor="start">Ethical reasoning</text>
+          <text x="296" y="214" fill="var(--text-muted)" font-size="9" text-anchor="start">Intercultural agency</text>
+          <text x="220" y="246" fill="var(--text-muted)" font-size="9" text-anchor="middle">Leadership</text>
+          <text x="144" y="214" fill="var(--text-muted)" font-size="9" text-anchor="end">Technical mastery</text>
+          <text x="118" y="143" fill="var(--text-muted)" font-size="9" text-anchor="end">Resilience</text>
+          <text x="144" y="72" fill="var(--text-muted)" font-size="9" text-anchor="end">Metacognition</text>
+          <text x="224" y="103" fill="var(--accent-blue)" font-size="7.5" font-family="monospace">0.0 dB (Baseline)</text>
+          <text x="224" y="62" fill="var(--accent-blue)" font-size="8" font-family="monospace" font-weight="bold">+6.0 dB (Beginner)</text>
         </svg>
         <span style="font-size:0.75rem; color:var(--text-dim); margin-top:2px;">Initial topological space in ℝ⁸</span>
       </div>`,
       es: `<div class="static-radar-card">
         <svg width="440" height="260" viewBox="0 0 440 260">
-          <polygon points="220,50 284,76 310,140 284,204 220,230 156,204 130,140 156,76" fill="rgba(88,166,255,0.06)" stroke="#262f3d" stroke-width="1.2"/>
-          <circle cx="220" cy="140" r="42" fill="none" stroke="#334155" stroke-dasharray="3,3" stroke-width="1"/>
-          <line x1="220" y1="50" x2="220" y2="230" stroke="#262f3d" stroke-width="1"/>
-          <line x1="130" y1="140" x2="310" y2="140" stroke="#262f3d" stroke-width="1"/>
-          <line x1="156" y1="76" x2="284" y2="204" stroke="#262f3d" stroke-width="1"/>
-          <line x1="284" y1="76" x2="156" y2="204" stroke="#262f3d" stroke-width="1"/>
-          <text x="220" y="38" fill="#8b949e" font-size="9" text-anchor="middle">Indagación</text>
-          <text x="296" y="72" fill="#8b949e" font-size="9" text-anchor="start">Pensamiento crítico</text>
-          <text x="322" y="143" fill="#8b949e" font-size="9" text-anchor="start">Razonamiento ético</text>
-          <text x="296" y="214" fill="#8b949e" font-size="9" text-anchor="start">Agencia intercultural</text>
-          <text x="220" y="246" fill="#8b949e" font-size="9" text-anchor="middle">Liderazgo</text>
-          <text x="144" y="214" fill="#8b949e" font-size="9" text-anchor="end">Saber técnico</text>
-          <text x="118" y="143" fill="#8b949e" font-size="9" text-anchor="end">Resiliencia</text>
-          <text x="144" y="72" fill="#8b949e" font-size="9" text-anchor="end">Metacognición</text>
-          <text x="224" y="103" fill="#58a6ff" font-size="7.5" font-family="monospace">0.0 dB (Línea base)</text>
-          <text x="224" y="62" fill="#58a6ff" font-size="8" font-family="monospace" font-weight="bold">+6.0 dB (Principiante)</text>
+          <polygon points="220,50 284,76 310,140 284,204 220,230 156,204 130,140 156,76" fill="rgba(88,166,255,0.06)" stroke="var(--radar-grid)" stroke-width="1.2"/>
+          <circle cx="220" cy="140" r="42" fill="none" stroke="var(--radar-circle)" stroke-dasharray="3,3" stroke-width="1"/>
+          <line x1="220" y1="50" x2="220" y2="230" stroke="var(--radar-grid)" stroke-width="1"/>
+          <line x1="130" y1="140" x2="310" y2="140" stroke="var(--radar-grid)" stroke-width="1"/>
+          <line x1="156" y1="76" x2="284" y2="204" stroke="var(--radar-grid)" stroke-width="1"/>
+          <line x1="284" y1="76" x2="156" y2="204" stroke="var(--radar-grid)" stroke-width="1"/>
+          <text x="220" y="38" fill="var(--text-muted)" font-size="9" text-anchor="middle">Indagación</text>
+          <text x="296" y="72" fill="var(--text-muted)" font-size="9" text-anchor="start">Pensamiento crítico</text>
+          <text x="322" y="143" fill="var(--text-muted)" font-size="9" text-anchor="start">Razonamiento ético</text>
+          <text x="296" y="214" fill="var(--text-muted)" font-size="9" text-anchor="start">Agencia intercultural</text>
+          <text x="220" y="246" fill="var(--text-muted)" font-size="9" text-anchor="middle">Liderazgo</text>
+          <text x="144" y="214" fill="var(--text-muted)" font-size="9" text-anchor="end">Saber técnico</text>
+          <text x="118" y="143" fill="var(--text-muted)" font-size="9" text-anchor="end">Resiliencia</text>
+          <text x="144" y="72" fill="var(--text-muted)" font-size="9" text-anchor="end">Metacognición</text>
+          <text x="224" y="103" fill="var(--accent-blue)" font-size="7.5" font-family="monospace">0.0 dB (Línea base)</text>
+          <text x="224" y="62" fill="var(--accent-blue)" font-size="8" font-family="monospace" font-weight="bold">+6.0 dB (Principiante)</text>
         </svg>
         <span style="font-size:0.75rem; color:var(--text-dim); margin-top:2px;">Espacio topológico inicial en ℝ⁸</span>
       </div>`
@@ -986,6 +1015,62 @@ const SANDBOX_DATA = {
       }, 350);
     }
     setInterval(updateQuoteTicker, 9000);
+    function updateThemeBtnLabel() {
+      const btn = document.getElementById("btnTheme");
+      if (!btn) return;
+      const isLight = document.documentElement.getAttribute("data-theme") === "light";
+      if (currentLocale === "es") {
+        btn.textContent = isLight ? "☾ Oscuro" : "☀ Claro";
+      } else {
+        btn.textContent = isLight ? "☾ Dark" : "☀ Light";
+      }
+    }
+    function toggleTheme() {
+      const htmlEl = document.documentElement;
+      const isLight = htmlEl.getAttribute("data-theme") === "light";
+      if (isLight) {
+        htmlEl.removeAttribute("data-theme");
+      } else {
+        htmlEl.setAttribute("data-theme", "light");
+      }
+      updateThemeBtnLabel();
+    }
+    function updateThemeBtnLabel() {
+      const btn = document.getElementById("btnTheme");
+      if (!btn) return;
+      const isLight = document.documentElement.getAttribute("data-theme") === "light";
+      if (currentLocale === "es") {
+        btn.textContent = isLight ? "☾ Oscuro" : "☀ Claro";
+      } else {
+        btn.textContent = isLight ? "☾ Dark" : "☀ Light";
+      }
+    }
+    function toggleTheme() {
+      const htmlEl = document.documentElement;
+      const isLight = htmlEl.getAttribute("data-theme") === "light";
+      if (isLight) {
+        htmlEl.removeAttribute("data-theme");
+        try { localStorage.setItem("av-theme", "dark"); } catch (e) {}
+      } else {
+        htmlEl.setAttribute("data-theme", "light");
+        try { localStorage.setItem("av-theme", "light"); } catch (e) {}
+      }
+      updateThemeBtnLabel();
+    }
+    if (window.matchMedia) {
+      window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", function(e) {
+        var saved = null;
+        try { saved = localStorage.getItem("av-theme"); } catch (err) {}
+        if (!saved) {
+          if (e.matches) {
+            document.documentElement.setAttribute("data-theme", "light");
+          } else {
+            document.documentElement.removeAttribute("data-theme");
+          }
+          updateThemeBtnLabel();
+        }
+      });
+    }
     function exitFocusMode() {
       document.body.classList.remove("sandbox-focus");
     }
@@ -1018,6 +1103,7 @@ const SANDBOX_DATA = {
       document.getElementById("footerText").innerHTML = data.footer;
       document.getElementById("btn-state-opt").textContent = (loc === "en") ? "Optimal" : "Óptimo";
       document.getElementById("btn-state-comp").textContent = (loc === "en") ? "Compromised" : "Comprometido";
+      updateThemeBtnLabel();
       if (isSimulationActive) {
         updateSimulationVisuals();
       } else {
@@ -1052,19 +1138,19 @@ const SANDBOX_DATA = {
           const angle = (Math.PI * 2 / axesCount) * i - Math.PI / 2;
           pts.push(`${cx + Math.cos(angle) * r * factor},${cy + Math.sin(angle) * r * factor}`);
         }
-        out += `<polygon points="${pts.join(" ")}" fill="none" stroke="#262f3d" stroke-width="1.2"/>`;
+        out += `<polygon points="${pts.join(" ")}" fill="none" stroke="var(--radar-grid)" stroke-width="1.2"/>`;
       });
       for (let i = 0; i < axesCount; i++) {
         const angle = (Math.PI * 2 / axesCount) * i - Math.PI / 2;
         const x2 = cx + Math.cos(angle) * r;
         const y2 = cy + Math.sin(angle) * r;
-        out += `<line x1="${cx}" y1="${cy}" x2="${x2}" y2="${y2}" stroke="#262f3d" stroke-width="1"/>`;
+        out += `<line x1="${cx}" y1="${cy}" x2="${x2}" y2="${y2}" stroke="var(--radar-grid)" stroke-width="1"/>`;
         const lx = cx + Math.cos(angle) * (r + 18);
         const ly = cy + Math.sin(angle) * (r + 12);
         let anchor = "middle";
         if (Math.cos(angle) > 0.3) anchor = "start";
         else if (Math.cos(angle) < -0.3) anchor = "end";
-        out += `<text x="${lx}" y="${ly}" fill="#8b949e" font-size="9" text-anchor="${anchor}" alignment-baseline="middle" font-family="-apple-system, sans-serif">${names[i]}</text>`;
+        out += `<text x="${lx}" y="${ly}" fill="var(--text-muted)" font-size="9" text-anchor="${anchor}" alignment-baseline="middle" font-family="-apple-system, sans-serif">${names[i]}</text>`;
       }
       let basePts = [];
       for (let i = 0; i < axesCount; i++) {
@@ -1128,7 +1214,7 @@ const SANDBOX_DATA = {
         const total = d.baseVal + d.adjVal;
         const adjNote = Math.abs(d.adjVal) > 0.01 ? ` <span style="color:#a855f7; font-size:0.74rem;">(${formatSignedDb(d.baseVal)} PRISMA ${d.adjVal >= 0 ? "+" : ""}${d.adjVal.toFixed(1)})</span>` : "";
         const tr = document.createElement("tr");
-        tr.innerHTML = `<td><strong>${d.axis}</strong></td><td class="delta-val">${formatSignedDb(total)}${adjNote}</td><td style="color:#8b949e"><em>“${d.quote}”</em></td>`;
+        tr.innerHTML = `<td><strong>${d.axis}</strong></td><td class="delta-val">${formatSignedDb(total)}${adjNote}</td><td style="color:var(--text-muted)"><em>“${d.quote}”</em></td>`;
         tbody.appendChild(tr);
       });
     }
@@ -1144,7 +1230,7 @@ const SANDBOX_DATA = {
         row.style.alignItems = "center";
         row.style.gap = "10px";
         row.innerHTML = `
-          <span style="font-size:0.78rem; color:#c9d1d9; flex:1.3; min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${d.axis}</span>
+          <span style="font-size:0.78rem; color:var(--text-body); flex:1.3; min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${d.axis}</span>
           <input type="range" min="-30" max="30" value="${Math.round(d.adjVal * 10)}" style="flex:1; min-width:80px; accent-color:#a855f7; cursor:pointer;" oninput="updateTeacherDelta(${idx}, this.value)">
           <span id="slider-val-${idx}" style="font-size:0.78rem; font-family:monospace; color:#a855f7; width:64px; flex-shrink:0; white-space:nowrap; text-align:right;">${formatSignedDb(d.adjVal)}</span>
         `;
