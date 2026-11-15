@@ -1048,23 +1048,53 @@
     shuffleArray(quoteKeys);
     let quoteIdx = 0;
 
+    let isQuoteFrozen = false;
+    let quoteSwapTimeout = null;
+
+    window.addEventListener("scroll", function() {
+      const shouldFreeze = window.scrollY > 45;
+      if (shouldFreeze && !isQuoteFrozen) {
+        isQuoteFrozen = true;
+        if (quoteSwapTimeout) {
+          clearTimeout(quoteSwapTimeout);
+          quoteSwapTimeout = null;
+        }
+        const currentEl = document.getElementById("primaryQuote");
+        if (currentEl) currentEl.style.opacity = 1;
+      } else if (!shouldFreeze && isQuoteFrozen) {
+        isQuoteFrozen = false;
+      }
+    }, { passive: true });
+
     function updateQuoteTicker() {
+      if (isQuoteFrozen) return;
       const qKey = quoteKeys[quoteIdx];
       const qObj = QUOTES[qKey];
-      const quoteEl = document.getElementById("primaryQuote");
-      if (!quoteEl) return;
+      const container = document.getElementById("quoteContainer");
+      const oldEl = document.getElementById("primaryQuote");
+      if (!container || !oldEl) return;
       const isRtl = (qKey === "ar" || qKey === "he");
       const langName = LANG_LABELS[currentLocale][qKey] || qKey;
-      quoteEl.style.opacity = 0;
-      setTimeout(() => {
-        quoteEl.style.display = "none";
-        if (quoteEl.parentElement) void quoteEl.parentElement.offsetHeight;
-        quoteEl.setAttribute("dir", isRtl ? "rtl" : "ltr");
-        quoteEl.style.direction = isRtl ? "rtl" : "ltr";
-        quoteEl.innerHTML = `${qObj.text} <span class="quote-sub">(${langName})</span>`;
-        quoteEl.style.display = "block";
-        void quoteEl.offsetHeight;
-        quoteEl.style.opacity = 1;
+      oldEl.style.opacity = 0;
+      quoteSwapTimeout = setTimeout(() => {
+        quoteSwapTimeout = null;
+        if (isQuoteFrozen) {
+          oldEl.style.opacity = 1;
+          return;
+        }
+        const nextEl = document.createElement("p");
+        nextEl.id = "primaryQuote";
+        nextEl.className = "primary-quote";
+        nextEl.setAttribute("dir", isRtl ? "rtl" : "ltr");
+        nextEl.style.direction = isRtl ? "rtl" : "ltr";
+        nextEl.style.opacity = 0;
+        nextEl.innerHTML = `${qObj.text} <span class="quote-sub">(${langName})</span>`;
+        container.replaceChild(nextEl, oldEl);
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            nextEl.style.opacity = 1;
+          });
+        });
         quoteIdx = (quoteIdx + 1) % quoteKeys.length;
         if (quoteIdx === 0) shuffleArray(quoteKeys);
       }, 350);
