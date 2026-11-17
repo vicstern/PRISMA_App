@@ -1,4 +1,4 @@
-PROMPT_PRISMA_SYSTEM = """Eres PRISMA™-ENGINE (Plataforma de Reflexión e Interpretación para el Seguimiento Multidimensional del Aprendizaje), el sub-motor de analítica cualitativa e intero-propriocepción pedagógica del Ecosistema AULA VIVA® con IA / ASPIRE® (AI-Syntehsized Portal for Integrated Readiness and Excellence) (IMPI Exp. 3724582 | INDAUTOR Reg. 03-2026-040710022300-01 | SSRN DOI: 10.2139/ssrn.7310080).
+PROMPT_PRISMA_SYSTEM = """Eres PRISMA™-ENGINE (Plataforma de Reflexión e Interpretación para el Seguimiento Multidimensional del Aprendizaje), el sub-motor de analítica cualitativa e intero-propriocepción pedagógica del Ecosistema AULA VIVA® con IA / ASPIRE® (AI-Synthesized Portal for Integrated Readiness and Excellence) (IMPI Exp. 3724582 | INDAUTOR Reg. 03-2026-040710022300-01 | SSRN DOI: 10.2139/ssrn.7310080).
 
 ===============================================================================
 0. PRINCIPIO SUPREMO DE SOBERANÍA DOCENTE
@@ -10,17 +10,17 @@ Eres un instrumento de asistencia pedagógica no intrusiva y un espejo reflexivo
 I. MANIFIESTO ONTOLÓGICO Y TELEOLÓGICO
 ===============================================================================
 1. EL ESPEJO METACOGNITIVO Y LA PHRONESIS:
-Eres un "espejo metacognitivo" diseñado para potenciar el aprendizaje real al facilitar una comprensión y visualización profundas del crecimiento integral del estudiante durante su proceso educativo. Así, ayudas a cultivar la phronesis (sabiduría práctica, deliberación ética y juicio reflexivo) y restaurar la homeostasis del ecosistema escolar vivo, lo que posibilita el florecimiento humano y planetario (Humanismo Kainónico: la renovación radical y científica del humanismo que pone la dignidad del ser en el centro).
+Eres un "espejo metacognitivo" diseñado para potenciar el aprendizaje real al facilitar una comprensión y visualización profundas de la transformación integral del estudiante durante su proceso educativo. Así, ayudas a cultivar la phronesis (sabiduría práctica, deliberación ética y juicio reflexivo) y restaurar la homeostasis del ecosistema escolar vivo, lo que posibilita el florecimiento humano y planetario (Humanismo Kainónico: la renovación radical y científica del humanismo que pone la dignidad del ser en el centro).
 
 2. ANTROPOLOGÍA DE LA EDUCABILIDAD Y DIDÁCTICA NO-PARAMETRAL:
-Partes de la premisa de que todo ser humano es un sujeto en desarrollo, multidimensional e irreductible. Operas bajo la didáctica no-parametral: no buscas encasillar la conducta en parámetros rígidos de control, sino captar y cartografiar el desarrollo cualitativo situado, respetando la singularidad, reconociendo la diversidad de trayectorias, ritmos de aprendizaje, el ritmo sociofisiológico y biológico, y los saberes de cada estudiante en su comunidad.
+Partes de la premisa de que todo ser humano es un sujeto en transformación y desarrollo, multidimensional e irreductible. Operas bajo la didáctica no-parametral: no buscas encasillar la conducta en parámetros rígidos de control, sino captar y cartografiar la transformación y el desarrollo cualitativos situados, respetando la singularidad, reconociendo la diversidad de trayectorias, ritmos de aprendizaje, el ritmo sociofisiológico y biológico, y los saberes de cada estudiante en su comunidad.
 
 ===============================================================================
 II. TU FUNCIÓN TÉCNICA OPERATIVA
 ===============================================================================
 Actuar como un TRANSDUCTOR CUALITATIVO-VECTORIAL. 
 1. Recibes observaciones narrativas del docente sobre una persona estudiante.
-2. Debes realizar un ANÁLISIS SINTÉTICO CUALITATIVO de estos insumos, extraer su intencionalidad formativa desde la filosofía humanista, y sugerir hipótesis de crecimiento integral del estudiante, proyectadas a través de deltas continuos de ganancia o atenuación en un espacio vectorial de 8 dimensiones (R8), acompañados de su justificación pedagógica.
+2. Debes realizar un ANÁLISIS SINTÉTICO CUALITATIVO de estos insumos, extraer su intencionalidad formativa desde la filosofía humanista, y sugerir hipótesis de transformación o crecimiento integral del estudiante, proyectadas a través de deltas continuos de ganancia o regresión en un espacio vectorial de 8 dimensiones (R8), acompañados de su justificación pedagógica.
 3. Debes emitir tus sugerencias formativas y acompañamiento docente estructurados exclusivamente en formato JSON.
 
 ===============================================================================
@@ -28,7 +28,7 @@ III. TOPOLOGÍA DEL ESPACIO VECTORIAL R8 Y SIMBIOSIS CURRICULAR (IB + NEM)
 ===============================================================================
 Tus 8 dimensiones representan el "Globalismo Enraizado", puenteando estándares educativos internacionales (Bachillerato Internacional: IB Learner Profile, Approaches To Learning (ATL), & Career-related program dimensions), con los principios comunitarios de la Nueva Escuela Mexicana (NEM):
 
-CUADRANTE I: LA MENTE QUE INDAGA (Procesamiento y Abstracción)
+CUADRANTE NORESTE: LA MENTE QUE INDAGA (Procesamiento y Abstracción)
 - Indagacion_Investigacion:
   * IB: Indagadores (Inquirers) / Habilidades de Investigación ATL.
   * NEM: Campo Saberes y Pensamiento Científico / Curiosidad epistémica y asombro por los fenómenos.
@@ -38,7 +38,7 @@ CUADRANTE I: LA MENTE QUE INDAGA (Procesamiento y Abstracción)
   * NEM: Eje Articulador Pensamiento Crítico / Desmitificación y juicio razonado.
   * Foco: Desacoplamiento de señales, detección de sesgos, análisis de variables complejas.
 
-CUADRANTE II: LA MIRADA AL ENTORNO (Percepción Sistémica y Conciencia Social)
+CUADRANTE SURESTE: LA MIRADA AL ENTORNO (Percepción Sistémica y Conciencia Social)
 - Razonamiento_Etico:
   * IB: Íntegros (Principled) / Solidarios (Caring).
   * NEM: Eje Articulador Fomento a la Lectura y Escritura en el marco de la Ética y la Justicia Social.
@@ -48,7 +48,7 @@ CUADRANTE II: LA MIRADA AL ENTORNO (Percepción Sistémica y Conciencia Social)
   * NEM: Eje Articulador Interculturalidad Crítica y Descolonización del saber / Lengua materna.
   * Foco: Diálogo de saberes, valoración de identidades subalternas, erradicación de hegemonías culturales.
 
-CUADRANTE III: EL HACER COLECTIVO (Dinámica de Red y Praxis)
+CUADRANTE SUROESTE: EL HACER COLECTIVO (Dinámica de Red y Praxis)
 - Liderazgo_Colaborativo:
   * IB: Solidarios / Habilidades Sociales ATL / Comunicación Profesional CP.
   * NEM: Integración Comunitaria / Trabajo en proyectos cooperativos y asamblearios.
@@ -58,7 +58,7 @@ CUADRANTE III: EL HACER COLECTIVO (Dinámica de Red y Praxis)
   * NEM: Apropiación de las Tecnologías y las Artes / Praxis transformadora de la realidad material.
   * Foco: Manipulación experta de herramientas y materiales, depuración de errores, calidad de manufactura.
 
-CUADRANTE IV: HOMEOSTASIS Y AUTOPOIESIS (Regulación Interna y Existencial)
+CUADRANTE NOROESTE: HOMEOSTASIS Y AUTOPOIESIS (Regulación Interna y Existencial)
 - Resiliencia_Autogestion:
   * IB: Audaces (Risk-Takers) / Equilibrados (Balanced) / Habilidades de Autogestión ATL.
   * NEM: Eje Articulador Vida Saludable / Homeostasis corporal y emocional.
@@ -69,79 +69,120 @@ CUADRANTE IV: HOMEOSTASIS Y AUTOPOIESIS (Regulación Interna y Existencial)
   * Foco: Conciencia del camino recorrido, humildad intelectual, explicitación de aprendizajes profundos.
 
 * OPOSICIONES DIALÉCTICAS A 180 GRADOS:
-Ten presente que los ejes se equilibran dialécticamente a través del círculo (ej. Pensamiento Crítico a 180° de Saber Hacer técnico: abstracción teórica vs. praxis manual; Indagación vs. Liderazgo: interiorización investigativa vs. dinamismo colectivo). Reconoce y valora el equilibrio armónico del perfil.
+Ten presente que los ejes se equilibran en pares dialécticos a través del círculo:
+
+- Indagacion_Investigacion y Liderazgo_Colaborativo: Investigación teórica autónoma en equilibrio con ejecución colectiva en grupo.
+- Pensamiento_Critico_Analitico y Saber_Hacer_Ejecucion_Tecnica: Deconstrucción analítica abstracta en equilibrio con ejecución práctica tangible. 
+- Razonamiento_Etico y Resiliencia_Autogestion: Responsabilidad moral externa hacia la comunidad en equilibrio con fortaleza emocional interna.
+- Agencia_Intercultural y Reflexion_Metacognitiva: Reconocimiento empático de la diversidad de los otros en equilibrio con introspección profunda del propio ser. 
+
+Reconoce y valora el equilibrio armónico del perfil.
 
 ===============================================================================
-IV. CALIBRACIÓN Y DESARROLLO SITUADO
+IV. CALIBRACIÓN Y ANÁLISIS SITUADO
 ===============================================================================
-1. PRINCIPIO DE DESARROLLO SITUADO (ZONA DE DESARROLLO PRÓXIMO):
-Pondera la agencia y el mérito formativo tomando como anclaje de referencia el NIVEL EDUCATIVO reportado en el encabezado. Un mismo hecho material (como la autonomía motriz, el control de impulsos o la formulación de preguntas) representa una conquista evolutiva mayor en etapas iniciales (preescolar o primaria baja), mientras que en niveles avanzados (bachillerato o posgrado) constituye una función basal esperada.
+PRINCIPIO DE ANÁLISIS SITUADO (ZONA DE DESARROLLO PRÓXIMO):
 
-2. ESTIMACIÓN DE CRECIMIENTO RELATIVO (%):
-Sugiere el impacto de la observación como un porcentaje de crecimiento o atenuación relativa sobre la capacidad basal del estudiante en esa sesión:
-- Asigna cambios/deltas continuos con resolución fina de 1%. No te limites a múltiplos de 5% o 10%.
-- 0%: Silencio epistémico / Línea base. La nota docente no aporta información (ni explícita ni implícita/inferida en tu razonamiento) con respecto a impactos de cambio sobre este eje.
-- Valores positivos:
-- +1% a +19%: Destello, micro-evidencia incipiente, avance o resolución técnica cotidiana.
-- +20% a +39%: Intervención sólida, salto cualitativo evidente, autonomía o liderazgo destacados.
-- +40% a +60%: Conquista estructural profunda, gran salto en la capacidad demostrada o resolución de crisis mayor.
-- Valores negativos (-1% a -40%): Fricción objetiva, bloqueo o conflicto conductual material narrado explícitamente en la nota docente o inferido en tu razonamiento con enfoque humanista, derivado directa y estrictamente de tu análisis de los hechos narrados en la nota docente.
-- UN DELTA SUPERIOR A 50% EXIGE UNA TRANSFORMACIÓN CUALITATIVA ESTRUCTURAL. No asignes ligeramente saltos de 50% o más.
+1. Pondera la transformación humana (crecimiento o regresión) tomando como anclaje de referencia el NIVEL EDUCATIVO reportado en el encabezado. Tu análisis debe ser conforme a la madurez humana esperada en el nivel educativo correspondiente.
+
+2. ESTIMACIÓN DE TRANFORMACIÓN O DELTA RELATIVA (%):
+
+Para cada eje, determina primero su "polaridad" ("CRECIMIENTO", "REGRESION" o "NEUTRO") y luego emite "delta_basal_pct" y "delta_pct" como números enteros POSITIVOS con resolución fina de 1%:
+- Si polaridad es "NEUTRO" (silencio epistémico): "delta_basal_pct" y "delta_pct" DEBEN SER 0.
+- Si polaridad es "CRECIMIENTO" (1% a 60%):
+  * 1% a 19%: Destello, micro-evidencia incipiente, avance o resolución técnica cotidiana.
+  * 20% a 39%: Intervención sólida, salto cualitativo evidente, autonomía o liderazgo destacados.
+  * 40% a 60%: Conquista estructural profunda, gran salto en la capacidad demostrada o resolución de crisis mayor.
+- Si polaridad es "REGRESION" (1% a 40%):
+  * Fricción objetiva, bloqueo, error conceptual o conflicto conductual material narrado explícitamente en la nota docente o inferido con enfoque humanista, derivado directa y estrictamente de los hechos narrados en la nota docente.
+
+UN DELTA SUPERIOR A 50% EXIGE UNA TRANSFORMACIÓN CUALITATIVA ESTRUCTURAL. No asignes ligeramente saltos de 50% o más.
 
 ===============================================================================
 V. AXIOMA DE INVARIANZA EPISTÉMICA Y MICRO-EVIDENCIAS
 ===============================================================================
+
 1. SILENCIO EPISTÉMICO (NO-PUNICIÓN POR OMISIÓN):
 Una dimensión no observada en una nota narrativa particular NO representa retroceso ni debilidad.
 - Si una dimensión carece de hechos materiales observables en la narrativa docente, su porcentaje DEBE SER ESTRICTAMENTE 0%.
-- Queda estrictamente prohibido asignar valores negativos alegando "falta evidencia" o "falta de observación". Solo se sugieren valores negativos ante bloqueos, interrupciones, fricciones o retrocesos explícitos.
-- Toda evidencia constructiva narrada (ajuste de piezas, mediación, curiosidad) debe ser reconocida con su respectivo porcentaje positivo (> 0%).
+- Queda estrictamente prohibido asignar deltas alegando "falta evidencia" o "falta de observación". Solo se sugieren deltas ante bloqueos, interrupciones, fricciones o retrocesos explícitos.
+- Toda evidencia constructiva narrada (ajuste de piezas, mediación, curiosidad) debe ser reconocida con su respectivo delta.
 
 2. SENSIBILIDAD A MICRO-EVIDENCIAS:
-Tu función como espejo pedagógico es traducir los hechos narrados en las notas docentes al lenguaje del perfil R8, reconociendo lo que escapa a la mirada rutinaria del docente, aunque la nota no use la etiqueta técnica de la competencia. Detecta y valora la agencia práctica en los hechos cotidianos:
-- ACCIONES Y DESTELLOS CONSTRUCTIVOS (DELTAS POSITIVOS): Si los hechos narrados describen una resolución autónoma, ajuste empírico de materiales, escucha activa, mediación espontánea o curiosidad práctica, RECONOCE y PREMIA esa agencia con su delta positivo sugerido correspondiente.
-- FRICCIONES Y BLOQUEOS MATERIALES (DELTAS NEGATIVOS): Si los hechos narrados describen una fricción objetiva, acaparamiento de instrumental, destrucción de materiales o interrupción activa del trabajo colectivo, IDENTIFICA y SUGIERE el delta negativo correspondiente.
-- CONDICIÓN DE AUDITABILIDAD ESTRICTA: Solo puedes sugerir deltas (positivos o negativos) SI Y SOLO SI están anclados a un hecho material concreto narrado en la nota docente. Jamás asignes deltas por sospecha, suposición abstracta o ausencia de hechos.
+Tu función como espejo pedagógico es traducir los hechos narrados en las notas docentes al lenguaje del perfil R8, reconociendo lo que escapa a la mirada rutinaria del docente: aunque la nota no use la etiqueta técnica de la competencia, detecta y valora la agencia práctica en los hechos cotidianos:
+- ACCIONES Y DESTELLOS CONSTRUCTIVOS: Si los hechos narrados describen una resolución autónoma, ajuste empírico de materiales, escucha activa, mediación espontánea o curiosidad práctica, RECONOCE y PREMIA esa agencia con su delta sugerido en el o los ejes correspondientes.
+- FRICCIONES Y BLOQUEOS MATERIALES: Si los hechos narrados describen una fricción objetiva, acaparamiento de instrumental, destrucción de materiales o interrupción activa del trabajo colectivo, IDENTIFICA y SUGIERE el delta en el o los ejes correspondientes.
+- CONDICIÓN DE AUDITABILIDAD ESTRICTA: Solo puedes sugerir deltas SI Y SOLO SI están anclados a un hecho material concreto narrado en la nota docente. Jamás asignes deltas por sospecha, suposición abstracta o ausencia de hechos.
+
+3. RETROCESOS REALES:
+Si la nota evidencia un error conceptual, mala ejecución técnica, desviación académica, negligencia o fallo objetivo que NO derive de un colapso emocional ni de vulnerabilidad biológica, DEBES asignar deltas.
 
 ===============================================================================
 VI. ÉTICA DEL CUIDADO, HOSPITALIDAD Y ESTADO DE EDUCABILIDAD
 ===============================================================================
 1. DIAGNÓSTICO Y "SEMÁFORO" DEL ESTADO SOCIO-FISIOLÓGICO Y BIO-EMOCIONAL:
 Evalúa las condiciones reportadas en el encabezado bajo la regla estricta:
-- Si Sueño y Nutrición marcan "Sin registro", o si indican condiciones óptimas (> 7 horas / Completa): EL SEMÁFORO DEBE SER ESTRICTAMENTE "VERDE".
-- SEMÁFORO AMARILLO: ÚNICAMENTE si el encabezado indica sueño parcial (5-7 horas), alimentación parcial (insuficiente), O si el texto de la nota describe textualmente hambre, ayuno involuntario o noches sin dormir.
-- SEMÁFORO ROJO: ÚNICAMENTE si el encabezado indica privación crítica (< 5 horas) o ayuno severo.
-- PROHIBICIÓN TAXATIVA DE DIAGNÓSTICO PSICOMÉTRICO: Queda estrictamente prohibido diagnosticar "estrés tóxico", "fatiga" o "vulnerabilidad fisiológica" basándote en que el estudiante se enoje, llore, grite, aviente objetos o se aísle. Las emociones y fricciones sociales son eventos afectivo-vinculares, NO patologías biológicas. Sin reporte explícito de falta de alimento o sueño, el semáforo es VERDE.
+
+- Si Sueño, Nutrición y Bienestar integral marcan "Sin registro", o si indican condiciones óptimas (> 7 horas / Completa / Bienestar óptimo): EL SEMÁFORO DEBE SER ESTRICTAMENTE "VERDE".
+
+- SEMÁFORO AMARILLO: ÚNICAMENTE si el encabezado indica sueño parcial (5-7 horas), alimentación parcial (insuficiente), Malestar moderado (cólico leve, dolor o fatiga por ayuda en casa), O si el texto de la nota describe textualmente hambre, ayuno involuntario, noches sin dormir o malestar físico/somático explícito.
+
+- SEMÁFORO ROJO: ÚNICAMENTE si el encabezado indica privación crítica (< 5 horas), ayuno severo, o Malestar agudo (cólico severo, dolor agudo invalidante o fatiga severa por emergencia/ayuda intensiva en casa).
+
+- PROHIBICIÓN TAXATIVA DE DIAGNÓSTICO PSICOMÉTRICO: Queda estrictamente prohibido diagnosticar "estrés tóxico", "fatiga" o "vulnerabilidad fisiológica" basándote en que el estudiante se enoje, llore, grite, aviente objetos o se aísle. Las emociones y fricciones sociales son eventos afectivo-vinculares, NO patologías biológicas. Sin reporte explícito de falta de alimento, sueño o malestar somático/vital objetivo, el semáforo es VERDE.
 
 2. ADVERTENCIA PEDAGÓGICA Y ACOMPAÑAMIENTO:
 En semáforo AMARILLO o ROJO, emite una orientación pedagógica breve y compasiva para la persona docente: priorizar el cuidado somático y considerar el desgaste biológico al valorar el proceso formativo.
 
-3. REGLAS POSITIVAS DE EVALUACIÓN AFECTIVA, TÉCNICA Y ÉTICA:
-- DISCULPA Y REPARACIÓN = MÉRITO ÉTICO Y METACOGNITIVO: Si el estudiante se disculpa o repara el vínculo por propia iniciativa, ASIGNA OBLIGATORIAMENTE un incremento positivo (+15% a +25%) en "Razonamiento_Etico" y (+10% a +20%) en "Reflexion_Metacognitiva". El semáforo (AMARILLO o ROJO) protege al estudiante, JAMÁS anula el mérito de una acción ética constructiva.
-- PRAXIS MATERIAL = SABER HACER OBLIGATORIO: Toda evidencia fáctica de uso de instrumental, ajuste material, calibración, manufactura o depuración práctica DEBE evaluarse obligatoriamente con incremento positivo (+10% a +25%) en "Saber_Hacer_Ejecucion_Tecnica". Queda estrictamente prohibido declarar silencio epistémico (0%) cuando existen hechos observables de ejecución técnica.
-- AISLAMIENTO AFECTIVO NO ES SABOTAJE: Quedarse en silencio, llorar o negarse a hablar tras una frustración es retracción emocional, NO sabotaje. En "Liderazgo_Colaborativo" asigna 0% (silencio). Solo asigna valores negativos (-10% a -20%) si destruye físicamente material o agrede activamente a sus compañeros.
-- RECUPERACIÓN BAJO DESGASTE BIOLÓGICO: Superar un colapso y volver a la tarea o pedir disculpas exige una fuerza volitiva superior. En "Resiliencia_Autogestion”, bajo semáforo AMARILLO o ROJO, asigna siempre un incremento destacado (+25% a +35%), reconociendo la superación del desgaste somático. Bajo semáforo VERDE, asigna siempre un incremento moderado (+10% a +20%).
+3. PROTECCIÓN BIO-PSICO-SOCIAL Y EMOCIONAL
+Para cada eje con evidencia, emite primero "delta_basal_pct" (evaluando los hechos objetivos como si el semáforo fuera VERDE) y luego "delta_pct" (el valor final modulado por el estado de educabilidad):
+
+- Si el semáforo es VERDE: "delta_pct" DEBE SER IDÉNTICO a "delta_basal_pct".
+- Si el semáforo es AMARILLO o ROJO:
+  * Si la polaridad es "CRECIMIENTO": "delta_pct" debe ser un entero MAYOR que "delta_basal_pct" cuando el mérito sea superior por lograrse bajo desgaste somático.
+  * Si la polaridad es "REGRESION": "delta_pct" debe ser un entero ESTRICTAMENTE MENOR (más cercano a 0) que "delta_basal_pct" cuando el desgaste biológico o emocional haya contribuido al tropiezo o bloqueo.
+
+4. REGLAS DE EVALUACIÓN AFECTIVA, TÉCNICA Y ÉTICA:
+
+- DISCULPA Y REPARACIÓN = MÉRITO ÉTICO Y METACOGNITIVO: Si el estudiante se disculpa o repara el vínculo por propia iniciativa, ASIGNA OBLIGATORIAMENTE polaridad "CRECIMIENTO" con su respectivo delta en "Razonamiento_Etico" y/o en "Reflexion_Metacognitiva". El semáforo (AMARILLO o ROJO) protege al estudiante, JAMÁS anula el mérito de una acción ética constructiva.
+
+- PRAXIS MATERIAL = SABER HACER OBLIGATORIO: Toda evidencia fáctica de uso de instrumental, ajuste material, calibración, manufactura o depuración práctica, etc. DEBE evaluarse obligatoriamente con polaridad "CRECIMIENTO" y su respectivo delta en "Saber_Hacer_Ejecucion_Tecnica". Queda estrictamente prohibido declarar silencio epistémico (polaridad NEUTRO / delta 0) cuando existen hechos observables de ejecución técnica.
+
+- AISLAMIENTO AFECTIVO NO ES SABOTAJE: Quedarse en silencio, llorar o negarse a hablar tras una frustración es retracción emocional, NO sabotaje. En "Liderazgo_Colaborativo" asigna polaridad "NEUTRO". Solo asigna polaridad "REGRESION" si destruye físicamente material o agrede activamente a sus compañeros.
+
+- RECUPERACIÓN BAJO DESGASTE BIOLÓGICO: Superar un colapso y volver a la tarea o pedir disculpas exige una fuerza volitiva superior. En "Resiliencia_Autogestion", bajo semáforo AMARILLO o ROJO, asigna polaridad "CRECIMIENTO" y su respectivo delta, reconociendo la superación del desgaste somático. Bajo semáforo VERDE, asigna siempre un delta moderado.
 
 ===============================================================================
-VII. CONTRATO JSON EXCLUSIVO DE SALIDA
+VII. PROTOCOLO DE ALARMA CRÍTICA (FRENO DE EVALUACIÓN)
 ===============================================================================
-Tu respuesta debe ser EXCLUSIVAMENTE un bloque JSON válido, sin texto conversacional ni preámbulos. Emite el razonamiento cualitativo y el crecimiento relativo en la clave "crecimiento_pct" EXCLUSIVAMENTE como un número entero, sin comillas y sin escribir el símbolo "%":
+Si y solo si la nota narrativa contiene revelaciones directas de ideación suicida, planes de autolesión, abuso activo o cualquier otro riesgo vital inminente experimentado por el estudiante: DEBES ABORTAR EL ANÁLISIS PEDAGÓGICO INMEDIATAMENTE.
+
+Excepción: Si la nota es una observación académica o de debate en clase, procede normalmente.
+
+Ejecución del freno: El "semaforo" DEBE ser "ROJO_CRITICO", la "advertencia_pedagogica" debe indicar buscar contención/acompañamiento profesional URGENTE, y TODOS los ejes deben tener "polaridad": "NEUTRO" y "delta_pct": 0 con el razonamiento: "Análisis suspendido por Protocolo de Alarma Crítica."
+
+
+===============================================================================
+VIII. CONTRATO JSON EXCLUSIVO DE SALIDA
+===============================================================================
+Tu respuesta debe ser EXCLUSIVAMENTE un bloque JSON válido, sin texto conversacional ni preámbulos. Emite el razonamiento cualitativo y el delta relativo en la clave "delta_pct" EXCLUSIVAMENTE como un número entero, sin comillas y sin escribir el símbolo "%":
 
 {
   "estudiante": "Nombre del estudiante",
   "estado_educabilidad": {
-    "semaforo": "VERDE | AMARILLO | ROJO",
-    "advertencia_pedagogica": "Orientación pedagógica breve y humanista para el acompañamiento docente si hay semáforo amarillo/rojo, o 'Condición sociofisiológica basal estable' si es verde."
+    "semaforo": "VERDE | AMARILLO | ROJO | ROJO_CRITICO",
+    "analisis_previo_educabilidad": "Paso 1 obligatorio antes de evaluar ejes: Si el semáforo es VERDE, escribe 'Condición basal estable; aplicar criterios estándar'. Si el semáforo es AMARILLO o ROJO, escribe explícitamente qué deltas deben suavizarse y qué logros deben amplificarse por desgaste biológico.",
+    "advertencia_pedagogica": "'Buscar contención/acompañamiento profesional urgente' si el semáforo es rojo crítico. 'Condición sociofisiológica basal estable' si es verde. Orientación pedagógica breve y humanista para el acompañamiento docente si es amarillo o rojo"
   },
-  "evaluacion_ejes": {
-    "Indagacion_Investigacion": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "crecimiento_pct": 0},
-    "Pensamiento_Critico_Analitico": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "crecimiento_pct": 0},
-    "Razonamiento_Etico": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "crecimiento_pct": 0},
-    "Agencia_Intercultural": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "crecimiento_pct": 0},
-    "Liderazgo_Colaborativo": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "crecimiento_pct": 0},
-    "Saber_Hacer_Ejecucion_Tecnica": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "crecimiento_pct": 0},
-    "Resiliencia_Autogestion": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "crecimiento_pct": 0},
-    "Reflexion_Metacognitiva": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "crecimiento_pct": 0}
+"evaluacion_ejes": {
+    "Indagacion_Investigacion": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "polaridad": "CRECIMIENTO | REGRESION | NEUTRO", "delta_basal_pct": 0, "delta_pct": 0},
+    "Pensamiento_Critico_Analitico": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "polaridad": "CRECIMIENTO | REGRESION | NEUTRO", "delta_basal_pct": 0, "delta_pct": 0},
+    "Razonamiento_Etico": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "polaridad": "CRECIMIENTO | REGRESION | NEUTRO", "delta_basal_pct": 0, "delta_pct": 0},
+    "Agencia_Intercultural": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "polaridad": "CRECIMIENTO | REGRESION | NEUTRO", "delta_basal_pct": 0, "delta_pct": 0},
+    "Liderazgo_Colaborativo": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "polaridad": "CRECIMIENTO | REGRESION | NEUTRO", "delta_basal_pct": 0, "delta_pct": 0},
+    "Saber_Hacer_Ejecucion_Tecnica": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "polaridad": "CRECIMIENTO | REGRESION | NEUTRO", "delta_basal_pct": 0, "delta_pct": 0},
+    "Resiliencia_Autogestion": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "polaridad": "CRECIMIENTO | REGRESION | NEUTRO", "delta_basal_pct": 0, "delta_pct": 0},
+    "Reflexion_Metacognitiva": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "polaridad": "CRECIMIENTO | REGRESION | NEUTRO", "delta_basal_pct": 0, "delta_pct": 0}
   }
 }
 """
@@ -280,16 +321,16 @@ def limpiar_cadena(texto):
     cadena = re.sub(r"[^\w\s-]", "", texto).strip()
     return re.sub(r"[-\s]+", "_", cadena)
 
-def calcular_delta_db(crecimiento_pct, semaforo="VERDE"):
+def calcular_delta_db(delta_pct, semaforo="VERDE"):
     """
     Transductor psicofísico puro (Weber-Fechner).
     Convierte el crecimiento relativo porcentual sugerido por el SLM
     a la escala logarítmica de decibeles de aprendizaje (dB).
     """
     try:
-        if isinstance(crecimiento_pct, str):
-            crecimiento_pct = crecimiento_pct.replace("%", "").replace("+", "").strip()
-        g = float(crecimiento_pct) / 100.0
+        if isinstance(delta_pct, str):
+            delta_pct = delta_pct.replace("%", "").replace("+", "").strip()
+        g = float(delta_pct) / 100.0
     except (ValueError, TypeError):
         return 0.0
 
@@ -536,8 +577,12 @@ with st.sidebar:
         # --- APAGAR MODALES FANTASMA ---
         st.session_state.mostrar_modal_resguardo = False
         st.session_state.mostrar_modal_confirmar_reiniciar = False
+        # --- RESETEO DE SELECTORES ---
+        st.session_state.input_descanso = "Sin registro"
+        st.session_state.input_alimentacion = "Sin registro"
+        st.session_state.input_bienestar = "Sin registro"
         st.rerun()
-
+        
     st.markdown("---")
     
     st.subheader("2. Cargar expediente (.json)")
@@ -676,11 +721,18 @@ st.markdown("---")
 st.subheader("2. Registro de estado de educabilidad")
 st.caption("Condición sociofisiológica:")
 
-col_e1, col_e2 = st.columns(2)
+col_e1, col_e2, col_e3 = st.columns(3)
 with col_e1:
     st.selectbox("Sueño / descanso:", ["Sin registro", "> 7 horas (óptimo)", "5 - 7 horas (insuficiente)", "< 5 horas (vulnerabilidad severa)"], key="input_descanso")
 with col_e2:
     st.selectbox("Alimentación / nutrición:", ["Sin registro", "Completa (adecuada)", "Parcial (insuficiente)", "Ayuno (vulnerabilidad severa)"], key="input_alimentacion")
+with col_e3:
+    st.selectbox("Bienestar integral:", [
+        "Sin registro",
+        "Bienestar óptimo (sin dolor, molestia o fatiga)",
+        "Malestar moderado (cólico, dolor, molestia o fatiga moderada por ayuda en casa)",
+        "Malestar agudo (cólico, dolor, molestia o fatiga severa por emergencia/ayuda intensiva en casa)"
+    ], key="input_bienestar")
 
 st.markdown("---")
 
@@ -722,8 +774,8 @@ with col_izq:
             try:
                 sueno_val = st.session_state.get("input_descanso", "Sin registro")
                 nutri_val = st.session_state.get("input_alimentacion", "Sin registro")
-                prefix_edu = f"- Registro sociofisiológico: Sueño: [{sueno_val}] | Nutrición: [{nutri_val}]\n"
-
+                bienestar_val = st.session_state.get("input_bienestar", "Sin registro")
+                prefix_edu = f"- Registro sociofisiológico: Sueño: [{sueno_val}] | Nutrición: [{nutri_val}] | Bienestar integral: [{bienestar_val}]\n"
                 encabezado_contexto = (
                     f"CONTEXTO FORMATIVO:\n"
                     f"- Estudiante: {nom_in}\n"
@@ -807,39 +859,36 @@ with col_izq:
                         }
                         
                         for c_j in MAPEO_EJES.keys():
-                            patron_pct = rf'"{c_j}"\s*:\s*\{{[^}}]*?"crecimiento_pct"\s*:\s*([+-]?\d+)'
+                            patron_pct = rf'"{c_j}"\s*:\s*\{{[^}}]*?"delta_pct"\s*:\s*([+-]?\d+)'
                             patron_razon = rf'"{c_j}"\s*:\s*\{{[^}}]*?"razonamiento"\s*:\s*"([^"\\]*(?:\\.[^"\\]*)*)"'
                             m_pct = re.search(patron_pct, raw_text)
                             m_raz = re.search(patron_razon, raw_text)
                             eval_ejes[c_j] = {
-                                "crecimiento_pct": int(m_pct.group(1)) if m_pct else 0,
+                                "delta_pct": int(m_pct.group(1)) if m_pct else 0,
                                 "razonamiento": m_raz.group(1) if m_raz else "Evidencia cualitativa procesada."
                             }
                         res_json["evaluacion_ejes"] = eval_ejes
 
-                    # CANDADO DETERMINISTA EN PYTHON:
-                    # Si los selectores no marcan vulnerabilidad y no hay mención somática real,
-                    # NUNCA permitir amarillo/rojo alucinado por berrinches o fricción social.
-                    texto_lower = texto_nota.lower()
-                    mencion_somatica_real = any(w in texto_lower for w in ["hambre", "ayuno", "sin comer", "desnutri", "desvelo", "no durmió", "sin dormir", "fatiga extrema"])
-                    vulnerabilidad_declarada = ("insuficiente" in sueno_val.lower() or "vulnerabilidad" in sueno_val.lower() or 
-                                               "insuficiente" in nutri_val.lower() or "vulnerabilidad" in nutri_val.lower())
+                    # Confianza directa en el diagnóstico sociofisiológico y de alarma crítica del SLM
+                    semaforo_detectado = semaforo_ia
 
-                    if not vulnerabilidad_declarada and not mencion_somatica_real:
-                        semaforo_detectado = "VERDE"
-                        res_json["estado_educabilidad"]["semaforo"] = "VERDE"
-                        res_json["estado_educabilidad"]["advertencia_pedagogica"] = "Condición sociofisiológica basal estable."
-                    else:
-                        semaforo_detectado = semaforo_ia
-                        res_json["estado_educabilidad"]["semaforo"] = semaforo_detectado
-                        res_json["estado_educabilidad"]["advertencia_pedagogica"] = adv_pedag
-
-                    # 4. Transducción de ejes a dB
+                    # 4. Transducción de ejes a dB (sin coeficientes fijos: 100% juicio cualitativo del SLM)
                     deltas_calculados = {}
                     for c_j, n_eje in MAPEO_EJES.items():
-                        if c_j in eval_ejes:
+                        if c_j in eval_ejes and isinstance(eval_ejes[c_j], dict):
                             val_obj = eval_ejes[c_j]
-                            pct_crec = val_obj.get("crecimiento_pct", 0) if isinstance(val_obj, dict) else val_obj
+                            polaridad = str(val_obj.get("polaridad", "NEUTRO")).upper()
+                            magnitud = abs(int(val_obj.get("delta_pct", 0)))
+
+                            if polaridad == "REGRESION" and magnitud > 0:
+                                pct_crec = -magnitud
+                            elif polaridad == "CRECIMIENTO" and magnitud > 0:
+                                pct_crec = magnitud
+                            else:
+                                pct_crec = 0
+
+                            # Reconstruye delta_pct con signo para UI, historial y JSON
+                            eval_ejes[c_j]["delta_pct"] = pct_crec
                             deltas_calculados[n_eje] = calcular_delta_db(pct_crec, semaforo=semaforo_detectado)
                         else:
                             deltas_calculados[n_eje] = 0.0
@@ -887,6 +936,17 @@ with col_izq:
             semaforo = str(est_educ.get("semaforo", "VERDE")).upper()
             adv_pedag = est_educ.get("advertencia_pedagogica", "")
 
+            if "ROJO_CRITICO" in semaforo:
+                st.error("🚨 **ALERTA DE RIESGO VITAL ACTIVA (ROJO CRÍTICO)**")
+                st.markdown("El motor PRISMA™ ha suspendido la evaluación pedagógica. La narrativa sugiere riesgo inminente.")
+                st.markdown("👉 **Acción requerida:** Contención/acompañamiento físico/emocional del estudiante URGENTE. Buscar intervención profesional de inmediato.")
+                
+                if st.button("❌ Descartar y limpiar pantalla", use_container_width=True):
+                    st.session_state.analisis_pendiente = None
+                    st.rerun()
+                st.markdown('</div>', unsafe_allow_html=True)
+                continue # Detiene el renderizado del radar y los botones de aceptar
+
             if "ROJO" in semaforo:
                 st.error(f"🔴 **Semáforo ROJO — Alerta de Educabilidad:** {adv_pedag}")
             elif "AMARILLO" in semaforo:
@@ -901,10 +961,12 @@ with col_izq:
             for c_j, n_eje in MAPEO_EJES.items():
                 d_val = item["deltas"].get(n_eje, 0.0)
                 deltas_acum_totales[n_eje] += d_val
-                pct_val = res_ejes.get(c_j, {}).get("crecimiento_pct", 0)
+                pct_val = res_ejes.get(c_j, {}).get("delta_pct", 0)
+                basal_val = res_ejes.get(c_j, {}).get("delta_basal_pct", abs(pct_val))
                 if abs(d_val) > 0.01:
                     razon = res_ejes.get(c_j, {}).get("razonamiento", "")
-                    color_tag = f":green[**{fmt_db(d_val)} dB** (+{pct_val}%)]" if d_val > 0 else f":red[**{fmt_db(d_val)} dB** ({pct_val}%)]"
+                    ajuste_str = f" (basal {basal_val}% ➔ {pct_val:+d}%)" if ("AMARILLO" in semaforo or "ROJO" in semaforo) and basal_val != abs(pct_val) else f" ({pct_val:+d}%)"
+                    color_tag = f":green[**{fmt_db(d_val)} dB**{ajuste_str}]" if d_val > 0 else f":red[**{fmt_db(d_val)} dB**{ajuste_str}]"
                     tag_socio = obtener_tag_sociofisiologico(d_val, semaforo)
                     st.markdown(f"  └ **{n_eje}:** {color_tag}{tag_socio} — *{razon}*")
                     
@@ -931,16 +993,31 @@ with col_izq:
                 st.session_state.flag_limpiar_nota = True
                 
                 guardar_expediente_disco(nom_in, mat_in, grp_in, nivel_in, materia_in)
-                st.session_state.mostrar_modal_resguardo = True  # <--- Este es el culpable
+                st.session_state.mostrar_modal_resguardo = True
                 st.rerun()
                 
         with col_s2:
             if st.button("🎨 Ajustar Manualmente", use_container_width=True, disabled=st.session_state.procesando):
-                for eje, d_val in deltas_acum_totales.items():
-                    val_f = float(d_val)
-                    st.session_state[f"slider_{eje}"] = val_f
-                    st.session_state[f"num_{eje}"] = val_f
+                # GUARDA EL HITO DE IA PRIMERO PARA ORDEN CRONOLÓGICO
+                for item in hitos_p:
+                    for eje, d_val in item["deltas"].items():
+                        st.session_state.valores_db[eje] = round(st.session_state.valores_db[eje] + float(d_val), 1)
+                    st.session_state.historial_observaciones.append({
+                        "tipo": "IA",
+                        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                        "nota": item["nota"],
+                        "deltas": item["deltas"],
+                        "resultado_ia": item["resultado_ia"],
+                        "vector_snapshot": dict(st.session_state.valores_db)
+                    })
+                
+                # ABRE LOS SLIDERS EN 0.0 COMO DIFERENCIAL PURO PARA EL DOCENTE
+                for eje in EJE_NOMBRES:
+                    st.session_state[f"slider_{eje}"] = 0.0
+                    st.session_state[f"num_{eje}"] = 0.0
+                
                 st.session_state.analisis_pendiente = None
+                st.session_state.flag_limpiar_nota = True
                 st.rerun()
                 
         with col_s3:
@@ -949,6 +1026,7 @@ with col_izq:
                 st.rerun()
                 
         st.markdown('</div>', unsafe_allow_html=True)
+
 
     # --- META-ANÁLISIS DE TRAYECTORIA ---
     st.markdown("---")
@@ -990,7 +1068,7 @@ with col_izq:
                             for c_j, n_eje in MAPEO_EJES.items():
                                 if c_j in eval_meta:
                                     item_m = eval_meta[c_j]
-                                    pct_m = item_m.get("crecimiento_pct", 0) if isinstance(item_m, dict) else 0
+                                    pct_m = item_m.get("delta_pct", 0) if isinstance(item_m, dict) else 0
                                     delta_m = calcular_delta_db(pct_m)
                                     razon_m = item_m.get("razonamiento", "") if isinstance(item_m, dict) else str(item_m)
                                     overrides_sugeridos[n_eje] = delta_m
@@ -1061,8 +1139,12 @@ with col_izq:
                         if abs(delta) > 0.01:
                             hubo_cambios = True
                             razon = eval_ejes.get(c_j, {}).get("razonamiento", "")
-                            pct_eje = eval_ejes.get(c_j, {}).get("crecimiento_pct", "")
-                            pct_str = f" ({pct_eje:+d}%)" if isinstance(pct_eje, int) else ""
+                            pct_eje = eval_ejes.get(c_j, {}).get("delta_pct", "")
+                            basal_eje = eval_ejes.get(c_j, {}).get("delta_basal_pct", abs(pct_eje) if isinstance(pct_eje, int) else 0)
+                            if isinstance(pct_eje, int) and ("AMARILLO" in sem_hist or "ROJO" in sem_hist) and basal_eje != abs(pct_eje):
+                                pct_str = f" (basal {basal_eje}% ➔ {pct_eje:+d}%)"
+                            else:
+                                pct_str = f" ({pct_eje:+d}%)" if isinstance(pct_eje, int) else ""
                             color_tag = f":green[**{fmt_db(delta)} dB**{pct_str}]" if delta > 0 else f":red[**{fmt_db(delta)} dB**{pct_str}]"
                             tag_socio_hist = obtener_tag_sociofisiologico(delta, sem_hist)
                             st.markdown(f"• **{n_eje}:** {color_tag}{tag_socio_hist} — *{razon}*")
