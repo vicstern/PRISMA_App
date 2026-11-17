@@ -21,6 +21,9 @@
       }
     })();
   </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Egyptian+Hieroglyphs&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #090d13;
@@ -193,6 +196,7 @@
       color: var(--text-main);
       transition: opacity 0.35s ease;
       width: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans Egyptian Hieroglyphs", sans-serif;
     }
     .quote-sub {
       font-size: 0.72rem;
@@ -751,7 +755,7 @@
       <p class="descriptor" id="appDescriptor">PRISMA™ — Multidimensional illumination of human learning assisted by local AI</p>
       
       <div class="quote-box" id="quoteContainer">
-        <p id="primaryQuote" class="primary-quote">“Shining white light through learners, projecting its refracted colors to reveal the profound journey of their growth.” <span class="quote-sub">(English)</span></p>
+        <p id="primaryQuote" class="primary-quote">“Shining white light through learners and projecting its refracted colors to reveal the profound journey of their growth.” <span class="quote-sub">(English)</span></p>
       </div>
     </div>
 
@@ -889,21 +893,46 @@
     const somIcon = (name) => `<span class="somatic-icon">${ICONS[name]}</span>`;
 
     const QUOTES = {
-      en: { text: "“Shining white light through learners, projecting its refracted colors to reveal the profound journey of their growth.”" },
-      es: { text: "«Hacer brillar luz blanca a través de cada estudiante, proyectando sus colores refractados para revelar el profundo camino de su crecimiento.»" },
-      ar: { text: "«إشعاع الضوء الأبيض عَبْرَ المتعلّمين، وإسقاط ألوانه المنكسرة للكشف عن المسار العميق لنموّهم.»" },
-      he: { text: "«להאיר באור לבן מבעד ללומדים, ולהקרין את צבעיו הנשברים כדי לחשוף את המסע העמוק של צמיחתם.»" },
-      zh: { text: "“将全光谱白光照向学习者，并投射其折射色彩，以揭示其成长历程的深邃轨迹。”" },
-      hi: { text: "“शिक्षार्थियों के भीतर से श्वेत प्रकाश प्रवाहित करना, और उनके विकास की गहन यात्रा को उजागर करने के लिए उसके अपवर्तित रंगों को प्रक्षेपित करना।”" },
-      fr: { text: "« Faire rayonner une lumière blanche à travers les apprenants, projetant ses couleurs réfractées pour révéler le profond voyage de leur croissance. »" },
-      nah: { text: "« Titlanextiah ica iztac tlahuilli inpan in momachtianih, ihuan tiquincuepilia in itlapaliz in tlahuilli inic tictlanextizqueh in hueyi tlamahuizolli ic mozcaliayeh. »" },
-      zu: { text: "« Ukukhanyisa ukukhanya okumhlophe kubafundi, nokukhiqiza ukuhlakazeka kwemibala yako ukuze kwembulwe uhambo olunzulu lokukhula kwabo. »" },
-      ja: { text: "「学習者に白色光を透過させ、その屈折した色彩を投影することで、彼らの成長の深遠な軌跡を明らかにする。」" }
+      en: { text: "“Shining white light through learners and projecting its refracted colors to reveal the profound journey of their growth.”" },
+      es: { text: "«Hacer brillar luz blanca a través de cada estudiante y proyectar sus colores refractados para revelar el profundo camino de su crecimiento.»" },
+      ar: { text: "«إشعاع الضوء الأبيض عَبْرَ المتعلّمين وإسقاط ألوانه المنكسرة للكشف عن المسار العميق لنموّهم.»" },
+      he: { text: "«להאיר באור לבן מבעד ללומדים ולהקרין את צבעיו הנשברים כדי לחשוף את המסע העמוק של צמיחתם.»" },
+      zh: { text: "“将全光谱白光照向学习者并投射其折射色彩，以揭示其成长历程的深邃轨迹。”" },
+      hi: { text: "“शिक्षार्थियों के भीतर से श्वेत प्रकाश प्रवाहित करना और उनके विकास की गहन यात्रा को उजागर करने के लिए उसके अपवर्तित रंगों को प्रक्षेपित करना।”" },
+      fr: { text: "« Faire rayonner une lumière blanche à travers les apprenants et projeter ses couleurs réfractées pour révéler le profond voyage de leur croissance. »" },
+      nah: { text: "« Titlanextiah ica iztac tlahuilli inpan in momachtianih ihuan tiquincuepilia in itlapaliz in tlahuilli inic tictlanextizqueh in hueyi tlamahuizolli ic mozcaliayeh. »" },
+      zu: { text: "« Ukukhanyisa ukukhanya okumhlophe kubafundi nokukhiqiza ukuhlakazeka kwemibala yako ukuze kwembulwe uhambo olunzulu lokukhula kwabo. »" },
+      ja: { text: "「学習者に白色光を透過させてその屈折した色彩を投影し、彼らの成長の深遠な軌跡を明らかにする。」" },
+      la: { text: "« Lucem candidam per discentes effundere atque colores eius refractos proicere ut iter profundum eorum incrementi reveletur. »" },
+      el: { text: "« Εκπέμποντας λευκό φως μέσα από τους μαθητές και προβάλλοντας τα διαθλασμένα χρώματά του για να αποκαλυφθεί το βαθύ ταξίδι της ανάπτυξής τους. »" },
+      fa: { text: "« تاباندن نور سفید بر جویندگان دانش و انعکاس رنگ‌های تجزیه‌شده آن برای نمایان ساختن مسیر شگرف رشد آنان. »" },
+      sa: { text: "« विद्यार्थिषु श्वेतप्रकाशं प्रज्वाल्य च तेषां विकासस्य गभीरयात्रां प्रकाशयितुं तस्य अपवर्तितवर्णान् प्रसरति। »" },
+      egy: { text: "« 𓆣 Kheper — Continuous human becoming and multidimensional transformation. »" },
+      de: { text: "« Weißes Licht durch Lernende strahlen lassen und dessen gebrochene Farben projizieren, um die tiefgründige Reise ihres Wachstums zu offenbaren. »" },
+      pt: { text: "« Irradiar luz branca através dos estudantes e projetar suas cores refratadas para revelar a profunda jornada de seu crescimento. »" },
+      ko: { text: "« 학습자를 통해 백색광을 비추고 그 굴절된 색채를 투영하여 그들 성장의 심오한 여정을 밝혀냅니다. »" },
+      ru: { text: "« Пропускать белый свет через учеников и проецировать его преломленные цвета, чтобы раскрыть глубокий путь их развития. »" },
+      sw: { text: "« Kumulika mwanga mweupe kupitia wanafunzi na kuakisi rangi zake zilizogawanywa ili kufumbua safari ya kina ya ukuaji wao. »" },
+      yo: { text: "« Tí tàn ìmọ́lẹ̀ funfun gba ara àwọn akẹ́kọ̀ọ́ àti gbigbé àwọn àwọ̀ rẹ̀ jáde láti ṣí ìrìn-àjò ìdàgbàsókè wọn payá. »" },
+      xh: { text: "« Ukukhanyisa ukhanyiso olumhlophe kubafundi nokuveza imibala yalo ehlukeneyo ukuze kutyhilwe uhambo olunzulu lokukhula kwabo. »" },
+      qu: { text: "« Yachakuqkunaman yuraq k'anchayta k'ancharichispa chaymanta t'ikrasqa llimphinkunata rikuchispa wiñayninkupa ukhu ñanninta sut'inchanapaq. »" }
     };
 
     const LANG_LABELS = {
-      en: { en: "English", es: "Spanish", ar: "Arabic", he: "Hebrew", zh: "Chinese", hi: "Hindi", fr: "French", nah: "Nahuatl", zu: "isiZulu", ja: "Japanese" },
-      es: { en: "Inglés", es: "Español", ar: "Árabe", he: "Hebreo", zh: "Chino", hi: "Hindi", fr: "Francés", nah: "Náhuatl", zu: "isiZulu", ja: "Japonés" }
+      en: {
+        en: "English", es: "Spanish", ar: "Arabic", he: "Hebrew", zh: "Chinese",
+        hi: "Hindi", fr: "French", nah: "Nahuatl", zu: "isiZulu", ja: "Japanese",
+        la: "Latin", el: "Greek", fa: "Persian", sa: "Sanskrit", egy: "Ancient Egyptian",
+        de: "German", pt: "Portuguese", ko: "Korean", ru: "Russian", sw: "Swahili",
+        yo: "Yoruba", xh: "isiXhosa", qu: "Quechua"
+      },
+      es: {
+        en: "Inglés", es: "Español", ar: "Árabe", he: "Hebreo", zh: "Chino",
+        hi: "Hindi", fr: "Francés", nah: "Náhuatl", zu: "isiZulu", ja: "Japonés",
+        la: "Latín", el: "Griego", fa: "Persa", sa: "Sánscrito", egy: "Egipcio Antiguo",
+        de: "Alemán", pt: "Portugués", ko: "Coreano", ru: "Ruso", sw: "Swahili",
+        yo: "Yoruba", xh: "isiXhosa", qu: "Quechua"
+      }
     };
 
     const STATIC_RADAR_SVG = {
@@ -1210,7 +1239,9 @@
     let educabilityState = "optimal";
     let isSimulationActive = false;
     let currentDeltas = [];
-    let quoteKeys = Object.keys(QUOTES);
+    const allQuoteKeys = Object.keys(QUOTES);
+    const anchorLang = Math.random() < 0.5 ? "en" : "es";
+    const remainingLangs = allQuoteKeys.filter(k => k !== anchorLang);
 
     function shuffleArray(arr) {
       for (let i = arr.length - 1; i > 0; i--) {
@@ -1218,8 +1249,24 @@
         [arr[i], arr[j]] = [arr[j], arr[i]];
       }
     }
-    shuffleArray(quoteKeys);
-    let quoteIdx = 0;
+    shuffleArray(remainingLangs);
+    const quoteKeys = [anchorLang, ...remainingLangs];
+
+    let activeQuoteKey = quoteKeys[0];
+    let quoteIdx = 1;
+
+    function renderImmediateQuote(qKey) {
+      const el = document.getElementById("primaryQuote");
+      if (!el || !QUOTES[qKey]) return;
+      activeQuoteKey = qKey;
+      const isRtl = (qKey === "ar" || qKey === "he" || qKey === "fa");
+      const langName = LANG_LABELS[currentLocale][qKey] || qKey;
+      el.setAttribute("dir", isRtl ? "rtl" : "ltr");
+      el.style.direction = isRtl ? "rtl" : "ltr";
+      el.innerHTML = `${QUOTES[qKey].text} <span class="quote-sub">(${langName})</span>`;
+    }
+
+    renderImmediateQuote(activeQuoteKey);
 
     let isQuoteFrozen = false;
     let quoteSwapTimeout = null;
@@ -1246,7 +1293,7 @@
       const container = document.getElementById("quoteContainer");
       const oldEl = document.getElementById("primaryQuote");
       if (!container || !oldEl) return;
-      const isRtl = (qKey === "ar" || qKey === "he");
+      const isRtl = (qKey === "ar" || qKey === "he" || qKey === "fa");
       const langName = LANG_LABELS[currentLocale][qKey] || qKey;
       oldEl.style.opacity = 0;
       quoteSwapTimeout = setTimeout(() => {
@@ -1255,6 +1302,7 @@
           oldEl.style.opacity = 1;
           return;
         }
+        activeQuoteKey = qKey;
         const nextEl = document.createElement("p");
         nextEl.id = "primaryQuote";
         nextEl.className = "primary-quote";
@@ -1269,10 +1317,9 @@
           });
         });
         quoteIdx = (quoteIdx + 1) % quoteKeys.length;
-        if (quoteIdx === 0) shuffleArray(quoteKeys);
       }, 350);
     }
-    setInterval(updateQuoteTicker, 9000);
+    setInterval(updateQuoteTicker, 7000);
 
     function updateThemeBtnLabel() {
       const btn = document.getElementById("btnTheme");
@@ -1295,6 +1342,7 @@
         htmlEl.setAttribute("data-theme", "light");
         try { localStorage.setItem("av-theme", "light"); } catch (e) {}
       }
+      renderImmediateQuote(activeQuoteKey);
       updateThemeBtnLabel();
     }
 
