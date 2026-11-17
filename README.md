@@ -69,3 +69,7 @@ This project is licensed under the **Apache License 2.0** — see the [LICENSE](
 - **Foundational Paper (SSRN):** [DOI: 10.2139/ssrn.7310080](https://doi.org/10.2139/ssrn.7310080)
 - **Institutional Updates:** [Aula Viva® on LinkedIn](https://www.linkedin.com/company/aulaviva-lat)
 - **Principal Systems Architect:** Víctor Stern Rodríguez · INDAUTOR Reg. `03-2026-040710022300-01`
+
+---
+
+[𓆣](./SPECTRUM.md)

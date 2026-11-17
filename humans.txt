@@ -1,0 +1,19 @@
+/* TEAM */
+Architecture & Pedagogical Systems: Víctor Stern Rodríguez
+Organization: Aula Viva® (Sistemas Educativos para el Florecimiento Humano, S.A.S.)
+Location: Mexico City, Mexico
+Portal: https://aulaviva.lat
+Codex: https://aulaviva.lat/SPECTRUM.md
+
+/* MANIFESTO (EN) */
+"Shining white light through learners and projecting its refracted colors to reveal the profound journey of their growth."
+"Namárië — May prisma be a light to you in dark places, when all other lights go out."
+
+/* MANIFIESTO (ES) */
+"Hacer brillar luz blanca a través de cada estudiante y proyectar sus colores refractados para revelar el profundo camino de su crecimiento."
+"Namárië — Que prisma sea una luz para ti en los lugares oscuros, cuando todas las demás luces se apaguen."
+
+/* ARCHITECTURE */
+Framework: ASPIRE® Ecosystem (INDAUTOR 03-2026-040710022300-01)
+Analytics Engine: PRISMA™ Qualitative Learning Analytics in R^8
+Stack: 100% Offline-First Local SLMs, Vanilla HTML5/CSS3/SVG, Zero Cloud Telemetry
