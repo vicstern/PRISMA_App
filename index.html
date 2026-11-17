@@ -685,6 +685,146 @@
       max-height: 225px;
       width: auto;
     }
+
+    :root {
+      --mellon-veil: rgba(6, 9, 14, 0.90);
+      --mellon-beam: #ffffff;
+      --mellon-glass-fill: rgba(255, 255, 255, 0.05);
+      --mellon-glass-side: rgba(88, 166, 255, 0.11);
+      --mellon-glass-back: rgba(255, 255, 255, 0.34);
+    }
+    html[data-theme="light"] {
+      --mellon-veil: rgba(255, 255, 255, 0.92);
+      --mellon-beam: #1f2328;
+      --mellon-glass-fill: rgba(31, 35, 40, 0.04);
+      --mellon-glass-side: rgba(9, 105, 218, 0.11);
+      --mellon-glass-back: rgba(31, 35, 40, 0.30);
+    }
+    body.mellon-locked,
+    body.mellon-locked .content-stage {
+      overflow: hidden !important;
+      user-select: none !important;
+    }
+    #mellonOverlay {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 99999;
+      background: var(--mellon-veil);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 2.6s cubic-bezier(0.22, 1, 0.36, 1);
+      pointer-events: all;
+      cursor: default;
+    }
+    #mellonOverlay.visible {
+      opacity: 1;
+    }
+    #mellonOverlay.exiting {
+      opacity: 0;
+      transition: opacity 1.1s ease;
+    }
+    #mellonStageWrap {
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 2.2s ease;
+    }
+    .mellon-spectrum-wrap {
+      width: 100vw;
+      max-width: 100vw;
+      overflow: hidden;
+      margin-bottom: 26px;
+    }
+    .mellon-spectrum-wrap svg {
+      width: 100vw;
+      height: clamp(195px, 29vh, 280px);
+      display: block;
+      overflow: visible;
+    }
+    #mellonPrism3D,
+    #mellonInternalWedge {
+      opacity: 0;
+      transition: opacity 2.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    #mellonPrism3D.show,
+    #mellonInternalWedge.show {
+      opacity: 1;
+    }
+    .mellon-beam-in {
+      stroke-dasharray: 1850;
+      stroke-dashoffset: 1850;
+      transition: stroke-dashoffset 2.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .mellon-beam-in.draw {
+      stroke-dashoffset: 0;
+    }
+    .mellon-beam-out {
+      stroke-dasharray: 1850;
+      stroke-dashoffset: 1850;
+      transition: stroke-dashoffset 2.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .mellon-beam-out.draw {
+      stroke-dashoffset: 0;
+    }
+    .mellon-quote-stage {
+      width: 100%;
+      max-width: 900px;
+      min-height: 92px;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    #mellonQuoteText {
+      font-size: clamp(1.0rem, 1.38vw, 1.2rem) !important;
+      line-height: 1.5 !important;
+      opacity: 0;
+      transition: opacity 1.1s ease !important;
+    }
+    #mellonFarewellWrap {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 8vw;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 2.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    #mellonFarewellWrap.show {
+      opacity: 1;
+    }
+    #mellonFarewellText {
+      font-size: clamp(1.45rem, 2.75vw, 2.35rem) !important;
+      line-height: 1.45 !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.015em !important;
+      max-width: 1080px;
+    }
+    .mellon-hint {
+      margin-top: 18px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--border);
+      text-align: center;
+      font-size: 0.74rem;
+      font-style: italic;
+      letter-spacing: 0.06em;
+      color: var(--text-dim);
+      opacity: 0.75;
+      cursor: pointer;
+      user-select: none;
+    }
   </style>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="ee5c2cc1-ee34-492a-8997-c454e193ff8c"></script>
 <!-- Google Knowledge Graph & Identity Schema -->
@@ -831,6 +971,7 @@
                 Teacher calibration & sovereign override
               </div>
               <div id="sliderControls"></div>
+              <div class="mellon-hint" ondblclick="triggerMellonLore()" title="Mellon">Speak, friend, and enter.</div>
             </div>
           </div>
         </div>
@@ -856,6 +997,57 @@
     ASPIRE® · PRISMA™ · SSRN: <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">10.2139/ssrn.7310080</a> · INDAUTOR 03-2026-040710022300-01 · © 2026 Grupo SiEFH S.A.S.
   </footer>
   
+  <div id="mellonOverlay" style="display:none;" aria-hidden="true">
+    <div id="mellonStageWrap">
+      <div class="mellon-spectrum-wrap">
+        <svg viewBox="0 0 1200 260" preserveAspectRatio="xMidYMid meet">
+          <!-- Haz incidente desde el borde izquierdo extremo -->
+          <line class="mellon-beam-in" x1="-1200" y1="162" x2="559" y2="125" stroke="var(--mellon-beam)" stroke-width="10" stroke-opacity="0.14" stroke-linecap="round"/>
+          <line class="mellon-beam-in" x1="-1200" y1="162" x2="559" y2="125" stroke="var(--mellon-beam)" stroke-width="3.8" stroke-linecap="round"/>
+
+          <!-- Dispersión interna dentro del cristal 3D -->
+          <g id="mellonInternalWedge">
+            <polygon points="559,125 639,96 657,144" fill="rgba(192,132,252,0.18)"/>
+            <line x1="559" y1="125" x2="639" y2="96"  stroke="#c084fc" stroke-width="1.9" stroke-opacity="0.75"/>
+            <line x1="559" y1="125" x2="645" y2="112" stroke="#38bdf8" stroke-width="1.9" stroke-opacity="0.75"/>
+            <line x1="559" y1="125" x2="651" y2="128" stroke="#4ade80" stroke-width="1.9" stroke-opacity="0.75"/>
+            <line x1="559" y1="125" x2="657" y2="144" stroke="#f87171" stroke-width="1.9" stroke-opacity="0.75"/>
+          </g>
+
+          <!-- 7 haces refractados hacia el extremo derecho -->
+          <line class="mellon-beam-out" x1="639" y1="96"  x2="2400" y2="-10" stroke="#c084fc" stroke-width="3.2"/>
+          <line class="mellon-beam-out" x1="642" y1="104" x2="2400" y2="38"  stroke="#60a5fa" stroke-width="3.2"/>
+          <line class="mellon-beam-out" x1="645" y1="112" x2="2400" y2="86"  stroke="#38bdf8" stroke-width="3.2"/>
+          <line class="mellon-beam-out" x1="648" y1="120" x2="2400" y2="134" stroke="#4ade80" stroke-width="3.2"/>
+          <line class="mellon-beam-out" x1="651" y1="128" x2="2400" y2="182" stroke="#facc15" stroke-width="3.2"/>
+          <line class="mellon-beam-out" x1="654" y1="136" x2="2400" y2="230" stroke="#fb923c" stroke-width="3.2"/>
+          <line class="mellon-beam-out" x1="657" y1="144" x2="2400" y2="278" stroke="#f87171" stroke-width="3.2"/>
+
+          <!-- Prisma óptico 3D limpio -->
+          <g id="mellonPrism3D">
+            <!-- Aristas internas traseras del cristal -->
+            <line x1="620" y1="48"  x2="570" y2="158" stroke="var(--mellon-glass-back)" stroke-width="1.3" stroke-dasharray="4,4"/>
+            <line x1="536" y1="174" x2="570" y2="158" stroke="var(--mellon-glass-back)" stroke-width="1.3" stroke-dasharray="4,4"/>
+            <line x1="666" y1="164" x2="570" y2="158" stroke="var(--mellon-glass-back)" stroke-width="1.3" stroke-dasharray="4,4"/>
+            <!-- Cara lateral derecha en perspectiva isométrica -->
+            <polygon points="586,64 620,48 666,164 632,180"
+                     fill="var(--mellon-glass-side)" stroke="var(--mellon-beam)" stroke-width="2.2" stroke-linejoin="round"/>
+            <!-- Cara frontal triangular -->
+            <polygon points="586,64 632,180 536,174"
+                     fill="var(--mellon-glass-fill)" stroke="var(--mellon-beam)" stroke-width="2.8" stroke-linejoin="round"/>
+          </g>
+        </svg>
+      </div>
+      <div class="mellon-quote-stage">
+        <p id="mellonQuoteText" class="primary-quote"></p>
+      </div>
+    </div>
+
+    <div id="mellonFarewellWrap">
+      <p id="mellonFarewellText" class="primary-quote"></p>
+    </div>
+  </div>
+
   <script>
     const ICONS = {
       prism: `<svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="1.5" y1="14" x2="9.2" y2="11.2" stroke="var(--text-main)" stroke-width="1.8"/><line x1="14" y1="9.8" x2="22.5" y2="6.2" stroke="#c084fc" stroke-width="1.6"/><line x1="14.6" y1="11.2" x2="22.5" y2="9.6" stroke="#38bdf8" stroke-width="1.6"/><line x1="15.2" y1="12.6" x2="22.5" y2="13.1" stroke="#4ade80" stroke-width="1.6"/><line x1="15.8" y1="14" x2="22.5" y2="16.4" stroke="#facc15" stroke-width="1.6"/><line x1="16.3" y1="15.4" x2="22.5" y2="19.5" stroke="#f87171" stroke-width="1.6"/><polygon points="12,3.2 20.5,19.5 3.5,19.5" stroke="currentColor" stroke-width="1.65" fill="none"/></svg>`,
@@ -1286,8 +1478,9 @@
       }
     }, { passive: true });
 
+    let isMellonActive = false;
     function updateQuoteTicker() {
-      if (isQuoteFrozen) return;
+      if (isQuoteFrozen || isMellonActive) return;
       const qKey = quoteKeys[quoteIdx];
       const qObj = QUOTES[qKey];
       const container = document.getElementById("quoteContainer");
@@ -1568,6 +1761,186 @@
         statusBox.innerHTML = `<span style="font-size:0.82rem; color:${data.statusColor}; font-weight:600;">${data.statusText}</span>`;
       }
     }
+
+
+    const MELLON_QUOTES = [
+      {
+        tag: "Quenya · Elvish",
+        text: "« Calima fëa ter i nolwehtar ar panyala i ilinquetar ohtariello lómenna. »"
+      },
+      {
+        tag: "tlhIngan Hol · Klingon",
+        text: "« ghojwI'pu'Daq wovqu'bogh tamghay wIcheghmoH 'ej rItlhDu'Daj wIcha' net SovmeH bIH. »"
+      },
+      {
+        tag: "Black Speech · Mordor",
+        text: "« Ghash-bûrz agh nîn-gûl — ukh-shakh throqu-ishi gimb-at kul-dûm. »"
+      },
+      {
+        tag: "High Valyrian",
+        text: "« Qilōnȳti gēlȳn perzȳs rȳ bantis zālagon se kesanī seksos sȳz emagon istan. »"
+      },
+      {
+        tag: "Na'vi",
+        text: "« Oel ngati kameie — Tìtxurì atanä ftxozäfa ngal tìreyä fya'ot wìntxu. »"
+      }
+    ];
+    shuffleArray(MELLON_QUOTES);
+
+    const MELLON_FAREWELL = "« Namárië — May prisma be a light to you in dark places, when all other lights go out. »";
+
+    let mellonBuffer = "";
+    let mellonTimers = [];
+
+    function clearMellonTimers() {
+      mellonTimers.forEach(t => clearTimeout(t));
+      mellonTimers = [];
+    }
+
+    function resetMellonVisualState() {
+      const prism = document.getElementById("mellonPrism3D");
+      const wedge = document.getElementById("mellonInternalWedge");
+      const stageWrap = document.getElementById("mellonStageWrap");
+      const qEl = document.getElementById("mellonQuoteText");
+      const fWrap = document.getElementById("mellonFarewellWrap");
+      if (prism) prism.classList.remove("show");
+      if (wedge) wedge.classList.remove("show");
+      if (stageWrap) stageWrap.style.opacity = 1;
+      if (qEl) { qEl.style.opacity = 0; qEl.innerHTML = ""; }
+      if (fWrap) fWrap.classList.remove("show");
+      document.querySelectorAll(".mellon-beam-in, .mellon-beam-out").forEach(el => el.classList.remove("draw"));
+    }
+
+    function setMellonQuoteSlow(htmlStr) {
+      const el = document.getElementById("mellonQuoteText");
+      if (!el) return;
+      el.style.opacity = 0;
+      const t = setTimeout(() => {
+        el.innerHTML = htmlStr;
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            el.style.opacity = 1;
+          });
+        });
+      }, 1100);
+      mellonTimers.push(t);
+    }
+
+    function exitMellonLore(immediate) {
+      if (!isMellonActive) return;
+      clearMellonTimers();
+      const overlay = document.getElementById("mellonOverlay");
+      if (!overlay) return;
+      if (immediate) {
+        overlay.classList.add("exiting");
+      }
+      overlay.classList.remove("visible");
+      const fadeDuration = immediate ? 1050 : 2600;
+      mellonTimers.push(setTimeout(() => {
+        overlay.style.display = "none";
+        overlay.classList.remove("exiting");
+        resetMellonVisualState();
+        document.body.classList.remove("mellon-locked");
+        isMellonActive = false;
+      }, fadeDuration));
+    }
+
+    function triggerMellonLore() {
+      if (isMellonActive) return;
+      isMellonActive = true;
+      clearMellonTimers();
+      resetMellonVisualState();
+
+      const overlay = document.getElementById("mellonOverlay");
+      const prism = document.getElementById("mellonPrism3D");
+      const wedge = document.getElementById("mellonInternalWedge");
+      const stageWrap = document.getElementById("mellonStageWrap");
+      const qEl = document.getElementById("mellonQuoteText");
+      const fWrap = document.getElementById("mellonFarewellWrap");
+      const fText = document.getElementById("mellonFarewellText");
+      if (!overlay || !qEl) return;
+
+      document.body.classList.add("mellon-locked");
+      overlay.style.display = "flex";
+
+      // 1. Velo lento (0.0s -> 2.6s)
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          overlay.classList.add("visible");
+        });
+      });
+
+      // 2. Emerge el Prisma 3D limpio (2.4s, tarda 2.2s)
+      mellonTimers.push(setTimeout(() => {
+        if (prism) prism.classList.add("show");
+      }, 2400));
+
+      // 3. Entra lentamente el haz blanco desde la izquierda (4.6s)
+      mellonTimers.push(setTimeout(() => {
+        document.querySelectorAll(".mellon-beam-in").forEach(el => el.classList.add("draw"));
+      }, 4600));
+
+      // 4. Dispersión interna y salida de los 7 rayos refractados (6.9s)
+      mellonTimers.push(setTimeout(() => {
+        if (wedge) wedge.classList.add("show");
+        document.querySelectorAll(".mellon-beam-out").forEach(el => el.classList.add("draw"));
+      }, 6900));
+
+      // 5. Textos de los 5 idiomas (arranca a los 9.6s, 7.0s cada uno)
+      const quoteStart = 9600;
+      const quoteStep = 7000;
+      MELLON_QUOTES.forEach((item, idx) => {
+        mellonTimers.push(setTimeout(() => {
+          if (idx === 0) {
+            qEl.innerHTML = `${item.text} <span class="quote-sub">(${item.tag})</span>`;
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                qEl.style.opacity = 1;
+              });
+            });
+          } else {
+            setMellonQuoteSlow(`${item.text} <span class="quote-sub">(${item.tag})</span>`);
+          }
+        }, quoteStart + idx * quoteStep));
+      });
+
+      // 6. Se desvanece la animación del espectro y citas (44.6s)
+      const stageFadeOutTime = quoteStart + MELLON_QUOTES.length * quoteStep;
+      mellonTimers.push(setTimeout(() => {
+        if (stageWrap) stageWrap.style.opacity = 0;
+      }, stageFadeOutTime));
+
+      // 7. Aparece Namárië ocupando toda la pantalla (47.1s)
+      mellonTimers.push(setTimeout(() => {
+        if (fText) fText.innerHTML = MELLON_FAREWELL;
+        if (fWrap) fWrap.classList.add("show");
+      }, stageFadeOutTime + 2500));
+
+      // 8. Namárië se mantiene 7s, se degrada a negro/velo (54.1s) y salimos del sueño (56.6s)
+      mellonTimers.push(setTimeout(() => {
+        if (fWrap) fWrap.classList.remove("show");
+      }, stageFadeOutTime + 9500));
+
+      mellonTimers.push(setTimeout(() => {
+        exitMellonLore(false);
+      }, stageFadeOutTime + 12000));
+    }
+
+    window.addEventListener("keydown", function(e) {
+      if (e.key === "Escape" && isMellonActive) {
+        exitMellonLore(true);
+        return;
+      }
+      if (isMellonActive) return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      if (e.key && e.key.length === 1) {
+        mellonBuffer = (mellonBuffer + e.key.toLowerCase()).slice(-6);
+        if (mellonBuffer === "mellon") {
+          mellonBuffer = "";
+          triggerMellonLore();
+        }
+      }
+    });
 
     setLocale("en");
   </script>
