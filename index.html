@@ -44,6 +44,9 @@
       --sticky-bg: rgba(9, 13, 19, 0.94);
       --radar-grid: #262f3d;
       --radar-circle: #334155;
+      --physio-curve: cubic-bezier(0.16, 1, 0.3, 1);
+      --beat-1: 0.9s;
+      --beat-2: 1.8s;
     }
     html[data-theme="light"] {
       --bg: #ffffff;
@@ -145,6 +148,7 @@
       text-align: center;
       max-width: 800px;
       padding-top: 6px;
+      width: 100%;
     }
     h1 {
       font-size: clamp(1.4rem, 2.2vw, 1.85rem);
@@ -178,8 +182,12 @@
       font-weight: 500;
     }
 
+    /* Altura estrictamente fija para que nunca brinque el layout en ventanas estrechas */
     .quote-box {
-      height: 68px;
+      height: 76px;
+      min-height: 76px;
+      max-height: 76px;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -188,13 +196,16 @@
       width: 100%;
       max-width: 900px;
       text-align: center;
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
     }
     p.primary-quote {
       font-style: italic;
       font-size: clamp(0.86rem, 1.05vw, 0.94rem);
       line-height: 1.36;
       color: var(--text-main);
-      transition: opacity 0.35s ease;
+      transition: opacity 0.65s var(--physio-curve), transform 0.65s var(--physio-curve);
       width: 100%;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans Egyptian Hieroglyphs", sans-serif;
     }
@@ -255,6 +266,7 @@
       padding-bottom: 16px;
       scrollbar-width: thin;
       scrollbar-color: var(--border) transparent;
+      overflow-anchor: none;
     }
     .content-stage::-webkit-scrollbar { width: 6px; }
     .content-stage::-webkit-scrollbar-thumb {
@@ -270,7 +282,7 @@
       padding: 28px 32px;
       line-height: 1.65;
       text-align: left;
-      animation: fadeIn 0.25s ease;
+      animation: fadeIn 0.25s var(--physio-curve);
       margin-bottom: 16px;
     }
     .panel.active { display: block; }
@@ -417,7 +429,7 @@
       background: var(--card-inner);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 20px;
+      padding: 20px 20px 14px;
       margin-bottom: 24px;
     }
     .sandbox-header {
@@ -503,7 +515,7 @@
       flex-shrink: 0;
       width: 100%;
       max-width: 920px;
-      padding: 6px 0 10px;
+      padding: 6px 0 8px;
       font-size: 0.72rem;
       color: var(--text-muted);
       text-align: center;
@@ -513,6 +525,120 @@
     }
     footer a { color: var(--accent-blue); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
+
+    /* Enlace minimalista del Códice Rosetta en el Footer (sin fondo, pequeño, legible en Light/Dark) */
+    #rosettaFooterBtn {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 2px;
+      font-size: inherit;
+      font-family: inherit;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 4px;
+      transition: color 0.25s ease, opacity 0.25s ease;
+    }
+    .rosetta-sticky-epigraph {
+      width: 100%;
+      max-width: 780px;
+      padding: 12px 20px 14px;
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+      flex-shrink: 0;
+    }
+    #rosettaStickyRiddle {
+      font-size: clamp(0.82rem, 1.0vw, 0.92rem) !important;
+      line-height: 1.42 !important;
+    }
+    #rosettaFooterBtn:hover {
+      color: var(--text-main);
+      opacity: 1;
+    }
+    .scarab-rainbow {
+      font-family: "Noto Sans Egyptian Hieroglyphs", sans-serif;
+      font-size: 0.82rem;
+      line-height: 1;
+      background: linear-gradient(90deg, #c084fc, #38bdf8, #4ade80, #facc15, #fb923c, #f87171);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      display: inline-block;
+    }
+    html[data-theme="light"] .scarab-rainbow {
+      background: linear-gradient(90deg, #7e22ce, #0284c7, #16a34a, #d97706, #dc2626);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    /* Susurro en el Sandbox: siempre visible abajo, más pequeño, sin línea punteada y con luminiscencia */
+    #sandboxWhisperWrap {
+      margin-top: 12px;
+      padding-top: 4px;
+      border: none !important;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 22px;
+    }
+    #sandboxWhisperBtn {
+      background: transparent !important;
+      border: none !important;
+      padding: 2px 8px;
+      font-size: 0.64rem;
+      font-style: italic;
+      letter-spacing: 0.055em;
+      color: var(--text-muted);
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: opacity 0.45s var(--physio-curve), color 0.35s ease, filter 0.45s ease;
+      animation: whisperGlowPulse 3.6s ease-in-out infinite;
+    }
+    #sandboxWhisperBtn:hover {
+      color: var(--text-main);
+      filter: drop-shadow(0 0 8px rgba(88, 166, 255, 0.75)) drop-shadow(0 0 15px rgba(192, 132, 252, 0.55));
+    }
+    @keyframes whisperGlowPulse {
+      0%, 100% {
+        opacity: 0.62;
+        filter: drop-shadow(0 0 4px rgba(88, 166, 255, 0.28));
+      }
+      50% {
+        opacity: 0.92;
+        filter: drop-shadow(0 0 8px rgba(88, 166, 255, 0.62)) drop-shadow(0 0 14px rgba(192, 132, 252, 0.38));
+      }
+    }
+    #sandboxWhisperBtn svg {
+      height: 13px;
+      width: auto;
+      overflow: visible;
+      vertical-align: middle;
+    }
+
+    @media (max-width: 960px) {
+      .quote-box {
+        height: 86px;
+        min-height: 86px;
+        max-height: 86px;
+      }
+      #sliderControls {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+    }
 
     @media (max-width: 768px) {
       html, body, .content-stage {
@@ -530,14 +656,21 @@
         top: 0;
         z-index: 25;
         background: var(--bg);
-        padding: 10px 12px;
+        padding: 8px 12px;
         border-bottom: 1px solid var(--border);
+        height: 98px !important;
+        min-height: 98px !important;
+        max-height: 98px !important;
+        margin-bottom: 10px;
       }
       body.sandbox-focus .quote-box {
         position: static;
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
         border-bottom: none;
+        height: 98px !important;
+        min-height: 98px !important;
+        max-height: 98px !important;
       }
       body { padding: 14px 12px 20px; }
       .top-bar {
@@ -546,10 +679,6 @@
         display: flex;
         justify-content: flex-end;
         margin-bottom: 4px;
-      }
-      .quote-box {
-        height: 98px;
-        margin-bottom: 10px;
       }
       .tabs-dock {
         display: grid;
@@ -570,7 +699,6 @@
         width: 19px;
         height: 19px;
       }
-
       #tab-btn-vision {
         grid-column: span 2;
       }
@@ -594,10 +722,11 @@
         height: 36px;
       }
       .radar-svg-box svg { max-width: 100%; height: auto; }
-      footer { margin-top: auto; padding: 20px 0 10px; }
+      footer { margin-top: auto; padding: 14px 0 8px; }
     }
   
-    #primaryQuote, p.primary-quote {
+    /* Arcoíris sólo en Hero (#primaryQuote) y en la despedida Namárië (#mellonFarewellText) */
+    #primaryQuote, p.primary-quote, #mellonFarewellText, .dream-main-line, .dream-cirth-runes, #rosettaStickyRiddle {
       background: linear-gradient(
         90deg,
         #FFFFFF 0%,
@@ -619,7 +748,11 @@
       text-align: center !important;
     }
     html[data-theme="light"] #primaryQuote,
-    html[data-theme="light"] p.primary-quote {
+    html[data-theme="light"] p.primary-quote,
+    html[data-theme="light"] #mellonFarewellText,
+    html[data-theme="light"] .dream-main-line,
+    html[data-theme="light"] .dream-cirth-runes,
+    html[data-theme="light"] #rosettaStickyRiddle {
       background: linear-gradient(
         90deg,
         #1f2328 0%,
@@ -643,12 +776,6 @@
       grid-template-columns: 1fr 1fr;
       gap: 12px 24px;
     }
-    @media (max-width: 960px) {
-      #sliderControls {
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
-    }
     .focus-exit-bar {
       display: none;
       width: 100%;
@@ -665,12 +792,10 @@
       display: flex;
     }
     body.sandbox-focus .quote-box {
-      height: auto;
-      min-height: 36px;
+      height: 68px;
+      min-height: 68px;
+      max-height: 68px;
       margin-bottom: 6px;
-    }
-    .content-stage {
-      overflow-anchor: none;
     }
     body.sandbox-focus .radar-svg-box {
       position: sticky;
@@ -686,18 +811,19 @@
       width: auto;
     }
 
+    /* === EL SUEÑO (PORTAL 3D EN HEARTBEATS) === */
     :root {
-      --mellon-veil: rgba(6, 9, 14, 0.90);
+      --mellon-veil: rgba(6, 9, 14, 0.96);
       --mellon-beam: #ffffff;
-      --mellon-glass-fill: rgba(255, 255, 255, 0.05);
-      --mellon-glass-side: rgba(88, 166, 255, 0.11);
+      --mellon-glass-fill: rgba(255, 255, 255, 0.055);
+      --mellon-glass-side: rgba(88, 166, 255, 0.13);
       --mellon-glass-back: rgba(255, 255, 255, 0.34);
     }
     html[data-theme="light"] {
-      --mellon-veil: rgba(255, 255, 255, 0.92);
+      --mellon-veil: rgba(255, 255, 255, 0.96);
       --mellon-beam: #1f2328;
-      --mellon-glass-fill: rgba(31, 35, 40, 0.04);
-      --mellon-glass-side: rgba(9, 105, 218, 0.11);
+      --mellon-glass-fill: rgba(31, 35, 40, 0.045);
+      --mellon-glass-side: rgba(9, 105, 218, 0.12);
       --mellon-glass-back: rgba(31, 35, 40, 0.30);
     }
     body.mellon-locked,
@@ -712,37 +838,42 @@
       height: 100vh;
       z-index: 99999;
       background: var(--mellon-veil);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       display: none;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       opacity: 0;
-      transition: opacity 2.6s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: opacity var(--beat-2) var(--physio-curve);
       pointer-events: all;
       cursor: default;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
     }
     #mellonOverlay.visible {
       opacity: 1;
     }
     #mellonOverlay.exiting {
       opacity: 0;
-      transition: opacity 1.1s ease;
+      transition: opacity var(--beat-2) var(--physio-curve);
     }
     #mellonStageWrap {
       width: 100vw;
+      padding: 18px 0;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      transition: opacity 2.2s ease;
+      transition: opacity var(--beat-2) var(--physio-curve);
+      cursor: pointer;
     }
     .mellon-spectrum-wrap {
       width: 100vw;
       max-width: 100vw;
       overflow: hidden;
-      margin-bottom: 26px;
+      margin-bottom: 18px;
     }
     .mellon-spectrum-wrap svg {
       width: 100vw;
@@ -750,19 +881,38 @@
       display: block;
       overflow: visible;
     }
-    #mellonPrism3D,
+    #mellonPrism3D {
+      opacity: 0;
+      transition: opacity var(--beat-2) var(--physio-curve);
+    }
+    #mellonPrism3D.show {
+      opacity: 1;
+    }
+    /* Destello en el contorno del prisma 3D */
+    #mellonPrismGlint {
+      stroke-dasharray: 640;
+      stroke-dashoffset: 640;
+      opacity: 0;
+    }
+    #mellonPrism3D.show #mellonPrismGlint {
+      animation: prismGlintSweep 1.8s var(--physio-curve) forwards;
+    }
+    @keyframes prismGlintSweep {
+      0% { stroke-dashoffset: 640; opacity: 0.1; }
+      45% { opacity: 0.95; filter: drop-shadow(0 0 10px var(--accent-blue)); }
+      100% { stroke-dashoffset: 0; opacity: 0; }
+    }
     #mellonInternalWedge {
       opacity: 0;
-      transition: opacity 2.2s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: opacity var(--beat-1) var(--physio-curve);
     }
-    #mellonPrism3D.show,
     #mellonInternalWedge.show {
       opacity: 1;
     }
     .mellon-beam-in {
       stroke-dasharray: 1850;
       stroke-dashoffset: 1850;
-      transition: stroke-dashoffset 2.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      transition: stroke-dashoffset var(--beat-1) var(--physio-curve);
     }
     .mellon-beam-in.draw {
       stroke-dashoffset: 0;
@@ -770,60 +920,222 @@
     .mellon-beam-out {
       stroke-dasharray: 1850;
       stroke-dashoffset: 1850;
-      transition: stroke-dashoffset 2.6s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: stroke-dashoffset var(--beat-1) var(--physio-curve);
     }
     .mellon-beam-out.draw {
       stroke-dashoffset: 0;
     }
+
+    /* Escenario minimalista de las frases del sueño (SIN arcoíris, centrado, limpio como el hero) */
     .mellon-quote-stage {
       width: 100%;
-      max-width: 900px;
-      min-height: 92px;
-      padding: 0 28px;
+      max-width: 840px;
+      min-height: 82px;
+      padding: 0 24px;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
     }
-    #mellonQuoteText {
-      font-size: clamp(1.0rem, 1.38vw, 1.2rem) !important;
-      line-height: 1.5 !important;
+    .dream-quote-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      width: 100%;
+      text-align: center;
       opacity: 0;
-      transition: opacity 1.1s ease !important;
+      transform: translateY(5px);
+      transition: opacity var(--beat-2) var(--physio-curve),
+                  transform var(--beat-2) var(--physio-curve);
+      will-change: opacity, transform;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
     }
+    .dream-quote-node.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .dream-quote-node.out {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    .dream-glyph-line {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      opacity: 0.85;
+      margin-bottom: 2px;
+    }
+    .dream-glyph-line svg {
+      height: 16px;
+      width: auto;
+      overflow: visible;
+    }
+    .dream-cirth-runes {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      font-style: normal;
+    }
+    .dream-main-line {
+      font-style: italic;
+      font-size: clamp(0.9rem, 1.12vw, 1.02rem);
+      line-height: 1.45;
+      color: var(--text-main);
+      text-align: center;
+      font-weight: 400;
+    }
+    .dream-tag {
+      font-size: 0.72rem;
+      font-style: normal;
+      color: var(--text-muted);
+      margin-left: 6px;
+      white-space: nowrap;
+      vertical-align: baseline;
+    }
+
+    /* Despedida Namárië (con arcoíris y su caligrafía original) */
     #mellonFarewellWrap {
       position: absolute;
       inset: 0;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      gap: 12px;
       padding: 0 8vw;
       pointer-events: none;
       opacity: 0;
-      transition: opacity 2.5s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: opacity var(--beat-2) var(--physio-curve);
     }
     #mellonFarewellWrap.show {
       opacity: 1;
     }
+    #mellonFarewellGlyph {
+      color: var(--text-main);
+      opacity: 0.85;
+    }
+    #mellonFarewellGlyph svg {
+      height: clamp(22px, 3.2vw, 32px);
+      width: auto;
+      overflow: visible;
+    }
     #mellonFarewellText {
-      font-size: clamp(1.45rem, 2.75vw, 2.35rem) !important;
+      font-size: clamp(1.22rem, 2.2vw, 1.85rem) !important;
       line-height: 1.45 !important;
       font-weight: 500 !important;
       letter-spacing: 0.015em !important;
-      max-width: 1080px;
+      max-width: 980px;
+      text-align: center !important;
     }
-    .mellon-hint {
-      margin-top: 18px;
-      padding-top: 10px;
-      border-top: 1px dashed var(--border);
-      text-align: center;
-      font-size: 0.74rem;
-      font-style: italic;
-      letter-spacing: 0.06em;
-      color: var(--text-dim);
-      opacity: 0.75;
+
+    /* === MODAL CÓDICE ROSETTA (ADAPTATIVO LIGHT/DARK, CENTRADO, MITAD DE VELOCIDAD, INFINITO) === */
+    #rosettaModal {
+      position: fixed;
+      inset: 0;
+      z-index: 99995;
+      background: var(--mellon-veil);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.45s var(--physio-curve);
+      color: var(--text-main);
+    }
+    #rosettaModal.open {
+      display: flex;
+      opacity: 1;
+    }
+    .rosetta-header {
+      width: 100%;
+      max-width: 780px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 20px 12px;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .rosetta-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .rosetta-close {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 999px;
       cursor: pointer;
-      user-select: none;
+      transition: all 0.2s;
+    }
+    .rosetta-close:hover {
+      color: var(--text-main);
+    }
+    #rosettaScroller {
+      width: 100%;
+      max-width: 760px;
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px 20px 40px;
+      text-align: center;
+      cursor: pointer;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    #rosettaScroller::-webkit-scrollbar {
+      display: none;
+    }
+    .rosetta-section-heading {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-blue);
+      margin: 28px 0 18px;
+      text-align: center;
+    }
+    .rosetta-entry {
+      padding: 14px 12px;
+      margin: 0 auto 10px;
+      max-width: 660px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .rosetta-lang-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-blue);
+      margin-bottom: 5px;
+    }
+    .rosetta-native-text {
+      font-size: 0.94rem;
+      font-style: italic;
+      color: var(--text-main);
+      line-height: 1.48;
+      margin-bottom: 4px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans Egyptian Hieroglyphs", sans-serif;
+    }
+    .rosetta-trans-text {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.42;
     }
   </style>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="ee5c2cc1-ee34-492a-8997-c454e193ff8c"></script>
@@ -894,7 +1206,7 @@
       <h1 id="mainHeading">Aula Viva<span class="reg">®</span></h1>
       <p class="descriptor" id="appDescriptor">PRISMA™ — Multidimensional illumination of human learning assisted by local AI</p>
       
-      <div class="quote-box" id="quoteContainer">
+      <div class="quote-box" id="quoteContainer" title="Click to pause / resume">
         <p id="primaryQuote" class="primary-quote">“Shining white light through learners and projecting its refracted colors to reveal the profound journey of their growth.” <span class="quote-sub">(English)</span></p>
       </div>
     </div>
@@ -971,7 +1283,11 @@
                 Teacher calibration & sovereign override
               </div>
               <div id="sliderControls"></div>
-              <div class="mellon-hint" ondblclick="triggerMellonLore()" title="Mellon">Speak, friend, and enter.</div>
+            </div>
+
+            <!-- Susurro siempre visible al pie del Sandbox (comienza en Élfico y rota en cada visualización/reload) -->
+            <div id="sandboxWhisperWrap">
+              <button type="button" id="sandboxWhisperBtn" aria-label="Portal whisper"></button>
             </div>
           </div>
         </div>
@@ -992,59 +1308,85 @@
 
   </div>
 
-  <footer id="footerText" style="padding: 12px 10px; font-size: 0.8rem; opacity: 0.82; line-height: 1.45; text-align: center;">
-    <strong>Aula Viva®</strong> by Víctor Stern Rodríguez<br>
-    ASPIRE® · PRISMA™ · SSRN: <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">10.2139/ssrn.7310080</a> · INDAUTOR 03-2026-040710022300-01 · © 2026 Grupo SiEFH S.A.S.
+  <footer id="siteFooter" style="padding: 8px 10px; font-size: 0.74rem; opacity: 0.88; line-height: 1.45; text-align: center;">
+    <div id="footerText"></div>
   </footer>
+
+  <!-- Modal Códice Rosetta (Con epígrafe sticky tipo Hero y selector Light/Dark) -->
+  <div id="rosettaModal" aria-hidden="true">
+    <div class="rosetta-header">
+      <div class="rosetta-title">
+        <span class="scarab-rainbow">𓆣</span>
+        <span id="rosettaModalTitleText">PRISMA™ Rosetta Codex · 23+7 Languages</span>
+      </div>
+      <div style="display:inline-flex; align-items:center; gap:8px;">
+        <button type="button" class="theme-toggle" id="btnCodexTheme" onclick="toggleTheme()">☀ Light</button>
+        <button type="button" class="rosetta-close" onclick="closeRosettaCodex()">✕ ESC</button>
+      </div>
+    </div>
+    <div class="rosetta-sticky-epigraph">
+      <p id="rosettaStickyRiddle" class="primary-quote"></p>
+    </div>
+    <div id="rosettaScroller" title="Click to pause / resume">
+      <div id="rosettaTrack"></div>
+    </div>
+  </div>
   
+  <!-- Velo del Sueño (Ancho completo 100vw, Prisma 3D angulado, Heartbeat 2+2+2) -->
   <div id="mellonOverlay" style="display:none;" aria-hidden="true">
     <div id="mellonStageWrap">
       <div class="mellon-spectrum-wrap">
         <svg viewBox="0 0 1200 260" preserveAspectRatio="xMidYMid meet">
-          <!-- Haz incidente desde el borde izquierdo extremo -->
-          <line class="mellon-beam-in" x1="-1200" y1="162" x2="559" y2="125" stroke="var(--mellon-beam)" stroke-width="10" stroke-opacity="0.14" stroke-linecap="round"/>
-          <line class="mellon-beam-in" x1="-1200" y1="162" x2="559" y2="125" stroke="var(--mellon-beam)" stroke-width="3.8" stroke-linecap="round"/>
+          <!-- Haz blanco incidente desde el extremo izquierdo hasta impactar la arista del prisma (543,124) -->
+          <line class="mellon-beam-in" x1="-1200" y1="168" x2="543" y2="124" stroke="var(--mellon-beam)" stroke-width="10" stroke-opacity="0.14" stroke-linecap="round"/>
+          <line class="mellon-beam-in" x1="-1200" y1="168" x2="543" y2="124" stroke="var(--mellon-beam)" stroke-width="3.8" stroke-linecap="round"/>
 
           <!-- Dispersión interna dentro del cristal 3D -->
           <g id="mellonInternalWedge">
-            <polygon points="559,125 639,96 657,144" fill="rgba(192,132,252,0.18)"/>
-            <line x1="559" y1="125" x2="639" y2="96"  stroke="#c084fc" stroke-width="1.9" stroke-opacity="0.75"/>
-            <line x1="559" y1="125" x2="645" y2="112" stroke="#38bdf8" stroke-width="1.9" stroke-opacity="0.75"/>
-            <line x1="559" y1="125" x2="651" y2="128" stroke="#4ade80" stroke-width="1.9" stroke-opacity="0.75"/>
-            <line x1="559" y1="125" x2="657" y2="144" stroke="#f87171" stroke-width="1.9" stroke-opacity="0.75"/>
+            <polygon points="543,124 653,90 670,127" fill="rgba(192,132,252,0.20)"/>
+            <line x1="543" y1="124" x2="653" y2="90"  stroke="#c084fc" stroke-width="1.9" stroke-opacity="0.8"/>
+            <line x1="543" y1="124" x2="659" y2="102" stroke="#38bdf8" stroke-width="1.9" stroke-opacity="0.8"/>
+            <line x1="543" y1="124" x2="664" y2="115" stroke="#4ade80" stroke-width="1.9" stroke-opacity="0.8"/>
+            <line x1="543" y1="124" x2="670" y2="127" stroke="#f87171" stroke-width="1.9" stroke-opacity="0.8"/>
           </g>
 
-          <!-- 7 haces refractados hacia el extremo derecho -->
-          <line class="mellon-beam-out" x1="639" y1="96"  x2="2400" y2="-10" stroke="#c084fc" stroke-width="3.2"/>
-          <line class="mellon-beam-out" x1="642" y1="104" x2="2400" y2="38"  stroke="#60a5fa" stroke-width="3.2"/>
-          <line class="mellon-beam-out" x1="645" y1="112" x2="2400" y2="86"  stroke="#38bdf8" stroke-width="3.2"/>
-          <line class="mellon-beam-out" x1="648" y1="120" x2="2400" y2="134" stroke="#4ade80" stroke-width="3.2"/>
-          <line class="mellon-beam-out" x1="651" y1="128" x2="2400" y2="182" stroke="#facc15" stroke-width="3.2"/>
-          <line class="mellon-beam-out" x1="654" y1="136" x2="2400" y2="230" stroke="#fb923c" stroke-width="3.2"/>
-          <line class="mellon-beam-out" x1="657" y1="144" x2="2400" y2="278" stroke="#f87171" stroke-width="3.2"/>
+          <!-- 7 haces refractados desde la cara derecha hacia el extremo derecho -->
+          <line class="mellon-beam-out" x1="653" y1="90"  x2="2400" y2="-12" stroke="#c084fc" stroke-width="3.2"/>
+          <line class="mellon-beam-out" x1="656" y1="96"  x2="2400" y2="36"  stroke="#60a5fa" stroke-width="3.2"/>
+          <line class="mellon-beam-out" x1="659" y1="102" x2="2400" y2="84"  stroke="#38bdf8" stroke-width="3.2"/>
+          <line class="mellon-beam-out" x1="662" y1="108" x2="2400" y2="132" stroke="#4ade80" stroke-width="3.2"/>
+          <line class="mellon-beam-out" x1="664" y1="115" x2="2400" y2="180" stroke="#facc15" stroke-width="3.2"/>
+          <line class="mellon-beam-out" x1="667" y1="121" x2="2400" y2="228" stroke="#fb923c" stroke-width="3.2"/>
+          <line class="mellon-beam-out" x1="670" y1="127" x2="2400" y2="276" stroke="#f87171" stroke-width="3.2"/>
 
-          <!-- Prisma óptico 3D limpio -->
+          <!-- Prisma óptico 3D angulado en perspectiva de tres cuartos -->
           <g id="mellonPrism3D">
-            <!-- Aristas internas traseras del cristal -->
-            <line x1="620" y1="48"  x2="570" y2="158" stroke="var(--mellon-glass-back)" stroke-width="1.3" stroke-dasharray="4,4"/>
-            <line x1="536" y1="174" x2="570" y2="158" stroke="var(--mellon-glass-back)" stroke-width="1.3" stroke-dasharray="4,4"/>
-            <line x1="666" y1="164" x2="570" y2="158" stroke="var(--mellon-glass-back)" stroke-width="1.3" stroke-dasharray="4,4"/>
-            <!-- Cara lateral derecha en perspectiva isométrica -->
-            <polygon points="586,64 620,48 666,164 632,180"
-                     fill="var(--mellon-glass-side)" stroke="var(--mellon-beam)" stroke-width="2.2" stroke-linejoin="round"/>
-            <!-- Cara frontal triangular -->
-            <polygon points="586,64 632,180 536,174"
-                     fill="var(--mellon-glass-fill)" stroke="var(--mellon-beam)" stroke-width="2.8" stroke-linejoin="round"/>
+            <!-- Aristas traseras ocultas (perspectiva interna) -->
+            <line x1="628" y1="34"  x2="574" y2="146" stroke="var(--mellon-glass-back)" stroke-width="1.25" stroke-dasharray="4,4"/>
+            <line x1="522" y1="168" x2="574" y2="146" stroke="var(--mellon-glass-back)" stroke-width="1.25" stroke-dasharray="4,4"/>
+            <line x1="684" y1="158" x2="574" y2="146" stroke="var(--mellon-glass-back)" stroke-width="1.25" stroke-dasharray="4,4"/>
+            <!-- Base inferior en escorzo 3D -->
+            <polygon points="522,168 608,192 684,158 574,146"
+                     fill="rgba(88, 166, 255, 0.04)" stroke="none"/>
+            <!-- Cara lateral derecha en perspectiva profunda -->
+            <polygon points="576,52 628,34 684,158 608,192"
+                     fill="var(--mellon-glass-side)" stroke="var(--mellon-beam)" stroke-width="2.1" stroke-linejoin="round"/>
+            <!-- Cara frontal izquierda angulada -->
+            <polygon points="576,52 608,192 522,168"
+                     fill="var(--mellon-glass-fill)" stroke="var(--mellon-beam)" stroke-width="2.6" stroke-linejoin="round"/>
+            <!-- Destello del contorno exterior 3D -->
+            <polygon id="mellonPrismGlint" points="576,52 628,34 684,158 608,192 522,168"
+                     fill="none" stroke="var(--accent-blue)" stroke-width="3.2" stroke-linejoin="round"/>
           </g>
         </svg>
       </div>
-      <div class="mellon-quote-stage">
-        <p id="mellonQuoteText" class="primary-quote"></p>
-      </div>
+      <!-- Contenedor donde cada nodo de texto se destruye y recrea desde cero -->
+      <div class="mellon-quote-stage" id="mellonQuoteStage"></div>
     </div>
 
     <div id="mellonFarewellWrap">
-      <p id="mellonFarewellText" class="primary-quote"></p>
+      <div id="mellonFarewellGlyph"></div>
+      <p id="mellonFarewellText"></p>
     </div>
   </div>
 
@@ -1084,30 +1426,123 @@
     const liIcon = (name) => `<span class="li-icon">${ICONS[name]}</span>`;
     const somIcon = (name) => `<span class="somatic-icon">${ICONS[name]}</span>`;
 
+    // Las 23 Lenguas Humanas Canónicas exactas de SPECTRUMbak.md
     const QUOTES = {
-      en: { text: "“Shining white light through learners and projecting its refracted colors to reveal the profound journey of their growth.”" },
-      es: { text: "«Hacer brillar luz blanca a través de cada estudiante y proyectar sus colores refractados para revelar el profundo camino de su crecimiento.»" },
-      ar: { text: "«إشعاع الضوء الأبيض عَبْرَ المتعلّمين وإسقاط ألوانه المنكسرة للكشف عن المسار العميق لنموّهم.»" },
-      he: { text: "«להאיר באור לבן מבעד ללומדים ולהקרין את צבעיו הנשברים כדי לחשוף את המסע העמוק של צמיחתם.»" },
-      zh: { text: "“将全光谱白光照向学习者并投射其折射色彩，以揭示其成长历程的深邃轨迹。”" },
-      hi: { text: "“शिक्षार्थियों के भीतर से श्वेत प्रकाश प्रवाहित करना और उनके विकास की गहन यात्रा को उजागर करने के लिए उसके अपवर्तित रंगों को प्रक्षेपित करना।”" },
-      fr: { text: "« Faire rayonner une lumière blanche à travers les apprenants et projeter ses couleurs réfractées pour révéler le profond voyage de leur croissance. »" },
-      nah: { text: "« Titlanextiah ica iztac tlahuilli inpan in momachtianih ihuan tiquincuepilia in itlapaliz in tlahuilli inic tictlanextizqueh in hueyi tlamahuizolli ic mozcaliayeh. »" },
-      zu: { text: "« Ukukhanyisa ukukhanya okumhlophe kubafundi nokukhiqiza ukuhlakazeka kwemibala yako ukuze kwembulwe uhambo olunzulu lokukhula kwabo. »" },
-      ja: { text: "「学習者に白色光を透過させてその屈折した色彩を投影し、彼らの成長の深遠な軌跡を明らかにする。」" },
-      la: { text: "« Lucem candidam per discentes effundere atque colores eius refractos proicere ut iter profundum eorum incrementi reveletur. »" },
-      el: { text: "« Εκπέμποντας λευκό φως μέσα από τους μαθητές και προβάλλοντας τα διαθλασμένα χρώματά του για να αποκαλυφθεί το βαθύ ταξίδι της ανάπτυξής τους. »" },
-      fa: { text: "« تاباندن نور سفید بر جویندگان دانش و انعکاس رنگ‌های تجزیه‌شده آن برای نمایان ساختن مسیر شگرف رشد آنان. »" },
-      sa: { text: "« विद्यार्थिषु श्वेतप्रकाशं प्रज्वाल्य च तेषां विकासस्य गभीरयात्रां प्रकाशयितुं तस्य अपवर्तितवर्णान् प्रसरति। »" },
-      egy: { text: "« 𓆣 Kheper — Continuous human becoming and multidimensional transformation. »" },
-      de: { text: "« Weißes Licht durch Lernende strahlen lassen und dessen gebrochene Farben projizieren, um die tiefgründige Reise ihres Wachstums zu offenbaren. »" },
-      pt: { text: "« Irradiar luz branca através dos estudantes e projetar suas cores refratadas para revelar a profunda jornada de seu crescimento. »" },
-      ko: { text: "« 학습자를 통해 백색광을 비추고 그 굴절된 색채를 투영하여 그들 성장의 심오한 여정을 밝혀냅니다. »" },
-      ru: { text: "« Пропускать белый свет через учеников и проецировать его преломленные цвета, чтобы раскрыть глубокий путь их развития. »" },
-      sw: { text: "« Kumulika mwanga mweupe kupitia wanafunzi na kuakisi rangi zake zilizogawanywa ili kufumbua safari ya kina ya ukuaji wao. »" },
-      yo: { text: "« Tí tàn ìmọ́lẹ̀ funfun gba ara àwọn akẹ́kọ̀ọ́ àti gbigbé àwọn àwọ̀ rẹ̀ jáde láti ṣí ìrìn-àjò ìdàgbàsókè wọn payá. »" },
-      xh: { text: "« Ukukhanyisa ukhanyiso olumhlophe kubafundi nokuveza imibala yalo ehlukeneyo ukuze kutyhilwe uhambo olunzulu lokukhula kwabo. »" },
-      qu: { text: "« Yachakuqkunaman yuraq k'anchayta k'ancharichispa chaymanta t'ikrasqa llimphinkunata rikuchispa wiñayninkupa ukhu ñanninta sut'inchanapaq. »" }
+      en: {
+        text: "“Shining white light through learners and projecting its refracted colors to reveal the profound journey of their growth.”",
+        en: "Shining white light through learners and projecting its refracted colors to reveal the profound journey of their growth.",
+        es: "Hacer brillar luz blanca a través de los aprendices y proyectar sus colores refractados para revelar el profundo viaje de su crecimiento."
+      },
+      es: {
+        text: "«Hacer brillar luz blanca a través de cada estudiante y proyectar sus colores refractados para revelar el profundo camino de su crecimiento.»",
+        en: "Shining white light through each student and projecting its refracted colors to reveal the profound path of their growth.",
+        es: "Hacer brillar luz blanca a través de cada estudiante y proyectar sus colores refractados para revelar el profundo camino de su crecimiento."
+      },
+      ar: {
+        text: "«إشعاع الضوء الأبيض عَبْرَ المتعلّمين وإسقاط ألوانه المنكسرة للكشف عن المسار العميق لنموّهم.»",
+        en: "Radiating white light through learners and projecting its refracted colors to reveal the deep path of their growth.",
+        es: "Irradiar la luz blanca a través de los aprendices y proyectar sus colores refractados para revelar el profundo camino de su crecimiento."
+      },
+      he: {
+        text: "«להאיר באור לבן מבעד ללומדים ולהקרין את צבעיו הנשברים כדי לחשוף את המסע העמוק של צמיחתם.»",
+        en: "Illuminating with white light through those who learn and projecting its refracted colors to reveal the deep journey of their growth.",
+        es: "Iluminar con luz blanca a través de los que aprenden y proyectar sus colores refractados para revelar el profundo viaje de su crecimiento."
+      },
+      zh: {
+        text: "“将全光谱白光照向学习者并投射其折射色彩，以揭示其成长历程的深邃轨迹。”",
+        en: "Directing full-spectrum white light toward learners and projecting its refracted colors to reveal the profound trajectory of their growth.",
+        es: "Dirigir luz blanca de espectro completo hacia los aprendices y proyectar sus colores refractados para revelar la profunda trayectoria de su crecimiento."
+      },
+      hi: {
+        text: "“शिक्षार्थियों के भीतर से श्वेत प्रकाश प्रवाहित करना और उनके विकास की गहन यात्रा को उजागर करने के लिए उसके अपवर्तित रंगों को प्रक्षेपित करना।”",
+        en: "Streaming white light within learners and projecting its refracted colors to illuminate the profound journey of their development.",
+        es: "Hacer fluir luz blanca a través del interior de los educandos y proyectar sus colores refractados para iluminar el profundo viaje de su desarrollo."
+      },
+      fr: {
+        text: "« Faire rayonner une lumière blanche à travers les apprenants et projeter ses couleurs réfractées pour révéler le profond voyage de leur croissance. »",
+        en: "Making a white light radiate through learners and projecting its refracted colors to reveal the profound journey of their growth.",
+        es: "Hacer irradiar una luz blanca a través de los aprendices y proyectar sus colores refractados para revelar el profundo viaje de su crecimiento."
+      },
+      nah: {
+        text: "« Titlanextiah ica iztac tlahuilli inpan in momachtianih ihuan tiquincuepilia in itlapaliz in tlahuilli inic tictlanextizqueh in hueyi tlamahuizolli ic mozcaliayeh. »",
+        en: "We illuminate with white light upon those who learn and return the colors of that light to clarify the great wonder of how they flourish.",
+        es: "Iluminamos con luz blanca sobre quienes aprenden y devolvemos los colores de esa luz para esclarecer el gran prodigio de cómo van floreciendo."
+      },
+      zu: {
+        text: "« Ukukhanyisa ukukhanya okumhlophe kubafundi nokukhiqiza ukuhlakazeka kwemibala yako ukuze kwembulwe uhambo olunzulu lokukhula kwabo. »",
+        en: "Shining white light upon students and unfolding the dispersion of its colors so that the deep journey of their growth is revealed.",
+        es: "Encender luz blanca sobre los estudiantes y desplegar la dispersión de sus colores para revelar el profundo viaje de su crecimiento."
+      },
+      ja: {
+        text: "「学習者に白色光を透過させてその屈折した色彩を投影し、彼らの成長の深遠な軌跡を明らかにする。」",
+        en: "Passing white light through learners, projecting its refracted hues, and bringing to light the profound trail of their growth.",
+        es: "Hacer que la luz blanca atraviese a los aprendices, proyectar sus colores refractados y revelar la profunda estela de su crecimiento."
+      },
+      la: {
+        text: "« Lucem candidam per discentes effundere atque colores eius refractos proicere ut iter profundum eorum incrementi reveletur. »",
+        en: "Pouring forth radiant white light through learners and projecting its refracted colors so that the deep path of their growth may be revealed.",
+        es: "Derramar luz blanca radiante a través de los discípulos y proyectar sus colores refractados para que se revele el profundo camino de su crecimiento."
+      },
+      el: {
+        text: "« Εκπέμποντας λευκό φως μέσα από τους μαθητές και προβάλλοντας τα διαθλασμένα χρώματά του για να αποκαλυφθεί το βαθύ ταξίδι της ανάπτυξής τους. »",
+        en: "Emitting white light through students and projecting its refracted colors so that the deep journey of their development is unveiled.",
+        es: "Emitiendo luz blanca a través de los estudiantes y proyectando sus colores refractados para que se revele el profundo viaje de su desarrollo."
+      },
+      fa: {
+        text: "« تاباندن نور سفید بر جویندگان دانش و انعکاس رنگ‌های تجزیه‌شده آن برای نمایان ساختن مسیر شگرف رشد آنان. »",
+        en: "Shining white light upon seekers of knowledge and reflecting its dispersed colors to make visible the wondrous path of their growth.",
+        es: "Hacer brillar luz blanca sobre los buscadores de conocimiento y reflejar sus colores descompuestos para hacer visible el maravilloso camino de su crecimiento."
+      },
+      sa: {
+        text: "« विद्यार्थिषु श्वेतप्रकाशं प्रज्वाल्य च तेषां विकासस्य गभीरयात्रां प्रकाशयितुं तस्य अपवर्तितवर्णान् प्रसरति। »",
+        en: "Kindling white light within students and spreading forth its refracted colors to illuminate the profound journey of their unfolding.",
+        es: "Encendiendo la luz blanca en los estudiantes y desplegando sus colores refractados para iluminar el profundo viaje de su florecimiento."
+      },
+      egy: {
+        text: "« 𓆣 Kheper — Continuous human becoming and multidimensional transformation. »",
+        en: "Kheper — Continuous human becoming and multidimensional transformation.",
+        es: "Kheper — El devenir humano continuo y la transformación multidimensional."
+      },
+      de: {
+        text: "« Weißes Licht durch Lernende strahlen lassen und dessen gebrochene Farben projizieren, um die tiefgründige Reise ihres Wachstums zu offenbaren. »",
+        en: "Letting white light shine through learners and projecting its refracted colors to reveal the profound journey of their growth.",
+        es: "Dejar que la luz blanca irradie a través de quienes aprenden y proyectar sus colores refractados para revelar el profundo viaje de su crecimiento."
+      },
+      pt: {
+        text: "« Irradiar luz branca através dos estudantes e projetar suas cores refratadas para revelar a profunda jornada de seu crescimento. »",
+        en: "Radiating white light through students and projecting its refracted colors to reveal the profound journey of their growth.",
+        es: "Irradiar luz blanca a través de los estudiantes y proyectar sus colores refractados para revelar la profunda jornada de su crecimiento."
+      },
+      ko: {
+        text: "« 학습자를 통해 백색광을 비추고 그 굴절된 색채를 투영하여 그들 성장의 심오한 여정을 밝혀냅니다. »",
+        en: "Shining white light through learners and projecting those refracted hues to bring to light the profound journey of their growth.",
+        es: "Iluminar con luz blanca a través de los aprendices y proyectar esos colores refractados para sacar a la luz el profundo viaje de su crecimiento."
+      },
+      ru: {
+        text: "« Пропускать белый свет через учеников и проецировать его преломленные цвета, чтобы раскрыть глубокий путь их развития. »",
+        en: "Passing white light through students and projecting its refracted colors to uncover the deep path of their development.",
+        es: "Hacer pasar luz blanca a través de los alumnos y proyectar sus colores refractados para revelar el profundo camino de su desarrollo."
+      },
+      sw: {
+        text: "« Kumulika mwanga mweupe kupitia wanafunzi na kuakisi rangi zake zilizogawanywa ili kufumbua safari ya kina ya ukuaji wao. »",
+        en: "Shining white light through students and reflecting its separated colors to unravel the deep journey of their growth.",
+        es: "Alumbrar con luz blanca a través de los estudiantes y reflejar sus colores separados para desentrañar el profundo viaje de su crecimiento."
+      },
+      yo: {
+        text: "« Tí tàn ìmọ́lẹ̀ funfun gba ara àwọn akẹ́kọ̀ọ́ àti gbigbé àwọn àwọ̀ rẹ̀ jáde láti ṣí ìrìn-àjò ìdàgbàsókè wọn payá. »",
+        en: "Shining white light through learners and projecting its colors outward to reveal the journey of their growth.",
+        es: "Hacer brillar luz blanca a través de los estudiantes y proyectar sus colores para revelar el viaje de su crecimiento."
+      },
+      xh: {
+        text: "« Ukukhanyisa ukhanyiso olumhlophe kubafundi nokuveza imibala yalo ehlukeneyo ukuze kutyhilwe uhambo olunzulu lokukhula kwabo. »",
+        en: "Illuminating students with white light and revealing its distinct colors to uncover the profound journey of their growth.",
+        es: "Iluminar con luz blanca a los estudiantes y mostrar sus distintos colores para descubrir el profundo viaje de su crecimiento."
+      },
+      qu: {
+        text: "« Yachakuqkunaman yuraq k'anchayta k'ancharichispa chaymanta t'ikrasqa llimphinkunata rikuchispa wiñayninkupa ukhu ñanninta sut'inchanapaq. »",
+        en: "Shining white light toward those who learn and showing its refracted colors to clarify the deep path of their growth.",
+        es: "Haciendo brillar luz blanca hacia quienes aprenden y mostrando luego sus colores refractados para esclarecer el camino profundo de su crecimiento."
+      }
     };
 
     const LANG_LABELS = {
@@ -1258,7 +1693,9 @@
         interfaceTitle: "On-device capture interface",
         interfaceDesc: "Local Streamlit execution environment running offline SLM qualitative inference directly on educator hardware, ensuring zero cloud dependency and strict student data sovereignty.",
         interfaceStatus: "Coming soon for local download and deployment · Apache 2.0",
-        footer: `<strong>Aula Viva®</strong> by Víctor Stern Rodríguez<br>ASPIRE® · PRISMA™ · SSRN: <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">10.2139/ssrn.7310080</a> · INDAUTOR 03-2026-040710022300-01 · © 2026 Grupo SiEFH S.A.S.`
+        footer: `<strong>Aula Viva®</strong> by Víctor Stern Rodríguez &nbsp;·&nbsp; <button type="button" id="rosettaFooterBtn" onclick="openRosettaCodex()"><span class="scarab-rainbow">𓆣</span><span>PRISMA™ Rosetta Codex · 23+7 Languages</span></button><br>ASPIRE® · PRISMA™ · SSRN: <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">10.2139/ssrn.7310080</a> · INDAUTOR 03-2026-040710022300-01 · © 2026 Grupo SiEFH S.A.S.`,
+        codexBtnLabel: "PRISMA™ Rosetta Codex · 23+7 Languages",
+        codexRiddle: "“Twenty-three visible human tongues and one master key hidden in plain sight at the portal. Seven hidden tongues, each with two secret keys. Can you find them?”"
       },
       es: {
         pageTitle: "Aula Viva®",
@@ -1346,7 +1783,9 @@
         interfaceTitle: "Interfaz de captura en el dispositivo",
         interfaceDesc: "Entorno local Streamlit ejecutando inferencia cualitativa con SLMs directamente en el equipo del educador, garantizando cero dependencia de la nube y soberanía total de datos.",
         interfaceStatus: "Próximamente disponible para descarga y despliegue local · Apache 2.0",
-        footer: `<strong>Aula Viva®</strong> por Víctor Stern Rodríguez<br>ASPIRE® · PRISMA™ · SSRN: <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">10.2139/ssrn.7310080</a> · INDAUTOR 03-2026-040710022300-01 · © 2026 Grupo SiEFH S.A.S.`
+        footer: `<strong>Aula Viva®</strong> por Víctor Stern Rodríguez &nbsp;·&nbsp; <button type="button" id="rosettaFooterBtn" onclick="openRosettaCodex()"><span class="scarab-rainbow">𓆣</span><span>Códice Rosetta PRISMA™ · 23+7 Idiomas</span></button><br>ASPIRE® · PRISMA™ · SSRN: <a href="https://doi.org/10.2139/ssrn.7310080" target="_blank" rel="noopener noreferrer">10.2139/ssrn.7310080</a> · INDAUTOR 03-2026-040710022300-01 · © 2026 Grupo SiEFH S.A.S.`,
+        codexBtnLabel: "Códice Rosetta PRISMA™ · 23+7 Idiomas",
+        codexRiddle: "«Veintitrés lenguas humanas visibles y una llave maestra escondida a plena luz en el portal. Siete lenguas escondidas, cada una con dos llaves secretas. ¿Puedes encontrarlas?»"
       }
     };
 
@@ -1446,6 +1885,7 @@
 
     let activeQuoteKey = quoteKeys[0];
     let quoteIdx = 1;
+    let isHeroUserPaused = false;
 
     function renderImmediateQuote(qKey) {
       const el = document.getElementById("primaryQuote");
@@ -1459,6 +1899,14 @@
     }
 
     renderImmediateQuote(activeQuoteKey);
+
+    // Pausa con toque/clic en el Hero
+    const heroBoxEl = document.getElementById("quoteContainer");
+    if (heroBoxEl) {
+      heroBoxEl.addEventListener("click", function() {
+        isHeroUserPaused = !isHeroUserPaused;
+      });
+    }
 
     let isQuoteFrozen = false;
     let quoteSwapTimeout = null;
@@ -1480,7 +1928,7 @@
 
     let isMellonActive = false;
     function updateQuoteTicker() {
-      if (isQuoteFrozen || isMellonActive) return;
+      if (isQuoteFrozen || isHeroUserPaused || isMellonActive) return;
       const qKey = quoteKeys[quoteIdx];
       const qObj = QUOTES[qKey];
       const container = document.getElementById("quoteContainer");
@@ -1491,7 +1939,7 @@
       oldEl.style.opacity = 0;
       quoteSwapTimeout = setTimeout(() => {
         quoteSwapTimeout = null;
-        if (isQuoteFrozen) {
+        if (isQuoteFrozen || isHeroUserPaused) {
           oldEl.style.opacity = 1;
           return;
         }
@@ -1510,19 +1958,19 @@
           });
         });
         quoteIdx = (quoteIdx + 1) % quoteKeys.length;
-      }, 350);
+      }, 450);
     }
     setInterval(updateQuoteTicker, 7000);
 
     function updateThemeBtnLabel() {
-      const btn = document.getElementById("btnTheme");
-      if (!btn) return;
       const isLight = document.documentElement.getAttribute("data-theme") === "light";
-      if (currentLocale === "es") {
-        btn.textContent = isLight ? "☾ Oscuro" : "☀ Claro";
-      } else {
-        btn.textContent = isLight ? "☾ Dark" : "☀ Light";
-      }
+      const label = (currentLocale === "es")
+        ? (isLight ? "☾ Oscuro" : "☀ Claro")
+        : (isLight ? "☾ Dark" : "☀ Light");
+      const btn = document.getElementById("btnTheme");
+      if (btn) btn.textContent = label;
+      const cBtn = document.getElementById("btnCodexTheme");
+      if (cBtn) cBtn.textContent = label;
     }
 
     function toggleTheme() {
@@ -1558,8 +2006,162 @@
       document.body.classList.remove("sandbox-focus");
     }
 
+    // === GLIFOS CALIGRÁFICOS ORIGINALES Y LOS 7 IDIOMAS DEL SUEÑO ===
+    const SVG_TENGWAR_ELVISH = `<svg viewBox="0 0 240 28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M12,21 C12,9 20,9 20,16 C20,21 12,21 12,21 M28,14 C33,8 40,14 36,21 M46,7 L46,22 C46,14 55,14 55,21 M66,15 C66,10 76,10 76,15 C76,21 66,21 66,15 M92,21 C92,11 100,11 100,21 C100,11 108,11 108,21 M118,16 C124,11 128,16 122,21 M134,6 L134,22 M142,6 L142,22 M152,15 C152,10 162,10 162,15 C162,21 152,21 152,15 M172,21 C172,11 181,11 181,21 M196,21 C196,11 204,11 204,21 C204,11 212,11 212,21 M222,15 C222,10 232,10 232,15 C232,21 222,21 222,15"
+            fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="33" cy="6" r="1.3" fill="currentColor"/><circle cx="122" cy="7" r="1.3" fill="currentColor"/>
+      <circle cx="190" cy="8" r="1.3" fill="currentColor"/><circle cx="204" cy="7" r="1.3" fill="currentColor"/>
+    </svg>`;
+
+    const SVG_TENGWAR_MORDOR = `<svg viewBox="0 0 260 28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M8,22 Q18,5 24,22 T40,11 L34,24 M52,22 Q62,8 68,22 T84,12 M98,22 L106,6 Q116,12 112,22 M128,22 Q138,9 146,22 L154,8 M168,22 Q178,9 186,22 T202,11 L196,24 M214,22 Q224,8 232,22 T248,12"
+            fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M20,5 Q28,2 34,6 M134,5 Q142,2 148,6 M220,5 Q228,2 234,6" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+    </svg>`;
+
+    const SVG_GOLDEN_SPIRAL = `<svg viewBox="0 0 36 23" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect x="1.5" y="1.5" width="33" height="20" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.15" opacity="0.55"/>
+      <line x1="22" y1="1.5" x2="22" y2="21.5" stroke="currentColor" stroke-width="0.9" opacity="0.4"/>
+      <line x1="22" y1="14" x2="34.5" y2="14" stroke="currentColor" stroke-width="0.9" opacity="0.4"/>
+      <line x1="27.2" y1="14" x2="27.2" y2="21.5" stroke="currentColor" stroke-width="0.9" opacity="0.4"/>
+      <path d="M 1.5,21.5 A 20.5,20.5 0 0 1 22,1.5 A 12.5,12.5 0 0 1 34.5,14 A 7.5,7.5 0 0 1 27.2,21.5 A 5.2,5.2 0 0 1 22,16.5 A 3.2,3.2 0 0 1 25.2,14 A 2,2 0 0 1 27.2,16"
+            fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round"/>
+    </svg>`;
+
+    const SVG_NAMARIE_GLYPH = `<svg viewBox="0 0 170 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M12,23 C12,10 22,10 22,23 C22,10 32,10 32,23 M48,23 C48,10 58,10 58,23 C58,10 68,10 68,23 M84,23 C84,12 96,10 96,18 L96,25 M112,12 L112,23 M126,18 C134,10 142,18 134,23"
+            fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="22" cy="6" r="1.5" fill="currentColor"/>
+      <path d="M60,4 L55,9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      <circle cx="112" cy="6" r="1.5" fill="currentColor"/>
+      <circle cx="132" cy="6" r="1.4" fill="currentColor"/><circle cx="137" cy="6" r="1.4" fill="currentColor"/>
+    </svg>`;
+
+    const DREAM_LANGUAGES = [
+      {
+        id: "quenya",
+        tag_en: "Quenya · Elvish",
+        tag_es: "Quenya · Élfico",
+        glyph_html: SVG_TENGWAR_ELVISH,
+        text: "« Calima fëa ter i nolwehtar ar panyala i ilinquetar ohtariello lómenna. »",
+        en: "Shining radiant light through seekers of wisdom and projecting rainbow hues from twilight into awakening.",
+        es: "Hacer brillar luz radiante a través de quienes buscan sabiduría y proyectar los colores del arcoíris desde la penumbra hacia el despertar.",
+        whisper_html: SVG_TENGWAR_ELVISH,
+        keys: ["mellon", "earendil"]
+      },
+      {
+        id: "khuzdul",
+        tag_en: "Khuzdul · Dwarvish",
+        tag_es: "Khuzdul · Enano",
+        glyph_html: `<span class="dream-cirth-runes">ᚲᛁᛒᛁᛚ ᛏᛖᚱ ᚲᚺᛖᛚᛖᛞ · ᛉᚨᚱᚨᛗ-ᚾᚨᛚᚨ ᚷᚢᚾᚢᛞ-ᚲᚺᚨᛉᚨᛞ</span>`,
+        text: "« Kibil ter kheled — zâram-nâla gunud-Khazâd. »",
+        en: "Silver light through crystal — reflecting the deep course of those who delve and learn.",
+        es: "Luz de plata a través del cristal — reflejando el curso profundo de quienes excavan y aprenden.",
+        whisper_html: `<span>ᛒᚨᚱᚢᚲ ᚲᚺᚨᛉᚨᛞ! ᚲᚺᚨᛉᚨᛞ ᚨᛁ-ᛗᛖᚾᚢ!</span>`,
+        keys: ["khazad", "mithril"]
+      },
+      {
+        id: "blackspeech",
+        tag_en: "Black Speech · Mordor",
+        tag_es: "Lengua Negra · Mordor",
+        glyph_html: SVG_TENGWAR_MORDOR,
+        text: "« Ghash-bûrz agh nîn-gûl — ukh-shakh throqu-ishi gimb-at kul-dûm. »",
+        en: "Clear fire through shadow and crystal — projecting from within to reveal the deep path.",
+        es: "Fuego claro a través de la sombra y el cristal — proyectando desde el interior para revelar la senda profunda.",
+        whisper_html: `${SVG_TENGWAR_MORDOR}<span>One Ring to enlight them all, and in the darkness find them.</span>`,
+        keys: ["ashnazg", "balrog"]
+      },
+      {
+        id: "chakobsa",
+        tag_en: "Chakobsa · Fremen",
+        tag_es: "Chakobsa · Fremen",
+        glyph_html: "",
+        text: "« Shada kashaf bi-la kaifa — alwanuha tazhar tariq al-mihna. »",
+        en: "Light unveiled without question — its colors reveal the path of growth and trial.",
+        es: "Luz desvelada sin cuestionamiento — sus colores revelan el camino del crecimiento y la prueba.",
+        whisper_html: `<span>I must not fear.</span>`,
+        keys: ["muaddib", "kwisatz haderach"]
+      },
+      {
+        id: "valyrian",
+        tag_en: "High Valyrian",
+        tag_es: "Alto Valyrio",
+        glyph_html: "",
+        text: "« Qilōnȳti gēlȳn perzȳs rȳ bantis zālagon se kesanī seksos sȳz emagon istan. »",
+        en: "Radiating white fire through seekers and revealing the profound course of their transformation.",
+        es: "Irradiar fuego blanco a través de los buscadores y revelar el curso profundo de su transformación.",
+        whisper_html: `<span>Valar morghulis...</span>`,
+        keys: ["valar dohaeris", "dracarys"]
+      },
+      {
+        id: "navi",
+        tag_en: "Na'vi",
+        tag_es: "Na'vi",
+        glyph_html: "",
+        text: "« Oel ngati kameie — Tìtxurì atanä ftxozäfa ngal tìreyä fya'ot wìntxu. »",
+        en: "I see you deeply — Through the strength of light, you reveal the path of life and growth.",
+        es: "Te veo en profundidad — Mediante la fuerza de la luz, revelas el camino de la vida y del crecimiento.",
+        whisper_html: `<span>Oel ngati kameie...</span>`,
+        keys: ["kameie", "eywa"]
+      },
+      {
+        id: "fibonacci",
+        tag_en: "Geometria Naturae · φ",
+        tag_es: "Geometria Naturae · φ",
+        glyph_html: "",
+        text: "« φ = (1 + √5) / 2 ≈ 1.618 »",
+        en: "Organic growth unfolds in proportion — every step builds upon the whole that came before.",
+        es: "El crecimiento orgánico se despliega en proporción — cada paso se construye sobre la totalidad que lo precedió.",
+        whisper_html: `<span>1, 1, 2, 3, 5, 8, 13</span>${SVG_GOLDEN_SPIRAL}`,
+        keys: ["phi", "1.618"]
+      }
+    ];
+
+    // Susurro en el Sandbox: empieza en Élfico (0) y cambia al recargar o al presionar Visualize projection
+    let activeWhisperIdx = 0;
+    function selectWhisperIndex(isPageLoad) {
+      try {
+        const stored = sessionStorage.getItem("prisma_whisper_idx");
+        if (isPageLoad && stored === null) {
+          sessionStorage.setItem("prisma_whisper_idx", "0");
+          return 0;
+        }
+        const prev = stored !== null ? parseInt(stored, 10) : 0;
+        const candidates = [];
+        for (let i = 0; i < DREAM_LANGUAGES.length; i++) {
+          if (i !== prev) candidates.push(i);
+        }
+        const chosen = candidates[Math.floor(Math.random() * candidates.length)];
+        sessionStorage.setItem("prisma_whisper_idx", String(chosen));
+        return chosen;
+      } catch (e) {
+        return 0;
+      }
+    }
+
+    function updateSandboxWhisper(idx) {
+      activeWhisperIdx = idx;
+      const btn = document.getElementById("sandboxWhisperBtn");
+      if (!btn) return;
+      btn.style.opacity = "0";
+      setTimeout(() => {
+        btn.innerHTML = DREAM_LANGUAGES[idx].whisper_html;
+        btn.style.opacity = "";
+      }, 180);
+    }
+
+    const whisperBtnEl = document.getElementById("sandboxWhisperBtn");
+    if (whisperBtnEl) {
+      whisperBtnEl.addEventListener("click", function(e) {
+        e.preventDefault();
+        triggerMellonLore(DREAM_LANGUAGES[activeWhisperIdx].id);
+      });
+    }
+
     function setLocale(loc) {
       currentLocale = loc;
+      document.documentElement.setAttribute("lang", loc);
       document.getElementById("btn-en").classList.toggle("active", loc === "en");
       document.getElementById("btn-es").classList.toggle("active", loc === "es");
       const data = CONTENT[loc];
@@ -1585,13 +2187,21 @@
       document.getElementById("interfaceDesc").textContent = data.interfaceDesc;
       document.getElementById("interfaceStatus").textContent = data.interfaceStatus;
       document.getElementById("footerText").innerHTML = data.footer;
+      document.getElementById("rosettaModalTitleText").textContent = data.codexBtnLabel;
+      const riddleEl = document.getElementById("rosettaStickyRiddle");
+      if (riddleEl) riddleEl.textContent = data.codexRiddle;
       document.getElementById("btn-state-opt").textContent = (loc === "en") ? "Optimal" : "Óptimo";
       document.getElementById("btn-state-comp").textContent = (loc === "en") ? "Compromised" : "Comprometido";
+      renderImmediateQuote(activeQuoteKey);
       updateThemeBtnLabel();
       if (isSimulationActive) {
         updateSimulationVisuals();
       } else {
         renderSandbox();
+      }
+      const rModal = document.getElementById("rosettaModal");
+      if (rModal && rModal.classList.contains("open")) {
+        populateRosettaCodex();
       }
     }
 
@@ -1690,9 +2300,13 @@
     }
 
     function runSandboxSimulation() {
+      const wasActive = isSimulationActive;
       isSimulationActive = true;
       document.body.classList.add("sandbox-focus");
       updateSimulationVisuals();
+      if (wasActive) {
+        updateSandboxWhisper(selectWhisperIndex(false));
+      }
     }
 
     function formatSignedDb(val) {
@@ -1762,92 +2376,223 @@
       }
     }
 
+    // === ROSETTA CODEX (Orden: 1. Activo, 2. Alternativo, 3. Humanos A-Z, 4. Sueño A-Z; sin números; centrado; mitad de velocidad; clic pausa/continúa; infinito) ===
+    let rosettaRaf = null;
+    let rosettaPaused = false;
+    let rosettaScrollPos = 0;
 
-    const MELLON_QUOTES = [
-      {
-        tag: "Quenya · Elvish",
-        text: "« Calima fëa ter i nolwehtar ar panyala i ilinquetar ohtariello lómenna. »"
-      },
-      {
-        tag: "tlhIngan Hol · Klingon",
-        text: "« ghojwI'pu'Daq wovqu'bogh tamghay wIcheghmoH 'ej rItlhDu'Daj wIcha' net SovmeH bIH. »"
-      },
-      {
-        tag: "Black Speech · Mordor",
-        text: "« Ghash-bûrz agh nîn-gûl — ukh-shakh throqu-ishi gimb-at kul-dûm. »"
-      },
-      {
-        tag: "High Valyrian",
-        text: "« Qilōnȳti gēlȳn perzȳs rȳ bantis zālagon se kesanī seksos sȳz emagon istan. »"
-      },
-      {
-        tag: "Na'vi",
-        text: "« Oel ngati kameie — Tìtxurì atanä ftxozäfa ngal tìreyä fya'ot wìntxu. »"
+    function populateRosettaCodex() {
+      const track = document.getElementById("rosettaTrack");
+      if (!track) return;
+      const loc = currentLocale;
+      const firstKey = (loc === "es") ? "es" : "en";
+      const secondKey = (loc === "es") ? "en" : "es";
+
+      const otherHumanKeys = Object.keys(QUOTES).filter(k => k !== firstKey && k !== secondKey);
+      otherHumanKeys.sort((a, b) => {
+        const la = (LANG_LABELS[loc][a] || a).toLowerCase();
+        const lb = (LANG_LABELS[loc][b] || b).toLowerCase();
+        return la.localeCompare(lb, loc);
+      });
+      const orderedHumanKeys = [firstKey, secondKey, ...otherHumanKeys];
+
+      const sortedDream = [...DREAM_LANGUAGES].sort((a, b) => {
+        const la = (loc === "es" ? a.tag_es : a.tag_en).toLowerCase();
+        const lb = (loc === "es" ? b.tag_es : b.tag_en).toLowerCase();
+        return la.localeCompare(lb, loc);
+      });
+
+      const sec1Title = (loc === "es") ? "Veintitrés Lenguas Humanas" : "Twenty-Three Human Tongues";
+      const sec2Title = (loc === "es") ? "Siete Lenguas del Sueño" : "Seven Tongues of the Dream";
+
+      function buildSingleCycleHTML() {
+        let html = `<div class="rosetta-section-heading">${sec1Title}</div>`;
+        orderedHumanKeys.forEach(k => {
+          const q = QUOTES[k];
+          const label = LANG_LABELS[loc][k] || k;
+          const trans = (loc === "es") ? q.es : q.en;
+          const isRtl = (k === "ar" || k === "he" || k === "fa");
+          html += `
+            <div class="rosetta-entry">
+              <div class="rosetta-lang-label">${label}</div>
+              <div class="rosetta-native-text" dir="${isRtl ? 'rtl' : 'ltr'}">${q.text}</div>
+              <div class="rosetta-trans-text">${trans}</div>
+            </div>
+          `;
+        });
+
+        html += `<div class="rosetta-section-heading">${sec2Title}</div>`;
+        sortedDream.forEach(d => {
+          const label = (loc === "es") ? d.tag_es : d.tag_en;
+          const trans = (loc === "es") ? d.es : d.en;
+          const glyphPart = d.glyph_html ? `<div class="dream-glyph-line" style="margin-bottom:4px;">${d.glyph_html}</div>` : "";
+          html += `
+            <div class="rosetta-entry">
+              <div class="rosetta-lang-label">${label}</div>
+              ${glyphPart}
+              <div class="rosetta-native-text">${d.text}</div>
+              <div class="rosetta-trans-text">${trans}</div>
+            </div>
+          `;
+        });
+        return html;
       }
-    ];
-    shuffleArray(MELLON_QUOTES);
 
-    const MELLON_FAREWELL = "« Namárië — May prisma be a light to you in dark places, when all other lights go out. »";
+      const cycleHTML = buildSingleCycleHTML();
+      // Duplicamos el ciclo para que el scroll sea verdaderamente infinito sin salto al llegar al final
+      track.innerHTML = `<div class="rosetta-cycle">${cycleHTML}</div><div class="rosetta-cycle">${cycleHTML}</div>`;
+    }
+
+    function stepRosettaScroll() {
+      const modal = document.getElementById("rosettaModal");
+      const scroller = document.getElementById("rosettaScroller");
+      const firstCycle = scroller ? scroller.querySelector(".rosetta-cycle") : null;
+      if (!modal || !modal.classList.contains("open") || !scroller || !firstCycle) return;
+
+      if (!rosettaPaused) {
+        rosettaScrollPos += 0.27; // Mitad de velocidad, suave y constante
+        const cycleHeight = firstCycle.offsetHeight;
+        if (cycleHeight > 0 && rosettaScrollPos >= cycleHeight) {
+          rosettaScrollPos -= cycleHeight;
+        }
+        scroller.scrollTop = rosettaScrollPos;
+      } else {
+        rosettaScrollPos = scroller.scrollTop;
+      }
+      rosettaRaf = requestAnimationFrame(stepRosettaScroll);
+    }
+
+    function openRosettaCodex() {
+      populateRosettaCodex();
+      const modal = document.getElementById("rosettaModal");
+      const scroller = document.getElementById("rosettaScroller");
+      if (!modal || !scroller) return;
+      rosettaPaused = false;
+      rosettaScrollPos = 0;
+      scroller.scrollTop = 0;
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+      cancelAnimationFrame(rosettaRaf);
+      rosettaRaf = requestAnimationFrame(stepRosettaScroll);
+    }
+
+    function closeRosettaCodex() {
+      const modal = document.getElementById("rosettaModal");
+      if (!modal) return;
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+      cancelAnimationFrame(rosettaRaf);
+    }
+
+    const rosettaScrollerEl = document.getElementById("rosettaScroller");
+    if (rosettaScrollerEl) {
+      // Un clic pausa, otro clic continúa
+      rosettaScrollerEl.addEventListener("click", function() {
+        rosettaPaused = !rosettaPaused;
+        rosettaScrollPos = rosettaScrollerEl.scrollTop;
+      });
+      // Sincronizar posición cuando el usuario mueve con dos dedos o touch
+      rosettaScrollerEl.addEventListener("wheel", function() {
+        rosettaScrollPos = rosettaScrollerEl.scrollTop;
+      }, { passive: true });
+      rosettaScrollerEl.addEventListener("touchmove", function() {
+        rosettaScrollPos = rosettaScrollerEl.scrollTop;
+      }, { passive: true });
+    }
+
+    // === COREOGRAFÍA DEL SUEÑO EN PULSO DE HEARTBEATS (1 beat = 0.9s, 2 beats = 1.8s) ===
+    const BEAT_MS = 900;
+    const TWO_BEATS = 1800;
 
     let mellonBuffer = "";
     let mellonTimers = [];
+    let mellonCanTapExit = false;
+    let mellonIsHolding = false;
+    let mellonHoldTimer = null;
+    let mellonResumeFn = null;
 
     function clearMellonTimers() {
       mellonTimers.forEach(t => clearTimeout(t));
       mellonTimers = [];
     }
 
+    function scheduleMellon(fn, ms) {
+      const id = setTimeout(fn, ms);
+      mellonTimers.push(id);
+      return id;
+    }
+
     function resetMellonVisualState() {
       const prism = document.getElementById("mellonPrism3D");
       const wedge = document.getElementById("mellonInternalWedge");
       const stageWrap = document.getElementById("mellonStageWrap");
-      const qEl = document.getElementById("mellonQuoteText");
+      const qStage = document.getElementById("mellonQuoteStage");
       const fWrap = document.getElementById("mellonFarewellWrap");
       if (prism) prism.classList.remove("show");
       if (wedge) wedge.classList.remove("show");
       if (stageWrap) stageWrap.style.opacity = 1;
-      if (qEl) { qEl.style.opacity = 0; qEl.innerHTML = ""; }
+      if (qStage) qStage.innerHTML = "";
       if (fWrap) fWrap.classList.remove("show");
       document.querySelectorAll(".mellon-beam-in, .mellon-beam-out").forEach(el => el.classList.remove("draw"));
     }
 
-    function setMellonQuoteSlow(htmlStr) {
-      const el = document.getElementById("mellonQuoteText");
-      if (!el) return;
-      el.style.opacity = 0;
-      const t = setTimeout(() => {
-        el.innerHTML = htmlStr;
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            el.style.opacity = 1;
-          });
-        });
-      }, 1100);
-      mellonTimers.push(t);
+    // Destrucción completa del nodo anterior y creación de uno nuevo desde cero (Cero texto fantasma)
+    function mountCleanDreamQuote(langObj) {
+      const qStage = document.getElementById("mellonQuoteStage");
+      if (!qStage) return null;
+      while (qStage.firstChild) {
+        qStage.removeChild(qStage.firstChild);
+      }
+      const tagLabel = (currentLocale === "es") ? langObj.tag_es : langObj.tag_en;
+      const node = document.createElement("div");
+      node.className = "dream-quote-node";
+      const glyphBlock = langObj.glyph_html ? `<div class="dream-glyph-line">${langObj.glyph_html}</div>` : "";
+      node.innerHTML = `
+        ${glyphBlock}
+        <p class="dream-main-line">${langObj.text} <span class="dream-tag">(${tagLabel})</span></p>
+      `;
+      qStage.appendChild(node);
+      void node.offsetWidth;
+      node.classList.add("in");
+      return node;
+    }
+
+    function buildDreamSequenceOrder(firstId) {
+      const startItem = DREAM_LANGUAGES.find(d => d.id === firstId) || DREAM_LANGUAGES[0];
+      const others = DREAM_LANGUAGES.filter(d => d.id !== startItem.id);
+      shuffleArray(others);
+      return [startItem, ...others];
     }
 
     function exitMellonLore(immediate) {
       if (!isMellonActive) return;
       clearMellonTimers();
+      mellonIsHolding = false;
+      mellonResumeFn = null;
       const overlay = document.getElementById("mellonOverlay");
+      const qStage = document.getElementById("mellonQuoteStage");
       if (!overlay) return;
       if (immediate) {
         overlay.classList.add("exiting");
       }
       overlay.classList.remove("visible");
-      const fadeDuration = immediate ? 1050 : 2600;
-      mellonTimers.push(setTimeout(() => {
+      scheduleMellon(() => {
         overlay.style.display = "none";
         overlay.classList.remove("exiting");
+        if (qStage) qStage.innerHTML = "";
         resetMellonVisualState();
         document.body.classList.remove("mellon-locked");
         isMellonActive = false;
-      }, fadeDuration));
+      }, TWO_BEATS);
     }
 
-    function triggerMellonLore() {
+    function triggerMellonLore(priorityLangId) {
       if (isMellonActive) return;
       isMellonActive = true;
+      mellonCanTapExit = false;
+      mellonIsHolding = false;
+      mellonResumeFn = null;
+      closeRosettaCodex();
       clearMellonTimers();
       resetMellonVisualState();
 
@@ -1855,94 +2600,194 @@
       const prism = document.getElementById("mellonPrism3D");
       const wedge = document.getElementById("mellonInternalWedge");
       const stageWrap = document.getElementById("mellonStageWrap");
-      const qEl = document.getElementById("mellonQuoteText");
+      const qStage = document.getElementById("mellonQuoteStage");
       const fWrap = document.getElementById("mellonFarewellWrap");
+      const fGlyph = document.getElementById("mellonFarewellGlyph");
       const fText = document.getElementById("mellonFarewellText");
-      if (!overlay || !qEl) return;
+      if (!overlay || !qStage) return;
 
       document.body.classList.add("mellon-locked");
       overlay.style.display = "flex";
 
-      // 1. Velo lento (0.0s -> 2.6s)
+      // Acto I: Fade a velo en 2 heartbeats (1.8s)
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           overlay.classList.add("visible");
         });
       });
 
-      // 2. Emerge el Prisma 3D limpio (2.4s, tarda 2.2s)
-      mellonTimers.push(setTimeout(() => {
+      // Acto II: Aparece el Prisma 3D angulado + destello en su contorno en 2 heartbeats (1.8s)
+      scheduleMellon(() => {
         if (prism) prism.classList.add("show");
-      }, 2400));
+      }, TWO_BEATS);
 
-      // 3. Entra lentamente el haz blanco desde la izquierda (4.6s)
-      mellonTimers.push(setTimeout(() => {
+      // Acto III: Entra el haz blanco (Latido 1: 0.9s) -> penetra y sale refractado en 7 rayos (Latido 2: 0.9s)
+      scheduleMellon(() => {
         document.querySelectorAll(".mellon-beam-in").forEach(el => el.classList.add("draw"));
-      }, 4600));
+        scheduleMellon(() => {
+          if (wedge) wedge.classList.add("show");
+          document.querySelectorAll(".mellon-beam-out").forEach(el => el.classList.add("draw"));
+          // Protección contra doble toque accidental inicial: salida táctil activa a partir de aquí
+          mellonCanTapExit = true;
+        }, BEAT_MS);
+      }, TWO_BEATS * 2);
 
-      // 4. Dispersión interna y salida de los 7 rayos refractados (6.9s)
-      mellonTimers.push(setTimeout(() => {
-        if (wedge) wedge.classList.add("show");
-        document.querySelectorAll(".mellon-beam-out").forEach(el => el.classList.add("draw"));
-      }, 6900));
+      // Acto IV: Los 7 textos del sueño en ciclo 2 beats entrada + 2 beats permanencia + 2 beats salida
+      const orderedDeck = buildDreamSequenceOrder(priorityLangId || "quenya");
+      let idx = 0;
 
-      // 5. Textos de los 5 idiomas (arranca a los 9.6s, 7.0s cada uno)
-      const quoteStart = 9600;
-      const quoteStep = 7000;
-      MELLON_QUOTES.forEach((item, idx) => {
-        mellonTimers.push(setTimeout(() => {
-          if (idx === 0) {
-            qEl.innerHTML = `${item.text} <span class="quote-sub">(${item.tag})</span>`;
-            requestAnimationFrame(() => {
-              requestAnimationFrame(() => {
-                qEl.style.opacity = 1;
-              });
-            });
+      function runDreamQuoteCycle() {
+        if (!isMellonActive) return;
+        if (idx >= orderedDeck.length) {
+          runDreamFinale();
+          return;
+        }
+        const currentItem = orderedDeck[idx];
+        const node = mountCleanDreamQuote(currentItem);
+
+        // 2 beats de entrada (1.8s) + 2 beats de permanencia (1.8s) = 3.6s
+        scheduleMellon(() => {
+          if (!isMellonActive) return;
+          if (mellonIsHolding) {
+            mellonResumeFn = () => {
+              if (!isMellonActive) return;
+              fadeOutCurrentDreamNode(node);
+            };
           } else {
-            setMellonQuoteSlow(`${item.text} <span class="quote-sub">(${item.tag})</span>`);
+            fadeOutCurrentDreamNode(node);
           }
-        }, quoteStart + idx * quoteStep));
-      });
+        }, TWO_BEATS * 2);
+      }
 
-      // 6. Se desvanece la animación del espectro y citas (44.6s)
-      const stageFadeOutTime = quoteStart + MELLON_QUOTES.length * quoteStep;
-      mellonTimers.push(setTimeout(() => {
+      function fadeOutCurrentDreamNode(node) {
+        if (node) {
+          node.classList.remove("in");
+          node.classList.add("out");
+        }
+        // 2 beats de salida (1.8s), destrucción total del nodo y paso al siguiente
+        scheduleMellon(() => {
+          if (!isMellonActive) return;
+          if (qStage) qStage.innerHTML = "";
+          idx++;
+          runDreamQuoteCycle();
+        }, TWO_BEATS);
+      }
+
+      scheduleMellon(runDreamQuoteCycle, TWO_BEATS * 3);
+
+      // Acto V y VI: Fade out del prisma en 2 beats -> Namárië en arcoíris + glifo Tengwar (permanece el triple: 6 beats) -> salida en 2 beats
+      function runDreamFinale() {
+        if (!isMellonActive) return;
         if (stageWrap) stageWrap.style.opacity = 0;
-      }, stageFadeOutTime));
+        if (qStage) qStage.innerHTML = "";
 
-      // 7. Aparece Namárië ocupando toda la pantalla (47.1s)
-      mellonTimers.push(setTimeout(() => {
-        if (fText) fText.innerHTML = MELLON_FAREWELL;
-        if (fWrap) fWrap.classList.add("show");
-      }, stageFadeOutTime + 2500));
+        scheduleMellon(() => {
+          if (!isMellonActive) return;
+          if (fGlyph) fGlyph.innerHTML = SVG_NAMARIE_GLYPH;
+          if (fText) {
+            fText.innerHTML = (currentLocale === "es")
+              ? "« Namárië — Que prisma sea una luz para ti en los lugares oscuros, cuando todas las demás luces se apaguen. »"
+              : "« Namárië — May prisma be a light to you in dark places, when all other lights go out. »";
+          }
+          if (fWrap) fWrap.classList.add("show");
 
-      // 8. Namárië se mantiene 7s, se degrada a negro/velo (54.1s) y salimos del sueño (56.6s)
-      mellonTimers.push(setTimeout(() => {
-        if (fWrap) fWrap.classList.remove("show");
-      }, stageFadeOutTime + 9500));
-
-      mellonTimers.push(setTimeout(() => {
-        exitMellonLore(false);
-      }, stageFadeOutTime + 12000));
+          // 2 beats de entrada + 6 beats de lectura (triple permanencia) = 8 beats (7.2s)
+          scheduleMellon(() => {
+            if (!isMellonActive) return;
+            if (fWrap) fWrap.classList.remove("show");
+            scheduleMellon(() => {
+              exitMellonLore(false);
+            }, TWO_BEATS);
+          }, BEAT_MS * 8);
+        }, TWO_BEATS);
+      }
     }
 
+    // Controles táctiles y de mouse en el Sueño: Press-and-Hold en la franja horizontal pausa; toque fuera de la franja sale
+    const overlayEl = document.getElementById("mellonOverlay");
+    const stageWrapEl = document.getElementById("mellonStageWrap");
+    if (overlayEl && stageWrapEl) {
+      const startHold = () => {
+        if (!isMellonActive) return;
+        clearTimeout(mellonHoldTimer);
+        mellonHoldTimer = setTimeout(() => {
+          mellonIsHolding = true;
+          const activeNode = document.querySelector(".dream-quote-node");
+          if (activeNode) {
+            activeNode.classList.remove("out");
+            activeNode.classList.add("in");
+          }
+        }, 160);
+      };
+
+      const releaseHold = () => {
+        clearTimeout(mellonHoldTimer);
+        if (mellonIsHolding) {
+          mellonIsHolding = false;
+          if (typeof mellonResumeFn === "function") {
+            const fn = mellonResumeFn;
+            mellonResumeFn = null;
+            fn();
+          }
+        }
+      };
+
+      stageWrapEl.addEventListener("mousedown", startHold);
+      stageWrapEl.addEventListener("touchstart", startHold, { passive: true });
+      window.addEventListener("mouseup", releaseHold);
+      window.addEventListener("touchend", releaseHold, { passive: true });
+      window.addEventListener("touchcancel", releaseHold, { passive: true });
+
+      // Salir del sueño tocando fuera de la franja horizontal central
+      overlayEl.addEventListener("click", function(e) {
+        if (!isMellonActive || !mellonCanTapExit) return;
+        const rect = stageWrapEl.getBoundingClientRect();
+        if (e.clientY < rect.top || e.clientY > rect.bottom) {
+          exitMellonLore(true);
+        }
+      });
+    }
+
+    // Mapa de las 14 llaves secretas (ortografía exacta, cero nombres propios)
+    const SECRET_KEY_MAP = {};
+    DREAM_LANGUAGES.forEach(d => {
+      d.keys.forEach(k => {
+        SECRET_KEY_MAP[k.toLowerCase()] = d.id;
+      });
+    });
+
     window.addEventListener("keydown", function(e) {
-      if (e.key === "Escape" && isMellonActive) {
-        exitMellonLore(true);
-        return;
+      if (e.key === "Escape") {
+        if (isMellonActive) {
+          exitMellonLore(true);
+          return;
+        }
+        const rModal = document.getElementById("rosettaModal");
+        if (rModal && rModal.classList.contains("open")) {
+          closeRosettaCodex();
+          return;
+        }
       }
       if (isMellonActive) return;
       if (e.metaKey || e.ctrlKey || e.altKey) return;
+      const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : "";
+      if (tag === "input" || tag === "textarea") return;
+
       if (e.key && e.key.length === 1) {
-        mellonBuffer = (mellonBuffer + e.key.toLowerCase()).slice(-6);
-        if (mellonBuffer === "mellon") {
-          mellonBuffer = "";
-          triggerMellonLore();
+        mellonBuffer = (mellonBuffer + e.key.toLowerCase()).slice(-24);
+        for (const [secret, langId] of Object.entries(SECRET_KEY_MAP)) {
+          if (mellonBuffer.endsWith(secret)) {
+            mellonBuffer = "";
+            triggerMellonLore(langId);
+            break;
+          }
         }
       }
     });
 
+    // Inicializar página y susurro en Élfico (o rotado si fue reload)
     setLocale("en");
+    updateSandboxWhisper(selectWhisperIndex(true));
   </script>
 
 </body>
