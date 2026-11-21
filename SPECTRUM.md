@@ -1,7 +1,7 @@
 > **𓆣 Live Interactive Edition — PRISMA™ Rosetta Codex**  
 > Experience these 23+7 tongues in motion—complete with calligraphic glyphs, live EN/ES comparison, and hidden portal keys—at **[aulaviva.lat](https://aulaviva.lat/)** 
 >
-> *Edición interactiva en vivo en **[aulaviva.lat](https://aulaviva.lat/)**
+> *Edición interactiva en vivo en **[aulaviva.lat](https://aulaviva.lat/)***
 
 ---
 
