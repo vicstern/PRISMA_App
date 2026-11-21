@@ -1,3 +1,10 @@
+> **𓆣 Live Interactive Edition — PRISMA™ Rosetta Codex**  
+> Experience these 23+7 tongues in motion—complete with calligraphic glyphs, live EN/ES comparison, and hidden portal keys—at **[aulaviva.lat](https://aulaviva.lat/)** *(click **𓆣 PRISMA™ Rosetta Codex · 23+7 Languages** in the footer, or accept the challenge and find any of the 15 keys...)*.
+>
+> *Edición interactiva en vivo en **[aulaviva.lat](https://aulaviva.lat/)** — abre el **𓆣 Códice Rosetta PRISMA™** en el pie de página o acepta el reto y encuentra alguna de las 15 llaves...*
+
+---
+
 # 𓆣 SPECTRUM — The PRISMA™ Rosetta Codex (23 + 7)
 
 > *"Shining white light through learners and projecting its refracted colors to reveal the profound journey of their growth."*  
