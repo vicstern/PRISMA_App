@@ -204,6 +204,34 @@ st.set_page_config(
     layout="wide"
 )
 
+# Favicon vectorial claro de Aula Viva® — PRISMA™
+components.html(
+    """
+    <script>
+    (function() {
+      const doc = window.parent.document;
+      const svgIcon = "data:image/svg+xml," +
+        "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>" +
+        "<rect x='2' y='2' width='96' height='96' rx='20' fill='%23ffffff' stroke='%23d0d7de' stroke-width='4'/>" +
+        "<polygon points='50,18 82,78 18,78' fill='none' stroke='%230969da' stroke-width='6'/>" +
+        "<line x1='10' y1='56' x2='42' y2='48' stroke='%231f2328' stroke-width='4.5'/>" +
+        "<line x1='58' y1='46' x2='90' y2='36' stroke='%239333ea' stroke-width='4'/>" +
+        "<line x1='61' y1='52' x2='90' y2='52' stroke='%2316a34a' stroke-width='4'/>" +
+        "<line x1='64' y1='58' x2='90' y2='68' stroke='%23d97706' stroke-width='4'/>" +
+        "</svg>";
+      doc.querySelectorAll("link[rel*='icon']").forEach(el => el.remove());
+      const link = doc.createElement("link");
+      link.rel = "icon";
+      link.type = "image/svg+xml";
+      link.href = svgIcon;
+      doc.head.appendChild(link);
+    })();
+    </script>
+    """,
+    height=0,
+    width=0
+)
+
 # Escudo protector contra recarga accidental o cierre de pestaña si hay datos activos
 if len(st.session_state.get("historial_observaciones", [])) > 0:
     components.html(
