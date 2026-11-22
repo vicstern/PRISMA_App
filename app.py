@@ -199,7 +199,7 @@ from datetime import datetime
 
 # --- CONFIGURACIÓN Y ESTILOS DE INTERFAZ ---
 st.set_page_config(
-    page_title="Aula Viva® con IA — PRISMA™",
+    page_title="PRISMA™",
     page_icon="🌌",
     layout="wide"
 )
