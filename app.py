@@ -1374,7 +1374,7 @@ with st.sidebar:
     st.radio(
         t("lang_label"),
         options=["es", "en"],
-        format_func=lambda x: "🇪🇸 Español" if x == "es" else "🇬🇧 English",
+        format_func=lambda x: "Español" if x == "es" else "English",
         horizontal=True,
         key="lang",
         on_change=on_change_lang,
