@@ -1,4 +1,4 @@
-# PRISMA™ — Platform for Reflection and Interpretation in Multidimensional Assessment of Learning
+# PRISMA™ — Platform for Reflection, Interpretation, and Synthesis in Multidimensional Assessment
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Python 3.9+](https://img.shields.io/badge/Python-3.9+-green.svg)](https://www.python.org/)
@@ -6,7 +6,10 @@
 [![Child Data Sovereignty](https://img.shields.io/badge/Child_Data-Air--Gapped-red.svg)]()
 [![Bilingual](https://img.shields.io/badge/UI-ES%20%7C%20EN-0969da.svg)]()
 
-PRISMA™ is an open-source, air-gapped, edge-AI qualitative pedagogical transducer. It bridges international competency frameworks with community-based learning models by analyzing brief teacher observations, projecting multidimensional student growth onto an eight-dimensional vector space ($\mathbb{R}^8$), and translating longitudinal records into official curricular reports ready for institutional systems.
+PRISMA™ is an open-source, air-gapped, edge-AI qualitative pedagogical transducer that **eliminates administrative double-work** while safeguarding student well-being. From brief classroom observations, PRISMA™ projects multidimensional growth onto an eight-dimensional vector space ($\mathbb{R}^8$) and **automatically translates longitudinal student records into ready-to-submit Official Reports (editable text & Word `.docx`)** aligned to **SEP / NEM**, **International Baccalaureate (IB)**, **UNAM / CCH**, **Cambridge (IGCSE / A-Levels)**, or custom institutional criteria — 100% offline.
+
+> *“Shining white light through learners and projecting its refracted colors to reveal the profound journey of their growth.”*  
+> *«Hacer brillar luz blanca a través de cada estudiante y proyectar sus colores refractados para revelar el profundo camino de su crecimiento.»*
 
 Developed as the analytical intero-proprioceptive engine of the **ASPIRE® Ecosystem** (INDAUTOR Reg. `03-2026-040710022300-01` | SSRN DOI: [10.2139/ssrn.7310080](https://doi.org/10.2139/ssrn.7310080)).
 
@@ -43,6 +46,7 @@ Developed as the analytical intero-proprioceptive engine of the **ASPIRE® Ecosy
 - **Hardware Tiers:**
   - **PRISMA 4B** (`Qwen3.5-4B`, ~2.71 GB): Recommended for **8 GB RAM** laptops (Apple Silicon M1+, standard Windows/Linux).
   - **PRISMA 9B** (`Qwen3.5-9B`, ~5.63 GB): Recommended for **16+ GB RAM** machines for deeper analytical nuance and broader multilingual fidelity.
+- **Native Bilingual Engines (`EN` | `ES`, 0 GB extra disk space):** Each installation automatically compiles dedicated English (`-en`) and Spanish (`-es`) engines from the exact same local `.gguf` weights via Ollama layer deduplication (`Modelfile.en` / `Modelfile.es`). Teachers can write notes in English, Spanish, or any natively supported language and receive consistent output in the active interface language.
 
 ### 1. Clone or Download the Repository
 ```bash

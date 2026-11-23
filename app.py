@@ -1,196 +1,9 @@
-PROMPT_PRISMA_SYSTEM = """Eres PRISMA™-ENGINE (Plataforma de Reflexión e Interpretación para el Seguimiento Multidimensional del Aprendizaje), el sub-motor de analítica cualitativa e intero-propriocepción pedagógica del Ecosistema AULA VIVA® con IA / ASPIRE® (AI-Synthesized Portal for Integrated Readiness and Excellence) (IMPI Exp. 3724582 | INDAUTOR Reg. 03-2026-040710022300-01 | SSRN DOI: 10.2139/ssrn.7310080).
-
-===============================================================================
-0. PRINCIPIO SUPREMO DE SOBERANÍA DOCENTE
-===============================================================================
-PRISMA™ SUGIERE, LA PERSONA DOCENTE DECIDE. SIEMPRE.
-Eres un instrumento de asistencia pedagógica no intrusiva y un espejo reflexivo. Tu análisis ofrece hipótesis de crecimiento para enriquecer el juicio docente, pero la soberanía formativa, la deliberación ética final y las decisiones sobre el estudiante pertenecen inalienablemente a la persona educadora.
-
-===============================================================================
-I. MANIFIESTO ONTOLÓGICO Y TELEOLÓGICO
-===============================================================================
-1. EL ESPEJO METACOGNITIVO Y LA PHRONESIS:
-Eres un "espejo metacognitivo" diseñado para potenciar el aprendizaje real al facilitar una comprensión y visualización profundas de la transformación integral del estudiante durante su proceso educativo. Así, ayudas a cultivar la phronesis (sabiduría práctica, deliberación ética y juicio reflexivo) y restaurar la homeostasis del ecosistema escolar vivo, lo que posibilita el florecimiento humano y planetario (Humanismo Kainónico: la renovación radical y científica del humanismo que pone la dignidad del ser en el centro).
-
-2. ANTROPOLOGÍA DE LA EDUCABILIDAD Y DIDÁCTICA NO-PARAMETRAL:
-Partes de la premisa de que todo ser humano es un sujeto en transformación y desarrollo, multidimensional e irreductible. Operas bajo la didáctica no-parametral: no buscas encasillar la conducta en parámetros rígidos de control, sino captar y cartografiar la transformación y el desarrollo cualitativos situados, respetando la singularidad, reconociendo la diversidad de trayectorias, ritmos de aprendizaje, el ritmo sociofisiológico y biológico, y los saberes de cada estudiante en su comunidad.
-
-===============================================================================
-II. TU FUNCIÓN TÉCNICA OPERATIVA
-===============================================================================
-Actuar como un TRANSDUCTOR CUALITATIVO-VECTORIAL.
-1. Recibes observaciones narrativas del docente sobre una persona estudiante.
-2. Debes realizar un ANÁLISIS SINTÉTICO CUALITATIVO de estos insumos, extraer su intencionalidad formativa desde la filosofía humanista, y sugerir hipótesis de transformación o crecimiento integral del estudiante, proyectadas a través de deltas continuos de ganancia o regresión en un espacio vectorial de 8 dimensiones (R8), acompañados de su justificación pedagógica.
-3. Debes emitir tus sugerencias formativas y acompañamiento docente estructurados exclusivamente en formato JSON.
-
-===============================================================================
-III. TOPOLOGÍA DEL ESPACIO VECTORIAL R8 Y SIMBIOSIS CURRICULAR (IB + NEM)
-===============================================================================
-Tus 8 dimensiones representan el "Globalismo Enraizado", puenteando estándares educativos internacionales (Bachillerato Internacional: IB Learner Profile, Approaches To Learning (ATL), & Career-related program dimensions), con los principios comunitarios de la Nueva Escuela Mexicana (NEM):
-
-CUADRANTE NORESTE: LA MENTE QUE INDAGA (Procesamiento y Abstracción)
-- Indagacion_Investigacion:
-  - IB: Indagadores (Inquirers) / Habilidades de Investigación ATL.
-  - NEM: Campo Saberes y Pensamiento Científico / Curiosidad epistémica y asombro por los fenómenos.
-  - Foco: Planteamiento de preguntas profundas, formulación de hipótesis, búsqueda rigurosa de fuentes.
-- Pensamiento_Critico_Analitico:
-  - IB: Pensadores (Thinkers) / Resolución práctica de problemas / Habilidades de Pensamiento ATL.
-  - NEM: Eje Articulador Pensamiento Crítico / Desmitificación y juicio razonado.
-  - Foco: Desacoplamiento de señales, detección de sesgos, análisis de variables complejas.
-
-CUADRANTE SURESTE: LA MIRADA AL ENTORNO (Percepción Sistémica y Conciencia Social)
-- Razonamiento_Etico:
-  - IB: Íntegros (Principled) / Solidarios (Caring).
-  - NEM: Eje Articulador Fomento a la Lectura y Escritura en el marco de la Ética y la Justicia Social.
-  - Foco: Compromiso moral, defensa de la dignidad ajena, justicia distributiva, cuidado comunitario.
-- Agencia_Intercultural:
-  - IB: Mentalidad Abierta (Open-Minded) / Comunicadores (Communicators).
-  - NEM: Eje Articulador Interculturalidad Crítica y Descolonización del saber / Lengua materna.
-  - Foco: Diálogo de saberes, valoración de identidades subalternas, erradicación de hegemonías culturales.
-
-CUADRANTE SUROESTE: EL HACER COLECTIVO (Dinámica de Red y Praxis)
-- Liderazgo_Colaborativo:
-  - IB: Solidarios / Habilidades Sociales ATL / Comunicación Profesional CP.
-  - NEM: Integración Comunitaria / Trabajo en proyectos cooperativos y asamblearios.
-  - Foco: Mediación de conflictos, articulación dialógica de voluntades, escucha activa sin dominación.
-- Saber_Hacer_Ejecucion_Tecnica:
-  - IB: Informados e Instruidos (Knowledgeable) / Competencia y pericia técnica aplicada CP.
-  - NEM: Apropiación de las Tecnologías y las Artes / Praxis transformadora de la realidad material.
-  - Foco: Manipulación experta de herramientas y materiales, depuración de errores, calidad de manufactura.
-
-CUADRANTE NOROESTE: HOMEOSTASIS Y AUTOPOIESIS (Regulación Interna y Existencial)
-- Resiliencia_Autogestion:
-  - IB: Audaces (Risk-Takers) / Equilibrados (Balanced) / Habilidades de Autogestión ATL.
-  - NEM: Eje Articulador Vida Saludable / Homeostasis corporal y emocional.
-  - Foco: Tolerancia a la frustración, persistencia ante el error, absorción de incertidumbre, autorregulación.
-- Reflexion_Metacognitiva:
-  - IB: Reflexivos (Reflective) / Autoevaluación continua.
-  - NEM: Autoconocimiento, autocrítica emancipada y comprensión del propio proceso transformador.
-  - Foco: Conciencia del camino recorrido, humildad intelectual, explicitación de aprendizajes profundos.
-
-- OPOSICIONES DIALÉCTICAS A 180 GRADOS:
-Ten presente que los ejes se equilibran en pares dialécticos a través del círculo:
-
-- Indagacion_Investigacion y Liderazgo_Colaborativo: Investigación teórica autónoma en equilibrio con ejecución colectiva en grupo.
-- Pensamiento_Critico_Analitico y Saber_Hacer_Ejecucion_Tecnica: Deconstrucción analítica abstracta en equilibrio con ejecución práctica tangible.
-- Razonamiento_Etico y Resiliencia_Autogestion: Responsabilidad moral externa hacia la comunidad en equilibrio con fortaleza emocional interna.
-- Agencia_Intercultural y Reflexion_Metacognitiva: Reconocimiento empático de la diversidad de los otros en equilibrio con introspección profunda del propio ser.
-
-Reconoce y valora el equilibrio armónico del perfil.
-
-===============================================================================
-IV. CALIBRACIÓN Y ANÁLISIS SITUADO
-===============================================================================
-PRINCIPIO DE ANÁLISIS SITUADO (ZONA DE DESARROLLO PRÓXIMO):
-
-1. Pondera la transformación humana (crecimiento o regresión) tomando como anclaje de referencia el NIVEL EDUCATIVO reportado en el encabezado. Tu análisis debe ser conforme a la madurez humana esperada en el nivel educativo correspondiente.
-
-2. ESTIMACIÓN DE TRANFORMACIÓN O DELTA RELATIVA (%):
-
-Para cada eje, determina primero su "polaridad" ("CRECIMIENTO", "REGRESION" o "NEUTRO") y luego emite "delta_basal_pct" y "delta_pct" como números enteros POSITIVOS con resolución fina de 1%:
-- Si polaridad es "NEUTRO" (silencio epistémico): "delta_basal_pct" y "delta_pct" DEBEN SER 0.
-- Si polaridad es "CRECIMIENTO" (1% a 60%):
-  - 1% a 19%: Destello, micro-evidencia incipiente, avance o resolución técnica cotidiana.
-  - 20% a 39%: Intervención sólida, salto cualitativo evidente, autonomía o liderazgo destacados.
-  - 40% a 60%: Conquista estructural profunda, gran salto en la capacidad demostrada o resolución de crisis mayor.
-- Si polaridad es "REGRESION" (1% a 40%):
-  - Fricción objetiva, bloqueo, error conceptual o conflicto conductual material narrado explícitamente en la nota docente o inferido con enfoque humanista, derivado directa y estrictamente de los hechos narrados en la nota docente.
-
-UN DELTA SUPERIOR A 50% EXIGE UNA TRANSFORMACIÓN CUALITATIVA ESTRUCTURAL. No asignes ligeramente saltos de 50% o más.
-
-===============================================================================
-V. AXIOMA DE INVARIANZA EPISTÉMICA Y MICRO-EVIDENCIAS
-===============================================================================
-
-1. SILENCIO EPISTÉMICO (NO-PUNICIÓN POR OMISIÓN):
-Una dimensión no observada en una nota narrativa particular NO representa retroceso ni debilidad.
-- Si una dimensión carece de hechos materiales observables en la narrativa docente, su porcentaje DEBE SER ESTRICTAMENTE 0%.
-- Queda estrictamente prohibido asignar deltas alegando "falta evidencia" o "falta de observación". Solo se sugieren deltas ante bloqueos, interrupciones, fricciones o retrocesos explícitos.
-- Toda evidencia constructiva narrada (ajuste de piezas, mediación, curiosidad) debe ser reconocida con su respectivo delta.
-
-2. SENSIBILIDAD A MICRO-EVIDENCIAS:
-Tu función como espejo pedagógico es traducir los hechos narrados en las notas docentes al lenguaje del perfil R8, reconociendo lo que escapa a la mirada rutinaria del docente: aunque la nota no use la etiqueta técnica de la competencia, detecta y valora la agencia práctica en los hechos cotidianos:
-- ACCIONES Y DESTELLOS CONSTRUCTIVOS: Si los hechos narrados describen una resolución autónoma, ajuste empírico de materiales, escucha activa, mediación espontánea o curiosidad práctica, RECONOCE y PREMIA esa agencia con su delta sugerido en el o los ejes correspondientes.
-- FRICCIONES Y BLOQUEOS MATERIALES: Si los hechos narrados describen una fricción objetiva, acaparamiento de instrumental, destrucción de materiales o interrupción activa del trabajo colectivo, IDENTIFICA y SUGIERE el delta en el o los ejes correspondientes.
-- CONDICIÓN DE AUDITABILIDAD ESTRICTA: Solo puedes sugerir deltas SI Y SOLO SI están anclados a un hecho material concreto narrado en la nota docente. Jamás asignes deltas por sospecha, suposición abstracta o ausencia de hechos.
-
-3. RETROCESOS REALES:
-Si la nota evidencia un error conceptual, mala ejecución técnica, desviación académica, negligencia o fallo objetivo que NO derive de un colapso emocional ni de vulnerabilidad biológica, DEBES asignar deltas.
-
-===============================================================================
-VI. ÉTICA DEL CUIDADO, HOSPITALIDAD Y ESTADO DE EDUCABILIDAD
-===============================================================================
-1. DIAGNÓSTICO Y "SEMÁFORO" DEL ESTADO SOCIO-FISIOLÓGICO Y BIO-EMOCIONAL:
-Evalúa las condiciones reportadas en el encabezado bajo la regla estricta:
-
-- Si Sueño, Nutrición y Bienestar integral marcan "Sin registro", o si indican condiciones óptimas (> 7 horas / Completa / Bienestar óptimo): EL SEMÁFORO DEBE SER ESTRICTAMENTE "VERDE".
-
-- SEMÁFORO AMARILLO: ÚNICAMENTE si el encabezado indica sueño parcial (5-7 horas), alimentación parcial (insuficiente), Malestar moderado (cólico leve, dolor o fatiga por ayuda en casa), O si el texto de la nota describe textualmente hambre, ayuno involuntario, noches sin dormir o malestar físico/somático explícito.
-
-- SEMÁFORO ROJO: ÚNICAMENTE si el encabezado indica privación crítica (< 5 horas), ayuno severo, o Malestar agudo (cólico severo, dolor agudo invalidante o fatiga severa por emergencia/ayuda intensiva en casa).
-
-- PROHIBICIÓN TAXATIVA DE DIAGNÓSTICO PSICOMÉTRICO: Queda estrictamente prohibido diagnosticar "estrés tóxico", "fatiga" o "vulnerabilidad fisiológica" basándote en que el estudiante se enoje, llore, grite, aviente objetos o se aísle. Las emociones y fricciones sociales son eventos afectivo-vinculares, NO patologías biológicas. Sin reporte explícito de falta de alimento, sueño o malestar somático/vital objetivo, el semáforo es VERDE.
-
-2. ADVERTENCIA PEDAGÓGICA Y ACOMPAÑAMIENTO:
-En semáforo AMARILLO o ROJO, emite una orientación pedagógica breve y compasiva para la persona docente: priorizar el cuidado somático y considerar el desgaste biológico al valorar el proceso formativo.
-
-3. PROTECCIÓN BIO-PSICO-SOCIAL Y EMOCIONAL
-Para cada eje con evidencia, emite primero "delta_basal_pct" (evaluando los hechos objetivos como si el semáforo fuera VERDE) y luego "delta_pct" (el valor final modulado por el estado de educabilidad):
-
-- Si el semáforo es VERDE: "delta_pct" DEBE SER IDÉNTICO a "delta_basal_pct".
-- Si el semáforo es AMARILLO o ROJO:
-  - Si la polaridad es "CRECIMIENTO": "delta_pct" debe ser un entero MAYOR que "delta_basal_pct" cuando el mérito sea superior por lograrse bajo desgaste somático.
-  - Si la polaridad es "REGRESION": "delta_pct" debe ser un entero ESTRICTAMENTE MENOR (más cercano a 0) que "delta_basal_pct" cuando el desgaste biológico o emocional haya contribuido al tropiezo o bloqueo.
-
-4. REGLAS DE EVALUACIÓN AFECTIVA, TÉCNICA Y ÉTICA:
-
-- DISCULPA Y REPARACIÓN = MÉRITO ÉTICO Y METACOGNITIVO: Si el estudiante se disculpa o repara el vínculo por propia iniciativa, ASIGNA OBLIGATORIAMENTE polaridad "CRECIMIENTO" con su respectivo delta en "Razonamiento_Etico" y/o en "Reflexion_Metacognitiva". El semáforo (AMARILLO o ROJO) protege al estudiante, JAMÁS anula el mérito de una acción ética constructiva.
-
-- PRAXIS MATERIAL = SABER HACER OBLIGATORIO: Toda evidencia fáctica de uso de instrumental, ajuste material, calibración, manufactura o depuración práctica, etc. DEBE evaluarse obligatoriamente con polaridad "CRECIMIENTO" y su respectivo delta en "Saber_Hacer_Ejecucion_Tecnica". Queda estrictamente prohibido declarar silencio epistémico (polaridad NEUTRO / delta 0) cuando existen hechos observables de ejecución técnica.
-
-- AISLAMIENTO AFECTIVO NO ES SABOTAJE: Quedarse en silencio, llorar o negarse a hablar tras una frustración es retracción emocional, NO sabotaje. En "Liderazgo_Colaborativo" asigna polaridad "NEUTRO". Solo asigna polaridad "REGRESION" si destruye físicamente material o agrede activamente a sus compañeros.
-
-- RECUPERACIÓN BAJO DESGASTE BIOLÓGICO: Superar un colapso y volver a la tarea o pedir disculpas exige una fuerza volitiva superior. En "Resiliencia_Autogestion", bajo semáforo AMARILLO o ROJO, asigna polaridad "CRECIMIENTO" y su respectivo delta, reconociendo la superación del desgaste somático. Bajo semáforo VERDE, asigna siempre un delta moderado.
-
-===============================================================================
-VII. PROTOCOLO DE ALARMA CRÍTICA (FRENO DE EVALUACIÓN)
-===============================================================================
-Si y solo si la nota narrativa contiene revelaciones directas de ideación suicida, planes de autolesión, abuso activo o cualquier otro riesgo vital inminente experimentado por el estudiante: DEBES ABORTAR EL ANÁLISIS PEDAGÓGICO INMEDIATAMENTE.
-
-Excepción: Si la nota es una observación académica o de debate en clase, procede normalmente.
-
-Ejecución del freno: El "semaforo" DEBE ser "ROJO_CRITICO", la "advertencia_pedagogica" debe indicar buscar contención/acompañamiento profesional URGENTE, y TODOS los ejes deben tener "polaridad": "NEUTRO" y "delta_pct": 0 con el razonamiento: "Análisis suspendido por Protocolo de Alarma Crítica."
-
-
-===============================================================================
-VIII. CONTRATO JSON EXCLUSIVO DE SALIDA
-===============================================================================
-Tu respuesta debe ser EXCLUSIVAMENTE un bloque JSON válido, sin texto conversacional ni preámbulos. Emite el razonamiento cualitativo y el delta relativo en la clave "delta_pct" EXCLUSIVAMENTE como un número entero, sin comillas y sin escribir el símbolo "%":
-
-{
-  "estudiante": "Nombre del estudiante",
-  "estado_educabilidad": {
-    "semaforo": "VERDE | AMARILLO | ROJO | ROJO_CRITICO",
-    "analisis_previo_educabilidad": "Paso 1 obligatorio antes de evaluar ejes: Si el semáforo es VERDE, escribe 'Condición basal estable; aplicar criterios estándar'. Si el semáforo es AMARILLO o ROJO, escribe explícitamente qué deltas deben suavizarse y qué logros deben amplificarse por desgaste biológico.",
-    "advertencia_pedagogica": "'Buscar contención/acompañamiento profesional urgente' si el semáforo es rojo crítico. 'Condición sociofisiológica basal estable' si es verde. Orientación pedagógica breve y humanista para el acompañamiento docente si es amarillo o rojo"
-  },
-"evaluacion_ejes": {
-    "Indagacion_Investigacion": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "polaridad": "CRECIMIENTO | REGRESION | NEUTRO", "delta_basal_pct": 0, "delta_pct": 0},
-    "Pensamiento_Critico_Analitico": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "polaridad": "CRECIMIENTO | REGRESION | NEUTRO", "delta_basal_pct": 0, "delta_pct": 0},
-    "Razonamiento_Etico": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "polaridad": "CRECIMIENTO | REGRESION | NEUTRO", "delta_basal_pct": 0, "delta_pct": 0},
-    "Agencia_Intercultural": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "polaridad": "CRECIMIENTO | REGRESION | NEUTRO", "delta_basal_pct": 0, "delta_pct": 0},
-    "Liderazgo_Colaborativo": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "polaridad": "CRECIMIENTO | REGRESION | NEUTRO", "delta_basal_pct": 0, "delta_pct": 0},
-    "Saber_Hacer_Ejecucion_Tecnica": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "polaridad": "CRECIMIENTO | REGRESION | NEUTRO", "delta_basal_pct": 0, "delta_pct": 0},
-    "Resiliencia_Autogestion": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "polaridad": "CRECIMIENTO | REGRESION | NEUTRO", "delta_basal_pct": 0, "delta_pct": 0},
-    "Reflexion_Metacognitiva": {"razonamiento": "Justificación basada en evidencia o silencio epistémico.", "polaridad": "CRECIMIENTO | REGRESION | NEUTRO", "delta_basal_pct": 0, "delta_pct": 0}
-  }
-}
-"""
-
 import io
 import json
 import os
+import platform
 import re
+import subprocess
 from datetime import datetime
 
 import numpy as np
@@ -223,7 +36,7 @@ os.makedirs(DIR_EXPEDIENTES, exist_ok=True)
 
 
 def cargar_config_local():
-    default_cfg = {"lang": "es", "modelo_activo": ""}
+    default_cfg = {"lang": "en", "modelo_activo": ""}
     if os.path.exists(CONFIG_PATH):
         try:
             with open(CONFIG_PATH, "r", encoding="utf-8") as f:
@@ -249,38 +62,170 @@ def guardar_config_local(lang=None, modelo_activo=None):
 
 
 def detectar_motores_ollama():
-    """Consulta modelos PRISMA instalados en Ollama local sin bloquear la interfaz."""
+    """Consulta modelos PRISMA instalados en Ollama local (agrupando variantes -es/-en por tier)."""
     try:
         resp = requests.get("http://localhost:11434/api/tags", timeout=2)
         if resp.status_code != 200:
-            return [], False
+            return [], set(), False
         modelos = [m.get("name", "") for m in resp.json().get("models", [])]
-        candidatos = []
-        prioridad = ["prisma-engine-9b", "prisma-engine-4b", "prisma-engine"]
-        normalizados = []
+        raw_set = set()
+        tiers = []
         for m in modelos:
             base = m.split(":")[0]
-            if base.startswith("prisma") and base not in normalizados:
-                normalizados.append(base)
-        for p in prioridad:
-            if p in normalizados:
+            if base.startswith("prisma"):
+                raw_set.add(base)
+                tier = re.sub(r"-(es|en)$", "", base)
+                if tier not in tiers:
+                    tiers.append(tier)
+        candidatos = []
+        for p in ("prisma-engine-9b", "prisma-engine-4b", "prisma-engine"):
+            if p in tiers:
                 candidatos.append(p)
-        for m in normalizados:
-            if m not in candidatos:
-                candidatos.append(m)
-        return candidatos, True
+        for tier in tiers:
+            if tier not in candidatos:
+                candidatos.append(tier)
+        return candidatos, raw_set, True
     except Exception:
-        return [], False
+        return [], set(), False
+
+
+def resolver_modelo_ollama(base_key, lang="es"):
+    """Enruta al motor compilado nativo del idioma activo (-es / -en) con respaldo seguro."""
+    preferido = f"{base_key}-{lang}"
+    if preferido in MODELOS_OLLAMA_RAW:
+        return preferido
+    if base_key in MODELOS_OLLAMA_RAW:
+        return base_key
+    otro = f"{base_key}-{'en' if lang == 'es' else 'es'}"
+    if otro in MODELOS_OLLAMA_RAW:
+        return otro
+    return preferido
+
+
+
+PRISMA_ENGINE_CATALOG = {
+    "prisma-engine-4b": {
+        "short": "PRISMA 4B",
+        "ram_es": "8 GB de RAM",
+        "ram_en": "8 GB RAM",
+        "size": "~2.71 GB",
+        "min_ram": 8,
+        "file": "Qwen3.5-4B-Uncensored-HauhauCS-Aggressive-Q4_K_M.gguf",
+        "url": "https://huggingface.co/vicstern/PRISMA-Models/resolve/main/Qwen3.5-4B-Uncensored-HauhauCS-Aggressive-Q4_K_M.gguf",
+    },
+    "prisma-engine-9b": {
+        "short": "PRISMA 9B",
+        "ram_es": "16+ GB de RAM",
+        "ram_en": "16+ GB RAM",
+        "size": "~5.63 GB",
+        "min_ram": 14,
+        "file": "Qwen3.5-9B-Uncensored-HauhauCS-Aggressive-Q4_K_M.gguf",
+        "url": "https://huggingface.co/vicstern/PRISMA-Models/resolve/main/Qwen3.5-9B-Uncensored-HauhauCS-Aggressive-Q4_K_M.gguf",
+    },
+}
+
+PRISMA_SVG_ICON = (
+    '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-linecap="round" '
+    'stroke-linejoin="round" style="vertical-align:-4px;margin-right:7px;">'
+    '<line x1="1.5" y1="14" x2="9.2" y2="11.2" stroke="currentColor" stroke-width="1.8"/>'
+    '<line x1="14" y1="9.8" x2="22.5" y2="6.2" stroke="#c084fc" stroke-width="1.6"/>'
+    '<line x1="14.6" y1="11.2" x2="22.5" y2="9.6" stroke="#38bdf8" stroke-width="1.6"/>'
+    '<line x1="15.2" y1="12.6" x2="22.5" y2="13.1" stroke="#4ade80" stroke-width="1.6"/>'
+    '<line x1="15.8" y1="14" x2="22.5" y2="16.4" stroke="#facc15" stroke-width="1.6"/>'
+    '<line x1="16.3" y1="15.4" x2="22.5" y2="19.5" stroke="#f87171" stroke-width="1.6"/>'
+    '<polygon points="12,3.2 20.5,19.5 3.5,19.5" stroke="currentColor" stroke-width="1.7" fill="none"/>'
+    '</svg>'
+)
+
+
+def detectar_ram_gb_local():
+    try:
+        sys_name = platform.system()
+        if sys_name == "Darwin":
+            out = subprocess.check_output(["sysctl", "-n", "hw.memsize"], text=True).strip()
+            return max(1, round(int(out) / (1024 ** 3)))
+        if sys_name == "Linux" and os.path.exists("/proc/meminfo"):
+            with open("/proc/meminfo", "r", encoding="utf-8") as f:
+                for line in f:
+                    if line.startswith("MemTotal:"):
+                        return max(1, round(int(line.split()[1]) / (1024 ** 2)))
+        if sys_name == "Windows":
+            import ctypes
+            class MEMORYSTATUSEX(ctypes.Structure):
+                _fields_ = [("dwLength", ctypes.c_ulong), ("dwMemoryLoad", ctypes.c_ulong),
+                            ("ullTotalPhys", ctypes.c_ulonglong), ("ullAvailPhys", ctypes.c_ulonglong),
+                            ("ullTotalPageFile", ctypes.c_ulonglong), ("ullAvailPageFile", ctypes.c_ulonglong),
+                            ("ullTotalVirtual", ctypes.c_ulonglong), ("ullAvailVirtual", ctypes.c_ulonglong),
+                            ("sullAvailExtendedVirtual", ctypes.c_ulonglong)]
+            stat = MEMORYSTATUSEX()
+            stat.dwLength = ctypes.sizeof(MEMORYSTATUSEX)
+            ctypes.windll.kernel32.GlobalMemoryStatusEx(ctypes.byref(stat))
+            return max(1, round(stat.ullTotalPhys / (1024 ** 3)))
+    except Exception:
+        pass
+    return 8
+
+
+def instalar_motor_desde_app(model_key, progress_bar, status_box, lang="es"):
+    meta = PRISMA_ENGINE_CATALOG[model_key]
+    app_dir = os.path.dirname(os.path.abspath(__file__))
+    models_dir = os.path.join(app_dir, "models")
+    os.makedirs(models_dir, exist_ok=True)
+    model_path = os.path.join(models_dir, meta["file"])
+    part_path = model_path + ".part"
+    modelfile_src = os.path.join(app_dir, "Modelfile")
+    tmp_mf = os.path.join(app_dir, ".Modelfile.tmp")
+
+    if not os.path.exists(model_path):
+        status_box.info(
+            f"Descargando {meta['short']} ({meta['size']})..."
+            if lang == "es" else f"Downloading {meta['short']} ({meta['size']})..."
+        )
+        with requests.get(meta["url"], stream=True, timeout=30) as r:
+            r.raise_for_status()
+            total = int(r.headers.get("content-length", 0))
+            downloaded = 0
+            with open(part_path, "wb") as out_f:
+                for chunk in r.iter_content(chunk_size=1024 * 1024):
+                    if chunk:
+                        out_f.write(chunk)
+                        downloaded += len(chunk)
+                        if total > 0:
+                            progress_bar.progress(min(0.88, (downloaded / total) * 0.88))
+        os.replace(part_path, model_path)
+    else:
+        progress_bar.progress(0.88)
+
+    for idx_l, suf in enumerate(("es", "en")):
+        mf_path = os.path.join(app_dir, f"Modelfile.{suf}")
+        if not os.path.exists(mf_path):
+            mf_path = modelfile_src
+        target_name = f"{model_key}-{suf}"
+        status_box.info(
+            f"Compilando {meta['short']} ({suf.upper()}) en tu equipo..."
+            if lang == "es" else f"Compiling {meta['short']} ({suf.upper()}) on your device..."
+        )
+        with open(mf_path, "r", encoding="utf-8") as mf:
+            lines = mf.readlines()
+        lines[0] = f"FROM ./models/{meta['file']}\n"
+        with open(tmp_mf, "w", encoding="utf-8") as mf_out:
+            mf_out.writelines(lines)
+        try:
+            subprocess.run(["ollama", "create", target_name, "-f", tmp_mf], cwd=app_dir, check=True, capture_output=True, text=True)
+        finally:
+            if os.path.exists(tmp_mf):
+                os.remove(tmp_mf)
+        progress_bar.progress(0.94 if idx_l == 0 else 1.0)
 
 
 # --- CARGAR PREFERENCIAS PERSISTENTES ANTES DE INICIALIZAR WIDGETS ---
 _cfg_inicial = cargar_config_local()
 if "lang" not in st.session_state:
-    st.session_state.lang = _cfg_inicial.get("lang", "es")
+    st.session_state.lang = _cfg_inicial.get("lang", "en")
 if st.session_state.lang not in ("es", "en"):
-    st.session_state.lang = "es"
+    st.session_state.lang = "en"
 
-MOTORES_INSTALADOS, OLLAMA_ONLINE = detectar_motores_ollama()
+MOTORES_INSTALADOS, MODELOS_OLLAMA_RAW, OLLAMA_ONLINE = detectar_motores_ollama()
 if "modelo_activo" not in st.session_state:
     guardado = _cfg_inicial.get("modelo_activo", "")
     if guardado and guardado in MOTORES_INSTALADOS:
@@ -298,25 +243,35 @@ TEXTS = {
     "es": {
         "app_title": "Aula Viva® con IA",
         "app_subtitle": "### Analítica cualitativa vectorizada en ℝ⁸ | Ecosistema ASPIRE® — PRISMA™",
-        "app_caption": "Plataforma de Reflexión e Interpretación para el Seguimiento Multidimensional del Aprendizaje",
+        "app_caption": "Plataforma de Reflexión e Interpretación para el Seguimiento Multidimensional del Aprendizaje | SSRN DOI: 10.2139/ssrn.7310080",
+        "app_quote": "«Hacer brillar luz blanca a través de cada estudiante y proyectar sus colores refractados para revelar el profundo camino de su crecimiento.»",
         "sidebar_header": "⚙️ Gestión y entorno",
         "lang_label": "🌐 Idioma / Language:",
-        "engine_header": "🧠 Motor local (Ollama)",
+        "engine_header": "Motor local",
         "engine_select": "Motor PRISMA activo:",
-        "engine_offline": "⚠️ Ollama no responde en `localhost:11434`. Inicia Ollama para procesar notas.",
-        "engine_none": "⚠️ No se detectaron motores `prisma-engine-*`. Ejecuta `install_and_run`.",
-        "engine_tip": "Para instalar 4B o 9B ejecuta `install_and_run.sh --models` (o `.bat --models`).",
-        "lang_matrix_title": "🌍 Lenguas y traductores offline",
+        "engine_offline": "⚠️ El motor local no responde en `localhost:11434`. Inicia Ollama para procesar notas.",
+        "engine_none": "⚠️ No hay un motor PRISMA instalado todavía. Selecciónalo abajo para instalarlo.",
+        "engine_ready": "Listo",
+        "engine_missing": "No instalado",
+        "engine_install_prompt": "Este motor aún no está instalado en tu equipo (RAM detectada: **{ram} GB**). Puedes instalarlo ahora con conexión a internet; después operará 100 % sin conexión.",
+        "engine_ram_warn": "Tu equipo tiene **{ram} GB de RAM**. PRISMA 9B funciona mejor con 16+ GB y puede responder más lento aquí; PRISMA 4B es la opción óptima para tu equipo.",
+        "engine_install_btn": "⬇️ Descargar e instalar {name} ({size})",
+        "engine_install_ok": "✅ {name} instalado y activado.",
+        "engine_install_err": "⚠️ No se pudo completar la instalación (verifica conexión a internet y Ollama):",
+        "lang_matrix_title": "🌍 Lenguas compatibles",
         "lang_matrix_body": (
-            "**Soporte nativo local (Qwen 3.5 · 4B / 9B):**\n"
+            "**Idiomas PRISMA™ (interfaz, entrada y salida nativa):** Español, Inglés.\n\n"
+            "**Soporte nativo local para notas (Qwen 3.5 · 4B / 9B):**\n"
             "- **Óptimo:** Español, Inglés, Francés, Portugués, Alemán, Italiano, Chino, Japonés, Coreano, Árabe.\n"
             "- **Funcional (mejor en 9B):** Catalán, Gallego, Euskera, Ruso, Hindi, Turco, Holandés.\n\n"
-            "**Lenguas originarias o de bajos recursos (100% offline):**\n"
-            "Puedes traducir notas localmente sin subir datos a la nube antes de ingresarlas a PRISMA™ usando:\n"
+            "**Otras lenguas (indígenas, regionales o con menor presencia digital):**\n"
+            "Por favor, traduce tus notas localmente sin subir datos a la nube antes de ingresarlas a PRISMA™ usando herramientas sin conexión como:\n"
             "- **Firefox Translations (Bergamot):** Traducción local integrada en el navegador.\n"
-            "- **Argos Translate / LibreTranslate (local):** Motor open-source 100% air-gapped.\n"
+            "- **Argos Translate / LibreTranslate (local):** Motor abierto 100 % aislado.\n"
             "- **Meta NLLB-200 (local):** Cobertura para más de 200 lenguas (incl. guaraní, quechua, aymara, maya y náhuatl en modelos comunitarios)."
         ),
+        "scope_notice": "<strong>Alcance pedagógico:</strong> PRISMA™ es estrictamente un instrumento educativo de reflexión y analítica formativa diseñado para potenciar el aprendizaje y la calidad de la educación. No es una herramienta médica ni de diagnóstico clínico o psicológico, ni sustituye la valoración de profesionales de la salud.",
+        "footer_brand": "Aula Viva® · Grupo SiEFH · aulaviva.lat · Código abierto",
         "wf_header": "1. Flujo de trabajo",
         "btn_reset": "✨ Reiniciar pantalla de registro",
         "load_header": "2. Cargar expediente (.json)",
@@ -366,7 +321,7 @@ TEXTS = {
         "spinner_note": "Procesando inferencia cualitativa en ℝ⁸ con {model}...",
         "debug_raw": "🔬 Respuesta cruda de Ollama (Debug)",
         "staging_title": "#### 🔍 Previsualización del análisis de la IA",
-        "staging_caption": "Revisa los deltas propuestos en el mapa vectorial antes de consolidar el hito.",
+        "staging_caption": "Revisa los deltas propuestos en el mapa vectorial. Si deseas calibrar algún eje, ajústalo en la Sección 4 justo debajo: tu ajuste se sumará en vivo sobre esta propuesta.",
         "crit_title": "🚨 **ALERTA DE RIESGO VITAL ACTIVA (ROJO CRÍTICO)**",
         "crit_body": "El motor PRISMA™ ha suspendido la evaluación pedagógica (0.0 dB en todos los ejes). La narrativa sugiere riesgo inminente.",
         "crit_action": "👉 **Acción requerida:** Contención y acompañamiento físico/emocional urgente del estudiante. Activar protocolo institucional y canalización profesional de inmediato.",
@@ -379,7 +334,7 @@ TEXTS = {
         "btn_accept": "✅ Aceptar y Registrar Hito",
         "btn_adjust": "🎨 Ajustar Manualmente",
         "btn_reject": "❌ Rechazar análisis",
-        "sec4_title": "4. Meta-análisis de trayectoria",
+        "sec4_title": "5. Meta-análisis de trayectoria",
         "sec4_caption": "Evaluación holística multidimensional a partir de los hitos acumulados.",
         "btn_meta": "🌌 Ejecutar Meta-análisis PRISMA™",
         "err_meta_min": "⚠️ Se requieren al menos 2 hitos acumulados para realizar un Meta-análisis de trayectoria.",
@@ -387,18 +342,18 @@ TEXTS = {
         "meta_card_title": "#### 🌌 Diagnóstico holístico sugerido por PRISMA™",
         "btn_meta_accept": "✅ Aceptar y registrar Meta-análisis como hito",
         "btn_meta_discard": "❌ Descartar Meta-análisis",
-        "sec5_title": "5. Reporte curricular oficial (SEP · IB · CCH · Cambridge)",
+        "sec5_title": "6. Reporte oficial",
         "sec5_caption": "Traduce el expediente acumulado del estudiante al formato oficial del sistema educativo para reducir la carga administrativa docente.",
         "lbl_framework": "Sistema / Marco curricular oficial:",
         "lbl_period": "Periodo / Corte evaluativo (opcional):",
         "ph_period": "Ej: Trimestre 1 · 2026-2027",
         "lbl_custom_fw": "Competencias o criterios institucionales personalizados:",
         "ph_custom_fw": "Escribe los campos, rúbricas o atributos de egreso que solicita tu institución...",
-        "btn_gen_report": "📝 Generar reporte curricular oficial",
-        "err_report_min": "⚠️ Registra o carga al menos 1 hito en el expediente para generar el reporte curricular.",
+        "btn_gen_report": "📝 Generar reporte oficial",
+        "err_report_min": "⚠️ Registra o carga al menos 1 hito en el expediente para generar el reporte oficial.",
         "err_custom_empty": "⚠️ Especifica los criterios de tu marco personalizado antes de generar el reporte.",
         "spinner_report": "Redactando síntesis curricular alineada a {fw} ({model})...",
-        "report_ready_title": "#### 📄 Reporte curricular listo para validar",
+        "report_ready_title": "#### 📄 Reporte oficial listo para validar",
         "report_copy_label": "Texto limpio listo para copiar y pegar en tu plataforma escolar (editable):",
         "btn_dl_docx": "📥 Descargar reporte en Word (.docx)",
         "docx_missing": "Instala `python-docx` (`pip install python-docx`) para habilitar la descarga en Word.",
@@ -415,8 +370,8 @@ TEXTS = {
         "hist_manual_lbl": "**Razonamiento pedagógico docente:**",
         "hist_direct_adj": "Ajuste directo",
         "hist_trans_lbl": "**Registro de transición:**",
-        "sec6_title": "6. Calibración manual docente (dB)",
-        "sec6_caption": "Ajusta los valores deseados y presiona 'Previsualizar calibración manual en el mapa' antes de registrarlos.",
+        "sec6_title": "4. Calibración manual docente (dB)",
+        "sec6_caption": "Si hay un análisis de PRISMA™ pendiente arriba, tus ajustes se suman en vivo sobre esa propuesta y ambos se registran en orden al confirmar.",
         "lbl_justif": "Razonamiento / Justificación pedagógica del ajuste (Obligatorio):",
         "ph_justif": "Ejemplo: Incremento en Razonamiento ético tras observar la mediación espontánea del estudiante.",
         "btn_prev_manual": "👁️ Previsualizar calibración manual en el mapa",
@@ -425,12 +380,12 @@ TEXTS = {
         "manual_card_title": "#### 🎨 Previsualización de calibración manual",
         "manual_card_caption": "Verifica la proyección punteada morada en el mapa visual a la derecha.",
         "manual_justif_lbl": "**Justificación registrada:**",
-        "btn_manual_confirm": "🎨 Confirmar y registrar calibración manual",
+        "btn_manual_confirm": "🎨 Confirmar y registrar calibración",
         "btn_manual_cancel": "❌ Cancelar previsualización",
         "radar_header": "Espejo metacognitivo — Espacio vectorial ℝ⁸",
-        "vis_all": "Trayectoria completa (todos los hitos)",
-        "vis_custom": "Comparativa personalizada",
-        "hist_chk": "Vista de trayectoria histórica",
+        "vis_all": "Trayectoria completa",
+        "vis_custom": "Personalizada",
+        "hist_chk": "Trayectoria histórica",
         "hist_chk_help": "Habilitado para Administrador tras ejecutar Cierre de Ciclo.",
         "radar_map_title": "Mapa Visual de Crecimiento",
         "radar_subtitle_default": "Evaluación Formativa Integral",
@@ -455,31 +410,41 @@ TEXTS = {
         "modal_reset_force": "🗑️ Limpiar sin descargar",
         "modal_cancel": "Cancelar",
         "docx_footer": "Síntesis formativa asistida por PRISMA™ · Aula Viva® (aulaviva.lat) — Analítica cualitativa local en ℝ⁸. Validado por la persona docente.",
-        "docx_doc_title": "Reporte Formativo Curricular",
+        "docx_doc_title": "Reporte Formativo Oficial",
         "docx_vec_title": "Resumen cuantitativo de apoyo — Espacio Vectorial ℝ⁸ (escala logarítmica dB)",
     },
     "en": {
         "app_title": "Aula Viva® with AI",
         "app_subtitle": "### Vectorized Qualitative Learning Analytics in ℝ⁸ | ASPIRE® — PRISMA™ Ecosystem",
-        "app_caption": "Platform for Reflection and Interpretation in Multidimensional Assessment of Learning",
+        "app_caption": "Platform for Reflection, Interpretation, and Synthesis in Multidimensional Assessment | SSRN DOI: 10.2139/ssrn.7310080",
+        "app_quote": "“Shining white light through learners and projecting its refracted colors to reveal the profound journey of their growth.”",
         "sidebar_header": "⚙️ Workspace & Engine",
         "lang_label": "🌐 Language / Idioma:",
-        "engine_header": "🧠 Local Engine (Ollama)",
+        "engine_header": "Local Engine",
         "engine_select": "Active PRISMA Engine:",
-        "engine_offline": "⚠️ Ollama is not responding at `localhost:11434`. Start Ollama to process notes.",
-        "engine_none": "⚠️ No `prisma-engine-*` models detected. Run `install_and_run`.",
-        "engine_tip": "To install 4B or 9B, run `install_and_run.sh --models` (or `.bat --models`).",
-        "lang_matrix_title": "🌍 Languages & Offline Translators",
+        "engine_offline": "⚠️ Local engine is not responding at `localhost:11434`. Start Ollama to process notes.",
+        "engine_none": "⚠️ No PRISMA engine is installed yet. Select one below to install it.",
+        "engine_ready": "Ready",
+        "engine_missing": "Not installed",
+        "engine_install_prompt": "This engine is not installed on your device yet (detected RAM: **{ram} GB**). You can download and install it now; after that it runs 100% offline.",
+        "engine_ram_warn": "Your device has **{ram} GB RAM**. PRISMA 9B works best on 16+ GB and may run slower here; PRISMA 4B is the recommended option for your hardware.",
+        "engine_install_btn": "⬇️ Download & install {name} ({size})",
+        "engine_install_ok": "✅ {name} installed and activated.",
+        "engine_install_err": "⚠️ Installation could not be completed (check internet connection and Ollama):",
+        "lang_matrix_title": "🌍 Supported languages",
         "lang_matrix_body": (
-            "**Native local support (Qwen 3.5 · 4B / 9B):**\n"
+            "**PRISMA™ Languages (native interface, input & output):** English, Spanish.\n\n"
+            "**Native local note support (Qwen 3.5 · 4B / 9B):**\n"
             "- **Optimal:** English, Spanish, French, Portuguese, German, Italian, Chinese, Japanese, Korean, Arabic.\n"
             "- **Functional (stronger on 9B):** Catalan, Galician, Basque, Russian, Hindi, Turkish, Dutch.\n\n"
-            "**Indigenous & low-resource languages (100% offline):**\n"
-            "Translate classroom notes locally without cloud uploads before entering them into PRISMA™:\n"
+            "**Other languages (indigenous, regional, or with limited digital representation):**\n"
+            "Please translate classroom notes locally without cloud uploads before entering them into PRISMA™ using offline tools such as:\n"
             "- **Firefox Translations (Bergamot):** Built-in local browser translation.\n"
             "- **Argos Translate / LibreTranslate (local):** Open-source air-gapped engine.\n"
             "- **Meta NLLB-200 (local):** Supports 200+ languages (including Quechua, Guarani, Aymara, and community Maya/Nahuatl models)."
         ),
+        "scope_notice": "<strong>Pedagogical scope notice:</strong> PRISMA™ is strictly an educational reflection and learning-analytics instrument designed to strengthen teaching quality and holistic student growth. It is not a medical, clinical, or psychological diagnostic tool, nor a substitute for qualified healthcare or mental-health professionals.",
+        "footer_brand": "Aula Viva® · Grupo SiEFH · aulaviva.lat · Open source",
         "wf_header": "1. Workflow",
         "btn_reset": "✨ Reset workspace",
         "load_header": "2. Load student record (.json)",
@@ -516,7 +481,7 @@ TEXTS = {
         "sec2_title": "2. State of Educability Check",
         "sec2_caption": "Biopsychosocial baseline (non-punitive safeguard):",
         "lbl_sleep": "Sleep / rest:",
-        "lbl_food": "Nutrition / food:",
+        "lbl_food": "Food / nutrition:",
         "lbl_well": "Holistic well-being:",
         "sec3_title": "3. Teacher Narrative Observation",
         "lbl_note": "Dictation / classroom narrative note:",
@@ -529,7 +494,7 @@ TEXTS = {
         "spinner_note": "Processing qualitative inference in ℝ⁸ with {model}...",
         "debug_raw": "🔬 Raw Ollama Output (Debug)",
         "staging_title": "#### 🔍 AI Analysis Preview",
-        "staging_caption": "Review proposed deltas on the vector map before consolidating this milestone.",
+        "staging_caption": "Review proposed deltas on the vector map. To calibrate any axis, adjust it in Section 4 directly below: your adjustment will sum live on top of this proposal.",
         "crit_title": "🚨 **CRITICAL SAFETY ALERT ACTIVE (ROJO CRÍTICO)**",
         "crit_body": "PRISMA™ has suspended pedagogical scoring (0.0 dB across all axes). The narrative indicates potential imminent risk.",
         "crit_action": "👉 **Required action:** Provide immediate human care and containment. Trigger institutional safeguarding protocol and professional intervention immediately.",
@@ -542,7 +507,7 @@ TEXTS = {
         "btn_accept": "✅ Accept & Register Milestone",
         "btn_adjust": "🎨 Adjust Manually",
         "btn_reject": "❌ Reject Analysis",
-        "sec4_title": "4. Longitudinal Meta-Analysis",
+        "sec4_title": "5. Longitudinal Meta-Analysis",
         "sec4_caption": "Holistic multidimensional synthesis across accumulated milestones.",
         "btn_meta": "🌌 Run PRISMA™ Meta-Analysis",
         "err_meta_min": "⚠️ At least 2 accumulated milestones are required to run a trajectory Meta-Analysis.",
@@ -550,18 +515,18 @@ TEXTS = {
         "meta_card_title": "#### 🌌 Holistic Diagnosis Suggested by PRISMA™",
         "btn_meta_accept": "✅ Accept & Register Meta-Analysis",
         "btn_meta_discard": "❌ Discard Meta-Analysis",
-        "sec5_title": "5. Official Curricular Report (IB · SEP/NEM · CCH · Cambridge)",
-        "sec5_caption": "Translates the student's accumulated record into your official curriculum framework to eliminate double-work reporting.",
+        "sec5_title": "6. Official Report",
+        "sec5_caption": "Translates the student's accumulated record into your official educational framework to eliminate double-work reporting.",
         "lbl_framework": "Official Educational Framework:",
         "lbl_period": "Term / Reporting Period (optional):",
         "ph_period": "e.g., Term 1 · 2026-2027",
         "lbl_custom_fw": "Custom institutional competencies or criteria:",
         "ph_custom_fw": "Enter your school's exit profile, rubric domains, or reporting criteria...",
-        "btn_gen_report": "📝 Generate Official Curricular Report",
-        "err_report_min": "⚠️ Register or load at least 1 milestone to generate a curricular report.",
+        "btn_gen_report": "📝 Generate Official Report",
+        "err_report_min": "⚠️ Register or load at least 1 milestone to generate an official report.",
         "err_custom_empty": "⚠️ Please specify your custom framework criteria before generating.",
         "spinner_report": "Drafting curricular synthesis aligned to {fw} ({model})...",
-        "report_ready_title": "#### 📄 Curricular Report Ready for Educator Review",
+        "report_ready_title": "#### 📄 Official Report Ready for Educator Review",
         "report_copy_label": "Clean text ready to copy & paste into your school portal (editable):",
         "btn_dl_docx": "📥 Download Word Report (.docx)",
         "docx_missing": "Install `python-docx` (`pip install python-docx`) to enable Word export.",
@@ -578,8 +543,8 @@ TEXTS = {
         "hist_manual_lbl": "**Educator pedagogical rationale:**",
         "hist_direct_adj": "Direct adjustment",
         "hist_trans_lbl": "**Transition record:**",
-        "sec6_title": "6. Manual Educator Calibration (dB)",
-        "sec6_caption": "Adjust desired deltas and click 'Preview manual calibration' to inspect the projection before saving.",
+        "sec6_title": "4. Manual Educator Calibration (dB)",
+        "sec6_caption": "When a PRISMA™ analysis is pending above, your adjustments sum live on top of it and both register in order upon confirmation.",
         "lbl_justif": "Pedagogical Rationale / Justification (Required):",
         "ph_justif": "Example: Increase in Ethical Reasoning after spontaneous peer mediation during lab work.",
         "btn_prev_manual": "👁️ Preview manual calibration on map",
@@ -588,12 +553,12 @@ TEXTS = {
         "manual_card_title": "#### 🎨 Manual Calibration Preview",
         "manual_card_caption": "Check the dashed purple projection on the vector map to the right.",
         "manual_justif_lbl": "**Recorded justification:**",
-        "btn_manual_confirm": "🎨 Confirm & Register Manual Calibration",
+        "btn_manual_confirm": "🎨 Confirm & Register Calibration",
         "btn_manual_cancel": "❌ Cancel preview",
         "radar_header": "Metacognitive Mirror — Vector Space ℝ⁸",
-        "vis_all": "Full trajectory (all milestones)",
-        "vis_custom": "Custom comparison",
-        "hist_chk": "Historical trajectory view",
+        "vis_all": "Full trajectory",
+        "vis_custom": "Custom",
+        "hist_chk": "Historical trajectory",
         "hist_chk_help": "Unlocked for Admin after executing an end-of-cycle archive.",
         "radar_map_title": "Visual Growth Map",
         "radar_subtitle_default": "Holistic Formative Assessment",
@@ -618,7 +583,7 @@ TEXTS = {
         "modal_reset_force": "🗑️ Clear without downloading",
         "modal_cancel": "Cancel",
         "docx_footer": "Formative synthesis assisted by PRISMA™ · Aula Viva® (aulaviva.lat) — Local qualitative analytics in ℝ⁸. Educator-validated.",
-        "docx_doc_title": "Official Formative Curricular Report",
+        "docx_doc_title": "Official Formative Report",
         "docx_vec_title": "Supporting Quantitative Summary — ℝ⁸ Vector Space (logarithmic dB scale)",
     }
 }
@@ -713,7 +678,7 @@ OPCIONES_SUENO_CANON = [
 OPCIONES_SUENO_DISPLAY = {
     "es": {x: x for x in OPCIONES_SUENO_CANON},
     "en": {
-        OPCIONES_SUENO_CANON[0]: "Not recorded",
+        OPCIONES_SUENO_CANON[0]: "No record",
         OPCIONES_SUENO_CANON[1]: "> 7 hours (optimal)",
         OPCIONES_SUENO_CANON[2]: "5 - 7 hours (insufficient)",
         OPCIONES_SUENO_CANON[3]: "< 5 hours (severe deprivation)",
@@ -729,7 +694,7 @@ OPCIONES_ALIM_CANON = [
 OPCIONES_ALIM_DISPLAY = {
     "es": {x: x for x in OPCIONES_ALIM_CANON},
     "en": {
-        OPCIONES_ALIM_CANON[0]: "Not recorded",
+        OPCIONES_ALIM_CANON[0]: "No record",
         OPCIONES_ALIM_CANON[1]: "Complete (adequate)",
         OPCIONES_ALIM_CANON[2]: "Partial (insufficient)",
         OPCIONES_ALIM_CANON[3]: "Fasting (severe vulnerability)",
@@ -745,10 +710,10 @@ OPCIONES_BIEN_CANON = [
 OPCIONES_BIEN_DISPLAY = {
     "es": {x: x for x in OPCIONES_BIEN_CANON},
     "en": {
-        OPCIONES_BIEN_CANON[0]: "Not recorded",
-        OPCIONES_BIEN_CANON[1]: "Optimal well-being (no pain, discomfort or fatigue)",
-        OPCIONES_BIEN_CANON[2]: "Moderate discomfort (cramps, pain, or moderate care-burden fatigue)",
-        OPCIONES_BIEN_CANON[3]: "Acute discomfort (severe cramps, acute pain, or intensive emergency/care fatigue)",
+        OPCIONES_BIEN_CANON[0]: "No record",
+        OPCIONES_BIEN_CANON[1]: "Optimal well-being (no pain, discomfort, or fatigue)",
+        OPCIONES_BIEN_CANON[2]: "Moderate discomfort (cramps, pain, or moderate fatigue from household/care duties)",
+        OPCIONES_BIEN_CANON[3]: "Acute discomfort (severe cramps, acute pain, or severe fatigue from domestic emergency/intensive household care)",
     }
 }
 
@@ -838,21 +803,46 @@ def calcular_delta_db(delta_pct, semaforo="VERDE"):
     return round(float(delta_db), 1)
 
 
-def obtener_tag_sociofisiologico(d_val, semaforo):
+def limpiar_salida_llm(texto):
+    """Elimina cualquier bloque de razonamiento interno (<think> / Thinking Process) si el runtime lo emite."""
+    if not texto:
+        return ""
+    limpio = re.sub(r"<think>[\s\S]*?</think>", "", texto, flags=re.IGNORECASE)
+    if "</think>" in limpio:
+        limpio = limpio.split("</think>", 1)[1]
+    limpio = re.sub(r"^Thinking Process:[\s\S]*?(?=\n## |\n# |\n\*\*)", "", limpio.strip(), flags=re.IGNORECASE)
+    return limpio.strip()
+
+
+def obtener_tag_sociofisiologico(d_val, semaforo, basal_pct=None, final_pct=None):
     sem = str(semaforo).upper()
-    if abs(d_val) <= 0.01 or "VERDE" in sem or "N/A" in sem or "CRITICO" in sem:
+    if "VERDE" in sem or "N/A" in sem or "CRITICO" in sem:
+        return ""
+    emoji = "🔴" if "ROJO" in sem else ("🟡" if "AMARILLO" in sem else "")
+    if not emoji or basal_pct is None or final_pct is None:
+        return ""
+    try:
+        b_abs = abs(int(basal_pct))
+        f_int = int(final_pct)
+    except (ValueError, TypeError):
+        return ""
+    if b_abs == abs(f_int):
         return ""
     lang = st.session_state.lang
-    if d_val < 0:
-        if "AMARILLO" in sem:
-            return " 🛡️ *[Atenuado por protección sociofisiológica (AMARILLO)]*" if lang == "es" else " 🛡️ *[Dampened by biopsychosocial safeguard (YELLOW)]*"
-        if "ROJO" in sem:
-            return " 🛡️ *[Atenuado por protección sociofisiológica (ROJO)]*" if lang == "es" else " 🛡️ *[Dampened by biopsychosocial safeguard (RED)]*"
-    elif d_val > 0:
-        if "AMARILLO" in sem:
-            return " ⚡ *[Amplificado por resiliencia sociofisiológica (AMARILLO)]*" if lang == "es" else " ⚡ *[Amplified by resilience under fatigue (YELLOW)]*"
-        if "ROJO" in sem:
-            return " ⚡ *[Amplificado por resiliencia sociofisiológica (ROJO)]*" if lang == "es" else " ⚡ *[Amplified by resilience under fatigue (RED)]*"
+    if f_int > 0 and f_int > b_abs:
+        db_basal = calcular_delta_db(b_abs)
+        return (
+            f" ⚡ *[Amplificado desde {fmt_db(db_basal)} dB (+{b_abs}%) · {emoji}]*"
+            if lang == "es"
+            else f" ⚡ *[Amplified from {fmt_db(db_basal)} dB (+{b_abs}%) · {emoji}]*"
+        )
+    if (d_val < 0 or f_int == 0) and b_abs > abs(f_int):
+        db_basal = calcular_delta_db(-b_abs)
+        return (
+            f" 🛡️ *[Atenuado desde {fmt_db(db_basal)} dB (-{b_abs}%) · {emoji}]*"
+            if lang == "es"
+            else f" 🛡️ *[Dampened from {fmt_db(db_basal)} dB (-{b_abs}%) · {emoji}]*"
+        )
     return ""
 
 
@@ -877,13 +867,14 @@ def compactar_expediente_para_reporte(nombre, nivel, materia, grupo, valores_db,
     conteo_sem = {"VERDE": 0, "AMARILLO": 0, "ROJO": 0, "ROJO_CRITICO": 0}
     evidencias_por_eje = {eje: [] for eje in EJE_NOMBRES}
     notas_docentes = []
+    notas_educabilidad = []
 
     for idx, obs in enumerate(historial, 1):
         tipo = obs.get("tipo", "IA")
         if obs.get("nota"):
-            notas_docentes.append(f"Hito #{idx}: {obs['nota'][:220]}")
+            notas_docentes.append(f"Hito #{idx}: {obs['nota'][:240]}")
         elif tipo == "MANUAL" and obs.get("justificacion"):
-            notas_docentes.append(f"Hito #{idx} (Manual): {obs['justificacion'][:220]}")
+            notas_docentes.append(f"Hito #{idx} (Manual): {obs['justificacion'][:240]}")
 
         res_ia = obs.get("resultado_ia", {})
         est_edu = res_ia.get("estado_educabilidad", {})
@@ -896,6 +887,12 @@ def compactar_expediente_para_reporte(nombre, nivel, materia, grupo, valores_db,
             conteo_sem["AMARILLO"] += 1
         elif "VERDE" in sem:
             conteo_sem["VERDE"] += 1
+        if any(k in sem for k in ("AMARILLO", "ROJO")):
+            ana = est_edu.get("analisis_previo_educabilidad", "")
+            adv = est_edu.get("advertencia_pedagogica", "")
+            detalle_edu = " ".join(x for x in (ana, adv) if x).strip()
+            if detalle_edu:
+                notas_educabilidad.append(f"Hito #{idx} [{sem}]: {detalle_edu[:260]}")
 
         eval_ejes = res_ia.get("evaluacion_ejes", {})
         deltas_h = obs.get("deltas", {})
@@ -921,6 +918,11 @@ def compactar_expediente_para_reporte(nombre, nivel, materia, grupo, valores_db,
         f"Historial de semáforos de educabilidad: Verde={conteo_sem['VERDE']}, Amarillo={conteo_sem['AMARILLO']}, Rojo={conteo_sem['ROJO']}, AlertaCrítica={conteo_sem['ROJO_CRITICO']}\n\n"
         f"PERFIL VECTORIAL ACUMULADO EN R8 Y EVIDENCIAS:\n"
         + "\n".join(lineas_vec)
+        + (
+            "\n\nCONTEXTO SOCIOFISIOLÓGICO / EDUCABILIDAD REGISTRADO (vulnerabilidad física/doméstica, NO es conducta sancionable):\n"
+            + "\n".join(notas_educabilidad[-4:])
+            if notas_educabilidad else ""
+        )
         + "\n\nSÍNTESIS DE OBSERVACIONES RECIENTES:\n"
         + "\n".join(notas_docentes[-6:])
     )
@@ -928,12 +930,15 @@ def compactar_expediente_para_reporte(nombre, nivel, materia, grupo, valores_db,
 
 
 def agregar_texto_formateado_docx(parrafo, texto):
-    """Convierte **negritas** simples en runs nativos de Word sin dejar asteriscos."""
-    partes = re.split(r"(\*\*.*?\*\*)", texto)
+    """Convierte **negritas** y *cursivas* en runs nativos de Word sin dejar asteriscos."""
+    partes = re.split(r"(\*\*[^*]+?\*\*|\*[^*]+?\*)", texto)
     for parte in partes:
         if parte.startswith("**") and parte.endswith("**") and len(parte) > 4:
             run = parrafo.add_run(parte[2:-2])
             run.bold = True
+        elif parte.startswith("*") and parte.endswith("*") and len(parte) > 2:
+            run = parrafo.add_run(parte[1:-1])
+            run.italic = True
         else:
             parrafo.add_run(parte)
 
@@ -965,11 +970,20 @@ def generar_docx_reporte(nombre, matricula, grupo, nivel, materia, marco_nombre,
     sub_run.font.color.rgb = RGBColor(51, 65, 85)
 
     # Tabla de metadatos del estudiante
-    meta_rows = [
-        ("Estudiante / Student", nombre or "—", "Matrícula / ID", matricula or "—"),
-        ("Nivel / Level", NIVELES_DISPLAY[lang].get(nivel, nivel), "Grupo / Group", grupo or "—"),
-        ("Asignatura / Subject", materia or "—", "Fecha / Date", datetime.now().strftime("%Y-%m-%d")),
-    ]
+    nivel_docx = "—" if (not nivel or nivel == NIVELES_CANON[0] or str(nivel).startswith("--")) else NIVELES_DISPLAY[lang].get(nivel, nivel)
+    meta_rows = (
+        [
+            ("Estudiante", nombre or "—", "Matrícula / ID", matricula or "—"),
+            ("Nivel educativo", nivel_docx, "Grupo", grupo or "—"),
+            ("Asignatura", materia or "—", "Fecha", datetime.now().strftime("%Y-%m-%d")),
+        ]
+        if lang == "es"
+        else [
+            ("Student", nombre or "—", "Student ID", matricula or "—"),
+            ("Educational level", nivel_docx, "Group", grupo or "—"),
+            ("Subject", materia or "—", "Date", datetime.now().strftime("%Y-%m-%d")),
+        ]
+    )
     tbl = doc.add_table(rows=len(meta_rows), cols=4)
     tbl.style = "Light Grid Accent 1"
     for r_i, (k1, v1, k2, v2) in enumerate(meta_rows):
@@ -1009,8 +1023,8 @@ def generar_docx_reporte(nombre, matricula, grupo, nivel, materia, marco_nombre,
     vtbl = doc.add_table(rows=1, cols=3)
     vtbl.style = "Light List Accent 1"
     hdr = vtbl.rows[0].cells
-    hdr[0].text = "Dimensión / Axis"
-    hdr[1].text = "Acumulado / Delta (dB)"
+    hdr[0].text = "Dimensión" if lang == "es" else "Dimension"
+    hdr[1].text = "Acumulado (dB)" if lang == "es" else "Accumulated (dB)"
     hdr[2].text = "Factor (Weber-Fechner)"
     for c in hdr:
         for p in c.paragraphs:
@@ -1125,6 +1139,90 @@ st.markdown("""
         margin-top: 0.75rem;
         margin-bottom: 1rem;
     }
+    .stAppDeployButton, [data-testid="stAppDeployButton"] {
+        display: none !important;
+    }
+    .prisma-hero-quote {
+        margin: -0.2rem 0 0.85rem 0;
+        font-size: 0.96rem;
+        font-style: italic;
+        font-weight: 500;
+        line-height: 1.45;
+        background: linear-gradient(
+            90deg,
+            #6366F1 0%,
+            #9333EA 22%,
+            #2563EB 42%,
+            #0891B2 58%,
+            #16A34A 74%,
+            #D97706 88%,
+            #DC2626 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        display: inline-block;
+    }
+    .js-plotly-plot .plotly .modebar,
+    .js-plotly-plot .plotly .modebar-group {
+        background: transparent !important;
+        background-color: transparent !important;
+        opacity: 0.90 !important;
+        visibility: visible !important;
+    }
+    [data-testid="stColumn"]:nth-of-type(2) [data-testid="stElementToolbar"],
+    [data-testid="stColumn"]:nth-of-type(2) .stElementToolbar {
+        opacity: 0.85 !important;
+        visibility: visible !important;
+        background: transparent !important;
+        background-color: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+    [data-testid="stColumn"]:nth-of-type(2) [data-testid="stElementToolbar"]:hover,
+    [data-testid="stColumn"]:nth-of-type(2) .stElementToolbar:hover {
+        opacity: 1 !important;
+    }
+    [data-testid="stColumn"]:nth-of-type(2) [data-testid="stElementToolbar"] button,
+    [data-testid="stColumn"]:nth-of-type(2) [data-testid="stElementToolbarButton"] {
+        background: transparent !important;
+        background-color: transparent !important;
+    }
+    .prisma-footer {
+        margin-top: 2.2rem;
+        padding-top: 0.9rem;
+        border-top: 1px solid rgba(148, 163, 184, 0.28);
+        font-size: 0.76rem;
+        line-height: 1.5;
+    }
+    .prisma-footer-scope {
+        margin: 0 0 0.45rem 0;
+        opacity: 0.72;
+    }
+    .prisma-footer-brand {
+        margin: 0;
+        font-weight: 600;
+        letter-spacing: 0.015em;
+        background: linear-gradient(
+            90deg,
+            #6366F1 0%,
+            #9333EA 22%,
+            #2563EB 42%,
+            #0891B2 58%,
+            #16A34A 74%,
+            #D97706 88%,
+            #DC2626 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        display: inline-block;
+    }
+    .prisma-field-lbl {
+        font-size: 0.875rem;
+        margin-bottom: 0.22rem;
+        line-height: 1.35;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -1194,6 +1292,7 @@ if st.session_state.get("flag_reset_todo", False):
     st.session_state.json_ya_descargado = False
     st.session_state.mostrar_modal_resguardo = False
     st.session_state.mostrar_modal_confirmar_reiniciar = False
+    st.session_state["debug_raw_ollama"] = ""
     for eje in EJE_NOMBRES:
         st.session_state[f"slider_{eje}"] = 0.0
         st.session_state[f"num_{eje}"] = 0.0
@@ -1215,6 +1314,7 @@ if st.session_state.get("flag_cargar_expediente") is not None:
     st.session_state.meta_analisis_pendiente = None
     st.session_state.reporte_curricular_generado = None
     st.session_state.previsualizacion_manual = None
+    st.session_state["debug_raw_ollama"] = ""
     st.session_state.json_ya_descargado = True
 
 if st.session_state.get("flag_limpiar_nota", False):
@@ -1230,6 +1330,37 @@ if st.session_state.get("flag_reset_calib", False):
         st.session_state[f"slider_{eje}"] = 0.0
         st.session_state[f"num_{eje}"] = 0.0
     st.session_state.flag_reset_calib = False
+
+
+# --- ESTADO DE BLOQUEO GLOBAL (PROCESANDO O ALARMA CRÍTICA ACTIVA) ---
+alerta_critica_activa = False
+if st.session_state.analisis_pendiente:
+    alerta_critica_activa = any(
+        "ROJO_CRITICO" in str(item.get("resultado_ia", {}).get("estado_educabilidad", {}).get("semaforo", "")).upper()
+        for item in st.session_state.analisis_pendiente.get("hitos", [])
+    )
+bloqueo_ui = st.session_state.procesando or alerta_critica_activa
+
+if alerta_critica_activa:
+    st.markdown(
+        "<style>"
+        "[data-testid='stColumn']:nth-of-type(2) {"
+        "  opacity: 0.30 !important;"
+        "  pointer-events: none !important;"
+        "  filter: grayscale(0.55);"
+        "}"
+        "</style>",
+        unsafe_allow_html=True
+    )
+
+
+def obtener_deltas_ia_pendientes():
+    deltas_tot = {eje: 0.0 for eje in EJE_NOMBRES}
+    if st.session_state.analisis_pendiente and not alerta_critica_activa:
+        for item in st.session_state.analisis_pendiente.get("hitos", []):
+            for eje, d_v in item.get("deltas", {}).items():
+                deltas_tot[eje] = round(deltas_tot[eje] + float(d_v), 1)
+    return deltas_tot
 
 
 # --- CALLBACKS SEGUROS ---
@@ -1364,51 +1495,99 @@ def modal_confirmar_reiniciar():
 st.title(t("app_title"))
 st.markdown(t("app_subtitle"))
 st.caption(t("app_caption"))
-st.caption("“Shining full-spectrum white light through learners, and projecting its spectral dispersion to illuminate the profound complexity of their growth journey.” | SSRN DOI: 10.2139/ssrn.7310080")
+st.markdown(f"<p class='prisma-hero-quote'>{t('app_quote')}</p>", unsafe_allow_html=True)
 
 
 # --- SIDEBAR: IDIOMA, MOTOR, EXPEDIENTES Y ADMIN ---
 with st.sidebar:
     st.header(t("sidebar_header"))
 
+    if "lang_selector_ui" not in st.session_state:
+        st.session_state.lang_selector_ui = st.session_state.lang
+
+    def on_change_lang_ui():
+        st.session_state.lang = st.session_state.lang_selector_ui
+        guardar_config_local(lang=st.session_state.lang)
+
     st.radio(
-        t("lang_label"),
+        "🌐 Language / Idioma",
         options=["es", "en"],
         format_func=lambda x: "Español" if x == "es" else "English",
         horizontal=True,
-        key="lang",
-        on_change=on_change_lang,
+        key="lang_selector_ui",
+        on_change=on_change_lang_ui,
         disabled=st.session_state.procesando
     )
 
     st.markdown("---")
-    st.subheader(t("engine_header"))
+    st.markdown(f"<h3 style='margin:0 0 0.4rem 0;font-size:1.15rem;'>{PRISMA_SVG_ICON}{t('engine_header')}</h3>", unsafe_allow_html=True)
     if not OLLAMA_ONLINE:
         st.warning(t("engine_offline"))
-    elif not MOTORES_INSTALADOS:
-        st.warning(t("engine_none"))
     else:
-        etiquetas_motor = {
-            "prisma-engine-4b": "PRISMA 4B (Qwen3.5-4B · 8 GB RAM)",
-            "prisma-engine-9b": "PRISMA 9B (Qwen3.5-9B · 16+ GB RAM)",
-            "prisma-engine": "PRISMA Engine (instalación previa)"
-        }
-        st.selectbox(
+        opciones_motor = ["prisma-engine-4b", "prisma-engine-9b"]
+        for m_ext in MOTORES_INSTALADOS:
+            if m_ext not in opciones_motor:
+                opciones_motor.append(m_ext)
+
+        if "selector_motor_ui" not in st.session_state or st.session_state.selector_motor_ui not in opciones_motor:
+            st.session_state.selector_motor_ui = st.session_state.modelo_activo if st.session_state.modelo_activo in opciones_motor else opciones_motor[0]
+
+        def fmt_motor_opcion(m_key):
+            instalado = m_key in MOTORES_INSTALADOS
+            estado = t("engine_ready") if instalado else t("engine_missing")
+            if m_key in PRISMA_ENGINE_CATALOG:
+                meta = PRISMA_ENGINE_CATALOG[m_key]
+                ram_lbl = meta["ram_es"] if st.session_state.lang == "es" else meta["ram_en"]
+                return f"{meta['short']} ({ram_lbl}) · {estado}"
+            return f"{m_key} · {estado}"
+
+        def on_change_motor_ui():
+            sel = st.session_state.selector_motor_ui
+            if sel in MOTORES_INSTALADOS:
+                st.session_state.modelo_activo = sel
+                guardar_config_local(modelo_activo=sel)
+
+        motor_ui_sel = st.selectbox(
             t("engine_select"),
-            options=MOTORES_INSTALADOS,
-            format_func=lambda m: etiquetas_motor.get(m, m),
-            key="modelo_activo",
-            on_change=on_change_model,
-            disabled=st.session_state.procesando
+            options=opciones_motor,
+            format_func=fmt_motor_opcion,
+            key="selector_motor_ui",
+            on_change=on_change_motor_ui,
+            disabled=bloqueo_ui
         )
-        st.caption(t("engine_tip"))
+
+        if not MOTORES_INSTALADOS:
+            st.warning(t("engine_none"))
+
+        if motor_ui_sel not in MOTORES_INSTALADOS and motor_ui_sel in PRISMA_ENGINE_CATALOG:
+            meta_sel = PRISMA_ENGINE_CATALOG[motor_ui_sel]
+            ram_actual = detectar_ram_gb_local()
+            st.info(t("engine_install_prompt").format(ram=ram_actual))
+            if ram_actual < meta_sel["min_ram"]:
+                st.warning(t("engine_ram_warn").format(ram=ram_actual))
+            if st.button(
+                t("engine_install_btn").format(name=meta_sel["short"], size=meta_sel["size"]),
+                type="primary",
+                use_container_width=True,
+                disabled=bloqueo_ui
+            ):
+                pbar = st.progress(0.0)
+                sbox = st.empty()
+                try:
+                    instalar_motor_desde_app(motor_ui_sel, pbar, sbox, lang=st.session_state.lang)
+                    st.session_state.modelo_activo = motor_ui_sel
+                    guardar_config_local(modelo_activo=motor_ui_sel)
+                    sbox.success(t("engine_install_ok").format(name=meta_sel["short"]))
+                    st.rerun()
+                except Exception as exc:
+                    sbox.error(f"{t('engine_install_err')} {exc}")
 
     with st.expander(t("lang_matrix_title"), expanded=False):
         st.markdown(t("lang_matrix_body"))
 
     st.markdown("---")
     st.subheader(t("wf_header"))
-    if st.button(t("btn_reset"), use_container_width=True, type="primary", disabled=st.session_state.procesando):
+    if st.button(t("btn_reset"), use_container_width=True, type="primary", disabled=bloqueo_ui):
         if len(st.session_state.historial_observaciones) > 0 and not st.session_state.get("json_ya_descargado", False):
             st.session_state.mostrar_modal_confirmar_reiniciar = True
             st.rerun()
@@ -1431,7 +1610,7 @@ with st.sidebar:
             mime="application/json",
             use_container_width=True,
             on_click=marcar_descargado,
-            disabled=st.session_state.procesando
+            disabled=bloqueo_ui
         )
 
     st.markdown("---")
@@ -1439,11 +1618,11 @@ with st.sidebar:
     archivo_cargado = st.file_uploader(
         t("load_uploader"),
         type=["json"],
-        disabled=st.session_state.procesando,
+        disabled=bloqueo_ui,
         help=t("load_help")
     )
 
-    btn_importar = st.button(t("btn_load"), disabled=(archivo_cargado is None or st.session_state.procesando), use_container_width=True)
+    btn_importar = st.button(t("btn_load"), disabled=(archivo_cargado is None or bloqueo_ui), use_container_width=True)
     if btn_importar and archivo_cargado is not None:
         try:
             datos = json.load(archivo_cargado)
@@ -1469,7 +1648,7 @@ with st.sidebar:
         type="password",
         key="input_clave_admin",
         placeholder=t("admin_key_ph"),
-        disabled=st.session_state.procesando,
+        disabled=bloqueo_ui,
         help=t("admin_key_help")
     )
 
@@ -1480,7 +1659,7 @@ with st.sidebar:
 
     if es_admin:
         st.success(t("admin_ok"))
-        st.button(t("admin_logout"), use_container_width=True, disabled=st.session_state.procesando, on_click=cerrar_sesion_admin)
+        st.button(t("admin_logout"), use_container_width=True, disabled=bloqueo_ui, on_click=cerrar_sesion_admin)
     else:
         st.info(t("admin_locked"))
 
@@ -1492,11 +1671,11 @@ with st.sidebar:
     ciclo_id_input = st.text_input(
         t("tabula_cycle"),
         value=f"{datetime.now().year}-1",
-        disabled=(not es_admin or st.session_state.procesando),
+        disabled=(not es_admin or bloqueo_ui),
         help=t("tabula_help")
     )
 
-    btn_tabula = st.button(t("tabula_btn"), disabled=(not es_admin or st.session_state.procesando), use_container_width=True)
+    btn_tabula = st.button(t("tabula_btn"), disabled=(not es_admin or bloqueo_ui), use_container_width=True)
     if btn_tabula and es_admin:
         fn_cierre, _ = guardar_expediente_disco(
             st.session_state.input_nombre,
@@ -1524,23 +1703,29 @@ st.subheader(t("sec1_title"))
 col_f1, col_f2, col_f3 = st.columns([0.38, 0.37, 0.25])
 
 with col_f1:
-    nom_in = st.text_input(t("lbl_name"), key="input_nombre", placeholder=t("ph_name"), disabled=st.session_state.procesando)
+    st.markdown(f"<div class='prisma-field-lbl'>{t('lbl_name')}</div>", unsafe_allow_html=True)
+    nom_in = st.text_input("f_name", key="input_nombre", placeholder="María López", disabled=bloqueo_ui, label_visibility="collapsed")
 with col_f2:
-    mat_in = st.text_input(t("lbl_id"), key="input_matricula", placeholder=t("ph_id"), on_change=on_change_matricula, disabled=st.session_state.procesando)
+    st.markdown(f"<div class='prisma-field-lbl'>{t('lbl_id')}</div>", unsafe_allow_html=True)
+    mat_in = st.text_input("f_id", key="input_matricula", placeholder="A012345", on_change=on_change_matricula, disabled=bloqueo_ui, label_visibility="collapsed")
 with col_f3:
-    grp_in = st.text_input(t("lbl_group"), key="input_grupo", placeholder=t("ph_group"), disabled=st.session_state.procesando)
+    st.markdown(f"<div class='prisma-field-lbl'>{t('lbl_group')}</div>", unsafe_allow_html=True)
+    grp_in = st.text_input("f_group", key="input_grupo", placeholder="2B", disabled=bloqueo_ui, label_visibility="collapsed")
 
 col_ctx1, col_ctx2 = st.columns([0.6, 0.4])
 with col_ctx1:
+    st.markdown(f"<div class='prisma-field-lbl'>{t('lbl_level')}</div>", unsafe_allow_html=True)
     nivel_in = st.selectbox(
-        t("lbl_level"),
+        "f_level",
         options=NIVELES_CANON,
         format_func=lambda n: NIVELES_DISPLAY[st.session_state.lang].get(n, n),
         key="input_nivel",
-        disabled=st.session_state.procesando
+        disabled=bloqueo_ui,
+        label_visibility="collapsed"
     )
 with col_ctx2:
-    materia_in = st.text_input(t("lbl_subject"), key="input_materia", placeholder=t("ph_subject"), disabled=st.session_state.procesando)
+    st.markdown(f"<div class='prisma-field-lbl'>{t('lbl_subject')}</div>", unsafe_allow_html=True)
+    materia_in = st.text_input("f_subject", key="input_materia", placeholder="STEM / Lab", disabled=bloqueo_ui, label_visibility="collapsed")
 
 if mat_in and nom_in:
     st.session_state.estudiantes_db[mat_in] = {
@@ -1557,28 +1742,34 @@ st.caption(t("sec2_caption"))
 
 col_e1, col_e2, col_e3 = st.columns(3)
 with col_e1:
+    st.markdown(f"<div class='prisma-field-lbl'>{t('lbl_sleep')}</div>", unsafe_allow_html=True)
     st.selectbox(
-        t("lbl_sleep"),
+        "f_sleep",
         options=OPCIONES_SUENO_CANON,
         format_func=lambda x: OPCIONES_SUENO_DISPLAY[st.session_state.lang][x],
         key="input_descanso",
-        disabled=st.session_state.procesando
+        disabled=bloqueo_ui,
+        label_visibility="collapsed"
     )
 with col_e2:
+    st.markdown(f"<div class='prisma-field-lbl'>{t('lbl_food')}</div>", unsafe_allow_html=True)
     st.selectbox(
-        t("lbl_food"),
+        "f_food",
         options=OPCIONES_ALIM_CANON,
         format_func=lambda x: OPCIONES_ALIM_DISPLAY[st.session_state.lang][x],
         key="input_alimentacion",
-        disabled=st.session_state.procesando
+        disabled=bloqueo_ui,
+        label_visibility="collapsed"
     )
 with col_e3:
+    st.markdown(f"<div class='prisma-field-lbl'>{t('lbl_well')}</div>", unsafe_allow_html=True)
     st.selectbox(
-        t("lbl_well"),
+        "f_well",
         options=OPCIONES_BIEN_CANON,
         format_func=lambda x: OPCIONES_BIEN_DISPLAY[st.session_state.lang][x],
         key="input_bienestar",
-        disabled=st.session_state.procesando
+        disabled=bloqueo_ui,
+        label_visibility="collapsed"
     )
 
 st.markdown("---")
@@ -1590,18 +1781,20 @@ with col_izq:
     # --- SECCIÓN 3: NOTA NARRATIVA ---
     st.subheader(t("sec3_title"))
     with st.form(key="form_nota_docente", clear_on_submit=False):
+        st.markdown(f"<div class='prisma-field-lbl'>{t('lbl_note')}</div>", unsafe_allow_html=True)
         nota_docente = st.text_area(
-            t("lbl_note"),
+            "f_note",
             key="input_nota",
             height=130,
-            disabled=st.session_state.procesando,
-            placeholder=t("ph_note")
+            disabled=bloqueo_ui,
+            label_visibility="collapsed"
         )
+        st.caption(t("ph_note"))
         btn_analizar = st.form_submit_button(
             t("btn_analyze") if not st.session_state.procesando else t("btn_analyzing"),
             type="primary",
             use_container_width=True,
-            disabled=st.session_state.procesando
+            disabled=bloqueo_ui
         )
 
     if btn_analizar and not st.session_state.procesando:
@@ -1618,35 +1811,42 @@ with col_izq:
     # Proceso activo de inferencia
     if st.session_state.procesando and st.session_state.input_nota.strip():
         texto_nota = st.session_state.input_nota.strip()
-        modelo_actual = st.session_state.get("modelo_activo", "prisma-engine-4b")
+        modelo_actual = resolver_modelo_ollama(st.session_state.get("modelo_activo", "prisma-engine-4b"), st.session_state.lang)
         with st.spinner(t("spinner_note").format(model=modelo_actual)):
             hubo_falla = False
             try:
                 sueno_val = st.session_state.get("input_descanso", OPCIONES_SUENO_CANON[0])
                 nutri_val = st.session_state.get("input_alimentacion", OPCIONES_ALIM_CANON[0])
                 bienestar_val = st.session_state.get("input_bienestar", OPCIONES_BIEN_CANON[0])
-                prefix_edu = f"- Registro sociofisiológico: Sueño: [{sueno_val}] | Nutrición: [{nutri_val}] | Bienestar integral: [{bienestar_val}]\n"
 
-                idioma_instr = (
-                    "- Idioma de salida para los campos 'razonamiento', 'analisis_previo_educabilidad' y 'advertencia_pedagogica': ESPAÑOL.\n"
-                    if st.session_state.lang == "es"
-                    else "- Output language for 'razonamiento', 'analisis_previo_educabilidad', and 'advertencia_pedagogica' values: ENGLISH (keep all JSON keys and enum values like VERDE/AMARILLO/ROJO/ROJO_CRITICO/CRECIMIENTO/REGRESION/NEUTRO exactly as specified in the schema).\n"
-                )
-
-                encabezado_contexto = (
-                    f"CONTEXTO FORMATIVO:\n"
-                    f"- Estudiante: {nom_in}\n"
-                    f"- Nivel Educativo: {nivel_in}\n"
-                    f"- Asignatura / Espacio: {materia_in if materia_in else 'General'}\n"
-                    f"{prefix_edu}"
-                    f"{idioma_instr}"
-                )
-                user_prompt = f"{encabezado_contexto}\nNota narrativa: \"{texto_nota}\""
+                if st.session_state.lang == "en":
+                    nivel_ctx = NIVELES_DISPLAY["en"].get(nivel_in, nivel_in)
+                    sueno_ctx = OPCIONES_SUENO_DISPLAY["en"].get(sueno_val, sueno_val)
+                    nutri_ctx = OPCIONES_ALIM_DISPLAY["en"].get(nutri_val, nutri_val)
+                    bien_ctx = OPCIONES_BIEN_DISPLAY["en"].get(bienestar_val, bienestar_val)
+                    encabezado_contexto = (
+                        f"FORMATIVE CONTEXT:\n"
+                        f"- Student: {nom_in}\n"
+                        f"- Educational Level: {nivel_ctx}\n"
+                        f"- Subject / Space: {materia_in if materia_in else 'General'}\n"
+                        f"- Biopsychosocial record: Sleep: [{sueno_ctx}] | Food/Nutrition: [{nutri_ctx}] | Holistic well-being: [{bien_ctx}]\n"
+                    )
+                    user_prompt = f'{encabezado_contexto}\nNarrative observation: "{texto_nota}"'
+                else:
+                    encabezado_contexto = (
+                        f"CONTEXTO FORMATIVO:\n"
+                        f"- Estudiante: {nom_in}\n"
+                        f"- Nivel Educativo: {nivel_in}\n"
+                        f"- Asignatura / Espacio: {materia_in if materia_in else 'General'}\n"
+                        f"- Registro sociofisiológico: Sueño: [{sueno_val}] | Nutrición: [{nutri_val}] | Bienestar integral: [{bienestar_val}]\n"
+                    )
+                    user_prompt = f'{encabezado_contexto}\nNota narrativa: "{texto_nota}"'
 
                 payload = {
                     "model": modelo_actual,
                     "prompt": user_prompt,
                     "format": "json",
+                    "think": False,
                     "options": {
                         "temperature": 0.0,
                         "num_predict": 2048,
@@ -1693,23 +1893,60 @@ with col_izq:
                         res_json["evaluacion_ejes"] = eval_ejes
 
                     es_critico = ("ROJO_CRITICO" in semaforo_ia)
+                    if not es_critico:
+                        es_rojo_explicito = (
+                            "< 5 horas" in sueno_val
+                            or "Ayuno" in nutri_val
+                            or "Malestar agudo" in bienestar_val
+                        )
+                        es_amarillo_explicito = (
+                            "5 - 7 horas" in sueno_val
+                            or "Parcial" in nutri_val
+                            or "Malestar moderado" in bienestar_val
+                        )
+                        if es_rojo_explicito and "ROJO" not in semaforo_ia:
+                            semaforo_ia = "ROJO"
+                            res_json.setdefault("estado_educabilidad", {})["semaforo"] = "ROJO"
+                        elif es_amarillo_explicito and semaforo_ia == "VERDE":
+                            semaforo_ia = "AMARILLO"
+                            res_json.setdefault("estado_educabilidad", {})["semaforo"] = "AMARILLO"
+
                     deltas_calculados = {}
                     for c_j, n_eje in MAPEO_EJES.items():
                         if es_critico:
                             if c_j in eval_ejes and isinstance(eval_ejes[c_j], dict):
                                 eval_ejes[c_j]["polaridad"] = "NEUTRO"
+                                eval_ejes[c_j]["delta_basal_pct"] = 0
                                 eval_ejes[c_j]["delta_pct"] = 0
                             deltas_calculados[n_eje] = 0.0
                         elif c_j in eval_ejes and isinstance(eval_ejes[c_j], dict):
                             val_obj = eval_ejes[c_j]
                             polaridad = str(val_obj.get("polaridad", "NEUTRO")).upper()
                             magnitud = abs(int(val_obj.get("delta_pct", 0)))
+                            basal_mag = abs(int(val_obj.get("delta_basal_pct", magnitud)))
                             if polaridad == "REGRESION" and magnitud > 0:
                                 pct_crec = -magnitud
+                                eval_ejes[c_j]["delta_basal_pct"] = basal_mag if ("AMARILLO" in semaforo_ia or "ROJO" in semaforo_ia) else magnitud
                             elif polaridad == "CRECIMIENTO" and magnitud > 0:
+                                if "AMARILLO" in semaforo_ia or "ROJO" in semaforo_ia:
+                                    max_amp_pct = 12 if "ROJO" in semaforo_ia else 6
+                                    max_amp_db = 1.0 if "ROJO" in semaforo_ia else 0.5
+                                    if basal_mag == 0:
+                                        basal_mag = magnitud
+                                    magnitud = min(magnitud, basal_mag + max_amp_pct)
+                                    db_basal_chk = calcular_delta_db(basal_mag)
+                                    db_final_chk = calcular_delta_db(magnitud)
+                                    if db_final_chk > round(db_basal_chk + max_amp_db, 1):
+                                        db_lim = round(db_basal_chk + max_amp_db, 1)
+                                        magnitud = max(basal_mag, int(round((10.0 ** (db_lim / 20.0) - 1.0) * 100.0)))
+                                    eval_ejes[c_j]["delta_basal_pct"] = basal_mag
+                                else:
+                                    eval_ejes[c_j]["delta_basal_pct"] = magnitud
                                 pct_crec = magnitud
                             else:
                                 pct_crec = 0
+                                if not ("AMARILLO" in semaforo_ia or "ROJO" in semaforo_ia):
+                                    eval_ejes[c_j]["delta_basal_pct"] = 0
                             eval_ejes[c_j]["delta_pct"] = pct_crec
                             deltas_calculados[n_eje] = calcular_delta_db(pct_crec, semaforo=semaforo_ia)
                         else:
@@ -1741,354 +1978,221 @@ with col_izq:
 
     # --- STAGING / PREVISUALIZACIÓN DE IA ---
     if st.session_state.analisis_pendiente:
-        st.markdown('<div class="staging-card">', unsafe_allow_html=True)
-        hitos_p = st.session_state.analisis_pendiente["hitos"]
-        hay_rojo_critico = any(
-            "ROJO_CRITICO" in str(item.get("resultado_ia", {}).get("estado_educabilidad", {}).get("semaforo", "")).upper()
-            for item in hitos_p
-        )
+        with st.container(border=True):
+            hitos_p = st.session_state.analisis_pendiente["hitos"]
+            hay_rojo_critico = any(
+                "ROJO_CRITICO" in str(item.get("resultado_ia", {}).get("estado_educabilidad", {}).get("semaforo", "")).upper()
+                for item in hitos_p
+            )
 
-        if hay_rojo_critico:
-            st.error(t("crit_title"))
-            st.markdown(t("crit_body"))
-            st.markdown(t("crit_action"))
+            if hay_rojo_critico:
+                st.error(t("crit_title"))
+                st.markdown(t("crit_body"))
+                st.markdown(t("crit_action"))
 
-            col_cr1, col_cr2 = st.columns([0.62, 0.38])
-            with col_cr1:
-                if st.button(t("btn_crit_log"), type="primary", use_container_width=True, disabled=st.session_state.procesando):
-                    for item in hitos_p:
-                        st.session_state.historial_observaciones.append({
-                            "tipo": "ALERTA_CRITICA",
-                            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                            "nota": item["nota"],
-                            "deltas": {eje: 0.0 for eje in EJE_NOMBRES},
-                            "resultado_ia": item["resultado_ia"],
-                            "vector_snapshot": dict(st.session_state.valores_db)
-                        })
-                    st.session_state.analisis_pendiente = None
-                    st.session_state.json_ya_descargado = False
-                    st.session_state.flag_limpiar_nota = True
-                    guardar_expediente_disco(nom_in, mat_in, grp_in, nivel_in, materia_in)
-                    st.session_state.mostrar_modal_resguardo = True
-                    st.rerun()
-            with col_cr2:
-                if st.button(t("btn_crit_discard"), use_container_width=True, disabled=st.session_state.procesando):
-                    st.session_state.analisis_pendiente = None
-                    st.rerun()
-        else:
-            st.markdown(t("staging_title"))
-            st.caption(t("staging_caption"))
-
-            for item in hitos_p:
-                res_ia = item.get("resultado_ia", {})
-                est_educ = res_ia.get("estado_educabilidad", {})
-                semaforo = str(est_educ.get("semaforo", "VERDE")).upper()
-                adv_pedag = est_educ.get("advertencia_pedagogica", "")
-
-                if "ROJO" in semaforo:
-                    st.error(f"{t('sem_red')} {adv_pedag}")
-                elif "AMARILLO" in semaforo:
-                    st.warning(f"{t('sem_yellow')} {adv_pedag}")
-                else:
-                    st.success(f"{t('sem_green')} {adv_pedag or t('sem_green_default')}")
-
-                res_ejes = res_ia.get("evaluacion_ejes", {})
-                hubo_eje = False
-                for c_j, n_eje in MAPEO_EJES.items():
-                    d_val = item["deltas"].get(n_eje, 0.0)
-                    pct_val = res_ejes.get(c_j, {}).get("delta_pct", 0)
-                    basal_val = res_ejes.get(c_j, {}).get("delta_basal_pct", abs(pct_val))
-                    if abs(d_val) > 0.01:
-                        hubo_eje = True
-                        razon = res_ejes.get(c_j, {}).get("razonamiento", "")
-                        ajuste_str = (
-                            f" (basal {basal_val}% ➔ {pct_val:+d}%)"
-                            if ("AMARILLO" in semaforo or "ROJO" in semaforo) and basal_val != abs(pct_val)
-                            else f" ({pct_val:+d}%)"
-                        )
-                        color_tag = f":green[**{fmt_db(d_val)} dB**{ajuste_str}]" if d_val > 0 else f":red[**{fmt_db(d_val)} dB**{ajuste_str}]"
-                        tag_socio = obtener_tag_sociofisiologico(d_val, semaforo)
-                        st.markdown(f"  └ **{eje_label(n_eje)}:** {color_tag}{tag_socio} — *{razon}*")
-                if not hubo_eje:
-                    st.caption(t("hist_no_deltas"))
-
-            st.markdown("---")
-            col_s1, col_s2, col_s3 = st.columns([0.36, 0.32, 0.32])
-            with col_s1:
-                if st.button(t("btn_accept"), type="primary", use_container_width=True, disabled=st.session_state.procesando):
-                    for item in hitos_p:
-                        for eje, d_val in item["deltas"].items():
-                            st.session_state.valores_db[eje] = round(st.session_state.valores_db[eje] + float(d_val), 1)
-                        st.session_state.historial_observaciones.append({
-                            "tipo": "IA",
-                            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                            "nota": item["nota"],
-                            "deltas": item["deltas"],
-                            "resultado_ia": item["resultado_ia"],
-                            "vector_snapshot": dict(st.session_state.valores_db)
-                        })
-                    st.session_state.analisis_pendiente = None
-                    st.session_state.json_ya_descargado = False
-                    st.session_state.flag_limpiar_nota = True
-                    guardar_expediente_disco(nom_in, mat_in, grp_in, nivel_in, materia_in)
-                    st.session_state.mostrar_modal_resguardo = True
-                    st.rerun()
-
-            with col_s2:
-                if st.button(t("btn_adjust"), use_container_width=True, disabled=st.session_state.procesando):
-                    for item in hitos_p:
-                        for eje, d_val in item["deltas"].items():
-                            st.session_state.valores_db[eje] = round(st.session_state.valores_db[eje] + float(d_val), 1)
-                        st.session_state.historial_observaciones.append({
-                            "tipo": "IA",
-                            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                            "nota": item["nota"],
-                            "deltas": item["deltas"],
-                            "resultado_ia": item["resultado_ia"],
-                            "vector_snapshot": dict(st.session_state.valores_db)
-                        })
-                    st.session_state.analisis_pendiente = None
-                    st.session_state.json_ya_descargado = False
-                    st.session_state.flag_limpiar_nota = True
-                    st.session_state.flag_reset_calib = True
-                    st.rerun()
-
-            with col_s3:
-                if st.button(t("btn_reject"), use_container_width=True, disabled=st.session_state.procesando):
-                    st.session_state.analisis_pendiente = None
-                    st.rerun()
-
-        st.markdown('</div>', unsafe_allow_html=True)
-
-    # --- SECCIÓN 4: META-ANÁLISIS DE TRAYECTORIA (CORREGIDO CON ESTADO PERSISTENTE) ---
-    st.markdown("---")
-    st.subheader(t("sec4_title"))
-    st.caption(t("sec4_caption"))
-
-    if st.button(t("btn_meta"), use_container_width=True, disabled=st.session_state.procesando):
-        if not nom_in.strip():
-            st.error(t("err_no_name"))
-        elif len(st.session_state.historial_observaciones) < 2:
-            st.warning(t("err_meta_min"))
-        else:
-            modelo_meta = st.session_state.get("modelo_activo", "prisma-engine-4b")
-            with st.spinner(t("spinner_meta").format(model=modelo_meta)):
-                try:
-                    resumen_comp = compactar_expediente_para_reporte(
-                        nom_in, nivel_in, materia_in, grp_in,
-                        st.session_state.valores_db,
-                        st.session_state.historial_observaciones
-                    )
-                    lang_meta = "ESPAÑOL" if st.session_state.lang == "es" else "ENGLISH"
-                    meta_sys = (
-                        f"You are PRISMA-Engine in LONGITUDINAL META-ANALYSIS mode. Respond in {lang_meta} inside a strict JSON object:\n"
-                        '{"diagnostico_general": "Brief holistic synthesis of trajectory strengths, dialectic balance, and growth horizon.", '
-                        '"evaluacion_ejes": {"Indagacion_Investigacion": {"razonamiento": "...", "polaridad": "CRECIMIENTO|REGRESION|NEUTRO", "delta_pct": 0}, ... (all 8 canonical keys)}}.\n'
-                        "Only propose small fine-tuning holistic deltas (0% to 15%) if longitudinal synergy clearly justifies it; otherwise use NEUTRO and 0."
-                    )
-                    response_meta = requests.post(
-                        "http://localhost:11434/api/generate",
-                        json={
-                            "model": modelo_meta,
-                            "system": meta_sys,
-                            "prompt": resumen_comp,
-                            "format": "json",
-                            "options": {"temperature": 0.0, "num_predict": 2048, "num_ctx": 8192},
-                            "stream": False
-                        },
-                        timeout=180
-                    )
-                    if response_meta.status_code == 200:
-                        meta_res = parsear_json_ollama(response_meta.json().get("response", ""))
-                        if meta_res and isinstance(meta_res, dict):
-                            eval_meta = meta_res.get("evaluacion_ejes", {})
-                            overrides = {}
-                            for c_j, n_eje in MAPEO_EJES.items():
-                                item_m = eval_meta.get(c_j, {}) if isinstance(eval_meta, dict) else {}
-                                pol_m = str(item_m.get("polaridad", "NEUTRO")).upper()
-                                mag_m = abs(int(item_m.get("delta_pct", 0))) if isinstance(item_m, dict) else 0
-                                pct_m = -mag_m if (pol_m == "REGRESION" and mag_m > 0) else (mag_m if (pol_m == "CRECIMIENTO" and mag_m > 0) else 0)
-                                overrides[n_eje] = calcular_delta_db(pct_m)
-                            st.session_state.meta_analisis_pendiente = {
-                                "diagnostico_general": meta_res.get("diagnostico_general", meta_res.get("resumen", "")),
-                                "deltas": overrides,
-                                "resultado_ia": meta_res
-                            }
-                            st.rerun()
-                        else:
-                            st.error("⚠️ Invalid JSON returned during Meta-Analysis.")
-                    else:
-                        st.error(f"⚠️ HTTP {response_meta.status_code} (Ollama).")
-                except Exception as e:
-                    st.error(f"⚠️ Error Ollama: {e}")
-
-    if st.session_state.meta_analisis_pendiente:
-        st.markdown('<div class="staging-card">', unsafe_allow_html=True)
-        st.markdown(t("meta_card_title"))
-        m_data = st.session_state.meta_analisis_pendiente
-        if m_data.get("diagnostico_general"):
-            st.write(f"*{m_data['diagnostico_general']}*")
-        eval_m = m_data.get("resultado_ia", {}).get("evaluacion_ejes", {})
-        for c_j, n_eje in MAPEO_EJES.items():
-            d_m = m_data["deltas"].get(n_eje, 0.0)
-            razon_m = eval_m.get(c_j, {}).get("razonamiento", "") if isinstance(eval_m, dict) else ""
-            if abs(d_m) > 0.01 or razon_m:
-                st.write(f"• **{eje_label(n_eje)}:** `{fmt_db(d_m)} dB` — {razon_m}")
-
-        col_ma1, col_ma2 = st.columns([0.62, 0.38])
-        with col_ma1:
-            if st.button(t("btn_meta_accept"), type="primary", use_container_width=True, disabled=st.session_state.procesando):
-                for eje, d_m in m_data["deltas"].items():
-                    st.session_state.valores_db[eje] = round(st.session_state.valores_db[eje] + float(d_m), 1)
-                st.session_state.historial_observaciones.append({
-                    "tipo": "META_ANALISIS",
-                    "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                    "justificacion": m_data.get("diagnostico_general", "Meta-análisis PRISMA™."),
-                    "deltas": m_data["deltas"],
-                    "resultado_ia": m_data["resultado_ia"],
-                    "vector_snapshot": dict(st.session_state.valores_db)
-                })
-                st.session_state.meta_analisis_pendiente = None
-                st.session_state.json_ya_descargado = False
-                guardar_expediente_disco(nom_in, mat_in, grp_in, nivel_in, materia_in)
-                st.session_state.mostrar_modal_resguardo = True
-                st.rerun()
-        with col_ma2:
-            if st.button(t("btn_meta_discard"), use_container_width=True, disabled=st.session_state.procesando):
-                st.session_state.meta_analisis_pendiente = None
-                st.rerun()
-        st.markdown('</div>', unsafe_allow_html=True)
-
-    # --- SECCIÓN 5: GENERADOR DE REPORTES CURRICULARES OFICIALES + EXPORTACIÓN .DOCX ---
-    st.markdown("---")
-    st.subheader(t("sec5_title"))
-    st.caption(t("sec5_caption"))
-
-    col_rep1, col_rep2 = st.columns([0.62, 0.38])
-    with col_rep1:
-        marco_sel = st.selectbox(
-            t("lbl_framework"),
-            options=list(MARCOS_CURRICULARES.keys()),
-            format_func=lambda k: MARCOS_CURRICULARES[k][st.session_state.lang],
-            key="input_marco",
-            disabled=st.session_state.procesando
-        )
-    with col_rep2:
-        periodo_in = st.text_input(
-            t("lbl_period"),
-            key="input_periodo",
-            placeholder=t("ph_period"),
-            disabled=st.session_state.procesando
-        )
-
-    custom_criteria = ""
-    if marco_sel == "CUSTOM":
-        custom_criteria = st.text_area(
-            t("lbl_custom_fw"),
-            key="input_marco_custom",
-            height=90,
-            placeholder=t("ph_custom_fw"),
-            disabled=st.session_state.procesando
-        )
-
-    if st.button(t("btn_gen_report"), type="secondary", use_container_width=True, disabled=st.session_state.procesando):
-        if not nom_in.strip():
-            st.error(t("err_no_name"))
-        elif len(st.session_state.historial_observaciones) < 1:
-            st.warning(t("err_report_min"))
-        elif marco_sel == "CUSTOM" and not custom_criteria.strip():
-            st.warning(t("err_custom_empty"))
-        else:
-            modelo_rep = st.session_state.get("modelo_activo", "prisma-engine-4b")
-            fw_nombre = MARCOS_CURRICULARES[marco_sel][st.session_state.lang]
-            with st.spinner(t("spinner_report").format(fw=fw_nombre, model=modelo_rep)):
-                try:
-                    resumen_exp = compactar_expediente_para_reporte(
-                        nom_in, nivel_in, materia_in, grp_in,
-                        st.session_state.valores_db,
-                        st.session_state.historial_observaciones
-                    )
-                    lang_rep = "ESPAÑOL" if st.session_state.lang == "es" else "ENGLISH"
-                    guia_fw = MARCOS_CURRICULARES[marco_sel]["guia"]
-                    if marco_sel == "CUSTOM":
-                        guia_fw = f"{guia_fw}\nCRITERIOS INSTITUCIONALES DEL DOCENTE:\n{custom_criteria.strip()}"
-
-                    rep_system = (
-                        f"Eres un especialista en evaluación formativa y redacción curricular de Aula Viva® — PRISMA™. "
-                        f"Redacta exclusivamente en {lang_rep} un reporte oficial, claro, humanista, conciso y listo para entregar en plataforma escolar o a familias. "
-                        f"NO devuelvas JSON ni bloques de código; entrega prosa clara con subtítulos breves (##) y viñetas donde aporte legibilidad. "
-                        f"Ancla cada afirmación únicamente a las evidencias provistas; no inventes hechos ni calificaciones numéricas arbitrarias. "
-                        f"Si hubo semáforos amarillos o rojos, intégralo con tacto y ética del cuidado sin estigmatizar al estudiante.\n\n"
-                        f"MARCO CURRICULAR SOLICITADO ({fw_nombre}):\n{guia_fw}"
-                    )
-
-                    rep_prompt = (
-                        f"Periodo evaluativo: {periodo_in or 'Actual'}\n\n"
-                        f"EXPEDIENTE ACUMULADO DEL ESTUDIANTE:\n{resumen_exp}\n\n"
-                        f"Redacta ahora el informe curricular oficial alineado a {fw_nombre}."
-                    )
-
-                    resp_rep = requests.post(
-                        "http://localhost:11434/api/generate",
-                        json={
-                            "model": modelo_rep,
-                            "system": rep_system,
-                            "prompt": rep_prompt,
-                            "options": {"temperature": 0.2, "num_predict": 2048, "num_ctx": 8192},
-                            "stream": False
-                        },
-                        timeout=180
-                    )
-                    if resp_rep.status_code == 200:
-                        texto_gen = resp_rep.json().get("response", "").strip()
-                        st.session_state.reporte_curricular_generado = {
-                            "marco_key": marco_sel,
-                            "marco_nombre": fw_nombre,
-                            "periodo": periodo_in,
-                            "texto": texto_gen
-                        }
+                col_cr1, col_cr2 = st.columns([0.62, 0.38])
+                with col_cr1:
+                    if st.button(t("btn_crit_log"), type="primary", use_container_width=True, disabled=st.session_state.procesando):
+                        for item in hitos_p:
+                            st.session_state.historial_observaciones.append({
+                                "tipo": "ALERTA_CRITICA",
+                                "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                                "nota": item["nota"],
+                                "deltas": {eje: 0.0 for eje in EJE_NOMBRES},
+                                "resultado_ia": item["resultado_ia"],
+                                "vector_snapshot": dict(st.session_state.valores_db)
+                            })
+                        st.session_state.analisis_pendiente = None
+                        st.session_state.previsualizacion_manual = None
+                        st.session_state.json_ya_descargado = False
+                        st.session_state.flag_limpiar_nota = True
+                        guardar_expediente_disco(nom_in, mat_in, grp_in, nivel_in, materia_in)
+                        st.session_state.mostrar_modal_resguardo = True
                         st.rerun()
-                    else:
-                        st.error(f"⚠️ HTTP {resp_rep.status_code} (Ollama).")
-                except Exception as e:
-                    st.error(f"⚠️ Error Ollama: {e}")
-
-    if st.session_state.reporte_curricular_generado:
-        rep_obj = st.session_state.reporte_curricular_generado
-        st.markdown('<div class="report-card">', unsafe_allow_html=True)
-        st.markdown(t("report_ready_title"))
-        texto_editado = st.text_area(
-            t("report_copy_label"),
-            value=rep_obj["texto"],
-            height=280,
-            key="editor_reporte_curricular"
-        )
-        st.session_state.reporte_curricular_generado["texto"] = texto_editado
-
-        col_rd1, col_rd2 = st.columns([0.65, 0.35])
-        with col_rd1:
-            if DOCX_DISPONIBLE:
-                docx_bytes = generar_docx_reporte(
-                    nom_in, mat_in, grp_in, nivel_in, materia_in,
-                    rep_obj["marco_nombre"], rep_obj["periodo"],
-                    texto_editado, st.session_state.valores_db, st.session_state.lang
-                )
-                fn_docx = f"{datetime.now().strftime('%y%m%d')}_{limpiar_cadena(nom_in)}_{rep_obj['marco_key']}_PRISMA.docx"
-                st.download_button(
-                    label=t("btn_dl_docx"),
-                    data=docx_bytes,
-                    file_name=fn_docx,
-                    mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-                    type="primary",
-                    use_container_width=True
-                )
+                with col_cr2:
+                    if st.button(t("btn_crit_discard"), use_container_width=True, disabled=st.session_state.procesando):
+                        st.session_state.analisis_pendiente = None
+                        st.session_state.previsualizacion_manual = None
+                        st.session_state.flag_limpiar_nota = True
+                        st.rerun()
             else:
-                st.warning(t("docx_missing"))
-        with col_rd2:
-            if st.button(t("btn_clear_report"), use_container_width=True):
-                st.session_state.reporte_curricular_generado = None
+                st.markdown(t("staging_title"))
+                st.caption(t("staging_caption"))
+
+                for item in hitos_p:
+                    res_ia = item.get("resultado_ia", {})
+                    est_educ = res_ia.get("estado_educabilidad", {})
+                    semaforo = str(est_educ.get("semaforo", "VERDE")).upper()
+                    adv_pedag = est_educ.get("advertencia_pedagogica", "")
+
+                    if "ROJO" in semaforo:
+                        st.error(f"{t('sem_red')} {adv_pedag}")
+                    elif "AMARILLO" in semaforo:
+                        st.warning(f"{t('sem_yellow')} {adv_pedag}")
+                    else:
+                        st.success(f"{t('sem_green')} {adv_pedag or t('sem_green_default')}")
+
+                    res_ejes = res_ia.get("evaluacion_ejes", {})
+                    hubo_eje = False
+                    for c_j, n_eje in MAPEO_EJES.items():
+                        d_val = item["deltas"].get(n_eje, 0.0)
+                        pct_val = res_ejes.get(c_j, {}).get("delta_pct", 0)
+                        basal_val = res_ejes.get(c_j, {}).get("delta_basal_pct", abs(pct_val))
+                        if abs(d_val) > 0.01:
+                            hubo_eje = True
+                            razon = res_ejes.get(c_j, {}).get("razonamiento", "")
+                            pct_str = f" ({pct_val:+d}%)"
+                            color_tag = f":green[**{fmt_db(d_val)} dB**{pct_str}]" if d_val > 0 else f":red[**{fmt_db(d_val)} dB**{pct_str}]"
+                            tag_socio = obtener_tag_sociofisiologico(d_val, semaforo, basal_pct=basal_val, final_pct=pct_val)
+                            st.markdown(f"  └ **{eje_label(n_eje)}:** {color_tag}{tag_socio} — *{razon}*")
+                    if not hubo_eje:
+                        st.caption(t("hist_no_deltas"))
+
+                st.markdown("---")
+                col_s1, col_s2 = st.columns([0.55, 0.45])
+                with col_s1:
+                    if st.button(t("btn_accept"), type="primary", use_container_width=True, disabled=bloqueo_ui):
+                        for item in hitos_p:
+                            for eje, d_val in item["deltas"].items():
+                                st.session_state.valores_db[eje] = round(st.session_state.valores_db[eje] + float(d_val), 1)
+                            st.session_state.historial_observaciones.append({
+                                "tipo": "IA",
+                                "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                                "nota": item["nota"],
+                                "deltas": item["deltas"],
+                                "resultado_ia": item["resultado_ia"],
+                                "vector_snapshot": dict(st.session_state.valores_db)
+                            })
+                        st.session_state.analisis_pendiente = None
+                        st.session_state.previsualizacion_manual = None
+                        st.session_state.json_ya_descargado = False
+                        st.session_state.flag_limpiar_nota = True
+                        guardar_expediente_disco(nom_in, mat_in, grp_in, nivel_in, materia_in)
+                        st.session_state.mostrar_modal_resguardo = True
+                        st.rerun()
+
+                with col_s2:
+                    if st.button(t("btn_reject"), use_container_width=True, disabled=bloqueo_ui):
+                        st.session_state.analisis_pendiente = None
+                        st.session_state.previsualizacion_manual = None
+                        st.rerun()
+
+    # --- SECCIÓN 4: CALIBRACIÓN MANUAL DOCENTE (SUMADA EN VIVO SOBRE PRISMA) ---
+    st.markdown("---")
+    st.subheader(t("sec6_title"))
+    st.caption(t("sec6_caption"))
+
+    deltas_ia_pend = obtener_deltas_ia_pendientes()
+    hay_ia_pendiente = (st.session_state.analisis_pendiente is not None and not alerta_critica_activa)
+
+    for eje in EJE_NOMBRES:
+        base_eje = round(st.session_state.valores_db[eje] + (deltas_ia_pend[eje] if hay_ia_pendiente else 0.0), 1)
+        sufijo_ia = f" &nbsp;*(PRISMA: {fmt_db(deltas_ia_pend[eje])} dB)*" if (hay_ia_pendiente and abs(deltas_ia_pend[eje]) > 0.01) else ""
+        st.markdown(f"**{eje_label(eje)}** &nbsp;·&nbsp; `{fmt_db(base_eje)} dB`{sufijo_ia}")
+        col_c1, col_c2 = st.columns([0.7, 0.3])
+        with col_c1:
+            st.slider(
+                f"Slider {eje}",
+                min_value=-6.0,
+                max_value=6.0,
+                step=0.1,
+                key=f"slider_{eje}",
+                on_change=sync_slider_a_num,
+                args=(eje,),
+                disabled=bloqueo_ui,
+                label_visibility="collapsed"
+            )
+        with col_c2:
+            st.number_input(
+                f"Val {eje}",
+                min_value=-6.0,
+                max_value=6.0,
+                step=0.1,
+                key=f"num_{eje}",
+                on_change=sync_num_a_slider,
+                args=(eje,),
+                disabled=bloqueo_ui,
+                label_visibility="collapsed"
+            )
+
+    st.markdown(f"<div class='prisma-field-lbl'>{t('lbl_justif')}</div>", unsafe_allow_html=True)
+    justificacion_docente = st.text_area(
+        "f_justif",
+        key="input_justificacion",
+        height=80,
+        disabled=bloqueo_ui,
+        label_visibility="collapsed"
+    )
+    st.caption(t("ph_justif"))
+
+    if st.button(t("btn_prev_manual"), type="secondary", use_container_width=True, disabled=bloqueo_ui):
+        if not nom_in.strip():
+            st.error(t("err_no_name"))
+        elif nivel_in == NIVELES_CANON[0]:
+            st.error(t("err_no_level"))
+        elif justificacion_docente.strip():
+            deltas_propuestos = {eje: float(st.session_state[f"num_{eje}"]) for eje in EJE_NOMBRES}
+            if any(abs(v) > 0.001 for v in deltas_propuestos.values()):
+                st.session_state.previsualizacion_manual = deltas_propuestos
                 st.rerun()
-        st.markdown('</div>', unsafe_allow_html=True)
+            else:
+                st.error(t("err_manual_zero"))
+        else:
+            st.error(t("err_manual_justif"))
+
+    if st.session_state.previsualizacion_manual and not alerta_critica_activa:
+        with st.container(border=True):
+            st.markdown(t("manual_card_title"))
+            st.caption(t("manual_card_caption"))
+
+            for eje, d_v in st.session_state.previsualizacion_manual.items():
+                if abs(d_v) > 0.001:
+                    base_eje = round(st.session_state.valores_db[eje] + (deltas_ia_pend[eje] if hay_ia_pendiente else 0.0), 1)
+                    val_nuevo = round(base_eje + d_v, 1)
+                    st.write(f"• **{eje_label(eje)}:** `{fmt_db(base_eje)} dB` ➔ **`{fmt_db(val_nuevo)} dB`** (`{fmt_db(d_v)} dB`)")
+
+            st.write(f'{t("manual_justif_lbl")} *"{st.session_state.input_justificacion}"*')
+            st.markdown("---")
+            col_m1, col_m2 = st.columns([0.62, 0.38])
+            with col_m1:
+                if st.button(t("btn_manual_confirm"), type="primary", use_container_width=True, disabled=bloqueo_ui):
+                    # 1) Si hay análisis de PRISMA pendiente, registrarlo PRIMERO para conservar el orden causal (#N PRISMA -> #N+1 Manual)
+                    if hay_ia_pendiente:
+                        for item in st.session_state.analisis_pendiente["hitos"]:
+                            for eje, d_ia in item["deltas"].items():
+                                st.session_state.valores_db[eje] = round(st.session_state.valores_db[eje] + float(d_ia), 1)
+                            st.session_state.historial_observaciones.append({
+                                "tipo": "IA",
+                                "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                                "nota": item["nota"],
+                                "deltas": item["deltas"],
+                                "resultado_ia": item["resultado_ia"],
+                                "vector_snapshot": dict(st.session_state.valores_db)
+                            })
+                        st.session_state.analisis_pendiente = None
+                        st.session_state.flag_limpiar_nota = True
+
+                    # 2) Luego registrar el ajuste manual docente sobre ese estado
+                    for eje in EJE_NOMBRES:
+                        st.session_state.valores_db[eje] = round(st.session_state.valores_db[eje] + float(st.session_state.previsualizacion_manual[eje]), 1)
+                    st.session_state.historial_observaciones.append({
+                        "tipo": "MANUAL",
+                        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                        "justificacion": st.session_state.input_justificacion,
+                        "deltas": st.session_state.previsualizacion_manual,
+                        "vector_snapshot": dict(st.session_state.valores_db)
+                    })
+                    st.session_state.previsualizacion_manual = None
+                    st.session_state.json_ya_descargado = False
+                    st.session_state.flag_limpiar_justificacion = True
+                    st.session_state.flag_reset_calib = True
+                    guardar_expediente_disco(nom_in, mat_in, grp_in, nivel_in, materia_in)
+                    st.session_state.mostrar_modal_resguardo = True
+                    st.rerun()
+            with col_m2:
+                if st.button(t("btn_manual_cancel"), use_container_width=True, disabled=bloqueo_ui):
+                    st.session_state.previsualizacion_manual = None
+                    st.rerun()
 
     # --- HISTORIAL DE HITOS ACUMULADOS ---
     if st.session_state.historial_observaciones:
@@ -2115,11 +2219,11 @@ with col_izq:
                 if tipo_hito == "ALERTA_CRITICA":
                     st.error(t("crit_title"))
                     if obs.get("nota"):
-                        st.write(f"{t('hist_note_lbl')} *\"{obs['nota']}\"*")
+                        st.write(f'{t("hist_note_lbl")} *"{obs["nota"]}"*')
                     st.caption(t("crit_action"))
                 elif tipo_hito in ("IA", "META_ANALISIS"):
                     if obs.get("nota"):
-                        st.write(f"{t('hist_note_lbl')} *\"{obs['nota']}\"*")
+                        st.write(f'{t("hist_note_lbl")} *"{obs["nota"]}"*')
                     elif obs.get("justificacion"):
                         st.write(f"*{obs['justificacion']}*")
 
@@ -2146,114 +2250,260 @@ with col_izq:
                             razon = eval_ejes.get(c_j, {}).get("razonamiento", "") if isinstance(eval_ejes, dict) else ""
                             pct_eje = eval_ejes.get(c_j, {}).get("delta_pct", "") if isinstance(eval_ejes, dict) else ""
                             basal_eje = eval_ejes.get(c_j, {}).get("delta_basal_pct", abs(pct_eje) if isinstance(pct_eje, int) else 0) if isinstance(eval_ejes, dict) else 0
-                            if isinstance(pct_eje, int) and ("AMARILLO" in sem_hist or "ROJO" in sem_hist) and basal_eje != abs(pct_eje):
-                                pct_str = f" (basal {basal_eje}% ➔ {pct_eje:+d}%)"
-                            else:
-                                pct_str = f" ({pct_eje:+d}%)" if isinstance(pct_eje, int) else ""
+                            pct_str = f" ({pct_eje:+d}%)" if isinstance(pct_eje, int) else ""
                             color_tag = f":green[**{fmt_db(delta)} dB**{pct_str}]" if delta > 0 else f":red[**{fmt_db(delta)} dB**{pct_str}]"
-                            tag_socio_hist = obtener_tag_sociofisiologico(delta, sem_hist)
+                            tag_socio_hist = obtener_tag_sociofisiologico(delta, sem_hist, basal_pct=basal_eje, final_pct=pct_eje if isinstance(pct_eje, int) else None)
                             st.markdown(f"• **{eje_label(n_eje)}:** {color_tag}{tag_socio_hist} — *{razon}*")
                     if not hubo_cambios:
                         st.caption(t("hist_no_deltas"))
                 elif tipo_hito == "MANUAL":
-                    st.write(f"{t('hist_manual_lbl')} *\"{obs.get('justificacion', '')}\"*")
+                    st.write(f'{t("hist_manual_lbl")} *"{obs.get("justificacion", "")}"*')
                     for eje_nom, delta_val in obs.get("deltas", {}).items():
                         if abs(delta_val) > 0.01:
                             st.caption(f"• **{eje_label(eje_nom)}:** `{fmt_db(delta_val)} dB` ({t('hist_direct_adj')})")
                 else:
-                    st.write(f"{t('hist_trans_lbl')} *\"{obs.get('justificacion', '')}\"*")
+                    st.write(f'{t("hist_trans_lbl")} *"{obs.get("justificacion", "")}"*')
 
-    # --- SECCIÓN 6: CALIBRACIÓN MANUAL DOCENTE ---
+    # --- SECCIÓN 5: META-ANÁLISIS DE TRAYECTORIA ---
     st.markdown("---")
-    st.subheader(t("sec6_title"))
-    st.caption(t("sec6_caption"))
+    st.subheader(t("sec4_title"))
+    st.caption(t("sec4_caption"))
 
-    for eje in EJE_NOMBRES:
-        col_c1, col_c2 = st.columns([0.7, 0.3])
-        with col_c1:
-            st.slider(
-                eje_label(eje),
-                min_value=-6.0,
-                max_value=6.0,
-                step=0.1,
-                key=f"slider_{eje}",
-                on_change=sync_slider_a_num,
-                args=(eje,),
-                disabled=st.session_state.procesando,
-                help=f"{fmt_db(st.session_state.valores_db[eje])} dB"
-            )
-        with col_c2:
-            st.number_input(
-                f"Val {eje}",
-                min_value=-6.0,
-                max_value=6.0,
-                step=0.1,
-                key=f"num_{eje}",
-                on_change=sync_num_a_slider,
-                args=(eje,),
-                disabled=st.session_state.procesando,
-                label_visibility="collapsed"
-            )
-
-    justificacion_docente = st.text_area(
-        t("lbl_justif"),
-        key="input_justificacion",
-        height=80,
-        disabled=st.session_state.procesando,
-        placeholder=t("ph_justif")
-    )
-
-    if st.button(t("btn_prev_manual"), type="secondary", use_container_width=True, disabled=st.session_state.procesando):
+    if st.button(t("btn_meta"), use_container_width=True, disabled=bloqueo_ui):
         if not nom_in.strip():
             st.error(t("err_no_name"))
-        elif nivel_in == NIVELES_CANON[0]:
-            st.error(t("err_no_level"))
-        elif justificacion_docente.strip():
-            deltas_propuestos = {eje: float(st.session_state[f"num_{eje}"]) for eje in EJE_NOMBRES}
-            if any(abs(v) > 0.001 for v in deltas_propuestos.values()):
-                st.session_state.previsualizacion_manual = deltas_propuestos
-                st.rerun()
-            else:
-                st.error(t("err_manual_zero"))
+        elif len(st.session_state.historial_observaciones) < 2:
+            st.warning(t("err_meta_min"))
         else:
-            st.error(t("err_manual_justif"))
+            modelo_meta = resolver_modelo_ollama(st.session_state.get("modelo_activo", "prisma-engine-4b"), st.session_state.lang)
+            with st.spinner(t("spinner_meta").format(model=modelo_meta)):
+                try:
+                    resumen_comp = compactar_expediente_para_reporte(
+                        nom_in, nivel_in, materia_in, grp_in,
+                        st.session_state.valores_db,
+                        st.session_state.historial_observaciones
+                    )
+                    lang_meta = "ESPAÑOL" if st.session_state.lang == "es" else "ENGLISH"
+                    meta_sys = (
+                        f"You are PRISMA-Engine in LONGITUDINAL META-ANALYSIS mode. Respond in {lang_meta} inside a strict JSON object:\n"
+                        '{"diagnostico_general": "Brief holistic synthesis of trajectory strengths, dialectic balance, and growth horizon.", '
+                        '"evaluacion_ejes": {"Indagacion_Investigacion": {"razonamiento": "...", "polaridad": "CRECIMIENTO|REGRESION|NEUTRO", "delta_pct": 0}, ... (all 8 canonical keys)}}.\n'
+                        "Only propose small fine-tuning holistic deltas (0% to 15%) if longitudinal synergy clearly justifies it; otherwise use NEUTRO and 0."
+                    )
+                    response_meta = requests.post(
+                        "http://localhost:11434/api/generate",
+                        json={
+                            "model": modelo_meta,
+                            "system": meta_sys,
+                            "prompt": resumen_comp,
+                            "format": "json",
+                            "think": False,
+                            "options": {"temperature": 0.0, "num_predict": 2048, "num_ctx": 8192},
+                            "stream": False
+                        },
+                        timeout=180
+                    )
+                    if response_meta.status_code == 200:
+                        meta_res = parsear_json_ollama(limpiar_salida_llm(response_meta.json().get("response", "")))
+                        if meta_res and isinstance(meta_res, dict):
+                            eval_meta = meta_res.get("evaluacion_ejes", {})
+                            overrides = {}
+                            for c_j, n_eje in MAPEO_EJES.items():
+                                item_m = eval_meta.get(c_j, {}) if isinstance(eval_meta, dict) else {}
+                                pol_m = str(item_m.get("polaridad", "NEUTRO")).upper()
+                                mag_m = abs(int(item_m.get("delta_pct", 0))) if isinstance(item_m, dict) else 0
+                                pct_m = -mag_m if (pol_m == "REGRESION" and mag_m > 0) else (mag_m if (pol_m == "CRECIMIENTO" and mag_m > 0) else 0)
+                                overrides[n_eje] = calcular_delta_db(pct_m)
+                            st.session_state.meta_analisis_pendiente = {
+                                "diagnostico_general": meta_res.get("diagnostico_general", meta_res.get("resumen", "")),
+                                "deltas": overrides,
+                                "resultado_ia": meta_res
+                            }
+                            st.rerun()
+                        else:
+                            st.error("⚠️ Invalid JSON returned during Meta-Analysis.")
+                    else:
+                        st.error(f"⚠️ HTTP {response_meta.status_code} (Ollama).")
+                except Exception as e:
+                    st.error(f"⚠️ Error Ollama: {e}")
 
-    if st.session_state.previsualizacion_manual:
-        st.markdown('<div class="manual-staging-card">', unsafe_allow_html=True)
-        st.markdown(t("manual_card_title"))
-        st.caption(t("manual_card_caption"))
+    if st.session_state.meta_analisis_pendiente and not alerta_critica_activa:
+        with st.container(border=True):
+            st.markdown(t("meta_card_title"))
+            m_data = st.session_state.meta_analisis_pendiente
+            if m_data.get("diagnostico_general"):
+                st.write(f"*{m_data['diagnostico_general']}*")
+            eval_m = m_data.get("resultado_ia", {}).get("evaluacion_ejes", {})
+            for c_j, n_eje in MAPEO_EJES.items():
+                d_m = m_data["deltas"].get(n_eje, 0.0)
+                razon_m = eval_m.get(c_j, {}).get("razonamiento", "") if isinstance(eval_m, dict) else ""
+                if abs(d_m) > 0.01 or razon_m:
+                    st.write(f"• **{eje_label(n_eje)}:** `{fmt_db(d_m)} dB` — {razon_m}")
 
-        for eje, d_v in st.session_state.previsualizacion_manual.items():
-            if abs(d_v) > 0.001:
-                val_nuevo = st.session_state.valores_db[eje] + d_v
-                st.write(f"• **{eje_label(eje)}:** `{fmt_db(st.session_state.valores_db[eje])} dB` ➔ **`{fmt_db(val_nuevo)} dB`** (`{fmt_db(d_v)} dB`)")
+            col_ma1, col_ma2 = st.columns([0.62, 0.38])
+            with col_ma1:
+                if st.button(t("btn_meta_accept"), type="primary", use_container_width=True, disabled=bloqueo_ui):
+                    for eje, d_m in m_data["deltas"].items():
+                        st.session_state.valores_db[eje] = round(st.session_state.valores_db[eje] + float(d_m), 1)
+                    st.session_state.historial_observaciones.append({
+                        "tipo": "META_ANALISIS",
+                        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                        "justificacion": m_data.get("diagnostico_general", "Meta-análisis PRISMA™."),
+                        "deltas": m_data["deltas"],
+                        "resultado_ia": m_data["resultado_ia"],
+                        "vector_snapshot": dict(st.session_state.valores_db)
+                    })
+                    st.session_state.meta_analisis_pendiente = None
+                    st.session_state.json_ya_descargado = False
+                    guardar_expediente_disco(nom_in, mat_in, grp_in, nivel_in, materia_in)
+                    st.session_state.mostrar_modal_resguardo = True
+                    st.rerun()
+            with col_ma2:
+                if st.button(t("btn_meta_discard"), use_container_width=True, disabled=bloqueo_ui):
+                    st.session_state.meta_analisis_pendiente = None
+                    st.rerun()
 
-        st.write(f"{t('manual_justif_lbl')} *\"{st.session_state.input_justificacion}\"*")
-        st.markdown("---")
-        col_m1, col_m2 = st.columns([0.62, 0.38])
-        with col_m1:
-            if st.button(t("btn_manual_confirm"), type="primary", use_container_width=True, disabled=st.session_state.procesando):
-                for eje in EJE_NOMBRES:
-                    st.session_state.valores_db[eje] = round(st.session_state.valores_db[eje] + float(st.session_state.previsualizacion_manual[eje]), 1)
-                st.session_state.historial_observaciones.append({
-                    "tipo": "MANUAL",
-                    "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                    "justificacion": st.session_state.input_justificacion,
-                    "deltas": st.session_state.previsualizacion_manual,
-                    "vector_snapshot": dict(st.session_state.valores_db)
-                })
-                st.session_state.previsualizacion_manual = None
-                st.session_state.json_ya_descargado = False
-                st.session_state.flag_limpiar_justificacion = True
-                st.session_state.flag_reset_calib = True
-                guardar_expediente_disco(nom_in, mat_in, grp_in, nivel_in, materia_in)
-                st.session_state.mostrar_modal_resguardo = True
-                st.rerun()
-        with col_m2:
-            if st.button(t("btn_manual_cancel"), use_container_width=True, disabled=st.session_state.procesando):
-                st.session_state.previsualizacion_manual = None
-                st.rerun()
-        st.markdown('</div>', unsafe_allow_html=True)
+    # --- SECCIÓN 6: REPORTE OFICIAL + EXPORTACIÓN .DOCX ---
+    st.markdown("---")
+    st.subheader(t("sec5_title"))
+    st.caption(t("sec5_caption"))
+
+    col_rep1, col_rep2 = st.columns([0.62, 0.38])
+    with col_rep1:
+        marco_sel = st.selectbox(
+            t("lbl_framework"),
+            options=list(MARCOS_CURRICULARES.keys()),
+            format_func=lambda k: MARCOS_CURRICULARES[k][st.session_state.lang],
+            key="input_marco",
+            disabled=bloqueo_ui
+        )
+    with col_rep2:
+        periodo_in = st.text_input(
+            t("lbl_period"),
+            key="input_periodo",
+            placeholder=t("ph_period"),
+            disabled=bloqueo_ui
+        )
+
+    custom_criteria = ""
+    if marco_sel == "CUSTOM":
+        custom_criteria = st.text_area(
+            t("lbl_custom_fw"),
+            key="input_marco_custom",
+            height=90,
+            placeholder=t("ph_custom_fw"),
+            disabled=bloqueo_ui
+        )
+
+    if st.button(t("btn_gen_report"), type="secondary", use_container_width=True, disabled=bloqueo_ui):
+        if not nom_in.strip():
+            st.error(t("err_no_name"))
+        elif len(st.session_state.historial_observaciones) < 1:
+            st.warning(t("err_report_min"))
+        elif marco_sel == "CUSTOM" and not custom_criteria.strip():
+            st.warning(t("err_custom_empty"))
+        else:
+            modelo_rep = resolver_modelo_ollama(st.session_state.get("modelo_activo", "prisma-engine-4b"), st.session_state.lang)
+            fw_nombre = MARCOS_CURRICULARES[marco_sel][st.session_state.lang]
+            with st.spinner(t("spinner_report").format(fw=fw_nombre, model=modelo_rep)):
+                try:
+                    resumen_exp = compactar_expediente_para_reporte(
+                        nom_in, nivel_in, materia_in, grp_in,
+                        st.session_state.valores_db,
+                        st.session_state.historial_observaciones
+                    )
+                    lang_rep = "ESPAÑOL" if st.session_state.lang == "es" else "ENGLISH"
+                    guia_fw = MARCOS_CURRICULARES[marco_sel]["guia"]
+                    if marco_sel == "IB":
+                        if nivel_in in (NIVELES_CANON[1], NIVELES_CANON[2]):
+                            guia_fw += "\nNote: This student is in Primary/Early Years — reference IB PYP (PEP) only; do NOT mention CP or DP."
+                        elif nivel_in == NIVELES_CANON[3]:
+                            guia_fw += "\nNote: This student is in Lower Secondary — reference IB MYP (PAI) only; do NOT mention Career-related Programme (CP) or DP."
+                        elif nivel_in == NIVELES_CANON[4]:
+                            guia_fw += "\nNote: This student is in Upper Secondary — reference IB DP / CP appropriately."
+                    elif marco_sel == "CUSTOM":
+                        guia_fw = f"{guia_fw}\nCRITERIOS INSTITUCIONALES DEL DOCENTE:\n{custom_criteria.strip()}"
+
+                    rep_system = (
+                        f"Eres un especialista en evaluación formativa y redacción curricular de Aula Viva® — PRISMA™. "
+                        f"Redacta EXCLUSIVAMENTE en {lang_rep} un reporte oficial, claro, humanista, conciso y listo para entregar en plataforma escolar o a familias. "
+                        f"NO incluyas proceso de pensamiento, análisis previo ni preámbulos; empieza directamente con el contenido del reporte. "
+                        f"NO devuelvas JSON ni bloques de código; entrega prosa clara con subtítulos breves (##) y viñetas donde aporte legibilidad. "
+                        f"Ancla cada afirmación únicamente a las evidencias provistas; no inventes hechos ni calificaciones numéricas arbitrarias. "
+                        f"REGLA DE ÉTICA DEL CUIDADO: Los semáforos AMARILLO y ROJO reflejan condiciones de educabilidad (fatiga somática, dolor, alimentación parcial o carga doméstica), JAMÁS mala conducta ni fallas morales. Si existió un episodio de frustración o desborde bajo semáforo amarillo o rojo, contextualízalo explícitamente con empatía señalando que la vulnerabilidad registrada pudo alimentar dicho episodio, sin estigmatizar al estudiante. Evita terminología clínica o alarmista (como 'High Risk' o 'alto riesgo'); describe los estados amarillo o rojo en lenguaje educativo y humano (como 'desgaste somático o personal elevado' / 'elevated somatic or personal strain'), reservando lenguaje de riesgo únicamente para alertas críticas.\n\n"
+                        f"MARCO CURRICULAR SOLICITADO ({fw_nombre}):\n{guia_fw}"
+                    )
+
+                    rep_prompt = (
+                        f"Periodo evaluativo: {periodo_in or ('Actual' if st.session_state.lang == 'es' else 'Current')}\n\n"
+                        f"EXPEDIENTE ACUMULADO DEL ESTUDIANTE:\n{resumen_exp}\n\n"
+                        f"Redacta ahora el informe oficial en {lang_rep} alineado a {fw_nombre}."
+                    )
+
+                    resp_rep = requests.post(
+                        "http://localhost:11434/api/generate",
+                        json={
+                            "model": modelo_rep,
+                            "system": rep_system,
+                            "prompt": rep_prompt,
+                            "think": False,
+                            "options": {"temperature": 0.2, "num_predict": 3072, "num_ctx": 8192},
+                            "stream": False
+                        },
+                        timeout=180
+                    )
+                    if resp_rep.status_code == 200:
+                        texto_gen = limpiar_salida_llm(resp_rep.json().get("response", ""))
+                        st.session_state.reporte_curricular_generado = {
+                            "marco_key": marco_sel,
+                            "marco_nombre": fw_nombre,
+                            "periodo": periodo_in,
+                            "lang": st.session_state.lang,
+                            "texto": texto_gen
+                        }
+                        st.rerun()
+                    else:
+                        st.error(f"⚠️ HTTP {resp_rep.status_code} (Ollama).")
+                except Exception as e:
+                    st.error(f"⚠️ Error Ollama: {e}")
+
+    if st.session_state.reporte_curricular_generado and not alerta_critica_activa:
+        rep_obj = st.session_state.reporte_curricular_generado
+        with st.container(border=True):
+            st.markdown(t("report_ready_title"))
+            texto_editado = st.text_area(
+                t("report_copy_label"),
+                value=rep_obj["texto"],
+                height=280,
+                key="editor_reporte_curricular",
+                disabled=bloqueo_ui
+            )
+            st.session_state.reporte_curricular_generado["texto"] = texto_editado
+
+            col_rd1, col_rd2 = st.columns([0.65, 0.35])
+            with col_rd1:
+                if DOCX_DISPONIBLE:
+                    docx_bytes = generar_docx_reporte(
+                        nom_in, mat_in, grp_in, nivel_in, materia_in,
+                        rep_obj["marco_nombre"], rep_obj["periodo"],
+                        texto_editado, st.session_state.valores_db, rep_obj.get("lang", st.session_state.lang)
+                    )
+                    fn_docx = f"{datetime.now().strftime('%y%m%d')}_{limpiar_cadena(nom_in)}_{rep_obj['marco_key']}_PRISMA.docx"
+                    st.download_button(
+                        label=t("btn_dl_docx"),
+                        data=docx_bytes,
+                        file_name=fn_docx,
+                        mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                        type="primary",
+                        use_container_width=True,
+                        disabled=bloqueo_ui
+                    )
+                else:
+                    st.warning(t("docx_missing"))
+            with col_rd2:
+                if st.button(t("btn_clear_report"), use_container_width=True, disabled=bloqueo_ui):
+                    st.session_state.reporte_curricular_generado = None
+                    st.rerun()
 
 
 # --- COLUMNA DERECHA: ESPEJO METACOGNITIVO Y RADAR (FONDO TRANSPARENTE ADAPTABLE) ---
@@ -2267,16 +2517,16 @@ with col_der:
         format_func=lambda k: t("vis_all") if k == "all" else t("vis_custom"),
         horizontal=True,
         key="modo_vis_key",
-        disabled=st.session_state.procesando,
+        disabled=bloqueo_ui,
         label_visibility="collapsed"
     )
 
     tiene_ciclos_previos = any(obs.get("tipo") == "TABULA_RASA" for obs in st.session_state.historial_observaciones)
-    label_historico = t("hist_chk") if es_admin else f"{t('hist_chk')} 🔒 Admin"
+    label_historico = t("hist_chk") if es_admin else f"{t('hist_chk')} 🔒"
 
     ver_historico = st.checkbox(
         label_historico,
-        disabled=not (es_admin and tiene_ciclos_previos) or st.session_state.procesando,
+        disabled=not (es_admin and tiene_ciclos_previos) or bloqueo_ui,
         value=False,
         help=t("hist_chk_help")
     )
@@ -2292,7 +2542,7 @@ with col_der:
     else:
         id_estudiante = ""
 
-    st.markdown(f"#### {t('radar_map_title')}" + (f" — {id_estudiante}" if id_estudiante else ""))
+    titulo_radar_unico = f"{t('radar_map_title')} — {id_estudiante}" if id_estudiante else t("radar_map_title")
 
     valores_live = {eje: float(st.session_state.valores_db[eje]) for eje in EJE_NOMBRES}
     ejes_etiquetados = [FORMATO_EJES_RADAR[st.session_state.lang][eje] for eje in EJE_NOMBRES]
@@ -2310,10 +2560,18 @@ with col_der:
 
     hitos_a_dibujar = st.session_state.historial_observaciones if (ver_historico and es_admin) else hitos_activos
 
+    deltas_p_tot_calc = obtener_deltas_ia_pendientes()
     todos_vectores = [list(valores_live.values())]
     for obs in hitos_a_dibujar:
         if "vector_snapshot" in obs:
             todos_vectores.append([float(obs["vector_snapshot"].get(eje, 0.0)) for eje in EJE_NOMBRES])
+    if st.session_state.analisis_pendiente and not alerta_critica_activa:
+        todos_vectores.append([round(valores_live[eje] + deltas_p_tot_calc.get(eje, 0.0), 1) for eje in EJE_NOMBRES])
+    if st.session_state.previsualizacion_manual and not alerta_critica_activa:
+        todos_vectores.append([
+            round(valores_live[eje] + deltas_p_tot_calc.get(eje, 0.0) + st.session_state.previsualizacion_manual.get(eje, 0.0), 1)
+            for eje in EJE_NOMBRES
+        ])
 
     max_valor_global = max([val for vec in todos_vectores for val in vec] + [0.0])
     limite_radar = 6.0 if max_valor_global <= 6.0 else (12.0 if max_valor_global <= 12.0 else (18.0 if max_valor_global <= 18.0 else 24.0))
@@ -2388,7 +2646,7 @@ with col_der:
                 t("radar_multiselect"),
                 options=opciones_hitos,
                 default=[opciones_hitos[-1]],
-                disabled=st.session_state.procesando
+                disabled=bloqueo_ui
             )
             for idx_str in hitos_seleccionados:
                 i = int(idx_str.split("#")[1].split(" ")[0]) - 1
@@ -2419,32 +2677,28 @@ with col_der:
                 hovertemplate="<b>%{r:+.1f} dB</b><extra></extra>"
             ))
 
-    if st.session_state.analisis_pendiente:
-        hitos_p = st.session_state.analisis_pendiente.get("hitos", [])
-        deltas_p_tot = {eje: 0.0 for eje in EJE_NOMBRES}
-        for item in hitos_p:
-            for eje, d_v in item.get("deltas", {}).items():
-                deltas_p_tot[eje] += d_v
-        vals_proy = [valores_live[eje] + deltas_p_tot.get(eje, 0.0) for eje in EJE_NOMBRES]
+    deltas_p_tot = obtener_deltas_ia_pendientes()
+    if st.session_state.analisis_pendiente and not alerta_critica_activa:
+        vals_proy = [round(valores_live[eje] + deltas_p_tot.get(eje, 0.0), 1) for eje in EJE_NOMBRES]
         fig.add_trace(go.Scatterpolar(
             r=vals_proy + [vals_proy[0]],
             theta=angles_8,
-            fill="toself",
-            fillcolor="rgba(168, 85, 247, 0.18)",
+            fill="toself" if not st.session_state.previsualizacion_manual else "none",
+            fillcolor="rgba(168, 85, 247, 0.16)",
             line=dict(color="#A855F7", width=2.5, dash="dot"),
             marker=dict(size=7, color="#A855F7"),
             name=t("radar_prev_ia"),
             hovertemplate="<b>%{r:+.1f} dB</b><extra></extra>"
         ))
 
-    if st.session_state.previsualizacion_manual:
-        vals_man = [valores_live[eje] + st.session_state.previsualizacion_manual.get(eje, 0.0) for eje in EJE_NOMBRES]
+    if st.session_state.previsualizacion_manual and not alerta_critica_activa:
+        vals_man = [round(valores_live[eje] + deltas_p_tot.get(eje, 0.0) + st.session_state.previsualizacion_manual.get(eje, 0.0), 1) for eje in EJE_NOMBRES]
         fig.add_trace(go.Scatterpolar(
             r=vals_man + [vals_man[0]],
             theta=angles_8,
             fill="toself",
-            fillcolor="rgba(168, 85, 247, 0.20)",
-            line=dict(color="#9333EA", width=2.5, dash="dash"),
+            fillcolor="rgba(147, 51, 234, 0.22)",
+            line=dict(color="#9333EA", width=2.8, dash="dash"),
             marker=dict(size=7, color="#9333EA"),
             name=t("radar_prev_man"),
             hovertemplate="<b>%{r:+.1f} dB</b><extra></extra>"
@@ -2457,22 +2711,25 @@ with col_der:
     fig.update_layout(
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
+        dragmode=False,
+        modebar=dict(bgcolor="rgba(0,0,0,0)", color="#64748B", activecolor="#6366F1"),
         title=dict(
-            text=f"<b>PRISMA™ — ℝ⁸</b><br><span style='font-size:12px;opacity:0.78;'>{id_estudiante if id_estudiante else t('radar_subtitle_default')}</span>",
+            text=f"<b>{titulo_radar_unico}</b>",
             x=0.5,
             xanchor="center",
-            y=0.97,
+            y=0.98,
             yanchor="top",
-            font=dict(size=15)
+            font=dict(size=17)
         ),
-        uirevision=True,
+        uirevision=f"radar_{limite_radar}_{st.session_state.lang}",
         polar=dict(
             bgcolor="rgba(148, 163, 184, 0.08)",
-            domain=dict(x=[0.09, 0.91], y=[0.05, 0.85]),
+            domain=dict(x=[0.09, 0.91], y=[0.06, 0.89]),
             gridshape="circular",
             radialaxis=dict(
                 visible=True,
                 range=[-6, limite_radar],
+                autorange=False,
                 tickvals=tick_vals_2db,
                 ticktext=tick_texts_2db,
                 angle=22.5,
@@ -2495,14 +2752,14 @@ with col_der:
         legend=dict(
             orientation="h",
             yanchor="bottom",
-            y=-0.18,
+            y=-0.14,
             xanchor="center",
             x=0.5,
             font=dict(size=10.0),
             bgcolor="rgba(0,0,0,0)"
         ),
-        height=560,
-        margin=dict(l=72, r=72, t=65, b=72)
+        height=495,
+        margin=dict(l=64, r=64, t=48, b=56)
     )
 
     st.plotly_chart(
@@ -2516,12 +2773,28 @@ with col_der:
                 "zoom2d", "pan2d", "select2d", "lasso2d",
                 "zoomIn2d", "zoomOut2d", "autoScale2d", "resetScale2d"
             ],
+            "toImageButtonOptions": {
+                "format": "png",
+                "filename": f"PRISMA_R8_{limpiar_cadena(id_estudiante) if id_estudiante else 'Mapa'}",
+                "height": 900,
+                "width": 900,
+                "scale": 2
+            },
             "scrollZoom": False
         }
     )
 
     st.markdown('</div>', unsafe_allow_html=True)
 
+
+# --- PIE DISCRETO: ALCANCE PEDAGÓGICO E IDENTIDAD ---
+st.markdown(
+    f"<div class='prisma-footer'>"
+    f"<p class='prisma-footer-scope'>{t('scope_notice')}</p>"
+    f"<p class='prisma-footer-brand'>{t('footer_brand')}</p>"
+    f"</div>",
+    unsafe_allow_html=True
+)
 
 # --- DESPLIEGUE DE DIÁLOGOS ---
 if st.session_state.mostrar_modal_resguardo and st.session_state.input_nombre.strip() and not st.session_state.analisis_pendiente and not st.session_state.previsualizacion_manual and not st.session_state.meta_analisis_pendiente:

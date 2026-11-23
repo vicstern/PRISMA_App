@@ -1,10 +1,15 @@
-expedientes/
-models/
-venv/
-.venv/
-__pycache__/
-*.pyc
-*.bak*
-.DS_Store
-Thumbs.db
-.prisma_blacklist.json
+# Allowlist mode: ignore everything by default
+*
+
+# Official PRISMA repository files
+!.gitignore
+!LICENSE
+!README.md
+!SPECTRUM.md
+!requirements.txt
+!app.py
+!install_and_run.sh
+!install_and_run.bat
+!Modelfile
+!Modelfile.es
+!Modelfile.en
