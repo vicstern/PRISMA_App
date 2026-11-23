@@ -4,18 +4,21 @@
 [![Python 3.9+](https://img.shields.io/badge/Python-3.9+-green.svg)](https://www.python.org/)
 [![Edge AI](https://img.shields.io/badge/Inference-100%25_Offline-purple.svg)]()
 [![Child Data Sovereignty](https://img.shields.io/badge/Child_Data-Air--Gapped-red.svg)]()
+[![Bilingual](https://img.shields.io/badge/UI-ES%20%7C%20EN-0969da.svg)]()
 
-PRISMA™ is an open-source, air-gapped, edge-AI qualitative pedagogical transducer. It is designed to bridge international competency frameworks with community-based learning models. The system analyzes, synthesizes, and maps brief teacher notes, projecting their significance for individual learners’ transformation/growth onto an eight-dimensional vector space ($\mathbb{R}^8$).
-Developed as the analytical intero-proprioceptive engine of the **ASPIRE® Ecosystem** (INDAUTOR Reg. 03-2026-040710022300-01 | SSRN DOI: [10.2139/ssrn.7310080](https://doi.org/10.2139/ssrn.7310080)).
+PRISMA™ is an open-source, air-gapped, edge-AI qualitative pedagogical transducer. It bridges international competency frameworks with community-based learning models by analyzing brief teacher observations, projecting multidimensional student growth onto an eight-dimensional vector space ($\mathbb{R}^8$), and translating longitudinal records into official curricular reports ready for institutional systems.
+
+Developed as the analytical intero-proprioceptive engine of the **ASPIRE® Ecosystem** (INDAUTOR Reg. `03-2026-040710022300-01` | SSRN DOI: [10.2139/ssrn.7310080](https://doi.org/10.2139/ssrn.7310080)).
 
 ---
 
 ## 🌟 Core Architectural Principles
 
-1. **Human-Always-in-Charge:** PRISMA only suggests transformation hypotheses based on factual pedagogical observations. The educator maintains inalienable authority to accept, adjust, or reject deltas.
-2. **100% Offline / Air-Gapped Sovereignty:** Operates strictly on local hardware with zero external API calls, eliminating cloud telemetry, recurring SaaS token costs, and child privacy risks by design.
-3. **Biopsychosocial Safeguards:** Features a non-punitive "State of Educability" baseline (sleep, nutrition, somatic distress/dysmenorrhea/care burdens) to systematically dampen punitive misdiagnosis and recognize resilience under fatigue.
-4. **Logarithmic $\mathbb{R}^8$ Vector Space:** Maps multidimensional growth using Weber-Fechner decibel scaling ($\Delta\text{dB} = 20 \cdot \log_{10}(1 + g)$, where $+6\text{ dB} = 2\times$ baseline capability) across 8 complementary axes.
+1. **Human-Always-in-Charge:** PRISMA only suggests transformation hypotheses grounded in factual classroom observations. The educator retains full authority to accept, manually calibrate, or reject every delta.
+2. **100% Offline / Air-Gapped Sovereignty:** Runs strictly on local hardware via Ollama with zero external API calls, eliminating cloud telemetry, recurring SaaS token fees, and child privacy risks by design.
+3. **Biopsychosocial Safeguards & Critical Alarm Protocol (`ROJO_CRITICO`):** Integrates a non-punitive *State of Educability* baseline (sleep, nutrition, somatic discomfort/dysmenorrhea/care burdens) to dampen punitive misdiagnosis and recognize resilience under fatigue. If a narrative reveals imminent vital risk, PRISMA immediately halts scoring (`0.0 dB`), triggers an urgent safeguarding alert, and lets the educator log the event without altering the vector.
+4. **Logarithmic $\mathbb{R}^8$ Vector Space:** Maps multidimensional growth using Weber-Fechner decibel scaling ($\Delta\text{dB} = 20 \cdot \log_{10}(1 + g)$, where $+6\text{ dB} = 2\times$ baseline capability) across 8 dialectically balanced axes.
+5. **Double-Work Elimination (Curricular Translator):** Converts a student's accumulated JSON record into ready-to-use formative reports aligned to **SEP / NEM**, **International Baccalaureate (IB)**, **UNAM / CCH**, **Cambridge (IGCSE / A-Levels)**, or custom institutional criteria, with clean copy-paste output and direct **Word (`.docx`)** export.
 
 ---
 
@@ -32,57 +35,55 @@ Developed as the analytical intero-proprioceptive engine of the **ASPIRE® Ecosy
 
 ---
 
-## 🚀 Quickstart & Local Installation (One-Step Setup)
+## 🚀 Quickstart & Hardware-Aware Local Setup
 
 ### Prerequisites
 - **Python 3.9+** ([python.org](https://www.python.org/downloads/))
 - **Ollama** installed locally ([ollama.com/download](https://ollama.com/download))
-- **Hardware:** 8 GB RAM minimum (Apple Silicon M1+, modern Windows/Linux laptop) and ~3 GB of free disk space for the quantized model.
+- **Hardware Tiers:**
+  - **PRISMA 4B** (`Qwen3.5-4B`, ~2.71 GB): Recommended for **8 GB RAM** laptops (Apple Silicon M1+, standard Windows/Linux).
+  - **PRISMA 9B** (`Qwen3.5-9B`, ~5.63 GB): Recommended for **16+ GB RAM** machines for deeper analytical nuance and broader multilingual fidelity.
 
 ### 1. Clone or Download the Repository
 ```bash
-git clone https://github.com/vicstern/PRISMA_App.git
+git clone [https://github.com/vicstern/PRISMA_App.git](https://github.com/vicstern/PRISMA_App.git)
 cd PRISMA_App
 ```
-*(Or click the green **Code → Download ZIP** button on GitHub and unzip the folder.)*
+*(Or click **Code → Download ZIP** on GitHub and unzip the folder.)*
 
 ### 2. Run the Automatic Installer & Launcher
 
-| Operating System | File to Use | How to Run |
-| :--- | :--- | :--- |
-| **macOS & Linux** | `install_and_run.sh` | Open Terminal inside the folder and run `bash install_and_run.sh` |
-| **Windows** | `install_and_run.bat` | Double-click `install_and_run.bat` (or run it from Command Prompt) |
+| Operating System | File to Use | First Run & Daily Launch | Add / Switch Models Later |
+| :--- | :--- | :--- | :--- |
+| **macOS & Linux** | `install_and_run.sh` | `bash install_and_run.sh` | `bash install_and_run.sh --models` |
+| **Windows** | `install_and_run.bat` | Double-click `install_and_run.bat` | `install_and_run.bat --models` |
 
-> **What happens on first launch:** The script creates an isolated `.venv`, installs the 4 Python dependencies (`requirements.txt`), downloads the verified **Qwen 3.5 4B Uncensored (Q4_K_M, ~2.71 GB)** model from [`vicstern/PRISMA-Models`](https://huggingface.co/vicstern/PRISMA-Models), compiles the local `prisma-engine` model in Ollama, and opens PRISMA™ at `http://localhost:8501`.
+> **What happens on first launch:** The script automatically detects your system RAM, recommends the optimal engine (**4B** for $\le 8\text{ GB}$ RAM or **9B** for $> 8\text{ GB}$ RAM, or lets you install **both**), creates an isolated `.venv`, installs dependencies (including `python-docx`), downloads the verified GGUF weights from [`vicstern/PRISMA-Models`](https://huggingface.co/vicstern/PRISMA-Models), compiles the local Ollama engine(s), and opens PRISMA™ at `http://localhost:8501`.
 >
-> **Offline operation:** After the first run, the internet connection is no longer needed. Running the same script again starts PRISMA™ offline in seconds.
+> **100% Offline Operation:** After the initial setup, no internet connection is required. Running the launcher again starts PRISMA™ offline in seconds.
 
-### Manual Installation (Advanced Users)
-```bash
-mkdir -p models
-curl -fL -o models/Qwen3.5-4B-Uncensored-HauhauCS-Aggressive-Q4_K_M.gguf \
-  https://huggingface.co/vicstern/PRISMA-Models/resolve/main/Qwen3.5-4B-Uncensored-HauhauCS-Aggressive-Q4_K_M.gguf
+---
 
-ollama create prisma-engine -f Modelfile
+## 🌍 Bilingual Interface & Offline Language Matrix
 
-python3 -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-streamlit run app.py
-```
+- **Persistent Bilingual UI (`ES` | `EN`):** Switch between Spanish and English in the sidebar at any time without losing active student records. Preferences (`lang`, `modelo_activo`) persist locally in `~/PRISMA_App/config.json`, and student JSON records remain fully cross-compatible between languages.
+- **Native SLM Language Coverage (Qwen 3.5 4B / 9B):**
+  - **Optimal:** Spanish, English, French, Portuguese, German, Italian, Chinese, Japanese, Korean, Arabic.
+  - **Functional (enhanced on 9B):** Catalan, Galician, Basque, Russian, Hindi, Turkish, Dutch.
+- **Indigenous & Low-Resource Languages (Air-Gapped Companions):** To preserve zero-cloud child data sovereignty when documenting in indigenous or regional languages, educators may pair PRISMA™ with offline open-source translators such as **Firefox Translations (Bergamot)**, **Argos Translate / LibreTranslate (local)**, or **Meta NLLB-200 (local)**.
 
 ---
 
 ## 📁 Local Data Storage & Admin Controls
 
-- **Student Records (Air-Gapped):** All student JSON files are saved locally in `~/PRISMA_App/expedientes` (outside the Git repository) and never leave the educator's machine.
-- **Cycle Closing Lock (Local Safeguard):** The sidebar includes a local administrative safeguard (`prisma2026`) solely to prevent accidental end-of-cycle vector resets during classroom use.
+- **Student Records (Air-Gapped):** All longitudinal student JSON files are saved locally in `~/PRISMA_App/expedientes` (outside the Git repository) and never leave the educator's machine.
+- **Cycle Closing Lock (Local Safeguard):** The sidebar includes a local administrative safeguard (`prisma2026`) solely to prevent accidental end-of-cycle vector resets (*Tabula Rasa*) during classroom use.
 
 ---
 
 ## 🛡️ Pedagogical Scope Notice
 
-PRISMA™ is strictly an educational reflection and qualitative learning-analytics instrument designed to strengthen teaching quality and holistic student growth. It is **not** a medical, clinical, or psychological diagnostic tool, nor a substitute for qualified healthcare or mental-health professionals.
+PRISMA™ is strictly an educational reflection, qualitative learning-analytics, and curricular reporting instrument designed to strengthen teaching quality and holistic student growth. It is **not** a medical, clinical, or psychological diagnostic tool, nor a substitute for qualified healthcare or mental-health professionals.
 
 ---
 
