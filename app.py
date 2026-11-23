@@ -516,7 +516,7 @@ TEXTS = {
         "btn_meta_accept": "✅ Accept & Register Meta-Analysis",
         "btn_meta_discard": "❌ Discard Meta-Analysis",
         "sec5_title": "6. Official Report",
-        "sec5_caption": "Translates the student's accumulated record into your official educational framework to eliminate double-work reporting.",
+        "sec5_caption": "Translates the student's accumulated record into your official educational framework to alleviate administrative double-work.",
         "lbl_framework": "Official Educational Framework:",
         "lbl_period": "Term / Reporting Period (optional):",
         "ph_period": "e.g., Term 1 · 2026-2027",
@@ -1102,12 +1102,25 @@ st.markdown("""
         margin-top: 0rem !important;
         padding-top: 0rem !important;
     }
-    [data-testid="stColumn"]:nth-of-type(2) {
+    [data-testid="stColumn"]:has(.sticky-radar-container) {
         position: -webkit-sticky !important;
         position: sticky !important;
         top: 3.8rem !important;
         align-self: flex-start !important;
         z-index: 99;
+    }
+    section[data-testid="stSidebar"][aria-expanded="false"] {
+        width: 0 !important;
+        min-width: 0 !important;
+        max-width: 0 !important;
+        overflow: hidden !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        border: none !important;
+        padding: 0 !important;
+    }
+    section[data-testid="stSidebar"][aria-expanded="false"] > div {
+        display: none !important;
     }
     .sticky-radar-container {
         max-height: calc(100vh - 2rem) !important;
@@ -1142,8 +1155,13 @@ st.markdown("""
     .stAppDeployButton, [data-testid="stAppDeployButton"] {
         display: none !important;
     }
+    .prisma-hero-quote-wrap {
+        width: 100%;
+        text-align: center;
+        margin: 0.1rem 0 0.9rem 0;
+    }
     .prisma-hero-quote {
-        margin: -0.2rem 0 0.85rem 0;
+        margin: 0;
         font-size: 0.96rem;
         font-style: italic;
         font-weight: 500;
@@ -1170,8 +1188,8 @@ st.markdown("""
         opacity: 0.90 !important;
         visibility: visible !important;
     }
-    [data-testid="stColumn"]:nth-of-type(2) [data-testid="stElementToolbar"],
-    [data-testid="stColumn"]:nth-of-type(2) .stElementToolbar {
+    [data-testid="stColumn"]:has(.sticky-radar-container) [data-testid="stElementToolbar"],
+    [data-testid="stColumn"]:has(.sticky-radar-container) .stElementToolbar {
         opacity: 0.85 !important;
         visibility: visible !important;
         background: transparent !important;
@@ -1179,12 +1197,12 @@ st.markdown("""
         border: none !important;
         box-shadow: none !important;
     }
-    [data-testid="stColumn"]:nth-of-type(2) [data-testid="stElementToolbar"]:hover,
-    [data-testid="stColumn"]:nth-of-type(2) .stElementToolbar:hover {
+    [data-testid="stColumn"]:has(.sticky-radar-container) [data-testid="stElementToolbar"]:hover,
+    [data-testid="stColumn"]:has(.sticky-radar-container) .stElementToolbar:hover {
         opacity: 1 !important;
     }
-    [data-testid="stColumn"]:nth-of-type(2) [data-testid="stElementToolbar"] button,
-    [data-testid="stColumn"]:nth-of-type(2) [data-testid="stElementToolbarButton"] {
+    [data-testid="stColumn"]:has(.sticky-radar-container) [data-testid="stElementToolbar"] button,
+    [data-testid="stColumn"]:has(.sticky-radar-container) [data-testid="stElementToolbarButton"] {
         background: transparent !important;
         background-color: transparent !important;
     }
@@ -1344,7 +1362,7 @@ bloqueo_ui = st.session_state.procesando or alerta_critica_activa
 if alerta_critica_activa:
     st.markdown(
         "<style>"
-        "[data-testid='stColumn']:nth-of-type(2) {"
+        "[data-testid='stColumn']:has(.sticky-radar-container) {"
         "  opacity: 0.30 !important;"
         "  pointer-events: none !important;"
         "  filter: grayscale(0.55);"
@@ -1495,7 +1513,7 @@ def modal_confirmar_reiniciar():
 st.title(t("app_title"))
 st.markdown(t("app_subtitle"))
 st.caption(t("app_caption"))
-st.markdown(f"<p class='prisma-hero-quote'>{t('app_quote')}</p>", unsafe_allow_html=True)
+st.markdown(f"<div class='prisma-hero-quote-wrap'><span class='prisma-hero-quote'>{t('app_quote')}</span></div>", unsafe_allow_html=True)
 
 
 # --- SIDEBAR: IDIOMA, MOTOR, EXPEDIENTES Y ADMIN ---
@@ -2511,25 +2529,27 @@ with col_der:
     st.markdown('<div class="sticky-radar-container">', unsafe_allow_html=True)
     st.subheader(t("radar_header"))
 
-    modo_vis_key = st.radio(
-        "Vis",
-        options=["all", "custom"],
-        format_func=lambda k: t("vis_all") if k == "all" else t("vis_custom"),
-        horizontal=True,
-        key="modo_vis_key",
-        disabled=bloqueo_ui,
-        label_visibility="collapsed"
-    )
-
     tiene_ciclos_previos = any(obs.get("tipo") == "TABULA_RASA" for obs in st.session_state.historial_observaciones)
     label_historico = t("hist_chk") if es_admin else f"{t('hist_chk')} 🔒"
 
-    ver_historico = st.checkbox(
-        label_historico,
-        disabled=not (es_admin and tiene_ciclos_previos) or bloqueo_ui,
-        value=False,
-        help=t("hist_chk_help")
-    )
+    col_vis1, col_vis2 = st.columns([0.58, 0.42], vertical_alignment="center")
+    with col_vis1:
+        modo_vis_key = st.radio(
+            "Vis",
+            options=["all", "custom"],
+            format_func=lambda k: t("vis_all") if k == "all" else t("vis_custom"),
+            horizontal=True,
+            key="modo_vis_key",
+            disabled=bloqueo_ui,
+            label_visibility="collapsed"
+        )
+    with col_vis2:
+        ver_historico = st.checkbox(
+            label_historico,
+            disabled=not (es_admin and tiene_ciclos_previos) or bloqueo_ui,
+            value=False,
+            help=t("hist_chk_help")
+        )
 
     nombre_tit = st.session_state.input_nombre.strip()
     grupo_tit = st.session_state.input_grupo.strip()
