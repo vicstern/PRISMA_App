@@ -110,5 +110,7 @@ This project is licensed under the **Apache License 2.0** — see the [LICENSE](
 
 > **[𓆣](./SPECTRUM.md) Live Interactive Edition — PRISMA™ Rosetta Codex**  
 > Experience these 23+7 tongues in motion—complete with calligraphic glyphs, live EN/ES comparison, and hidden portal keys—at **[aulaviva.lat](https://aulaviva.lat/)** 
-
+>
+> *Edición interactiva en vivo en **[aulaviva.lat](https://aulaviva.lat/)***
+> 
 ---
