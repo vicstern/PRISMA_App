@@ -567,7 +567,7 @@ TEXTS = {
         "radar_prev_ia": "AI preview",
         "radar_prev_man": "Manual preview",
         "orb_0": "0 dB (Baseline: 1x)",
-        "orb_6": "+6 dB (Novice: 2x)",
+        "orb_6": "+6 dB (Beginner: 2x)",
         "orb_12": "+12 dB (Intermediate: 4x)",
         "orb_18": "+18 dB (Advanced: 8x)",
         "orb_24": "+24 dB (Expert: 16x)",
@@ -1155,10 +1155,36 @@ st.markdown("""
     .stAppDeployButton, [data-testid="stAppDeployButton"] {
         display: none !important;
     }
+    .prisma-header-wrap {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0.9rem;
+    }
+    .prisma-main-title {
+        font-size: 2.35rem !important;
+        font-weight: 700 !important;
+        margin: 0 0 0.25rem 0 !important;
+        padding: 0 !important;
+        line-height: 1.18 !important;
+    }
+    .prisma-main-sub {
+        font-size: 1.28rem;
+        font-weight: 600;
+        margin: 0 0 0.35rem 0;
+        line-height: 1.32;
+        opacity: 0.92;
+    }
+    .prisma-main-cap {
+        font-size: 0.86rem;
+        opacity: 0.68;
+        margin: 0 auto 0.45rem auto;
+        max-width: 820px;
+        line-height: 1.4;
+    }
     .prisma-hero-quote-wrap {
         width: 100%;
         text-align: center;
-        margin: 0.1rem 0 0.9rem 0;
+        margin: 0.15rem 0 0 0;
     }
     .prisma-hero-quote {
         margin: 0;
@@ -1208,14 +1234,17 @@ st.markdown("""
     }
     .prisma-footer {
         margin-top: 2.2rem;
-        padding-top: 0.9rem;
+        padding-top: 1.0rem;
         border-top: 1px solid rgba(148, 163, 184, 0.28);
         font-size: 0.76rem;
         line-height: 1.5;
+        text-align: center;
     }
     .prisma-footer-scope {
-        margin: 0 0 0.45rem 0;
+        max-width: 780px;
+        margin: 0 auto 0.55rem auto;
         opacity: 0.72;
+        text-align: center;
     }
     .prisma-footer-brand {
         margin: 0;
@@ -1510,10 +1539,16 @@ def modal_confirmar_reiniciar():
 
 
 # --- ENCABEZADO PRINCIPAL ---
-st.title(t("app_title"))
-st.markdown(t("app_subtitle"))
-st.caption(t("app_caption"))
-st.markdown(f"<div class='prisma-hero-quote-wrap'><span class='prisma-hero-quote'>{t('app_quote')}</span></div>", unsafe_allow_html=True)
+_sub_clean = t("app_subtitle").lstrip("# ").strip()
+st.markdown(
+    f"<div class='prisma-header-wrap'>"
+    f"<h1 class='prisma-main-title'>{t('app_title')}</h1>"
+    f"<div class='prisma-main-sub'>{_sub_clean}</div>"
+    f"<div class='prisma-main-cap'>{t('app_caption')}</div>"
+    f"<div class='prisma-hero-quote-wrap'><span class='prisma-hero-quote'>{t('app_quote')}</span></div>"
+    f"</div>",
+    unsafe_allow_html=True
+)
 
 
 # --- SIDEBAR: IDIOMA, MOTOR, EXPEDIENTES Y ADMIN ---
