@@ -3,8 +3,8 @@ setlocal enabledelayedexpansion
 cd /d "%~dp0"
 
 set "MODEL_DIR=models"
-set "FILE_4B=Qwen3.5-4B-Uncensored-HauhauCS-Aggressive-Q4_K_M.gguf"
-set "FILE_9B=Qwen3.5-9B-Uncensored-HauhauCS-Aggressive-Q4_K_M.gguf"
+set "FILE_4B=PRISMA-Core-Qwen3.5-4B-HauhauCS-Q4_K_M.gguf"
+set "FILE_9B=PRISMA-Core-Qwen3.5-9B-HauhauCS-Q4_K_M.gguf"
 set "URL_4B=https://huggingface.co/vicstern/PRISMA-Models/resolve/main/%FILE_4B%"
 set "URL_9B=https://huggingface.co/vicstern/PRISMA-Models/resolve/main/%FILE_9B%"
 set "BASE_4B=prisma-engine-4b"

@@ -1,4 +1,4 @@
-FROM ./models/Qwen3.5-4B-Uncensored-HauhauCS-Aggressive-Q4_K_M.gguf
+FROM ./models/PRISMA-Core-Qwen3.5-4B-HauhauCS-Q4_K_M.gguf
 
 PARAMETER temperature 0.0
 PARAMETER top_p 0.9
