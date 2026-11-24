@@ -128,8 +128,8 @@ if [[ ${FORCE_MENU} -eq 1 ]] || [[ ${HAS_4B} -eq 0 && ${HAS_9B} -eq 0 ]]; then
   fi
   echo ""
   echo "Selecciona el motor local a instalar (compila ES + EN sin duplicar espacio):"
-  echo "  [1] PRISMA 4B  (Qwen3.5-4B · ~2.71 GB)"
-  echo "  [2] PRISMA 9B  (Qwen3.5-9B · ~5.63 GB)"
+  echo "  [1] PRISMA 4B  (<16 GB RAM · PRISMA-Core Qwen3.5-4B · ~2.71 GB)"
+  echo "  [2] PRISMA 9B  (≥16 GB RAM · PRISMA-Core Qwen3.5-9B · ~5.63 GB)"
   echo "  [3] Ambos / Both (4B + 9B · ~8.34 GB)"
   echo ""
   read -r -p "Elige opción [1/2/3] (Enter = ${REC}): " CHOICE

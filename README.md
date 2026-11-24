@@ -44,8 +44,8 @@ Developed as the analytical intero-proprioceptive engine of the **ASPIRE® Ecosy
 - **Python 3.9+** ([python.org](https://www.python.org/downloads/))
 - **Ollama** installed locally ([ollama.com/download](https://ollama.com/download))
 - **Hardware Tiers:**
-  - **PRISMA 4B** (`Qwen3.5-4B`, ~2.71 GB): Recommended for **8 GB RAM** laptops (Apple Silicon M1+, standard Windows/Linux).
-  - **PRISMA 9B** (`Qwen3.5-9B`, ~5.63 GB): Recommended for **16+ GB RAM** machines for deeper analytical nuance and broader multilingual fidelity.
+  - **PRISMA 4B** (`PRISMA-Core · Qwen3.5-4B`, ~2.71 GB): Recommended for **<16 GB RAM** laptops (8–12 GB RAM; Apple Silicon M1+, standard Windows/Linux).
+  - **PRISMA 9B** (`PRISMA-Core · Qwen3.5-9B`, ~5.63 GB): Recommended for **≥16 GB RAM** machines for deeper analytical nuance and broader multilingual fidelity.
 - **Native Bilingual Engines (`EN` | `ES`, 0 GB extra disk space):** Each installation automatically compiles dedicated English (`-en`) and Spanish (`-es`) engines from the exact same local `.gguf` weights via Ollama layer deduplication (`Modelfile.en` / `Modelfile.es`). Teachers can write notes in English, Spanish, or any natively supported language and receive consistent output in the active interface language.
 
 ### 1. Clone or Download the Repository
@@ -62,7 +62,7 @@ cd PRISMA_App
 | **macOS & Linux** | `install_and_run.sh` | `bash install_and_run.sh` | `bash install_and_run.sh --models` |
 | **Windows** | `install_and_run.bat` | Double-click `install_and_run.bat` | `install_and_run.bat --models` |
 
-> **What happens on first launch:** The script automatically detects your system RAM, recommends the optimal engine (**4B** for $\le 8\text{ GB}$ RAM or **9B** for $> 8\text{ GB}$ RAM, or lets you install **both**), creates an isolated `.venv`, installs dependencies (including `python-docx`), downloads the verified GGUF weights from [`vicstern/PRISMA-Models`](https://huggingface.co/vicstern/PRISMA-Models), compiles the local Ollama engine(s), and opens PRISMA™ at `http://localhost:8501`.
+> **What happens on first launch:** The script automatically detects your system RAM, recommends the optimal engine (**4B** for **<16 GB RAM** or **9B** for **≥16 GB RAM**, or lets you install **both**), creates an isolated `.venv`, installs dependencies (including `python-docx`), downloads the verified GGUF weights from [`vicstern/PRISMA-Models`](https://huggingface.co/vicstern/PRISMA-Models), compiles the local Ollama engine(s), and opens PRISMA™ at `http://localhost:8501`.
 >
 > **100% Offline Operation:** After the initial setup, no internet connection is required. Running the launcher again starts PRISMA™ offline in seconds.
 
@@ -71,7 +71,7 @@ cd PRISMA_App
 ## 🌍 Bilingual Interface & Offline Language Matrix
 
 - **Persistent Bilingual UI (`ES` | `EN`):** Switch between Spanish and English in the sidebar at any time without losing active student records. Preferences (`lang`, `modelo_activo`) persist locally in `~/PRISMA_App/config.json`, and student JSON records remain fully cross-compatible between languages.
-- **Native SLM Language Coverage (Qwen 3.5 4B / 9B):**
+- **Native SLM Language Coverage (PRISMA-Core · Qwen 3.5 · 4B / 9B):**
   - **Optimal:** Spanish, English, French, Portuguese, German, Italian, Chinese, Japanese, Korean, Arabic.
   - **Functional (enhanced on 9B):** Catalan, Galician, Basque, Russian, Hindi, Turkish, Dutch.
 - **Indigenous & Low-Resource Languages (Air-Gapped Companions):** To preserve zero-cloud child data sovereignty when documenting in indigenous or regional languages, educators may pair PRISMA™ with offline open-source translators such as **Firefox Translations (Bergamot)**, **Argos Translate / LibreTranslate (local)**, or **Meta NLLB-200 (local)**.

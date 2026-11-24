@@ -106,21 +106,21 @@ def resolver_modelo_ollama(base_key, lang="es"):
 PRISMA_ENGINE_CATALOG = {
     "prisma-engine-4b": {
         "short": "PRISMA 4B",
-        "ram_es": "8 GB de RAM",
-        "ram_en": "8 GB RAM",
+        "ram_es": "<16 GB RAM",
+        "ram_en": "<16 GB RAM",
         "size": "~2.71 GB",
         "min_ram": 8,
-        "file": "Qwen3.5-4B-Uncensored-HauhauCS-Aggressive-Q4_K_M.gguf",
-        "url": "https://huggingface.co/vicstern/PRISMA-Models/resolve/main/Qwen3.5-4B-Uncensored-HauhauCS-Aggressive-Q4_K_M.gguf",
+        "file": "PRISMA-Core-Qwen3.5-4B-HauhauCS-Q4_K_M.gguf",
+        "url": "https://huggingface.co/vicstern/PRISMA-Models/resolve/main/PRISMA-Core-Qwen3.5-4B-HauhauCS-Q4_K_M.gguf",
     },
     "prisma-engine-9b": {
         "short": "PRISMA 9B",
-        "ram_es": "16+ GB de RAM",
-        "ram_en": "16+ GB RAM",
+        "ram_es": "≥16 GB RAM",
+        "ram_en": "≥16 GB RAM",
         "size": "~5.63 GB",
         "min_ram": 14,
-        "file": "Qwen3.5-9B-Uncensored-HauhauCS-Aggressive-Q4_K_M.gguf",
-        "url": "https://huggingface.co/vicstern/PRISMA-Models/resolve/main/Qwen3.5-9B-Uncensored-HauhauCS-Aggressive-Q4_K_M.gguf",
+        "file": "PRISMA-Core-Qwen3.5-9B-HauhauCS-Q4_K_M.gguf",
+        "url": "https://huggingface.co/vicstern/PRISMA-Models/resolve/main/PRISMA-Core-Qwen3.5-9B-HauhauCS-Q4_K_M.gguf",
     },
 }
 
@@ -254,18 +254,19 @@ TEXTS = {
         "engine_ready": "Listo",
         "engine_missing": "No instalado",
         "engine_install_prompt": "Este motor aún no está instalado en tu equipo (RAM detectada: **{ram} GB**). Puedes instalarlo ahora con conexión a internet; después operará 100 % sin conexión.",
-        "engine_ram_warn": "Tu equipo tiene **{ram} GB de RAM**. PRISMA 9B funciona mejor con 16+ GB y puede responder más lento aquí; PRISMA 4B es la opción óptima para tu equipo.",
+        "engine_ram_warn": "Tu equipo tiene **{ram} GB RAM**. PRISMA 9B funciona mejor con ≥16 GB RAM y puede responder más lento aquí; PRISMA 4B es la opción óptima para tu equipo.",
         "engine_install_btn": "⬇️ Descargar e instalar {name} ({size})",
         "engine_install_ok": "✅ {name} instalado y activado.",
         "engine_install_err": "⚠️ No se pudo completar la instalación (verifica conexión a internet y Ollama):",
         "lang_matrix_title": "🌍 Lenguas compatibles",
         "lang_matrix_body": (
             "**Idiomas PRISMA™ (interfaz, entrada y salida nativa):** Español, Inglés.\n\n"
-            "**Soporte nativo local para notas (Qwen 3.5 · 4B / 9B):**\n"
+            "**Soporte nativo local para notas (PRISMA-Core · Qwen 3.5 · 4B / 9B):**\n"
             "- **Óptimo:** Español, Inglés, Francés, Portugués, Alemán, Italiano, Chino, Japonés, Coreano, Árabe.\n"
             "- **Funcional (mejor en 9B):** Catalán, Gallego, Euskera, Ruso, Hindi, Turco, Holandés.\n\n"
             "**Otras lenguas (indígenas, regionales o con menor presencia digital):**\n"
-            "Por favor, traduce tus notas localmente sin subir datos a la nube antes de ingresarlas a PRISMA™ usando herramientas sin conexión como:\n"
+            "Por favor, traduce tus notas localmente sin subir datos a la nube antes de ingresarlas a PRISMA™. Sugerencias de motores 100 % sin conexión (puedes usar cualquier herramienta de tu preferencia):\n"
+            "- **Apple Translate (Safari / macOS / iOS):** Traducción integrada en el dispositivo (activando el modo en el dispositivo).\n"
             "- **Firefox Translations (Bergamot):** Traducción local integrada en el navegador.\n"
             "- **Argos Translate / LibreTranslate (local):** Motor abierto 100 % aislado.\n"
             "- **Meta NLLB-200 (local):** Cobertura para más de 200 lenguas (incl. guaraní, quechua, aymara, maya y náhuatl en modelos comunitarios)."
@@ -302,7 +303,7 @@ TEXTS = {
         "ph_id": "Ej: A012345",
         "lbl_group": "Grupo:",
         "ph_group": "Ej: 2° B",
-        "lbl_level": "Nivel educativo (obligatorio para contextualizar zona de desarrollo):",
+        "lbl_level": "Nivel educativo (obligatorio para contextualizar la Zona de Desarrollo Próximo):",
         "lbl_subject": "Asignatura / Espacio:",
         "ph_subject": "Ej: Matemáticas / Laboratorio",
         "sec2_title": "2. Registro de estado de educabilidad",
@@ -316,7 +317,7 @@ TEXTS = {
         "btn_analyze": "⚡ Ejecutar análisis de nota",
         "btn_analyzing": "⏳ Procesando inferencia...",
         "err_no_name": "⚠️ Por favor ingresa el nombre del estudiante antes de continuar.",
-        "err_no_level": "⚠️ Por favor selecciona el nivel educativo del estudiante (candado de zona de desarrollo).",
+        "err_no_level": "⚠️ Por favor selecciona el nivel educativo del estudiante (anclaje de Zona de Desarrollo Próximo).",
         "err_no_note": "⚠️ Por favor ingresa una nota de observación docente.",
         "spinner_note": "Procesando inferencia cualitativa en ℝ⁸ con {model}...",
         "debug_raw": "🔬 Respuesta cruda de Ollama (Debug)",
@@ -345,7 +346,7 @@ TEXTS = {
         "sec5_title": "6. Reporte oficial",
         "sec5_caption": "Traduce el expediente acumulado del estudiante al formato oficial del sistema educativo para reducir la carga administrativa docente.",
         "lbl_framework": "Sistema / Marco curricular oficial:",
-        "lbl_period": "Periodo / Corte evaluativo (opcional):",
+        "lbl_period": "Periodo / Corte evaluativo:",
         "ph_period": "Ej: Trimestre 1 · 2026-2027",
         "lbl_custom_fw": "Competencias o criterios institucionales personalizados:",
         "ph_custom_fw": "Escribe los campos, rúbricas o atributos de egreso que solicita tu institución...",
@@ -427,18 +428,19 @@ TEXTS = {
         "engine_ready": "Ready",
         "engine_missing": "Not installed",
         "engine_install_prompt": "This engine is not installed on your device yet (detected RAM: **{ram} GB**). You can download and install it now; after that it runs 100% offline.",
-        "engine_ram_warn": "Your device has **{ram} GB RAM**. PRISMA 9B works best on 16+ GB and may run slower here; PRISMA 4B is the recommended option for your hardware.",
+        "engine_ram_warn": "Your device has **{ram} GB RAM**. PRISMA 9B works best on ≥16 GB RAM and may run slower here; PRISMA 4B is the recommended option for your hardware.",
         "engine_install_btn": "⬇️ Download & install {name} ({size})",
         "engine_install_ok": "✅ {name} installed and activated.",
         "engine_install_err": "⚠️ Installation could not be completed (check internet connection and Ollama):",
         "lang_matrix_title": "🌍 Supported languages",
         "lang_matrix_body": (
             "**PRISMA™ Languages (native interface, input & output):** English, Spanish.\n\n"
-            "**Native local note support (Qwen 3.5 · 4B / 9B):**\n"
+            "**Native local note support (PRISMA-Core · Qwen 3.5 · 4B / 9B):**\n"
             "- **Optimal:** English, Spanish, French, Portuguese, German, Italian, Chinese, Japanese, Korean, Arabic.\n"
             "- **Functional (stronger on 9B):** Catalan, Galician, Basque, Russian, Hindi, Turkish, Dutch.\n\n"
             "**Other languages (indigenous, regional, or with limited digital representation):**\n"
-            "Please translate classroom notes locally without cloud uploads before entering them into PRISMA™ using offline tools such as:\n"
+            "Please translate classroom notes locally without cloud uploads before entering them into PRISMA™. Suggested 100% offline engines (or any translation tool of your choice):\n"
+            "- **Apple Translate (Safari / macOS / iOS):** Built-in on-device translation (with on-device mode enabled).\n"
             "- **Firefox Translations (Bergamot):** Built-in local browser translation.\n"
             "- **Argos Translate / LibreTranslate (local):** Open-source air-gapped engine.\n"
             "- **Meta NLLB-200 (local):** Supports 200+ languages (including Quechua, Guarani, Aymara, and community Maya/Nahuatl models)."
@@ -516,9 +518,9 @@ TEXTS = {
         "btn_meta_accept": "✅ Accept & Register Meta-Analysis",
         "btn_meta_discard": "❌ Discard Meta-Analysis",
         "sec5_title": "6. Official Report",
-        "sec5_caption": "Translates the student's accumulated record into your official educational framework to alleviate administrative double-work.",
+        "sec5_caption": "Translates the student's accumulated record into your official educational framework to reduce administrative workload.",
         "lbl_framework": "Official Educational Framework:",
-        "lbl_period": "Term / Reporting Period (optional):",
+        "lbl_period": "Term / Reporting Period:",
         "ph_period": "e.g., Term 1 · 2026-2027",
         "lbl_custom_fw": "Custom institutional competencies or criteria:",
         "ph_custom_fw": "Enter your school's exit profile, rubric domains, or reporting criteria...",
@@ -1232,22 +1234,43 @@ st.markdown("""
         background: transparent !important;
         background-color: transparent !important;
     }
+    .prisma-beta-banner {
+        width: 100%;
+        box-sizing: border-box;
+        background: rgba(59, 130, 246, 0.12);
+        border: 1px solid rgba(59, 130, 246, 0.28);
+        border-radius: 0.5rem;
+        padding: 0.75rem 1rem;
+        margin: 0 auto 1rem auto;
+        text-align: center !important;
+        font-size: 0.92rem;
+        line-height: 1.45;
+    }
+    .prisma-beta-banner a {
+        font-weight: 600;
+    }
     .prisma-footer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         margin-top: 2.2rem;
         padding-top: 1.0rem;
         border-top: 1px solid rgba(148, 163, 184, 0.28);
         font-size: 0.76rem;
         line-height: 1.5;
-        text-align: center;
+        text-align: center !important;
     }
     .prisma-footer-scope {
+        width: 100%;
         max-width: 780px;
-        margin: 0 auto 0.55rem auto;
+        margin: 0 auto 0.55rem auto !important;
         opacity: 0.72;
-        text-align: center;
+        text-align: center !important;
     }
     .prisma-footer-brand {
-        margin: 0;
+        margin: 0 auto !important;
+        text-align: center !important;
         font-weight: 600;
         letter-spacing: 0.015em;
         background: linear-gradient(

@@ -53,8 +53,8 @@ if %RAM_GB% LEQ 12 (
 )
 echo.
 echo Choose local engine ^(compiles ES + EN without duplicating disk space^):
-echo   [1] PRISMA 4B  ^(Qwen3.5-4B · ~2.71 GB^)
-echo   [2] PRISMA 9B  ^(Qwen3.5-9B · ~5.63 GB^)
+echo   [1] PRISMA 4B  ^(^<16 GB RAM · PRISMA-Core Qwen3.5-4B · ~2.71 GB^)
+echo   [2] PRISMA 9B  ^(^>=16 GB RAM · PRISMA-Core Qwen3.5-9B · ~5.63 GB^)
 echo   [3] Both       ^(4B + 9B · ~8.34 GB^)
 echo.
 set "CHOICE="
