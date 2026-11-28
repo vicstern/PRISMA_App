@@ -1,12 +1,15 @@
 # PRISMA™ — Platform for Reflection, Interpretation, and Synthesis in Multidimensional Assessment
 
+> 🧪 **Public Beta:** PRISMA™ is in final community calibration ahead of the institutional v1.0 release — reconceiving local AI as a metacognitive mirror for human flourishing while protecting educator well-being and time.
+
+
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Python 3.9+](https://img.shields.io/badge/Python-3.9+-green.svg)](https://www.python.org/)
 [![Edge AI](https://img.shields.io/badge/Inference-100%25_Offline-purple.svg)]()
 [![Child Data Sovereignty](https://img.shields.io/badge/Child_Data-Air--Gapped-red.svg)]()
 [![Bilingual](https://img.shields.io/badge/UI-ES%20%7C%20EN-0969da.svg)]()
 
-PRISMA™ is an open-source, air-gapped, edge-AI qualitative pedagogical transducer. Designed as a metacognitive mirror, it **illuminates learning as complex human transformation**, recognizing and safeguarding mental health and holistic well-being as both the catalyst and the outcome of the internal balance required for sustainable personal and institutional growth. PRISMA translates and projects brief classroom observations onto an eight-dimensional vector space ($\mathbb{R}^8$) and has the capacity to **create Official report drafts (editable text & Word `.docx`)** aligned to **SEP / NEM**, **International Baccalaureate (IB)**, **UNAM / CCH**, **Cambridge (IGCSE / A-Levels)**, or custom institutional criteria—ready for educator revision—helping preserve teacher time as a sacred asset, 100% offline. 
+PRISMA™ is an open-source, air-gapped, edge-AI qualitative pedagogical transducer. Designed as a metacognitive mirror, it **illuminates learning as complex human transformation**, recognizing and safeguarding mental health and holistic well-being as both the catalyst and the outcome of the internal balance required for sustainable personal and institutional growth. PRISMA translates and projects brief classroom observations onto an eight-dimensional vector space ($\mathbb{R}^8$) and has the capacity to **create Official Report drafts (editable text & Word / .docx)** aligned to **SEP / NEM**, **International Baccalaureate (IB)**, **UNAM / CCH**, **Cambridge (IGCSE / A-Levels)**, or custom institutional criteria—ready for educator revision—helping preserve teacher time as a sacred asset, 100% offline. 
 
 > *“Shining white light through learners and projecting its refracted colors to reveal the profound journey of their growth.”*  
 > *«Hacer brillar luz blanca a través de cada estudiante y proyectar sus colores refractados para revelar el profundo camino de su crecimiento.»*
@@ -50,7 +53,7 @@ Developed as the analytical intero-proprioceptive engine of the **ASPIRE® Ecosy
 
 ### 1. Clone or Download the Repository
 ```bash
-git clone [https://github.com/vicstern/PRISMA_App.git](https://github.com/vicstern/PRISMA_App.git)
+git clone https://github.com/vicstern/PRISMA_App.git
 cd PRISMA_App
 ```
 *(Or click **Code → Download ZIP** on GitHub and unzip the folder.)*
@@ -78,10 +81,9 @@ cd PRISMA_App
 
 ---
 
-## 📁 Local Data Storage & Admin Controls
+## 📁 Local Data Storage
 
 - **Student Records (Air-Gapped):** All longitudinal student JSON files are saved locally in `~/PRISMA_App/expedientes` (outside the Git repository) and never leave the educator's machine.
-- **Cycle Closing Lock (Local Safeguard):** The sidebar includes a local administrative safeguard (`prisma2026`) solely to prevent accidental end-of-cycle vector resets (*Tabula Rasa*) during classroom use.
 
 ---
 
@@ -105,6 +107,14 @@ This project is licensed under the **Apache License 2.0** — see the [LICENSE](
 - **Institutional Updates:** [Aula Viva® on LinkedIn](https://www.linkedin.com/company/aulaviva-lat)
 - **Direct Contact:** [victor@aulaviva.lat](mailto:victor@aulaviva.lat)
 - **Principal Systems Architect:** Víctor Stern Rodríguez · INDAUTOR Reg. `03-2026-040710022300-01`
+
+---
+
+## 🏫 Open-Core Model & Institutional Edition
+
+- **Individual Educator Core (Free / Apache 2.0):** Full local qualitative analytics in $\mathbb{R}^8$, biopsychosocial safeguards, critical safety alarm protocol, bilingual `EN`/`ES` local engines, and individual editable Official Report drafts (Word / .docx) ready for educator validation.
+- **Institutional Edition (Annual School License):** Adds batch Official Report generation (group/cohort .docx exports), official end-of-cycle archiving (*Tabula Rasa*), multi-cycle historical trajectories, cohort consolidation, and air-gapped school-wide deployment.
+- **Institutional inquiries:** [prisma@aulaviva.lat](mailto:prisma@aulaviva.lat) · [aulaviva.lat](https://aulaviva.lat)
 
 ---
 

@@ -23,7 +23,7 @@ except ImportError:
 
 # --- CONFIGURACIÓN DE PÁGINA ---
 st.set_page_config(
-    page_title="PRISMA™",
+    page_title="PRISMA™ β",
     page_icon="🌌",
     layout="wide"
 )
@@ -136,6 +136,13 @@ PRISMA_SVG_ICON = (
     '<polygon points="12,3.2 20.5,19.5 3.5,19.5" stroke="currentColor" stroke-width="1.7" fill="none"/>'
     '</svg>'
 )
+KHEPER_HEADER_SVG = (
+    '<svg style="width:2.05rem;height:2.05rem;vertical-align:-0.28rem;margin-right:0.42rem;flex-shrink:0;" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="kheperGrad_appHdr" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#9333EA"/><stop offset="20%" stop-color="#4F46E5"/><stop offset="38%" stop-color="#0284C7"/><stop offset="56%" stop-color="#16A34A"/><stop offset="76%" stop-color="#D97706"/><stop offset="90%" stop-color="#EA580C"/><stop offset="100%" stop-color="#DC2626"/></linearGradient></defs><circle cx="32" cy="7.5" r="3.1" fill="url(#kheperGrad_appHdr)"/><path d="M24.2 19.2 C23.8 15.4 26.8 12.6 32 12.6 C37.2 12.6 40.2 15.4 39.8 19.2 C37.4 18.2 34.8 17.8 32 17.8 C29.2 17.8 26.6 18.2 24.2 19.2 Z" fill="url(#kheperGrad_appHdr)"/><path d="M19.2 28.4 C19.2 22.8 24.4 19.8 32 19.8 C39.6 19.8 44.8 22.8 44.8 28.4 C44.8 30.2 43.9 31.6 42.6 32.4 C39.4 31.2 35.8 30.7 32 30.7 C28.2 30.7 24.6 31.2 21.4 32.4 C20.1 31.6 19.2 30.2 19.2 28.4 Z" fill="url(#kheperGrad_appHdr)"/><polygon points="29.4,33.1 34.6,33.1 32,37.2" fill="url(#kheperGrad_appHdr)"/><path d="M21.0 34.4 C23.8 33.4 26.6 33.1 28.2 33.4 L30.9 38.2 L30.9 56.2 C24.6 55.6 19.4 49.4 19.2 41.2 C19.1 38.2 19.8 35.8 21.0 34.4 Z" fill="url(#kheperGrad_appHdr)"/><path d="M43.0 34.4 C40.2 33.4 37.4 33.1 35.8 33.4 L33.1 38.2 L33.1 56.2 C39.4 55.6 44.6 49.4 44.8 41.2 C44.9 38.2 44.2 35.8 43.0 34.4 Z" fill="url(#kheperGrad_appHdr)"/><path d="M20.6 24.2 C14.6 23.0 11.0 18.6 12.6 13.0 C13.8 9.2 17.8 7.6 22.2 8.2" stroke="url(#kheperGrad_appHdr)" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.2 17.2 L9.0 16.0 M12.8 13.4 L10.0 11.4" stroke="url(#kheperGrad_appHdr)" stroke-width="2.1" stroke-linecap="round"/><path d="M43.4 24.2 C49.4 23.0 53.0 18.6 51.4 13.0 C50.2 9.2 46.2 7.6 41.8 8.2" stroke="url(#kheperGrad_appHdr)" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round"/><path d="M51.8 17.2 L55.0 16.0 M51.2 13.4 L54.0 11.4" stroke="url(#kheperGrad_appHdr)" stroke-width="2.1" stroke-linecap="round"/><path d="M18.6 34.8 C12.4 34.4 8.2 37.2 7.6 42.2 C7.3 44.6 8.4 46.8 10.6 48.2" stroke="url(#kheperGrad_appHdr)" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M45.4 34.8 C51.6 34.4 55.8 37.2 56.4 42.2 C56.7 44.6 55.6 46.8 53.4 48.2" stroke="url(#kheperGrad_appHdr)" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M21.0 46.2 C15.2 48.8 12.8 53.4 15.2 57.6 C16.8 60.0 19.8 60.6 23.0 59.6" stroke="url(#kheperGrad_appHdr)" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M43.0 46.2 C48.8 48.8 51.2 53.4 48.8 57.6 C47.2 60.0 44.2 60.6 41.0 59.6" stroke="url(#kheperGrad_appHdr)" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+)
+KHEPER_FOOTER_SVG = (
+    '<svg style="width:0.95rem;height:0.95rem;flex-shrink:0;" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="kheperGrad_appFtr" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#9333EA"/><stop offset="20%" stop-color="#4F46E5"/><stop offset="38%" stop-color="#0284C7"/><stop offset="56%" stop-color="#16A34A"/><stop offset="76%" stop-color="#D97706"/><stop offset="90%" stop-color="#EA580C"/><stop offset="100%" stop-color="#DC2626"/></linearGradient></defs><circle cx="32" cy="7.5" r="3.1" fill="url(#kheperGrad_appFtr)"/><path d="M24.2 19.2 C23.8 15.4 26.8 12.6 32 12.6 C37.2 12.6 40.2 15.4 39.8 19.2 C37.4 18.2 34.8 17.8 32 17.8 C29.2 17.8 26.6 18.2 24.2 19.2 Z" fill="url(#kheperGrad_appFtr)"/><path d="M19.2 28.4 C19.2 22.8 24.4 19.8 32 19.8 C39.6 19.8 44.8 22.8 44.8 28.4 C44.8 30.2 43.9 31.6 42.6 32.4 C39.4 31.2 35.8 30.7 32 30.7 C28.2 30.7 24.6 31.2 21.4 32.4 C20.1 31.6 19.2 30.2 19.2 28.4 Z" fill="url(#kheperGrad_appFtr)"/><polygon points="29.4,33.1 34.6,33.1 32,37.2" fill="url(#kheperGrad_appFtr)"/><path d="M21.0 34.4 C23.8 33.4 26.6 33.1 28.2 33.4 L30.9 38.2 L30.9 56.2 C24.6 55.6 19.4 49.4 19.2 41.2 C19.1 38.2 19.8 35.8 21.0 34.4 Z" fill="url(#kheperGrad_appFtr)"/><path d="M43.0 34.4 C40.2 33.4 37.4 33.1 35.8 33.4 L33.1 38.2 L33.1 56.2 C39.4 55.6 44.6 49.4 44.8 41.2 C44.9 38.2 44.2 35.8 43.0 34.4 Z" fill="url(#kheperGrad_appFtr)"/><path d="M20.6 24.2 C14.6 23.0 11.0 18.6 12.6 13.0 C13.8 9.2 17.8 7.6 22.2 8.2" stroke="url(#kheperGrad_appFtr)" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.2 17.2 L9.0 16.0 M12.8 13.4 L10.0 11.4" stroke="url(#kheperGrad_appFtr)" stroke-width="2.1" stroke-linecap="round"/><path d="M43.4 24.2 C49.4 23.0 53.0 18.6 51.4 13.0 C50.2 9.2 46.2 7.6 41.8 8.2" stroke="url(#kheperGrad_appFtr)" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round"/><path d="M51.8 17.2 L55.0 16.0 M51.2 13.4 L54.0 11.4" stroke="url(#kheperGrad_appFtr)" stroke-width="2.1" stroke-linecap="round"/><path d="M18.6 34.8 C12.4 34.4 8.2 37.2 7.6 42.2 C7.3 44.6 8.4 46.8 10.6 48.2" stroke="url(#kheperGrad_appFtr)" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M45.4 34.8 C51.6 34.4 55.8 37.2 56.4 42.2 C56.7 44.6 55.6 46.8 53.4 48.2" stroke="url(#kheperGrad_appFtr)" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M21.0 46.2 C15.2 48.8 12.8 53.4 15.2 57.6 C16.8 60.0 19.8 60.6 23.0 59.6" stroke="url(#kheperGrad_appFtr)" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M43.0 46.2 C48.8 48.8 51.2 53.4 48.8 57.6 C47.2 60.0 44.2 60.6 41.0 59.6" stroke="url(#kheperGrad_appFtr)" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+)
+
 
 
 def detectar_ram_gb_local():
@@ -181,7 +188,7 @@ def instalar_motor_desde_app(model_key, progress_bar, status_box, lang="es"):
             f"Descargando {meta['short']} ({meta['size']})..."
             if lang == "es" else f"Downloading {meta['short']} ({meta['size']})..."
         )
-        with requests.get(meta["url"], stream=True, timeout=30) as r:
+        with requests.get(meta["url"], stream=True, timeout=(15, 60)) as r:
             r.raise_for_status()
             total = int(r.headers.get("content-length", 0))
             downloaded = 0
@@ -200,6 +207,8 @@ def instalar_motor_desde_app(model_key, progress_bar, status_box, lang="es"):
         mf_path = os.path.join(app_dir, f"Modelfile.{suf}")
         if not os.path.exists(mf_path):
             mf_path = modelfile_src
+        if not os.path.exists(mf_path):
+            raise FileNotFoundError(f"Missing Modelfile ({mf_path})")
         target_name = f"{model_key}-{suf}"
         status_box.info(
             f"Compilando {meta['short']} ({suf.upper()}) en tu equipo..."
@@ -207,16 +216,32 @@ def instalar_motor_desde_app(model_key, progress_bar, status_box, lang="es"):
         )
         with open(mf_path, "r", encoding="utf-8") as mf:
             lines = mf.readlines()
-        lines[0] = f"FROM ./models/{meta['file']}\n"
+        from_line = f"FROM ./models/{meta['file']}\n"
+        reemplazado = False
+        for i, ln in enumerate(lines):
+            if ln.lstrip().upper().startswith("FROM "):
+                lines[i] = from_line
+                reemplazado = True
+                break
+        if not reemplazado:
+            lines.insert(0, from_line)
         with open(tmp_mf, "w", encoding="utf-8") as mf_out:
             mf_out.writelines(lines)
         try:
-            subprocess.run(["ollama", "create", target_name, "-f", tmp_mf], cwd=app_dir, check=True, capture_output=True, text=True)
+            subprocess.run(
+                ["ollama", "create", target_name, "-f", tmp_mf],
+                cwd=app_dir,
+                check=True,
+                capture_output=True,
+                text=True
+            )
+        except subprocess.CalledProcessError as cpe:
+            detalle = (cpe.stderr or cpe.stdout or str(cpe)).strip()
+            raise RuntimeError(f"ollama create {target_name}: {detalle}") from cpe
         finally:
             if os.path.exists(tmp_mf):
                 os.remove(tmp_mf)
         progress_bar.progress(0.94 if idx_l == 0 else 1.0)
-
 
 # --- CARGAR PREFERENCIAS PERSISTENTES ANTES DE INICIALIZAR WIDGETS ---
 _cfg_inicial = cargar_config_local()
@@ -321,7 +346,7 @@ TEXTS = {
         "err_no_note": "⚠️ Por favor ingresa una nota de observación docente.",
         "spinner_note": "Procesando inferencia cualitativa en ℝ⁸ con {model}...",
         "debug_raw": "🔬 Respuesta cruda de Ollama (Debug)",
-        "staging_title": "#### 🔍 Previsualización del análisis de la IA",
+        "staging_title": "#### 🔍 Previsualización del análisis PRISMA™",
         "staging_caption": "Revisa los deltas propuestos en el mapa vectorial. Si deseas calibrar algún eje, ajústalo en la Sección 4 justo debajo: tu ajuste se sumará en vivo sobre esta propuesta.",
         "crit_title": "🚨 **ALERTA DE RIESGO VITAL ACTIVA (ROJO CRÍTICO)**",
         "crit_body": "El motor PRISMA™ ha suspendido la evaluación pedagógica (0.0 dB en todos los ejes). La narrativa sugiere riesgo inminente.",
@@ -392,7 +417,7 @@ TEXTS = {
         "radar_subtitle_default": "Evaluación Formativa Integral",
         "radar_multiselect": "Superponer hitos para comparativa:",
         "radar_current": "Estado actual",
-        "radar_prev_ia": "Previsualización IA",
+        "radar_prev_ia": "Previsualización PRISMA™",
         "radar_prev_man": "Previsualización manual",
         "orb_0": "0 dB (Línea base: 1x)",
         "orb_6": "+6 dB (Principiante: 2x)",
@@ -495,16 +520,16 @@ TEXTS = {
         "err_no_note": "⚠️ Please enter a narrative observation note.",
         "spinner_note": "Processing qualitative inference in ℝ⁸ with {model}...",
         "debug_raw": "🔬 Raw Ollama Output (Debug)",
-        "staging_title": "#### 🔍 AI Analysis Preview",
+        "staging_title": "#### 🔍 PRISMA™ Analysis Preview",
         "staging_caption": "Review proposed deltas on the vector map. To calibrate any axis, adjust it in Section 4 directly below: your adjustment will sum live on top of this proposal.",
         "crit_title": "🚨 **CRITICAL SAFETY ALERT ACTIVE (ROJO CRÍTICO)**",
         "crit_body": "PRISMA™ has suspended pedagogical scoring (0.0 dB across all axes). The narrative indicates potential imminent risk.",
         "crit_action": "👉 **Required action:** Provide immediate human care and containment. Trigger institutional safeguarding protocol and professional intervention immediately.",
         "btn_crit_log": "🚨 Log critical alert in record (0.0 dB)",
         "btn_crit_discard": "❌ Discard and clear",
-        "sem_red": "🔴 **RED Traffic Light — Educability Alert:**",
-        "sem_yellow": "🟡 **YELLOW Traffic Light — Pedagogical Care:**",
-        "sem_green": "🟢 **GREEN Traffic Light — Stable Baseline:**",
+        "sem_red": "🔴 **RED Light — Educability Alert:**",
+        "sem_yellow": "🟡 **YELLOW Light — Pedagogical Care:**",
+        "sem_green": "🟢 **GREEN Light — Stable Baseline:**",
         "sem_green_default": "No active biopsychosocial constraints.",
         "btn_accept": "✅ Accept & Register Milestone",
         "btn_adjust": "🎨 Adjust Manually",
@@ -525,7 +550,7 @@ TEXTS = {
         "lbl_custom_fw": "Custom institutional competencies or criteria:",
         "ph_custom_fw": "Enter your school's exit profile, rubric domains, or reporting criteria...",
         "btn_gen_report": "📝 Generate Official Report",
-        "err_report_min": "⚠️ Register or load at least 1 milestone to generate an official report.",
+        "err_report_min": "⚠️ Register or load at least 1 milestone to generate an Official Report.",
         "err_custom_empty": "⚠️ Please specify your custom framework criteria before generating.",
         "spinner_report": "Drafting curricular synthesis aligned to {fw} ({model})...",
         "report_ready_title": "#### 📄 Official Report Ready for Educator Review",
@@ -566,7 +591,7 @@ TEXTS = {
         "radar_subtitle_default": "Holistic Formative Assessment",
         "radar_multiselect": "Overlay milestones to compare:",
         "radar_current": "Current state",
-        "radar_prev_ia": "AI preview",
+        "radar_prev_ia": "PRISMA™ preview",
         "radar_prev_man": "Manual preview",
         "orb_0": "0 dB (Baseline: 1x)",
         "orb_6": "+6 dB (Beginner: 2x)",
@@ -1168,6 +1193,16 @@ st.markdown("""
         margin: 0 0 0.25rem 0 !important;
         padding: 0 !important;
         line-height: 1.18 !important;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .prisma-footer-brand-row {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.36rem;
+        margin: 0 auto;
     }
     .prisma-main-sub {
         font-size: 1.28rem;
@@ -1305,12 +1340,12 @@ def inicializar_estado():
         "analisis_pendiente": None,
         "meta_analisis_pendiente": None,
         "reporte_curricular_generado": None,
+        "reporte_version": 0,
         "previsualizacion_manual": None,
         "procesando": False,
         "estudiantes_db": {},
         "mostrar_modal_resguardo": False,
         "mostrar_modal_confirmar_reiniciar": False,
-        "input_clave_admin": "",
         "json_ya_descargado": False,
         "input_nombre": "",
         "input_nivel": NIVELES_CANON[0],
@@ -1466,7 +1501,8 @@ def marcar_descargado():
 
 
 # --- PERSISTENCIA DE EXPEDIENTE EN DISCO ---
-def guardar_expediente_disco(nombre, matricula, grupo, nivel="", materia="", ciclo_id="2026", es_cierre=False):
+def construir_expediente_payload(nombre, matricula, grupo, nivel="", materia="", ciclo_id="2026", es_cierre=False):
+    """Construye el nombre y el payload JSON del expediente en memoria sin escribir a disco."""
     fecha_iso = datetime.now().strftime("%y%m%d")
     hora_iso = datetime.now().strftime("%H%M%S")
     nom_clean = limpiar_cadena(nombre)
@@ -1478,7 +1514,6 @@ def guardar_expediente_disco(nombre, matricula, grupo, nivel="", materia="", cic
 
     sufijo = f"_CIERRE_{ciclo_clean}.json" if es_cierre else f"{hito_str}_PRISMA.json"
     filename = f"{fecha_iso}_{hora_iso}_{nom_clean}_{grp_clean}{sufijo}"
-    filepath = os.path.join(DIR_EXPEDIENTES, filename)
 
     exp_data = {
         "tipo_archivo": "CIERRE_CICLO" if es_cierre else "EXPEDIENTE_ACTIVO",
@@ -1492,6 +1527,14 @@ def guardar_expediente_disco(nombre, matricula, grupo, nivel="", materia="", cic
         "vector_actual_db": dict(st.session_state.valores_db),
         "historial_observaciones": list(st.session_state.historial_observaciones)
     }
+    return filename, exp_data
+
+
+def guardar_expediente_disco(nombre, matricula, grupo, nivel="", materia="", ciclo_id="2026", es_cierre=False):
+    filename, exp_data = construir_expediente_payload(
+        nombre, matricula, grupo, nivel, materia, ciclo_id=ciclo_id, es_cierre=es_cierre
+    )
+    filepath = os.path.join(DIR_EXPEDIENTES, filename)
     with open(filepath, "w", encoding="utf-8") as f:
         json.dump(exp_data, f, indent=2, ensure_ascii=False)
     return filename, exp_data
@@ -1506,7 +1549,7 @@ def modal_exportar_resguardo(nombre, matricula, grupo, nivel, materia):
     st.write(t("modal_save_body").format(name=nombre_mostrar))
     st.caption(t("modal_save_cap"))
 
-    filename_export, exp_data = guardar_expediente_disco(nombre, matricula, grupo, nivel, materia)
+    filename_export, exp_data = construir_expediente_payload(nombre, matricula, grupo, nivel, materia)
 
     col_m1, col_m2 = st.columns([0.6, 0.4])
     with col_m1:
@@ -1530,7 +1573,7 @@ def modal_confirmar_reiniciar():
     st.write(t("modal_reset_body"))
     st.write(t("modal_reset_ask"))
 
-    filename_export, exp_data = guardar_expediente_disco(
+    filename_export, exp_data = construir_expediente_payload(
         st.session_state.input_nombre,
         st.session_state.input_matricula,
         st.session_state.input_grupo,
@@ -1561,11 +1604,17 @@ def modal_confirmar_reiniciar():
             st.rerun()
 
 
-# --- ENCABEZADO PRINCIPAL ---
+# --- ENCABEZADO PRINCIPAL (PUBLIC BETA) ---
+_beta_msg = (
+    "🧪 <strong>Public Beta:</strong> PRISMA™ está en fase final de calibración comunitaria previa al lanzamiento institucional v1.0 · <a href='https://aulaviva.lat' target='_blank'>aulaviva.lat</a>"
+    if st.session_state.lang == "es"
+    else "🧪 <strong>Public Beta:</strong> PRISMA™ is in final community calibration ahead of the institutional v1.0 release · <a href='https://aulaviva.lat' target='_blank'>aulaviva.lat</a>"
+)
+st.markdown(f"<div class='prisma-beta-banner'>{_beta_msg}</div>", unsafe_allow_html=True)
 _sub_clean = t("app_subtitle").lstrip("# ").strip()
 st.markdown(
     f"<div class='prisma-header-wrap'>"
-    f"<h1 class='prisma-main-title'>{t('app_title')}</h1>"
+    f"<h1 class='prisma-main-title'>{KHEPER_HEADER_SVG}<span>{t('app_title')}</span></h1>"
     f"<div class='prisma-main-sub'>{_sub_clean}</div>"
     f"<div class='prisma-main-cap'>{t('app_caption')}</div>"
     f"<div class='prisma-hero-quote-wrap'><span class='prisma-hero-quote'>{t('app_quote')}</span></div>"
@@ -1661,6 +1710,26 @@ with st.sidebar:
     with st.expander(t("lang_matrix_title"), expanded=False):
         st.markdown(t("lang_matrix_body"))
 
+    st.checkbox(
+        "🧪 Responder en el idioma de la nota (Experimental)"
+        if st.session_state.lang == "es"
+        else "🧪 Respond in the note's language (Experimental)",
+        key="exp_note_lang",
+        value=False,
+        disabled=bloqueo_ui,
+        help=(
+            "Solo Español e Inglés están calibrados y auditados por Aula Viva®."
+            if st.session_state.lang == "es"
+            else "Only English and Spanish are calibrated and audited by Aula Viva®."
+        )
+    )
+    if st.session_state.get("exp_note_lang", False):
+        st.caption(
+            "⚠️ Modo experimental: únicamente Español e Inglés están calibrados y auditados por Aula Viva®."
+            if st.session_state.lang == "es"
+            else "⚠️ Experimental mode: only English and Spanish are calibrated and audited by Aula Viva®."
+        )
+
     st.markdown("---")
     st.subheader(t("wf_header"))
     if st.button(t("btn_reset"), use_container_width=True, type="primary", disabled=bloqueo_ui):
@@ -1672,7 +1741,7 @@ with st.sidebar:
             st.rerun()
 
     if len(st.session_state.historial_observaciones) > 0 and st.session_state.input_nombre.strip():
-        fn_sb, data_sb = guardar_expediente_disco(
+        fn_sb, data_sb = construir_expediente_payload(
             st.session_state.input_nombre,
             st.session_state.input_matricula,
             st.session_state.input_grupo,
@@ -1716,62 +1785,30 @@ with st.sidebar:
         except Exception as e:
             st.error(f"{t('load_err')} {e}")
 
+    es_admin = False
     st.markdown("---")
-    st.header(t("admin_header"))
-
-    st.text_input(
-        t("admin_key_label"),
-        type="password",
-        key="input_clave_admin",
-        placeholder=t("admin_key_ph"),
-        disabled=bloqueo_ui,
-        help=t("admin_key_help")
+    st.header("🏫 Edición Institucional" if st.session_state.lang == "es" else "🏫 Institutional Edition")
+    st.caption(
+        "Funciones de gestión escolar disponibles bajo licencia anual para centros educativos:"
+        if st.session_state.lang == "es"
+        else "School-wide management capabilities available under an annual institutional license:"
     )
-
-    es_admin = (st.session_state.input_clave_admin in ["prisma2026", "prisma26"])
-
-    def cerrar_sesion_admin():
-        st.session_state.input_clave_admin = ""
-
-    if es_admin:
-        st.success(t("admin_ok"))
-        st.button(t("admin_logout"), use_container_width=True, disabled=bloqueo_ui, on_click=cerrar_sesion_admin)
-    else:
-        st.info(t("admin_locked"))
-
-    st.markdown("---")
-    label_tabula = f"1. {t('tabula_label')}" if es_admin else f"1. {t('tabula_label')} 🔒 Admin"
-    st.subheader(label_tabula)
-    st.caption(t("tabula_caption"))
-
-    ciclo_id_input = st.text_input(
-        t("tabula_cycle"),
-        value=f"{datetime.now().year}-1",
-        disabled=(not es_admin or bloqueo_ui),
-        help=t("tabula_help")
-    )
-
-    btn_tabula = st.button(t("tabula_btn"), disabled=(not es_admin or bloqueo_ui), use_container_width=True)
-    if btn_tabula and es_admin:
-        fn_cierre, _ = guardar_expediente_disco(
-            st.session_state.input_nombre,
-            st.session_state.input_matricula,
-            st.session_state.input_grupo,
-            st.session_state.input_nivel,
-            st.session_state.input_materia,
-            ciclo_id=ciclo_id_input,
-            es_cierre=True
+    if st.session_state.lang == "es":
+        st.markdown(
+            "- 🔒 **Generación de reportes oficiales por lote** (grupo o cohorte completo en `.docx`, listos para validación docente)\n"
+            "- 🔒 **Cierre oficial de ciclo (Tabula Rasa)** con archivo histórico inmutable\n"
+            "- 🔒 **Trayectoria histórica multi-ciclo** en el espejo ℝ⁸\n"
+            "- 🔒 **Consolidación por grupo y despliegue escolar 100 % sin internet**"
         )
-        st.session_state.historial_observaciones.append({
-            "tipo": "TABULA_RASA",
-            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "justificacion": f"Cierre de ciclo escolar '{ciclo_id_input}' ('Año nuevo, vida nueva'). Resguardado en {fn_cierre}. Vector restablecido a 0.0 dB.",
-            "vector_snapshot": dict(st.session_state.valores_db)
-        })
-        st.session_state.valores_db = {eje: 0.0 for eje in EJE_NOMBRES}
-        st.session_state.json_ya_descargado = False
-        st.success(t("tabula_ok").format(fn=fn_cierre))
-        st.rerun()
+        st.info("¿Te interesa para tu escuela? Escribe a **prisma@aulaviva.lat** o visita [aulaviva.lat](https://aulaviva.lat)")
+    else:
+        st.markdown(
+            "- 🔒 **Batch official report generation** (full group or cohort `.docx` exports, ready for educator validation)\n"
+            "- 🔒 **Official end-of-cycle archive (Tabula Rasa)** with immutable records\n"
+            "- 🔒 **Multi-cycle historical trajectory** in the ℝ⁸ mirror\n"
+            "- 🔒 **Group consolidation & air-gapped school-wide deployment**"
+        )
+        st.info("Interested for your school? Contact **prisma@aulaviva.lat** or visit [aulaviva.lat](https://aulaviva.lat)")
 
 
 # --- SECCIÓN 1: FICHA DEL ESTUDIANTE ---
@@ -1917,6 +1954,14 @@ with col_izq:
                         f"- Registro sociofisiológico: Sueño: [{sueno_val}] | Nutrición: [{nutri_val}] | Bienestar integral: [{bienestar_val}]\n"
                     )
                     user_prompt = f'{encabezado_contexto}\nNota narrativa: "{texto_nota}"'
+
+                if st.session_state.get("exp_note_lang", False):
+                    user_prompt += (
+                        "\n\n[EXPERIMENTAL LANGUAGE OVERRIDE]: Write all narrative text values "
+                        "('razonamiento', 'analisis_previo_educabilidad', 'advertencia_pedagogica') "
+                        "strictly in the SAME language as the teacher's narrative observation above, "
+                        "while keeping all JSON keys and enum tokens (VERDE/AMARILLO/ROJO/ROJO_CRITICO/CRECIMIENTO/REGRESION/NEUTRO) exact."
+                    )
 
                 payload = {
                     "model": modelo_actual,
@@ -2530,7 +2575,9 @@ with col_izq:
                     )
                     if resp_rep.status_code == 200:
                         texto_gen = limpiar_salida_llm(resp_rep.json().get("response", ""))
+                        st.session_state.reporte_version = st.session_state.get("reporte_version", 0) + 1
                         st.session_state.reporte_curricular_generado = {
+                            "version": st.session_state.reporte_version,
                             "marco_key": marco_sel,
                             "marco_nombre": fw_nombre,
                             "periodo": periodo_in,
@@ -2547,11 +2594,12 @@ with col_izq:
         rep_obj = st.session_state.reporte_curricular_generado
         with st.container(border=True):
             st.markdown(t("report_ready_title"))
+            rep_ver = rep_obj.get("version", 0)
             texto_editado = st.text_area(
                 t("report_copy_label"),
                 value=rep_obj["texto"],
                 height=280,
-                key="editor_reporte_curricular",
+                key=f"editor_reporte_curricular_{rep_ver}",
                 disabled=bloqueo_ui
             )
             st.session_state.reporte_curricular_generado["texto"] = texto_editado
@@ -2719,7 +2767,13 @@ with col_der:
             ))
     else:
         if num_hitos > 0:
-            opciones_hitos = [f"#{i+1} [{obs.get('tipo', 'IA')}] — {obs.get('timestamp', '')}" for i, obs in enumerate(hitos_a_dibujar)]
+            def _etiqueta_tipo_hito(tipo_h):
+                return "PRISMA" if tipo_h == "IA" else ("Manual" if tipo_h == "MANUAL" else ("Alert" if tipo_h == "ALERTA_CRITICA" else "Meta"))
+
+            opciones_hitos = [
+                f"#{i+1} [{_etiqueta_tipo_hito(obs.get('tipo', 'IA'))}] — {obs.get('timestamp', '')}"
+                for i, obs in enumerate(hitos_a_dibujar)
+            ]
             hitos_seleccionados = st.multiselect(
                 t("radar_multiselect"),
                 options=opciones_hitos,
@@ -2869,7 +2923,7 @@ with col_der:
 st.markdown(
     f"<div class='prisma-footer'>"
     f"<p class='prisma-footer-scope'>{t('scope_notice')}</p>"
-    f"<p class='prisma-footer-brand'>{t('footer_brand')}</p>"
+    f"<div class='prisma-footer-brand-row'>{KHEPER_FOOTER_SVG}<span class='prisma-footer-brand'>{t('footer_brand')}</span></div>"
     f"</div>",
     unsafe_allow_html=True
 )
